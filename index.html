@@ -596,8 +596,7 @@ async function loadSettingsFromSheet(){
 
     if(map['form_url'])    cfg.formUrl    = map['form_url'];
     if(map['admin_email']) cfg.adminEmail = map['admin_email'];
-    if(map['mode_emploi']) cfg.meContent  = map['mode_emploi'];
-    if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
+       if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
     if(map['pwd_hash']||map['pwd']) cfg.pwd = map['pwd_hash']||map['pwd'];
     if(map['url_kits'])    cfg.urlKits    = map['url_kits'];
     if(map['url_resa'])    cfg.urlResa    = map['url_resa'];
@@ -1403,10 +1402,11 @@ function addCat(){}// Les cats viennent du Sheet — info seulement
 function renderMeContent(){document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;}
 function openMeEd(){document.getElementById('meTA').value=cfg.meContent||DEFAULT_ME;document.getElementById('meOv').classList.add('open');}
 function closeMeEd(){document.getElementById('meOv').classList.remove('open');}
-async function saveMeContent(){
-  cfg.meContent=document.getElementById('meTA').value;
-  renderMeContent();closeMeEd();
-  await saveSettingsToSheet({mode_emploi: cfg.meContent});
+function saveMeContent(){
+  cfg.meContent = document.getElementById('meTA').value;
+  renderMeContent();
+  closeMeEd();
+  alert("Mode d’emploi enregistré.");
 }
 
 // ══════════════════════════════════════════════════════════════════
