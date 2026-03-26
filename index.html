@@ -571,31 +571,66 @@ function loadCfg(){
 }
 
 // Charge les paramètres depuis l'onglet PARAMETRES publié en CSV
-// Même méthode que KITS et RESERVATIONS — zéro problème CORS
 async function loadSettingsFromSheet(){
   try{
     const resp = await fetch(DEFAULT_URL_PARAMS, {cache:'no-store'});
     if(!resp.ok) return;
-    const txt  = await resp.text();
-    const rows = parseCSV(txt);
-    // L'onglet PARAMETRES a deux colonnes : cle | valeur
-    const map  = {};
-    rows.forEach(r=>{
-      const k = (r['cle']||r['Cle']||r['CLe']||Object.values(r)[0]||'').trim();
-      const v = (r['valeur']||r['Valeur']||Object.values(r)[1]||'').trim();
-      if(k) map[k]=v;
-    });
-    if(map['form_url'])        cfg.formUrl    = map['form_url'];
-    if(map['admin_email'])     cfg.adminEmail = map['admin_email'];
-    if(map['mode_emploi'])     cfg.meContent  = map['mode_emploi'];
-    if(map['logo_url'])        cfg.logo       = map['logo_url']||null;
-    if(map['pwd'])             cfg.pwd        = map['pwd'];
-    if(map['url_kits'])        cfg.urlKits    = map['url_kits'];
-    if(map['url_resa'])        cfg.urlResa    = map['url_resa'];
-    // L'URL GAS vient toujours du HTML (GAS_URL) car nécessaire pour écrire dans PARAMETRES
+    const txt = await resp.text();
+
+    // Parser CSV spécial pour PARAMETRES (2 colonnes : cle, valeur)
+    // Gère les guillemets doubles "" dans les champs entre guillemets
+    const map = {};
+    const lines = txt.replace(/
+/g,'
+').replace(/
+/g,'
+').split('
+');
+    let headers = null;
+    for(let i=0;i<lines.length;i++){
+      const line = lines[i];
+      if(!line.trim()) continue;
+      const cols = parseCSVLine_(line);
+      if(!headers){ headers=cols; continue; }
+      const k = (cols[0]||'').trim();
+      // La valeur peut être entre guillemets — parseCSVLine_ les enlève déjà
+      // Les "" dans le CSV représentent un " dans la valeur réelle
+      let v = (cols[1]||'').trim();
+      if(k) map[k] = v;
+    }
+
+    if(map['form_url'])    cfg.formUrl    = map['form_url'];
+    if(map['admin_email']) cfg.adminEmail = map['admin_email'];
+    if(map['mode_emploi']) cfg.meContent  = map['mode_emploi'];
+    if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
+    if(map['pwd_hash']||map['pwd']) cfg.pwd = map['pwd_hash']||map['pwd'];
+    if(map['url_kits'])    cfg.urlKits    = map['url_kits'];
+    if(map['url_resa'])    cfg.urlResa    = map['url_resa'];
+
+    console.log('Paramètres chargés:', Object.keys(map));
   }catch(e){
     console.warn('Impossible de charger les paramètres:', e);
   }
+}
+
+// Parser CSV robuste pour une seule ligne
+// Gère : champs entre guillemets, guillemets doublés ""
+function parseCSVLine_(line){
+  const cols=[];
+  let cur='', inQ=false;
+  for(let i=0;i<line.length;i++){
+    const c=line[i];
+    if(c==='"'){
+      if(inQ && line[i+1]==='"'){ cur+='"'; i++; } // "" → "
+      else inQ=!inQ;
+    } else if(c===','&&!inQ){
+      cols.push(cur); cur='';
+    } else {
+      cur+=c;
+    }
+  }
+  cols.push(cur);
+  return cols;
 }
 
 // Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
