@@ -1417,7 +1417,7 @@ function switchTab(t){
   document.getElementById('pme').style.display=t==='me'?'':'none';
   document.getElementById('tab-cat').classList.toggle('act',t==='cat');
   document.getElementById('tab-me').classList.toggle('act',t==='me');
- if(t==='me') renderMeContent();
+  if(t==='me'){ document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME; }
 }
 function setFilter(v,el){
   filterActive=v;
@@ -1443,7 +1443,7 @@ function setFilter(v,el){
 
   // Met à jour l'affichage avec les vraies valeurs
   applyLogo();
-  renderMeContent();
+  document.getElementById('meContent').innerHTML = cfg.meContent||DEFAULT_ME;
   document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
 
   // Charge les kits et réservations
