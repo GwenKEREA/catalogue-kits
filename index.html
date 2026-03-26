@@ -580,12 +580,7 @@ async function loadSettingsFromSheet(){
     // Parser CSV spécial pour PARAMETRES (2 colonnes : cle, valeur)
     // Gère les guillemets doubles "" dans les champs entre guillemets
     const map = {};
-    const lines = txt.replace(/
-/g,'
-').replace(/
-/g,'
-').split('
-');
+const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n');
     let headers = null;
     for(let i=0;i<lines.length;i++){
       const line = lines[i];
