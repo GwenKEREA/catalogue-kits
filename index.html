@@ -580,7 +580,7 @@ async function loadSettingsFromSheet(){
     // Parser CSV spécial pour PARAMETRES (2 colonnes : cle, valeur)
     // Gère les guillemets doubles "" dans les champs entre guillemets
     const map = {};
-const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n');
+    const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n');
     let headers = null;
     for(let i=0;i<lines.length;i++){
       const line = lines[i];
@@ -650,6 +650,7 @@ async function saveSettingsToSheet(data){
     return false;
   }
 }
+
 
 function saveCfg(){
   // Rien en localStorage — tout est dans Google Sheets (PARAMETRES)
@@ -1427,14 +1428,24 @@ function setFilter(v,el){
 // ══════════════════════════════════════════════════════════════════
 // INIT
 // ══════════════════════════════════════════════════════════════════
-loadCfg();
-chkResetToken();
-// Lance le chargement : d'abord les settings depuis Sheets, puis les données
+// Lance le chargement
 (async function(){
-  await loadSettingsFromSheet();  // charge form_url, logo, mode emploi, pwd depuis PARAMETRES
+  loadCfg();
+  chkResetToken();
+  // Lance d'abord avec les valeurs par défaut
   applyLogo();
   renderMeContent();
   document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
+
+  // Charge les paramètres depuis Sheets puis met à jour l'affichage
+  await loadSettingsFromSheet();
+
+  // Met à jour l'affichage avec les vraies valeurs
+  applyLogo();
+  renderMeContent();
+  document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
+
+  // Charge les kits et réservations
   await initApp();
 })();
 // Rafraîchit les réservations toutes les 5 minutes (sans recharger les kits)
