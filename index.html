@@ -1438,6 +1438,8 @@ function setFilter(v,el){
   document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
 
   // Charge les paramètres depuis Sheets puis met à jour l'affichage
+ loadCfg();
+  chkResetToken();
   await loadSettingsFromSheet();
 
   // Met à jour l'affichage avec les vraies valeurs
