@@ -1417,6 +1417,7 @@ function switchTab(t){
   document.getElementById('pme').style.display=t==='me'?'':'none';
   document.getElementById('tab-cat').classList.toggle('act',t==='cat');
   document.getElementById('tab-me').classList.toggle('act',t==='me');
+ if(t==='me') renderMeContent();
 }
 function setFilter(v,el){
   filterActive=v;
@@ -1438,8 +1439,6 @@ function setFilter(v,el){
   document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
 
   // Charge les paramètres depuis Sheets puis met à jour l'affichage
- loadCfg();
-  chkResetToken();
   await loadSettingsFromSheet();
 
   // Met à jour l'affichage avec les vraies valeurs
