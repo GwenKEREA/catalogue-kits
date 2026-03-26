@@ -518,8 +518,9 @@ footer strong{color:#fff;}
 // ══════════════════════════════════════════════════════════════════
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
 const BASE = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
-const DEFAULT_URL_KITS = BASE + "&gid=1506266286";
-const DEFAULT_URL_RESA = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=2030429958&single=true&output=csv`;
+const DEFAULT_URL_KITS   = BASE + "&gid=1506266286";
+const DEFAULT_URL_RESA   = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=2030429958&single=true&output=csv`;
+const DEFAULT_URL_PARAMS = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=1711789336&single=true&output=csv`;
 const DEFAULT_FORM     = "VOTRE_LIEN_FORMULAIRE_ICI";
 const DEFAULT_PWD      = "kerea2025";
 
@@ -569,7 +570,33 @@ function loadCfg(){
   kitOverrides = {};
 }
 
-// loadSettingsFromSheet défini plus bas
+// Charge les paramètres depuis l'onglet PARAMETRES publié en CSV
+// Même méthode que KITS et RESERVATIONS — zéro problème CORS
+async function loadSettingsFromSheet(){
+  try{
+    const resp = await fetch(DEFAULT_URL_PARAMS, {cache:'no-store'});
+    if(!resp.ok) return;
+    const txt  = await resp.text();
+    const rows = parseCSV(txt);
+    // L'onglet PARAMETRES a deux colonnes : cle | valeur
+    const map  = {};
+    rows.forEach(r=>{
+      const k = (r['cle']||r['Cle']||r['CLe']||Object.values(r)[0]||'').trim();
+      const v = (r['valeur']||r['Valeur']||Object.values(r)[1]||'').trim();
+      if(k) map[k]=v;
+    });
+    if(map['form_url'])        cfg.formUrl    = map['form_url'];
+    if(map['admin_email'])     cfg.adminEmail = map['admin_email'];
+    if(map['mode_emploi'])     cfg.meContent  = map['mode_emploi'];
+    if(map['logo_url'])        cfg.logo       = map['logo_url']||null;
+    if(map['pwd'])             cfg.pwd        = map['pwd'];
+    if(map['url_kits'])        cfg.urlKits    = map['url_kits'];
+    if(map['url_resa'])        cfg.urlResa    = map['url_resa'];
+    // L'URL GAS vient toujours du HTML (GAS_URL) car nécessaire pour écrire dans PARAMETRES
+  }catch(e){
+    console.warn('Impossible de charger les paramètres:', e);
+  }
+}
 
 // Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
 async function saveSettingsToSheet(data){
