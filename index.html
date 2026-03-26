@@ -656,31 +656,6 @@ async function saveSettingsToSheet(data){
   }
 }
 
-// Charge les paramètres via une balise script JSONP (contourne CORS pour GET)
-async function loadSettingsFromSheet(){
-  const gasUrl = cfg.gasUrl||GAS_URL;
-  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI') return;
-  try{
-    // Pour les GET on peut utiliser fetch normal car Apps Script supporte JSONP
-    const url = gasUrl + '?action=getSettings';
-    const resp = await fetch(url, {cache:'no-store'});
-    if(!resp.ok) return;
-    const json = await resp.json();
-    if(!json.success||!json.settings) return;
-    const s = json.settings;
-    if(s.form_url)        cfg.formUrl    = s.form_url;
-    if(s.admin_email)     cfg.adminEmail = s.admin_email;
-    if(s.mode_emploi)     cfg.meContent  = s.mode_emploi;
-    if(s.logo_url)        cfg.logo       = s.logo_url||null;
-    if(s.apps_script_url) cfg.gasUrl     = s.apps_script_url;
-    if(s.pwd)             cfg.pwd        = s.pwd;
-    if(s.url_kits)        cfg.urlKits    = s.url_kits;
-    if(s.url_resa)        cfg.urlResa    = s.url_resa;
-  }catch(e){
-    console.warn('Impossible de charger les paramètres:', e);
-  }
-}
-
 function saveCfg(){
   // Rien en localStorage — tout est dans Google Sheets (PARAMETRES)
   // L'URL GAS est hardcodée dans le fichier HTML
