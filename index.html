@@ -569,12 +569,39 @@ function loadCfg(){
   kitOverrides = {};
 }
 
-// Charge les paramètres depuis l'onglet PARAMETRES via Apps Script
+// loadSettingsFromSheet défini plus bas
+
+// Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
+async function saveSettingsToSheet(data){
+  const gasUrl = cfg.gasUrl||GAS_URL;
+  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI'){
+    alert('URL Apps Script non configurée.');
+    return false;
+  }
+  try{
+    // mode no-cors nécessaire depuis GitHub Pages → Apps Script
+    // La réponse sera opaque mais l'écriture fonctionne quand même
+    await fetch(gasUrl,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain'}, // text/plain évite le preflight CORS
+      body:JSON.stringify({action:'saveSettings', data})
+    });
+    return true; // avec no-cors on ne peut pas lire la réponse, on suppose succès
+  }catch(e){
+    console.warn('Erreur saveSettings:', e);
+    return false;
+  }
+}
+
+// Charge les paramètres via une balise script JSONP (contourne CORS pour GET)
 async function loadSettingsFromSheet(){
   const gasUrl = cfg.gasUrl||GAS_URL;
-  if(!gasUrl||gasUrl==='https://script.google.com/macros/s/AKfycbzLxqVYwsElZF1BIcNmObXzCc6dE_3DiDB51-piuFl6sQXfuJD6hgMPEPwvkrQXlnY/exec') return; // Pas encore configuré
+  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI') return;
   try{
-    const resp = await fetch(gasUrl+'?action=getSettings',{cache:'no-store'});
+    // Pour les GET on peut utiliser fetch normal car Apps Script supporte JSONP
+    const url = gasUrl + '?action=getSettings';
+    const resp = await fetch(url, {cache:'no-store'});
     if(!resp.ok) return;
     const json = await resp.json();
     if(!json.success||!json.settings) return;
@@ -587,30 +614,8 @@ async function loadSettingsFromSheet(){
     if(s.pwd)             cfg.pwd        = s.pwd;
     if(s.url_kits)        cfg.urlKits    = s.url_kits;
     if(s.url_resa)        cfg.urlResa    = s.url_resa;
-    // gasUrl lu depuis PARAMETRES (priorité sur la constante hardcodée)
   }catch(e){
-    console.warn('Impossible de charger les paramètres depuis Sheets:', e);
-  }
-}
-
-// Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
-async function saveSettingsToSheet(data){
-  const gasUrl = cfg.gasUrl||GAS_URL;
-  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI'){
-    alert('URL Apps Script non configurée.\nRenseignez-la dans Admin → Paramètres et mettez à jour le fichier HTML.');
-    return false;
-  }
-  try{
-    const resp = await fetch(gasUrl,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({action:'saveSettings', data})
-    });
-    const json = await resp.json().catch(()=>({success:true}));
-    return json.success !== false;
-  }catch(e){
-    console.warn('Erreur saveSettings:', e);
-    return false;
+    console.warn('Impossible de charger les paramètres:', e);
   }
 }
 
@@ -1261,9 +1266,9 @@ async function saveKitGAS(){
   btn.textContent='⏳ Enregistrement…';btn.disabled=true;
   try{
     const action=editingId?'updateKit':'addKit';
-    const resp=await fetch(gasUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})});
-    let result;try{result=await resp.json();}catch{result={success:true};}
-    if(result.success===false)throw new Error(result.error||'Erreur Apps Script');
+    // mode no-cors depuis GitHub Pages — réponse opaque mais écriture fonctionne
+    await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action,data})});
+    let result={success:true}; // no-cors = on suppose succès
     btn.textContent='✅ Enregistré !';
     setTimeout(()=>{closeAdmin();doRefresh();},800);
   }catch(e){
@@ -1279,9 +1284,8 @@ async function delKit(id){
   if(hasGAS){
     if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\nAction irréversible.'))return;
     try{
-      const resp=await fetch(cfg.gasUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});
-      let result;try{result=await resp.json();}catch{result={success:true};}
-      if(result.success===false)throw new Error(result.error||'Erreur');
+      await fetch(cfg.gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});
+      let result={success:true};
       doRefresh();
     }catch(e){alert('Erreur suppression : '+e.message);}
   } else {
