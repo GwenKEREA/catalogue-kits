@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue Kits – KEREA</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+:root{--bx:#4E182D;--rose:#D84958;--rv:#EA3A54;--fp:#F2EDF0;--fc:#F4F2EF;--fb:#F3ECDA;--gc:#e8e2e5;--gris:#7a7a7a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--fc);color:var(--bx);min-height:100vh;}
+header{background:var(--bx);position:sticky;top:0;z-index:100;box-shadow:0 2px 18px rgba(78,24,45,.3);}
+.hi{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 32px;gap:16px;}
+.la{display:flex;align-items:center;gap:11px;}
+#logoImg{height:42px;width:auto;max-width:110px;object-fit:contain;display:none;border-radius:5px;}
+.lb{background:var(--rv);color:#fff;font-size:19px;font-weight:700;width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lt h1{color:#fff;font-size:18px;font-weight:600;letter-spacing:.05em;}
+.lt p{color:rgba(255,255,255,.45);font-size:10px;text-transform:uppercase;letter-spacing:.1em;}
+.hr{display:flex;align-items:center;gap:7px;}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;text-decoration:none;border:none;transition:all .18s;font-family:'DM Sans',sans-serif;}
+.btn-ad{background:rgba(255,255,255,.11);color:#fff;border:1.5px solid rgba(255,255,255,.18);}
+.btn-ad:hover{background:rgba(255,255,255,.19);}
+.btn-p{background:var(--rv);color:#fff;}
+.btn-p:hover{background:var(--rose);}
+.sb{background:rgba(0,0,0,.15);padding:5px 32px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.ss{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.55);}
+.dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;}
+.dot.ld{background:#f59e0b;animation:pu 1s infinite;}
+.dot.er{background:#ef4444;}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.4}}
+.sa{display:flex;gap:5px;}
+.sbtn{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:2px 8px;cursor:pointer;font-size:10px;font-family:'DM Sans',sans-serif;}
+.sbtn:hover{background:rgba(255,255,255,.18);}
+.ab{display:none;background:var(--fb);border-bottom:2px solid var(--rose);padding:7px 32px;font-size:12px;color:var(--bx);font-weight:500;text-align:center;gap:7px;flex-wrap:wrap;justify-content:center;align-items:center;}
+body.adm .ab{display:flex;}
+.ab button{background:var(--rose);color:#fff;border:none;padding:2px 9px;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:11px;}
+.ab .gb{background:rgba(78,24,45,.08);color:var(--bx);border:1px solid var(--gc);}
+.hero{background:linear-gradient(135deg,var(--bx) 0%,#7a2a42 100%);padding:36px 32px 28px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-55px;right:-55px;width:240px;height:240px;background:var(--rv);opacity:.06;border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-65px;left:-35px;width:200px;height:200px;background:var(--rose);opacity:.07;border-radius:50%;}
+.hero h2{color:#fff;font-size:24px;font-weight:600;margin-bottom:4px;position:relative;}
+.hero p{color:rgba(255,255,255,.55);font-size:13px;position:relative;}
+.tabs{max-width:1200px;margin:16px auto 0;padding:0 32px;display:flex;gap:3px;}
+.tb{padding:7px 15px;border-radius:7px;border:none;cursor:pointer;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;background:transparent;color:var(--gris);transition:all .16s;}
+.tb:hover{color:var(--bx);background:rgba(78,24,45,.05);}
+.tb.act{background:var(--bx);color:#fff;}
+.ctl{max-width:1200px;margin:0 auto;padding:16px 32px 0;display:flex;gap:9px;align-items:center;flex-wrap:wrap;}
+.sw{position:relative;flex:1;min-width:180px;}
+.sw svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--gris);pointer-events:none;}
+#si{width:100%;padding:8px 11px 8px 34px;border:1.5px solid var(--gc);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;background:#fff;color:var(--bx);outline:none;transition:border-color .18s;}
+#si:focus{border-color:var(--rose);}
+#si::placeholder{color:#ccc;}
+.fc{display:flex;gap:5px;flex-wrap:wrap;}
+.chip{padding:5px 11px;border-radius:18px;font-size:11px;font-weight:500;cursor:pointer;border:1.5px solid var(--gc);background:#fff;color:var(--gris);transition:all .16s;font-family:'DM Sans',sans-serif;}
+.chip:hover{border-color:var(--rose);color:var(--rose);}
+.chip.on{background:var(--rose);border-color:var(--rose);color:#fff;}
+.stb{max-width:1200px;margin:9px auto 0;padding:0 32px;}
+.stb span{font-size:12px;color:var(--gris);}
+.stb strong{color:var(--bx);}
+.grid{max-width:1200px;margin:12px auto 60px;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;}
+/* CARDS */
+.card{background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 2px 9px rgba(78,24,45,.07);transition:transform .18s,box-shadow .18s;position:relative;}
+.card:not(.km):not(.kav):hover{transform:translateY(-3px);box-shadow:0 7px 20px rgba(78,24,45,.12);}
+.card.km{opacity:.74;}
+.card.kav{opacity:.79;}
+.ct{height:135px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden;}
+.ct img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.ct .ei{position:relative;z-index:1;}
+.card.km .ct{filter:grayscale(.6);}
+.card.kav .ct{filter:saturate(.3);}
+.cbs{position:absolute;top:7px;left:7px;display:flex;flex-wrap:wrap;gap:3px;z-index:2;}
+.cb{padding:2px 5px;border-radius:6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;background:rgba(255,255,255,.9);color:var(--bx);}
+.ddot{position:absolute;top:7px;right:7px;width:10px;height:10px;border-radius:50%;border:2px solid #fff;z-index:2;}
+.dg{background:#22c55e;}.di{background:#ef4444;}.dm{background:#9ca3af;}.dav{background:#a855f7;}
+.sov{display:none;position:absolute;inset:0;align-items:center;justify-content:center;pointer-events:none;z-index:3;}
+.card.km .sov.mov{display:flex;background:rgba(107,114,128,.1);}
+.card.kav .sov.aov{display:flex;background:rgba(109,40,217,.07);}
+.sbadge{padding:4px 11px;border-radius:18px;font-size:11px;font-weight:700;}
+.mbadge{background:#374151;color:#fff;}
+.avbadge{background:rgba(109,40,217,.8);color:#fff;}
+.cbody{padding:11px 13px 13px;}
+.cname{font-size:13px;font-weight:600;color:var(--bx);margin-bottom:3px;line-height:1.3;}
+.cdesc{font-size:11px;color:var(--gris);line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.cmeta{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px;}
+.mt{font-size:10px;color:var(--gris);background:var(--fp);padding:2px 6px;border-radius:4px;}
+.ch{font-size:10px;color:var(--gris);background:var(--fc);border-radius:4px;padding:3px 6px;margin-bottom:6px;display:none;}
+.ch.vis{display:block;}
+.cfoot{display:flex;gap:5px;}
+.bdt{flex:1;background:var(--fp);color:var(--bx);padding:6px;border-radius:6px;font-size:11px;font-weight:500;text-align:center;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s;}
+.bdt:hover{background:var(--gc);}
+.brs{flex:1.4;background:var(--rv);color:#fff;padding:6px;border-radius:6px;font-size:11px;font-weight:500;text-align:center;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:3px;transition:background .16s;}
+.brs:hover:not(.dis){background:var(--rose);}
+.brs.dis{background:#d1d5db;color:#9ca3af;cursor:not-allowed;pointer-events:none;}
+.brs.avb{background:rgba(109,40,217,.7);}
+.cab{display:none;position:absolute;bottom:6px;right:6px;gap:3px;z-index:10;}
+body.adm .cab{display:flex;}
+.ce,.cd{width:24px;height:24px;border-radius:5px;border:none;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;}
+.ce{background:var(--fb);color:var(--bx);}
+.cd{background:#fee2e2;color:#ef4444;}
+/* LOADING */
+.lstate{grid-column:1/-1;text-align:center;padding:55px 20px;}
+.lsp{width:38px;height:38px;border:3px solid var(--gc);border-top-color:var(--rv);border-radius:50%;animation:sp .75s linear infinite;margin:0 auto 12px;}
+@keyframes sp{to{transform:rotate(360deg)}}
+.lstate p{font-size:13px;color:var(--gris);}
+.estate{grid-column:1/-1;text-align:center;padding:45px 20px;}
+.estate .ei{font-size:36px;margin-bottom:9px;}
+.estate h3{font-size:15px;color:var(--bx);margin-bottom:5px;}
+.estate p{font-size:12px;color:var(--gris);margin-bottom:12px;line-height:1.5;}
+/* OVERLAYS */
+.ov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.52);z-index:200;backdrop-filter:blur(5px);}
+.ov.open{display:flex;align-items:center;justify-content:center;padding:20px;animation:fi .18s;}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:16px;width:100%;max-height:92vh;overflow-y:auto;animation:sl .2s ease;position:relative;}
+@keyframes sl{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+.mc{position:absolute;top:11px;right:11px;background:rgba(255,255,255,.9);border:none;width:29px;height:29px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--bx);z-index:5;}
+/* DISPO MODAL */
+#dov .modal{max-width:440px;}
+.db{padding:24px;}
+.db h3{font-size:16px;font-weight:700;color:var(--bx);margin-bottom:5px;}
+.ktag{font-size:11px;color:var(--gris);margin-bottom:16px;background:var(--fp);display:inline-block;padding:2px 9px;border-radius:18px;}
+.drow{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
+.df label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bx);display:block;margin-bottom:3px;}
+.df input{width:100%;padding:8px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--bx);outline:none;transition:border-color .18s;}
+.df input:focus{border-color:var(--rose);}
+.dr{border-radius:9px;padding:11px 13px;margin-bottom:14px;display:none;}
+.dr.ok{background:#f0fdf4;border:1.5px solid #86efac;}
+.dr.ko{background:#fef2f2;border:1.5px solid #fca5a5;}
+.drt{font-weight:700;font-size:13px;margin-bottom:3px;display:flex;align-items:center;gap:6px;}
+.dr.ok .drt{color:#166534;}
+.dr.ko .drt{color:#991b1b;}
+.drs{font-size:11px;color:#444;line-height:1.5;}
+.simb{margin-top:7px;}
+.simb p{font-size:10px;font-weight:700;color:var(--bx);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
+.slist{display:flex;flex-wrap:wrap;gap:4px;}
+.sc{padding:3px 9px;background:var(--fp);border-radius:14px;font-size:11px;color:var(--bx);font-weight:500;cursor:pointer;border:1.5px solid var(--gc);transition:all .14s;}
+.sc:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+.dfoot{display:flex;gap:8px;}
+/* DETAIL MODAL */
+#detov .modal{max-width:600px;}
+.mth{height:155px;display:flex;align-items:center;justify-content:center;font-size:65px;border-radius:16px 16px 0 0;overflow:hidden;position:relative;}
+.mth img{width:100%;height:100%;object-fit:cover;}
+.mbd{padding:17px 20px;}
+.mcc{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;}
+.mcc .cb{background:var(--fp);font-size:10px;padding:2px 7px;border-radius:9px;}
+.mtit{font-size:18px;font-weight:700;color:var(--bx);margin-bottom:11px;}
+.stban{border-radius:8px;padding:8px 12px;margin-bottom:11px;font-size:12px;display:none;align-items:center;gap:6px;}
+.stban.sm{background:#f3f4f6;color:#374151;display:flex;}
+.stban.sav{background:#f5f3ff;color:#5b21b6;display:flex;}
+.ms{margin-bottom:12px;}
+.ms h4{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gris);margin-bottom:4px;font-weight:700;}
+.ms p{font-size:13px;line-height:1.55;color:#444;}
+.cl{list-style:none;display:flex;flex-direction:column;gap:3px;}
+.cl li{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:#444;line-height:1.4;}
+.cl li::before{content:'•';color:var(--rose);font-size:14px;line-height:1;flex-shrink:0;}
+.sps{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.sp{background:var(--fp);border-radius:7px;padding:8px 10px;}
+.sp label{font-size:10px;color:var(--gris);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:1px;}
+.sp strong{font-size:12px;color:var(--bx);}
+.ics{display:flex;flex-wrap:wrap;gap:4px;}
+.ic{padding:3px 9px;background:var(--fb);border-radius:14px;font-size:11px;color:var(--bx);font-weight:500;}
+.rtl{display:flex;flex-direction:column;gap:4px;}
+.ri{display:flex;align-items:center;gap:7px;background:var(--fc);border-radius:6px;padding:5px 9px;font-size:11px;}
+.ri.cur{background:#fef3c7;border-left:3px solid #f59e0b;}
+.rdot{width:6px;height:6px;border-radius:50%;background:var(--gc);flex-shrink:0;}
+.ri.cur .rdot{background:#f59e0b;}
+.rdat{color:var(--bx);font-weight:500;}
+.rwho{color:var(--gris);font-size:10px;}
+.rbadge{font-size:9px;background:#f59e0b;color:#fff;padding:1px 5px;border-radius:5px;font-weight:700;margin-left:auto;white-space:nowrap;}
+.mft{padding:0 20px 16px;display:flex;gap:7px;}
+.mft .brs{flex:1;justify-content:center;padding:10px;font-size:13px;border-radius:8px;}
+/* MODE EMPLOI */
+#pme{display:none;max-width:780px;margin:24px auto 80px;padding:0 32px;}
+.gcard{background:#fff;border-radius:13px;padding:22px;box-shadow:0 2px 9px rgba(78,24,45,.07);margin-bottom:13px;}
+.gcard h2{font-size:17px;color:var(--bx);margin-bottom:13px;display:flex;align-items:center;gap:8px;}
+.mec{font-size:13px;line-height:1.7;color:#333;}
+.mec h3{font-size:13px;color:var(--bx);margin:11px 0 5px;font-weight:600;}
+.mec ul{margin-left:15px;margin-bottom:7px;}
+.mec li{margin-bottom:3px;}
+.mec strong{color:var(--bx);}
+.meb{display:none;margin-top:9px;}
+body.adm .meb{display:inline-flex;}
+.dleg{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.dli{display:flex;align-items:center;gap:8px;font-size:12px;color:#444;}
+.ldot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.abox{background:var(--fb);border-left:4px solid var(--rose);border-radius:0 8px 8px 0;padding:9px 13px;margin-top:10px;font-size:12px;color:var(--bx);line-height:1.5;}
+/* AUTH */
+.auth-m{background:#fff;border-radius:16px;max-width:360px;width:100%;padding:28px;text-align:center;animation:sl .2s ease;}
+.auth-m h3{font-size:17px;color:var(--bx);margin-bottom:4px;}
+.auth-m p{font-size:12px;color:var(--gris);margin-bottom:18px;}
+.ain{width:100%;padding:9px 12px;border:1.5px solid var(--gc);border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--bx);outline:none;text-align:center;letter-spacing:.12em;margin-bottom:8px;transition:border-color .18s;}
+.ain:focus{border-color:var(--rose);}
+.aerr{color:#ef4444;font-size:11px;margin-bottom:8px;display:none;}
+.alink{font-size:11px;color:var(--gris);margin-top:8px;cursor:pointer;text-decoration:underline;}
+/* ADMIN PANEL */
+.aov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:300;backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;}
+.aov.open{display:flex;}
+.am{background:#fff;border-radius:16px;max-width:660px;width:100%;max-height:92vh;overflow-y:auto;animation:sl .2s ease;}
+.amh{background:var(--bx);border-radius:16px 16px 0 0;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;}
+.amh h3{color:#fff;font-size:15px;}
+.abody{padding:17px;}
+.fg{margin-bottom:11px;}
+.fg label{display:block;font-size:10px;font-weight:700;color:var(--bx);margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;}
+.fg input,.fg textarea,.fg select{width:100%;padding:7px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--bx);background:#fff;outline:none;transition:border-color .18s;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--rose);}
+.fg textarea{min-height:62px;resize:vertical;}
+.fg small{font-size:10px;color:var(--gris);margin-top:2px;display:block;}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.cc{display:flex;flex-direction:column;gap:5px;background:var(--fp);border-radius:7px;padding:9px 11px;}
+.cci{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--bx);cursor:pointer;}
+.cci input[type=checkbox]{width:13px;height:13px;accent-color:var(--rv);}
+.pw{border:2px dashed var(--gc);border-radius:7px;padding:11px;text-align:center;cursor:pointer;transition:border-color .18s;position:relative;}
+.pw:hover{border-color:var(--rose);}
+.pw input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.pp{width:100%;max-height:90px;object-fit:cover;border-radius:5px;margin-top:5px;display:none;}
+.tw{display:flex;align-items:center;justify-content:space-between;border-radius:7px;padding:9px 11px;margin-bottom:8px;}
+.twm{background:var(--fp);}
+.twa{background:#f5f3ff;border:1px solid #e9d5ff;}
+.tw .tl strong{font-size:12px;font-weight:600;display:block;}
+.tw .tl small{font-size:10px;color:var(--gris);}
+.tg{position:relative;width:38px;height:21px;flex-shrink:0;}
+.tg input{opacity:0;width:0;height:0;}
+.sl2{position:absolute;inset:0;background:#d1d5db;border-radius:21px;cursor:pointer;transition:.25s;}
+.sl2:before{content:'';position:absolute;height:15px;width:15px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.25s;}
+input:checked+.sl2{background:var(--rv);}
+input:checked+.sl2:before{transform:translateX(17px);}
+.twa input:checked+.sl2{background:#7c3aed;}
+#mw,#aw{display:none;margin-top:6px;}
+.epg{display:flex;flex-wrap:wrap;gap:4px;background:var(--fp);border-radius:7px;padding:8px;max-height:130px;overflow-y:auto;}
+.epgrp{width:100%;font-size:9px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em;margin:4px 0 2px;}
+.epb{font-size:18px;background:#fff;border:2px solid var(--gc);border-radius:5px;width:32px;height:32px;cursor:pointer;transition:all .1s;display:flex;align-items:center;justify-content:center;}
+.epb:hover{border-color:var(--rose);}
+.epb.sel{background:var(--rose);border-color:var(--rose);}
+.amf{padding:0 17px 17px;display:flex;gap:7px;justify-content:flex-end;}
+.bc{background:var(--fp);color:var(--bx);padding:7px 14px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;}
+.bs{background:var(--rv);color:#fff;padding:7px 16px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:600;}
+.secs{border-top:1px solid var(--gc);margin-top:13px;padding-top:13px;}
+.secs h4{font-size:10px;font-weight:700;color:var(--bx);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.meov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:400;backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;}
+.meov.open{display:flex;}
+.memh{background:var(--bx);border-radius:16px 16px 0 0;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;}
+.memh h3{color:#fff;font-size:15px;}
+#meTA{width:100%;min-height:240px;padding:9px;border:1.5px solid var(--gc);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--bx);outline:none;resize:vertical;line-height:1.6;}
+#meTA:focus{border-color:var(--rose);}
+.ems{grid-column:1/-1;text-align:center;padding:45px 20px;color:var(--gris);}
+.ems .ei{font-size:36px;margin-bottom:8px;}
+footer{background:var(--bx);color:rgba(255,255,255,.38);text-align:center;padding:13px;font-size:11px;letter-spacing:.04em;}
+footer strong{color:#fff;}
+@media(max-width:600px){
+  .hi{padding:9px 13px;}.sb{padding:4px 13px;}
+  .hero{padding:22px 13px;}
+  .ctl,.tabs,.grid,.stb{padding-left:13px;padding-right:13px;}
+  .fr2{grid-template-columns:1fr;}.sps{grid-template-columns:1fr;}
+  #pme{padding:0 13px;}.drow{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hi">
+    <div class="la">
+      <img id="logoImg" alt="Logo">
+      <div class="lb" id="logoBadge">K</div>
+      <div class="lt"><h1>KEREA</h1><p>Catalogue des kits</p></div>
+    </div>
+    <div class="hr">
+      <button class="btn btn-ad" onclick="reqAdmin()" id="adminBtn">⚙️ Admin</button>
+    </div>
+  </div>
+  <div class="sb">
+    <div class="ss"><span class="dot ld" id="sdot"></span><span id="stxt">Chargement…</span></div>
+    <div class="sa" id="syncA"></div>
+  </div>
+</header>
+
+<div class="ab" id="adminBanner">
+  <span>✏️ Mode administration</span>
+  <button onclick="exitAdmin()">Quitter</button>
+  <button class="gb" onclick="openSettings()">⚙️ Paramètres</button>
+  <button class="gb" onclick="openLogoUpload()">🖼 Logo</button>
+  <button class="gb" onclick="doRefresh()">🔄 Actualiser données</button>
+</div>
+
+<div class="hero">
+  <h2>📦 Catalogue du matériel en stock</h2>
+  <p>Vérifiez la disponibilité avant de soumettre votre demande de réservation</p>
+</div>
+
+<div class="tabs">
+  <button class="tb act" onclick="switchTab('cat')" id="tab-cat">🗂 Catalogue</button>
+  <button class="tb" onclick="switchTab('me')" id="tab-me">📋 Mode d'emploi</button>
+</div>
+
+<!-- CATALOGUE -->
+<div id="pcat">
+  <div class="ctl">
+    <div class="sw">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="si" placeholder="Rechercher un kit…" oninput="renderGrid()">
+    </div>
+    <div class="fc" id="filterChips"><button class="chip on" onclick="setFilter('tous',this)">Tous</button></div>
+    <div id="addBtn" style="display:none"><button class="btn btn-p" onclick="openAdmin(null)" style="padding:6px 12px;font-size:12px">＋ Kit</button></div>
+  </div>
+  <div class="stb"><span id="statsText"></span></div>
+  <div class="grid" id="kitsGrid">
+    <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>
+  </div>
+</div>
+
+<!-- MODE EMPLOI -->
+<div id="pme">
+  <div class="gcard">
+    <h2>📋 Mode d'emploi des réservations</h2>
+    <div class="mec" id="meContent"></div>
+    <button class="btn btn-p meb" onclick="openMeEd()">✏️ Modifier</button>
+  </div>
+  <div class="gcard">
+    <h2>📊 Légende</h2>
+    <div class="dleg">
+      <div class="dli"><span class="ldot" style="background:#22c55e"></span>Disponible — libre aux dates souhaitées</div>
+      <div class="dli"><span class="ldot" style="background:#ef4444"></span>Réservé — en cours d'utilisation à ce jour</div>
+      <div class="dli"><span class="ldot" style="background:#9ca3af"></span>En maintenance — non réservable</div>
+      <div class="dli"><span class="ldot" style="background:#a855f7"></span>À venir — en cours de constitution</div>
+    </div>
+    <div class="abox">⚠️ <strong>Important :</strong> Vérifiez que vous êtes dans la liste des intervenants autorisés. Doute : <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87e1e8f5eae6f3eee8e9c7ece2f5e2e6a9e2f2">[email&#160;protected]</a></strong></div>
+  </div>
+  <div class="gcard" style="text-align:center">
+    <h2 style="justify-content:center">📅 Formulaire de réservation</h2>
+    <p style="color:var(--gris);font-size:12px;margin-bottom:13px">Cliquez sur <strong>📅 Réserver</strong> sur un kit pour vérifier la disponibilité.</p>
+    <a id="meResaLink" href="#" target="_blank" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px">📅 Accéder au formulaire</a>
+  </div>
+</div>
+
+<!-- DISPO MODAL -->
+<div class="ov" id="dov" onclick="if(event.target===this)closeDispo()">
+  <div class="modal">
+    <button class="mc" onclick="closeDispo()">✕</button>
+    <div class="db">
+      <h3>📅 Vérifier la disponibilité</h3>
+      <div class="ktag" id="dKitName"></div>
+      <div class="drow">
+        <div class="df"><label>Date de début</label><input type="date" id="dDeb" onchange="chkDispo()"></div>
+        <div class="df"><label>Date de fin</label><input type="date" id="dFin" onchange="chkDispo()"></div>
+      </div>
+      <div class="dr" id="drResult">
+        <div class="drt" id="drTitle"></div>
+        <div class="drs" id="drSub"></div>
+        <div class="simb" id="simBlock" style="display:none">
+          <p>Kits similaires disponibles :</p>
+          <div class="slist" id="simList"></div>
+        </div>
+      </div>
+      <div class="dfoot">
+        <button class="bc btn" onclick="closeDispo()" style="flex:1;justify-content:center;padding:9px">Annuler</button>
+        <a id="dGoBtn" href="#" target="_blank" class="btn btn-p" style="flex:1.5;justify-content:center;padding:9px;display:none">📝 Accéder au formulaire →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL MODAL -->
+<div class="ov" id="detov" onclick="if(event.target===this)closeDetail()">
+  <div class="modal">
+    <button class="mc" onclick="closeDetail()">✕</button>
+    <div class="mth" id="mThumb"></div>
+    <div class="mbd">
+      <div class="mcc" id="mCats"></div>
+      <div class="mtit" id="mTitle"></div>
+      <div id="mStBan" class="stban"></div>
+      <div class="ms"><h4>Description</h4><p id="mDesc"></p></div>
+      <div class="ms"><h4>Contenu du kit</h4><ul class="cl" id="mContenu"></ul></div>
+      <div class="ms"><h4>Caractéristiques</h4><div class="sps" id="mSpecs"></div></div>
+      <div class="ms"><h4>Intervenants autorisés à réserver</h4><div class="ics" id="mInter"></div></div>
+      <div class="ms" id="mResaSec" style="display:none"><h4>Planning des réservations</h4><div class="rtl" id="mResaList"></div></div>
+    </div>
+    <div class="mft"><a id="mResaBtn" class="brs btn">📅 Vérifier &amp; réserver</a></div>
+  </div>
+</div>
+
+<!-- AUTH -->
+<div class="ov" id="authOv" onclick="if(event.target===this)closeAuth()">
+  <div class="auth-m">
+    <div style="font-size:32px;margin-bottom:8px">🔐</div>
+    <h3>Accès Administration</h3>
+    <p>Entrez le mot de passe.</p>
+    <input type="password" class="ain" id="authIn" placeholder="••••••••" onkeydown="if(event.key==='Enter')chkAuth()">
+    <div class="aerr" id="authErr">Mot de passe incorrect.</div>
+    <button class="btn btn-p" style="width:100%;justify-content:center;padding:9px" onclick="chkAuth()">Accéder</button>
+    <div class="alink" onclick="resetPwd()">Mot de passe oublié ?</div>
+  </div>
+</div>
+
+<!-- LOGO UPLOAD -->
+<div class="ov" id="logoOv" onclick="if(event.target===this)closeLogoUpload()">
+  <div class="modal" style="max-width:380px">
+    <button class="mc" onclick="closeLogoUpload()">✕</button>
+    <div style="padding:24px">
+      <h3 style="font-size:16px;color:var(--bx);margin-bottom:4px">🖼 Logo</h3>
+      <p style="font-size:12px;color:var(--gris);margin-bottom:14px">PNG transparent recommandé, max 1 Mo.</p>
+      <div class="pw" style="margin-bottom:12px">
+        <input type="file" id="logoIn" accept="image/*" onchange="prevLogo(this)">
+        <div id="logoPrompt" style="font-size:12px;color:var(--gris)">📂 Cliquez pour choisir</div>
+        <img id="logoPrev" style="max-height:65px;margin-top:6px;display:none;border-radius:5px">
+      </div>
+      <div style="display:flex;gap:7px">
+        <button class="bc btn" onclick="rmLogo()" style="flex:1;justify-content:center">Supprimer</button>
+        <button class="bs btn" onclick="saveLogo()" style="flex:1.4;justify-content:center">💾 Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN KIT PANEL — connecté Apps Script -->
+<div class="aov" id="adminOv" onclick="if(event.target===this)closeAdmin()">
+  <div class="am">
+    <div class="amh"><h3 id="adminTitle">➕ Nouveau kit</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeAdmin()">✕</button></div>
+    <div class="abody">
+      <!-- INDICATEUR MODE -->
+      <div id="gasIndicator" style="font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;display:none"></div>
+      <div class="fr2">
+        <div class="fg"><label>kit_id * (identifiant unique)</label><input type="text" id="f-id" placeholder="Ex: KIT_MON_KIT_1"><small>Majuscules, underscores, pas d'espaces</small></div>
+        <div class="fg"><label>Nom du kit *</label><input type="text" id="f-nom" placeholder="Ex: Kit Mon Kit 1"></div>
+      </div>
+      <div class="fg"><label>Nom formulaire * (affiché dans le formulaire de réservation)</label><input type="text" id="f-nomform" placeholder="Ex: Kit Mon Kit 1"><small>Doit correspondre exactement à ce que saisit l'intervenant dans le formulaire</small></div>
+      <div class="fg"><label>Icône</label>
+        <input type="text" id="f-icon" placeholder="📦" maxlength="4">
+      </div>
+      <div class="fg"><label>Choisir une icône</label><div class="epg" id="epGrid"></div></div>
+      <div class="fg">
+        <label>Photo (optionnel)</label>
+        <div class="pw">
+          <input type="file" id="f-photo" accept="image/*" onchange="prevPhoto(this)">
+          <div id="photoPrompt" style="font-size:11px;color:var(--gris)">📷 Cliquez ou glissez (max 2 Mo)</div>
+          <img id="photoPrev" class="pp">
+          <button id="rmPhBtn" style="display:none;margin-top:5px;background:#fee2e2;color:#ef4444;border:none;border-radius:4px;padding:2px 7px;cursor:pointer;font-size:10px;font-family:inherit" onclick="rmPhoto(event)">✕ Supprimer</button>
+        </div>
+      </div>
+      <div class="fg"><label>Description</label><textarea id="f-desc"></textarea></div>
+      <div class="fg"><label>Contenu (un élément par ligne — sera stocké séparé par virgules dans le Sheet)</label><textarea id="f-contenu"></textarea></div>
+      <div class="fr2">
+        <div class="fg"><label>Taille</label><input type="text" id="f-taille"></div>
+        <div class="fg"><label>Poids</label><input type="text" id="f-poids"></div>
+      </div>
+      <div class="fg"><label>Couleur de fond</label>
+        <select id="f-col"><option value="#F2EDF0">Rose pâle</option><option value="#F4F2EF">Crème</option><option value="#F3ECDA">Beige</option></select>
+      </div>
+      <div class="fg"><label>Catégories / Intervenants autorisés (séparés par virgules)</label>
+        <input type="text" id="f-cats" placeholder="Ex: Efficience, Pôle Formation KEREA">
+        <small>Ces valeurs apparaissent comme filtres dans le catalogue</small>
+      </div>
+      <div class="tw twm"><div class="tl"><strong>🔧 En maintenance</strong><small>Grise le kit, désactive la réservation</small></div><label class="tg"><input type="checkbox" id="f-maint" onchange="togF('m')"><span class="sl2"></span></label></div>
+      <div id="mw" class="fg"><label>Message maintenance</label><input type="text" id="f-maint-msg"></div>
+      <div class="tw twa"><div class="tl"><strong style="color:#7c3aed">🚧 À venir</strong><small>Badge violet, réservation désactivée</small></div><label class="tg"><input type="checkbox" id="f-av" onchange="togF('a')"><span class="sl2"></span></label></div>
+      <div id="aw" class="fg"><label>Message à venir</label><input type="text" id="f-av-msg"></div>
+      <div class="fg" style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:10px 12px;">
+        <label style="color:#166534">✅ Actif (visible dans le catalogue)</label>
+        <select id="f-actif"><option value="OUI">OUI — Visible</option><option value="NON">NON — Masqué</option></select>
+      </div>
+    </div>
+    <div class="amf">
+      <button class="bc" onclick="closeAdmin()">Annuler</button>
+      <button class="bs" id="saveLocalBtn" onclick="saveKitLocal()" style="background:var(--gris)">💾 Sauvegarder localement</button>
+      <button class="bs" id="saveGasBtn" onclick="saveKitGAS()" style="display:none">⚡ Enregistrer dans Sheets</button>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div class="aov" id="settingsOv" onclick="if(event.target===this)closeSettings()">
+  <div class="am">
+    <div class="amh"><h3>⚙️ Paramètres</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeSettings()">✕</button></div>
+    <div class="abody">
+      <div class="fg"><label>Lien du formulaire de réservation</label><input type="text" id="s-form" placeholder="https://forms.gle/..."></div>
+      <div class="fg"><label>Email admin</label><input type="email" id="s-email" placeholder="votre@email.fr"></div>
+      <div class="secs">
+        <h4>🔐 Mot de passe admin</h4>
+        <div class="fr2">
+          <div class="fg"><label>Nouveau</label><input type="password" id="s-p1" placeholder="••••••••"></div>
+          <div class="fg"><label>Confirmer</label><input type="password" id="s-p2" placeholder="••••••••"></div>
+        </div>
+        <div id="pwd-msg" style="font-size:11px;margin-top:-7px;margin-bottom:8px"></div>
+        <button class="btn btn-p" onclick="chgPwd()" style="padding:6px 12px;font-size:11px">Changer</button>
+      </div>
+      <div class="secs">
+        <h4>👥 Intervenants autorisés (filtre)</h4>
+        <div id="catsList" style="display:flex;flex-direction:column;gap:5px;margin-bottom:8px"></div>
+        <div style="display:flex;gap:6px">
+          <input type="text" id="newCat" placeholder="Ajouter…" style="flex:1;padding:6px 9px;border:1.5px solid var(--gc);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:11px;outline:none">
+          <button class="btn btn-p" onclick="addCat()" style="padding:6px 10px;font-size:11px">+ Ajouter</button>
+        </div>
+      </div>
+      <div class="secs">
+        <h4>⚡ Apps Script Web App (admin avancé)</h4>
+        <div class="fg"><label>URL de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"><small>Permet d'écrire dans l'onglet KITS depuis ce site. Voir instructions dans Admin → Gérer les kits.</small></div>
+      </div>
+        <div class="fg"><label>Onglet KITS</label><input type="text" id="s-kits"><small>Fichier → Partager → Publier sur le web → KITS → CSV → copier l'URL</small></div>
+        <div class="fg"><label>Onglet RESERVATIONS</label><input type="text" id="s-resa"><small>Même procédure pour l'onglet RESERVATIONS</small></div>
+      </div>
+    </div>
+    <div class="amf"><button class="bc" onclick="closeSettings()">Annuler</button><button class="bs" onclick="saveSettings()">💾 Enregistrer</button></div>
+  </div>
+</div>
+
+<!-- ME EDITOR -->
+<div class="meov" id="meOv" onclick="if(event.target===this)closeMeEd()">
+  <div class="am" style="max-width:700px">
+    <div class="memh"><h3>✏️ Mode d'emploi</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeMeEd()">✕</button></div>
+    <div style="padding:16px"><p style="font-size:11px;color:var(--gris);margin-bottom:8px">HTML basique : &lt;h3&gt; &lt;p&gt; &lt;ul&gt;&lt;li&gt; &lt;strong&gt;</p><textarea id="meTA"></textarea></div>
+    <div class="amf"><button class="bc" onclick="closeMeEd()">Annuler</button><button class="bs" onclick="saveMeContent()">💾 Enregistrer</button></div>
+  </div>
+</div>
+
+<footer><strong>KEREA</strong> — 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="22444d504f43564b4d4c6249475047430c4757">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ══════════════════════════════════════════════════════════════════
+// CONFIGURATION
+// ══════════════════════════════════════════════════════════════════
+const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
+const BASE = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
+const DEFAULT_URL_KITS = BASE + "&gid=1506266286";
+const DEFAULT_URL_RESA = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=2030429958&single=true&output=csv`;
+const DEFAULT_FORM     = "VOTRE_LIEN_FORMULAIRE_ICI";
+const DEFAULT_PWD      = "kerea2025";
+
+// ══════════════════════════════════════════════════════════════
+// ⚠️ COLLE ICI L'URL DE TON WEB APP APPS SCRIPT APRÈS DÉPLOIEMENT
+// Hardcodée ici → fonctionne sur TOUS les appareils sans localStorage
+// Après avoir modifié cette ligne, re-upload index.html sur GitHub
+// ══════════════════════════════════════════════════════════════
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzLxqVYwsElZF1BIcNmObXzCc6dE_3DiDB51-piuFl6sQXfuJD6hgMPEPwvkrQXlnY/exec";
+const DEFAULT_ME = `<h3>Comment réserver un kit ?</h3>
+<p>Une procédure de réservation est disponible pour les collaborateurs EFFICIENCE et KEREA sur les espaces documentaires respectifs.</p>
+<h3>Étapes</h3>
+<ul>
+<li>Consultez le catalogue et trouvez le kit adapté à votre intervention</li>
+<li>Cliquez sur <strong>📅 Réserver</strong> — une fenêtre vous demande vos dates souhaitées</li>
+<li>Si le kit est disponible, vous serez redirigé vers le formulaire de réservation</li>
+<li>Si le kit est indisponible, des alternatives vous seront proposées</li>
+</ul>
+<h3>À la réception</h3>
+<ul>
+<li>Vérifier le contenu et remplir la checklist (QR code sur la boîte)</li>
+<li>S'assurer de la charge des appareils électroniques (DAE, tablettes, casque VR)</li>
+</ul>
+<h3>Au retour du kit</h3>
+<ul>
+<li>Nettoyer avec les lingettes fournies et remplir le suivi hygiène</li>
+<li>Vérifier que tout est rangé et en bon état</li>
+<li>Indiquer les consommables à recharger</li>
+</ul>
+<p><strong>Le formateur/intervenant restituant le kit est responsable de son état.</strong></p>`;
+
+// Pas de localStorage — tout est stocké dans Google Sheets (onglet PARAMETRES)
+
+// ══════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════
+let cfg, kits=[], reservations=[], kitOverrides={}, // surcharges admin locales
+    filterActive='tous', editingId=null, curPhoto=null, dispoKitId=null;
+
+function loadCfg(){
+  cfg = {
+    pwd:DEFAULT_PWD, formUrl:DEFAULT_FORM, adminEmail:'',
+    meContent:DEFAULT_ME, logo:null,
+    urlKits:DEFAULT_URL_KITS, urlResa:DEFAULT_URL_RESA,
+    gasUrl:GAS_URL  // hardcodé dans le fichier HTML — fonctionne sur tous les appareils
+  };
+  kitOverrides = {};
+}
+
+// Charge les paramètres depuis l'onglet PARAMETRES via Apps Script
+async function loadSettingsFromSheet(){
+  const gasUrl = cfg.gasUrl||GAS_URL;
+  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI') return; // Pas encore configuré
+  try{
+    const resp = await fetch(gasUrl+'?action=getSettings',{cache:'no-store'});
+    if(!resp.ok) return;
+    const json = await resp.json();
+    if(!json.success||!json.settings) return;
+    const s = json.settings;
+    if(s.form_url)        cfg.formUrl    = s.form_url;
+    if(s.admin_email)     cfg.adminEmail = s.admin_email;
+    if(s.mode_emploi)     cfg.meContent  = s.mode_emploi;
+    if(s.logo_url)        cfg.logo       = s.logo_url||null;
+    if(s.apps_script_url) cfg.gasUrl     = s.apps_script_url;
+    if(s.pwd)             cfg.pwd        = s.pwd;
+    if(s.url_kits)        cfg.urlKits    = s.url_kits;
+    if(s.url_resa)        cfg.urlResa    = s.url_resa;
+    // gasUrl lu depuis PARAMETRES (priorité sur la constante hardcodée)
+  }catch(e){
+    console.warn('Impossible de charger les paramètres depuis Sheets:', e);
+  }
+}
+
+// Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
+async function saveSettingsToSheet(data){
+  const gasUrl = cfg.gasUrl||GAS_URL;
+  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI'){
+    alert('URL Apps Script non configurée.\nRenseignez-la dans Admin → Paramètres et mettez à jour le fichier HTML.');
+    return false;
+  }
+  try{
+    const resp = await fetch(gasUrl,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'saveSettings', data})
+    });
+    const json = await resp.json().catch(()=>({success:true}));
+    return json.success !== false;
+  }catch(e){
+    console.warn('Erreur saveSettings:', e);
+    return false;
+  }
+}
+
+function saveCfg(){
+  // Rien en localStorage — tout est dans Google Sheets (PARAMETRES)
+  // L'URL GAS est hardcodée dans le fichier HTML
+}
+
+// ══════════════════════════════════════════════════════════════════
+// CSV PARSER
+// ══════════════════════════════════════════════════════════════════
+function parseCSV(txt){
+  const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(l=>l.trim());
+  if(lines.length<2) return [];
+  const hdrs = splitLine(lines[0]);
+  return lines.slice(1).map(l=>{
+    const cols = splitLine(l);
+    const o={};
+    hdrs.forEach((h,i)=>{ o[h.trim()] = (cols[i]||'').trim().replace(/^"|"$/g,''); });
+    return o;
+  }).filter(r=>Object.values(r).some(v=>v));
+}
+function splitLine(line){
+  const r=[];let cur='',q=false;
+  for(let i=0;i<line.length;i++){
+    const c=line[i];
+    if(c==='"'){if(q&&line[i+1]==='"'){cur+='"';i++;}else q=!q;}
+    else if((c===','||c==='\t')&&!q){r.push(cur);cur='';}
+    else cur+=c;
+  }
+  r.push(cur);
+  return r;
+}
+
+// Parse date ISO yyyy-mm-dd ou DD/MM/YYYY → Date locale minuit
+function pd(s){
+  if(!s) return null;
+  s=String(s).trim();
+  let m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(m) return new Date(+m[1],+m[2]-1,+m[3]);
+  m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if(m) return new Date(+m[3],+m[2]-1,+m[1]);
+  return null;
+}
+const fmt=d=>d?d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'}):'?';
+
+// Normalise un nom de kit : minuscules, sans accents, sans espaces/ponctuation
+function nk(s){
+  if(!s) return '';
+  return String(s).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]/g,'');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// CHARGEMENT ONGLET KITS
+// Colonnes : kit_id, nom_kit, nom_formulaire, description, contenu,
+//            taille, poids, icone, couleur, categories,
+//            maintenance, maintenance_msg, avenir, avenir_msg, actif
+// ══════════════════════════════════════════════════════════════════
+async function loadKits(){
+  try{
+    const resp = await fetch(cfg.urlKits, {cache:'no-store'});
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const txt = await resp.text();
+    const rows = parseCSV(txt);
+    if(!rows.length) throw new Error('Onglet KITS vide');
+
+    kits = rows
+      .filter(r=> (r['actif']||'').toUpperCase()==='OUI' || !r['actif'])
+      .map(r=>{
+        const id = r['kit_id'] || r['nom_kit'];
+        // Applique les surcharges locales admin si elles existent
+        const ov = kitOverrides[id] || {};
+        return {
+          id,
+          kit_id:      id,
+          nom:         ov.nom        || r['nom_kit']          || '',
+          nom_form:    r['nom_formulaire'] || r['nom_kit']    || '', // clé de matching avec RESERVATIONS
+          description: ov.description|| r['description']      || '',
+          contenu:    (ov.contenu    || r['contenu']          || '').split(',').map(s=>s.trim()).filter(Boolean),
+          taille:      ov.taille     || r['taille']            || '',
+          poids:       ov.poids      || r['poids']             || '',
+          icon:        ov.icon       || r['icone']             || '📦',
+          couleur:     ov.couleur    || r['couleur']           || '#F2EDF0',
+          photo:       ov.photo      || null,
+          cats:       (r['categories']||'').split(',').map(s=>s.trim()).filter(Boolean),
+          maintenance: ov.maintenance!==undefined ? ov.maintenance : (r['maintenance']||'').toUpperCase()==='OUI',
+          maintenanceMsg: ov.maintenanceMsg || r['maintenance_msg'] || '',
+          avenir:     ov.avenir!==undefined ? ov.avenir : (r['avenir']||'').toUpperCase()==='OUI',
+          avenirMsg:   ov.avenirMsg  || r['avenir_msg']        || '',
+        };
+      });
+    return true;
+  }catch(e){
+    console.error('loadKits:',e.message);
+    return false;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// CHARGEMENT ONGLET RESERVATIONS
+// Colonnes réelles : reservation_id, horodateur, kit_id, nom_kit,
+//   date_debut, date_fin, prenom, nom, structure, statut
+// ══════════════════════════════════════════════════════════════════
+async function loadReservations(){
+  try{
+    const resp = await fetch(cfg.urlResa, {cache:'no-store'});
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const txt = await resp.text();
+    const rows = parseCSV(txt);
+
+    reservations = rows
+      .map(r=>({
+        kit_id:     (r['kit_id']    || '').trim(),
+        nom_kit:    (r['nom_kit']   || '').trim(),
+        date_debut: pd(r['date_debut']),
+        date_fin:   pd(r['date_fin']),
+        // Statut : "active" = réservation en cours, vide ou autre = ignoré
+        statut:     (r['statut']    || '').trim().toLowerCase(),
+        who:        [r['prenom']||'', r['nom']||''].filter(Boolean).join(' '),
+        struct:     (r['structure'] || '').trim(),
+      }))
+      .filter(r=>
+        r.kit_id &&
+        r.date_debut && !isNaN(r.date_debut) &&
+        r.date_fin   && !isNaN(r.date_fin)   &&
+        // On garde toutes les lignes sauf statut explicitement "annulé"
+        r.statut !== 'annulé' && r.statut !== 'annule' && r.statut !== 'cancelled'
+      );
+    return true;
+  }catch(e){
+    console.error('loadReservations:',e.message);
+    return false;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// LOGIQUE DE DISPONIBILITÉ
+// Matching direct par kit_id (colonne exacte dans RESERVATIONS)
+// Fallback par nom_kit normalisé si kit_id absent
+// ══════════════════════════════════════════════════════════════════
+function getKitDispo(kitObj, deb, fin){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = deb || today;
+  const f = fin || today;
+
+  // Matching par kit_id exact (colonne directe — 100% fiable)
+  const matches = reservations.filter(r=>{
+    if(r.kit_id && kitObj.kit_id && r.kit_id === kitObj.kit_id) return true;
+    // Fallback : correspondance normalisée par nom_kit
+    if(r.nom_kit && kitObj.nom){
+      const rn = nk(r.nom_kit);
+      const kn = nk(kitObj.nom);
+      if(rn === kn) return true;
+    }
+    return false;
+  });
+
+  const conflicts = matches.filter(r=> r.date_debut <= f && r.date_fin >= d);
+  const upcoming  = matches.filter(r=> r.date_debut > f).sort((a,b)=>a.date_debut-b.date_debut);
+
+  return { status: conflicts.length ? 'indispo' : 'dispo', conflicts, upcoming, all:matches };
+}
+
+const dlabel = s=>({dispo:'Disponible',indispo:'Réservé',maint:'En maintenance',avenir:'À venir'}[s]||'Disponible');
+const dcolor  = s=>({dispo:'#22c55e',indispo:'#ef4444',maint:'#9ca3af',avenir:'#a855f7'}[s]||'#22c55e');
+const dotcls  = s=>({dispo:'dg',indispo:'di',maint:'dm',avenir:'dav'}[s]||'dg');
+
+// ══════════════════════════════════════════════════════════════════
+// INIT — chargement parallèle des deux onglets
+// ══════════════════════════════════════════════════════════════════
+async function initApp(){
+  setSS('loading','Chargement des données…');
+  document.getElementById('kitsGrid').innerHTML =
+    '<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>';
+
+  const [kOk, rOk] = await Promise.all([loadKits(), loadReservations()]);
+
+  if(!kOk || kits.length===0){
+    document.getElementById('kitsGrid').innerHTML=`
+      <div class="estate">
+        <div class="ei">⚠️</div>
+        <h3>Impossible de charger les kits</h3>
+        <p>Vérifiez que l'onglet KITS est publié en CSV.<br>Puis configurez l'URL dans <strong>Admin → Paramètres</strong>.</p>
+        <button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">⚙️ Configurer</button>
+      </div>`;
+    setSS('error','Onglet KITS inaccessible — vérifiez les paramètres');
+    return;
+  }
+
+  buildFilterChips();
+  renderGrid();
+
+  if(kOk && rOk){
+    setSS('ok',`${kits.length} kit${kits.length>1?'s':''} · ${reservations.length} réservation${reservations.length>1?'s':''} chargées`);
+  } else {
+    setSS('error',`${kits.length} kits — réservations non accessibles (vérifiez l'URL RESERVATIONS)`);
+  }
+  // Bouton refresh visible en mode admin
+  if(document.body.classList.contains('adm')){
+    document.getElementById('syncA').innerHTML=`<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>`;
+  }
+}
+
+async function doRefresh(){
+  kits=[];reservations=[];
+  await initApp();
+}
+
+function setSS(state, msg){
+  const d=document.getElementById('sdot');
+  d.className='dot'+(state==='loading'?' ld':state==='error'?' er':'');
+  document.getElementById('stxt').textContent=msg;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// RENDU GRILLE
+// ══════════════════════════════════════════════════════════════════
+function buildFilterChips(){
+  // Collecte les catégories uniques depuis les kits chargés
+  const allCats = new Set();
+  kits.forEach(k=>(k.cats||[]).forEach(c=>allCats.add(c)));
+  const div = document.getElementById('filterChips');
+  div.innerHTML=`<button class="chip on" onclick="setFilter('tous',this)">Tous</button>`;
+  allCats.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='chip'; b.textContent=c;
+    b.onclick=()=>setFilter(c,b);
+    div.appendChild(b);
+  });
+}
+
+function renderGrid(){
+  const grid = document.getElementById('kitsGrid');
+  const q = document.getElementById('si').value.toLowerCase();
+
+  const filtered = kits.filter(k=>{
+    const mc = filterActive==='tous' || (k.cats||[]).includes(filterActive);
+    const ms = !q || k.nom.toLowerCase().includes(q)
+                   || (k.description||'').toLowerCase().includes(q)
+                   || (k.contenu||[]).some(c=>c.toLowerCase().includes(q));
+    return mc && ms;
+  });
+
+  document.getElementById('statsText').innerHTML =
+    `<strong>${filtered.length}</strong> kit${filtered.length>1?'s':''} trouvé${filtered.length>1?'s':''}`;
+
+  if(!filtered.length){
+    grid.innerHTML=`<div class="ems"><div class="ei">🔍</div><p>Aucun kit ne correspond.</p></div>`;
+    return;
+  }
+
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  grid.innerHTML = filtered.map(k=>{
+    const isMaint = !!k.maintenance;
+    const isAv    = !isMaint && !!k.avenir;
+    const dispo   = (isMaint||isAv)
+      ? {status: isMaint?'maint':'avenir', conflicts:[], upcoming:[]}
+      : getKitDispo(k, today, today);
+    const ds = dispo.status;
+    const canResa = !isMaint && !isAv && ds!=='indispo';
+
+    const cats  = (k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
+    const thumb = k.photo
+      ? `<img src="${k.photo}" alt="${k.nom}">`
+      : `<span class="ei">${k.icon||'📦'}</span>`;
+
+    let hint = '';
+    if(!isMaint&&!isAv&&dispo.conflicts&&dispo.conflicts.length)
+      hint=`<div class="ch vis">📅 Réservé — vérifiez vos dates</div>`;
+    else if(!isMaint&&!isAv&&dispo.upcoming&&dispo.upcoming.length)
+      hint=`<div class="ch vis">📅 Prochaine resa : ${fmt(dispo.upcoming[0].date_debut)}</div>`;
+
+    return `<div class="card${isMaint?' km':''}${isAv?' kav':''}">
+      <div class="ct" style="background:${k.couleur}">
+        ${thumb}
+        <div class="cbs">${cats}</div>
+        <span class="ddot ${dotcls(ds)}" title="${dlabel(ds)}"></span>
+        <div class="sov mov"><div class="sbadge mbadge">🔧 En maintenance</div></div>
+        <div class="sov aov"><div class="sbadge avbadge">🚧 À venir</div></div>
+      </div>
+      <div class="cbody">
+        <div class="cname">${k.nom}</div>
+        <div class="cdesc">${k.description||''}</div>
+        <div class="cmeta">
+          ${k.poids?`<span class="mt">⚖️ ${k.poids}</span>`:''}
+          ${k.taille?`<span class="mt">📐 ${k.taille}</span>`:''}
+          <span class="mt" style="color:${dcolor(ds)}">● ${dlabel(ds)}</span>
+        </div>
+        ${hint}
+        <div class="cfoot">
+          <button class="bdt" onclick="openDetail('${k.id}')">🔍 Détail</button>
+          ${canResa
+            ?`<button class="brs" onclick="openDispo('${k.id}')">📅 Réserver</button>`
+            :`<span class="brs dis${isAv?' avb':''}">${isMaint?'🔧 Maintenance':isAv?'🚧 À venir':'❌ Réservé'}</span>`}
+        </div>
+      </div>
+      <div class="cab">
+        <button class="ce" onclick="openAdmin('${k.id}');event.stopPropagation()">✏️</button>
+        <button class="cd" onclick="delKit('${k.id}');event.stopPropagation()">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DISPO CHECK MODAL
+// ══════════════════════════════════════════════════════════════════
+function openDispo(kitId){
+  dispoKitId = kitId;
+  const k = kits.find(x=>x.id===kitId);
+  document.getElementById('dKitName').textContent = k ? k.nom : '';
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('dDeb').value = today;
+  document.getElementById('dFin').value = today;
+  document.getElementById('dDeb').min = today;
+  document.getElementById('dFin').min = today;
+  document.getElementById('drResult').style.display='none';
+  document.getElementById('dGoBtn').style.display='none';
+  document.getElementById('dov').classList.add('open');
+  chkDispo();
+}
+function closeDispo(){document.getElementById('dov').classList.remove('open');dispoKitId=null;}
+
+function chkDispo(){
+  if(!dispoKitId) return;
+  const k = kits.find(x=>x.id===dispoKitId); if(!k) return;
+  const ds = document.getElementById('dDeb').value;
+  const fs = document.getElementById('dFin').value;
+  if(!ds||!fs) return;
+  const deb=new Date(ds), fin=new Date(fs);
+  document.getElementById('dFin').min=ds;
+  if(fin<deb){document.getElementById('dFin').value=ds; return;}
+
+  const res = getKitDispo(k, deb, fin);
+  const rDiv = document.getElementById('drResult');
+  rDiv.style.display='block';
+
+  if(res.status==='dispo'){
+    rDiv.className='dr ok';
+    document.getElementById('drTitle').innerHTML='✅ Disponible pour cette période';
+    document.getElementById('drSub').innerHTML=`Le kit <strong>${k.nom}</strong> est libre du ${fmt(deb)} au ${fmt(fin)}.`;
+    document.getElementById('simBlock').style.display='none';
+    document.getElementById('dGoBtn').href = cfg.formUrl||DEFAULT_FORM;
+    document.getElementById('dGoBtn').style.display='flex';
+  } else {
+    rDiv.className='dr ko';
+    document.getElementById('drTitle').innerHTML='❌ Indisponible pour cette période';
+    let sub=`Le kit <strong>${k.nom}</strong> est déjà réservé sur tout ou partie de cette période.`;
+    if(res.conflicts.length){
+      sub+=`<br><br>Conflit${res.conflicts.length>1?'s':''} :`;
+      res.conflicts.slice(0,4).forEach(c=>{
+        sub+=`<br>• ${fmt(c.date_debut)} → ${fmt(c.date_fin)}${c.who?' <span style="color:var(--gris)">('+c.who+')</span>':''}`;
+      });
+    }
+    if(res.upcoming.length)
+      sub+=`<br><br>Prochaine disponibilité : après le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
+    document.getElementById('drSub').innerHTML=sub;
+    document.getElementById('dGoBtn').style.display='none';
+    const sims = findSimilar(k, deb, fin);
+    const sb=document.getElementById('simBlock');
+    if(sims.length){
+      sb.style.display='block';
+      document.getElementById('simList').innerHTML=sims.map(sk=>
+        `<span class="sc" onclick="switchDispo('${sk.id}')">${sk.icon||'📦'} ${sk.nom}</span>`
+      ).join('');
+    } else sb.style.display='none';
+  }
+}
+
+function findSimilar(k, deb, fin){
+  // Kits du même type de base (même nom sans le numéro final) disponibles sur la période
+  const base = k.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
+  return kits.filter(x=>{
+    if(x.id===k.id || x.maintenance || x.avenir) return false;
+    const xbase = x.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
+    return xbase===base && getKitDispo(x,deb,fin).status==='dispo';
+  }).slice(0,4);
+}
+
+function switchDispo(kitId){
+  closeDispo();
+  setTimeout(()=>openDispo(kitId), 120);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DETAIL MODAL
+// ══════════════════════════════════════════════════════════════════
+function openDetail(id){
+  const k = kits.find(x=>x.id===id); if(!k) return;
+  const isMaint=!!k.maintenance, isAv=!isMaint&&!!k.avenir;
+  const dispo = (isMaint||isAv)
+    ? {status:isMaint?'maint':'avenir',conflicts:[],upcoming:[],all:[]}
+    : getKitDispo(k);
+
+  const th = document.getElementById('mThumb');
+  th.style.background = k.couleur;
+  th.style.filter = isMaint?'grayscale(.5)':isAv?'saturate(.3)':'';
+  th.innerHTML = k.photo
+    ? `<img src="${k.photo}" alt="${k.nom}">`
+    : `<span style="font-size:65px;position:relative;z-index:1">${k.icon||'📦'}</span>`;
+
+  document.getElementById('mCats').innerHTML = (k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
+  document.getElementById('mTitle').textContent = k.nom;
+  document.getElementById('mDesc').textContent  = k.description || '—';
+  document.getElementById('mContenu').innerHTML = (k.contenu||[]).map(c=>`<li>${c}</li>`).join('');
+  document.getElementById('mSpecs').innerHTML = `
+    <div class="sp"><label>Poids</label><strong>${k.poids||'—'}</strong></div>
+    <div class="sp"><label>Taille</label><strong>${k.taille||'—'}</strong></div>
+    <div class="sp"><label>Disponibilité</label><strong style="color:${dcolor(dispo.status)}">${dlabel(dispo.status)}</strong></div>
+    <div class="sp"><label>Catégories</label><strong style="font-size:11px">${(k.cats||[]).join(', ')||'—'}</strong></div>`;
+  document.getElementById('mInter').innerHTML = (k.cats||[]).length
+    ? k.cats.map(c=>`<span class="ic">${c}</span>`).join('')
+    : `<span style="color:#999;font-size:11px">Non renseigné</span>`;
+
+  // Bannière maintenance / à venir
+  const ban = document.getElementById('mStBan');
+  ban.className = 'stban'+(isMaint?' sm':isAv?' sav':'');
+  ban.style.display = (isMaint||isAv)?'flex':'none';
+  ban.textContent   = isMaint?(k.maintenanceMsg||'Ce kit est temporairement en maintenance.')
+                    : isAv   ?(k.avenirMsg    ||'Ce kit est en cours de constitution.'):'';
+
+  // Planning des réservations
+  const all = (dispo.all||[]).sort((a,b)=>a.date_debut-b.date_debut);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const rs=document.getElementById('mResaSec'), rl=document.getElementById('mResaList');
+  if(all.length){
+    rs.style.display='';
+    rl.innerHTML = all.map(r=>{
+      const cur = r.date_debut<=today && r.date_fin>=today;
+      return `<div class="ri${cur?' cur':''}">
+        <span class="rdot"></span>
+        <div>
+          <div class="rdat">${fmt(r.date_debut)} → ${fmt(r.date_fin)}</div>
+          ${r.who?`<div class="rwho">${r.who}${r.struct?' · '+r.struct:''}</div>`:''}
+        </div>
+        ${cur?`<span class="rbadge">En cours</span>`:''}
+      </div>`;
+    }).join('');
+  } else {
+    rs.style.display = reservations.length ? '' : 'none';
+    rl.innerHTML = '<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';
+  }
+
+  // Bouton réserver
+  const btn = document.getElementById('mResaBtn');
+  const canResa = !isMaint && !isAv && dispo.status!=='indispo';
+  if(canResa){
+    btn.removeAttribute('href'); btn.removeAttribute('aria-disabled');
+    btn.className='brs btn';
+    btn.textContent='📅 Vérifier & réserver';
+    btn.onclick=()=>{closeDetail();setTimeout(()=>openDispo(k.id),120);};
+  } else {
+    btn.onclick=null; btn.removeAttribute('href');
+    btn.setAttribute('aria-disabled','true');
+    btn.className='brs btn dis'+(isAv?' avb':'');
+    btn.textContent = isMaint?'🔧 En maintenance':isAv?'🚧 À venir':'❌ Réservé actuellement';
+  }
+
+  document.getElementById('detov').classList.add('open');
+}
+function closeDetail(){document.getElementById('detov').classList.remove('open');}
+
+// ══════════════════════════════════════════════════════════════════
+// AUTH
+// ══════════════════════════════════════════════════════════════════
+function reqAdmin(){
+  if(document.body.classList.contains('adm')){exitAdmin();return;}
+  document.getElementById('authIn').value='';
+  document.getElementById('authErr').style.display='none';
+  document.getElementById('authOv').classList.add('open');
+  setTimeout(()=>document.getElementById('authIn').focus(),100);
+}
+function closeAuth(){document.getElementById('authOv').classList.remove('open');}
+function chkAuth(){
+  if(document.getElementById('authIn').value===cfg.pwd){closeAuth();enterAdmin();}
+  else{document.getElementById('authErr').style.display='block';document.getElementById('authIn').value='';}
+}
+function enterAdmin(){
+  document.body.classList.add('adm');
+  document.getElementById('adminBtn').textContent='🔒 Quitter';
+  document.getElementById('addBtn').style.display='';
+  document.getElementById('syncA').innerHTML=`<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>`;
+}
+function exitAdmin(){
+  document.body.classList.remove('adm');
+  document.getElementById('adminBtn').textContent='⚙️ Admin';
+  document.getElementById('addBtn').style.display='none';
+  document.getElementById('syncA').innerHTML='';
+}
+function resetPwd(){
+  const e=cfg.adminEmail;
+  if(!e){alert('Aucun email configuré dans Paramètres.');return;}
+  const tok=btoa(Date.now()+Math.random());
+  const link=location.href.split('?')[0]+'?rt='+encodeURIComponent(tok);
+  // reset token: 
+  alert(`Lien de réinitialisation :\n${link}\n\n(En production : envoyé à ${e})`);
+}
+function chkResetToken(){
+  const tok=new URLSearchParams(location.search).get('rt');
+  if(!tok) return;
+  if(false){ // reset token désactivé sans localStorage
+    const np=prompt('Nouveau mot de passe admin :');
+    if(np&&np.length>=4){cfg.pwd=np;saveCfg();alert('Mot de passe modifié !');history.replaceState({},'',location.pathname);}
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// LOGO
+// ══════════════════════════════════════════════════════════════════
+function applyLogo(){
+  const img=document.getElementById('logoImg'), badge=document.getElementById('logoBadge');
+  if(cfg.logo){img.src=cfg.logo;img.style.display='block';badge.style.display='none';}
+  else{img.style.display='none';badge.style.display='flex';}
+}
+function openLogoUpload(){
+  document.getElementById('logoIn').value='';
+  document.getElementById('logoPrev').style.display='none';
+  document.getElementById('logoPrompt').style.display='block';
+  document.getElementById('logoOv').classList.add('open');
+}
+function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
+function prevLogo(i){
+  const f=i.files[0]; if(!f) return;
+  if(f.size>1024*1024){alert('Max 1 Mo.');return;}
+  const r=new FileReader();
+  r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};
+  r.readAsDataURL(f);
+}
+async function saveLogo(){
+  const p=document.getElementById('logoPrev');
+  if(p.style.display!=='none'&&p.src){
+    cfg.logo=p.src;
+    applyLogo();
+    // Si c'est une URL (pas base64), sauvegarde dans Sheets
+    if(!p.src.startsWith('data:')){
+      await saveSettingsToSheet({logo_url: p.src});
+    } else {
+      // Base64 : trop grand pour Sheets, on informe l'utilisateur
+      alert('⚠️ Pour que le logo reste pour tous les utilisateurs, hébergez-le sur Google Drive et collez l\'URL publique ici au lieu d\'uploader un fichier local.');
+    }
+  }
+  closeLogoUpload();
+}
+async function rmLogo(){
+  cfg.logo=null;applyLogo();
+  await saveSettingsToSheet({logo_url:''});
+  closeLogoUpload();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// ADMIN KIT — connecté Apps Script
+// ══════════════════════════════════════════════════════════════════
+const EMOJIS={
+  'Santé':['🩺','🚑','🏥','💊','🩹','🫀','🧬','💉','🧯','♥️'],
+  'Formation':['📚','📋','📝','✏️','🎓','📊','💡','📌','🗂️','📖'],
+  'Tech':['💻','📱','🖥️','📡','🎥','🎤','🔌','🥽','🎒'],
+  'Prévention':['⚗️','⚠️','🚧','🔥','⚡','🦺','🧤','👷','🚗'],
+  'Bien-être':['🧠','😴','🥗','💪','🚴','❤️','🎀','👨‍⚕️','🌸'],
+  'Divers':['📦','📣','🏆','⭐','🎯','🔧','🔑','♿','🚙','🏪','🎡','🦴']
+};
+function buildEP(cur){
+  const div=document.getElementById('epGrid');div.innerHTML='';
+  Object.entries(EMOJIS).forEach(([g,es])=>{
+    const lbl=document.createElement('div');lbl.className='epgrp';lbl.textContent=g;div.appendChild(lbl);
+    es.forEach(e=>{
+      const b=document.createElement('button');b.type='button';b.className='epb'+(e===cur?' sel':'');b.textContent=e;
+      b.onclick=()=>{document.getElementById('f-icon').value=e;div.querySelectorAll('.epb').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');};
+      div.appendChild(b);
+    });
+  });
+}
+
+function openAdmin(id){
+  editingId=id; curPhoto=null;
+  const k = id ? kits.find(x=>x.id===id) : null;
+  const hasGAS = !!(cfg.gasUrl||'').trim();
+  document.getElementById('adminTitle').textContent = id ? '✏️ Modifier le kit' : '➕ Nouveau kit';
+  const ind=document.getElementById('gasIndicator');
+  ind.style.display='block';
+  if(hasGAS){
+    ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#f0fdf4;color:#166534;border:1.5px solid #86efac';
+    ind.textContent='⚡ Apps Script configuré — modifications écrites dans Google Sheets';
+    document.getElementById('saveGasBtn').style.display='inline-flex';
+    document.getElementById('saveLocalBtn').style.display='none';
+  } else {
+    ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#fef9c3;color:#713f12;border:1.5px solid #fde68a';
+    ind.textContent='⚠️ Apps Script non configuré — sauvegarde locale uniquement. Configurez l\'URL dans Paramètres.';
+    document.getElementById('saveGasBtn').style.display='none';
+    document.getElementById('saveLocalBtn').style.display='inline-flex';
+  }
+  document.getElementById('f-id').value       = k?.kit_id||'';
+  document.getElementById('f-nom').value      = k?.nom||'';
+  document.getElementById('f-nomform').value  = k?.nom_form||k?.nom||'';
+  document.getElementById('f-icon').value     = k?.icon||'📦';
+  document.getElementById('f-desc').value     = k?.description||'';
+  document.getElementById('f-contenu').value  = (k?.contenu||[]).join('\n');
+  document.getElementById('f-taille').value   = k?.taille||'';
+  document.getElementById('f-poids').value    = k?.poids||'';
+  document.getElementById('f-col').value      = k?.couleur||'#F2EDF0';
+  document.getElementById('f-cats').value     = (k?.cats||[]).join(', ');
+  document.getElementById('f-maint').checked      = !!k?.maintenance;
+  document.getElementById('f-maint-msg').value    = k?.maintenanceMsg||'';
+  document.getElementById('f-av').checked         = !!k?.avenir;
+  document.getElementById('f-av-msg').value        = k?.avenirMsg||'';
+  document.getElementById('f-actif').value         = 'OUI';
+  const pv=document.getElementById('photoPrev'),pp=document.getElementById('photoPrompt'),rb=document.getElementById('rmPhBtn');
+  if(k?.photo){pv.src=k.photo;pv.style.display='block';pp.style.display='none';rb.style.display='inline-block';curPhoto=k.photo;}
+  else{pv.style.display='none';pv.src='';pp.style.display='block';rb.style.display='none';}
+  document.getElementById('f-photo').value='';
+  buildEP(k?.icon||'📦');
+  togF('m');togF('a');
+  document.getElementById('adminOv').classList.add('open');
+}
+function closeAdmin(){document.getElementById('adminOv').classList.remove('open');editingId=null;}
+function togF(w){
+  if(w==='m'){document.getElementById('mw').style.display=document.getElementById('f-maint').checked?'block':'none';if(document.getElementById('f-maint').checked){document.getElementById('f-av').checked=false;document.getElementById('aw').style.display='none';}}
+  if(w==='a'){document.getElementById('aw').style.display=document.getElementById('f-av').checked?'block':'none';if(document.getElementById('f-av').checked){document.getElementById('f-maint').checked=false;document.getElementById('mw').style.display='none';}}
+}
+function prevPhoto(i){const f=i.files[0];if(!f)return;if(f.size>2*1024*1024){alert('Max 2 Mo.');i.value='';return;}const r=new FileReader();r.onload=e=>{curPhoto=e.target.result;const p=document.getElementById('photoPrev');p.src=curPhoto;p.style.display='block';document.getElementById('photoPrompt').style.display='none';document.getElementById('rmPhBtn').style.display='inline-block';};r.readAsDataURL(f);}
+function rmPhoto(e){e.preventDefault();e.stopPropagation();curPhoto=null;document.getElementById('f-photo').value='';document.getElementById('photoPrev').style.display='none';document.getElementById('photoPrev').src='';document.getElementById('photoPrompt').style.display='block';document.getElementById('rmPhBtn').style.display='none';}
+
+function collectKitForm(){
+  const nom=document.getElementById('f-nom').value.trim();
+  if(!nom){alert('Le nom du kit est obligatoire.');return null;}
+  let kid=document.getElementById('f-id').value.trim();
+  if(!kid){kid='KIT_'+nom.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z0-9]+/g,'_').replace(/^_|_$/g,'');document.getElementById('f-id').value=kid;}
+  return{kit_id:kid,nom_kit:nom,nom_formulaire:document.getElementById('f-nomform').value.trim()||nom,description:document.getElementById('f-desc').value.trim(),contenu:document.getElementById('f-contenu').value.split('\n').map(l=>l.trim()).filter(Boolean).join(', '),taille:document.getElementById('f-taille').value.trim(),poids:document.getElementById('f-poids').value.trim(),icone:document.getElementById('f-icon').value.trim()||'📦',couleur:document.getElementById('f-col').value,categories:document.getElementById('f-cats').value.trim(),maintenance:document.getElementById('f-maint').checked?'OUI':'NON',maintenance_msg:document.getElementById('f-maint-msg').value.trim(),avenir:document.getElementById('f-av').checked?'OUI':'NON',avenir_msg:document.getElementById('f-av-msg').value.trim(),actif:document.getElementById('f-actif').value};
+}
+
+function saveKitLocal(){
+  const data=collectKitForm();if(!data)return;
+  const id=data.kit_id;
+  const ov={nom:data.nom_kit,icon:data.icone,photo:curPhoto,description:data.description,contenu:data.contenu.split(',').map(s=>s.trim()).filter(Boolean),taille:data.taille,poids:data.poids,couleur:data.couleur,cats:data.categories.split(',').map(s=>s.trim()).filter(Boolean),maintenance:data.maintenance==='OUI',maintenanceMsg:data.maintenance_msg,avenir:data.avenir==='OUI',avenirMsg:data.avenir_msg};
+  kitOverrides[id]=ov; // surcharges locales temporaires uniquement
+  if(!editingId){kits.push({...ov,id,kit_id:id,nom_form:data.nom_formulaire,nom:data.nom_kit});}
+  else{const idx=kits.findIndex(x=>x.id===id);if(idx>=0)kits[idx]={...kits[idx],...ov};}
+  closeAdmin();renderGrid();
+  alert('✅ Sauvegardé localement.\n⚠️ Ces données seront perdues à la prochaine actualisation depuis Sheets.\nConfigurez Apps Script pour une sauvegarde permanente.');
+}
+
+async function saveKitGAS(){
+  const data=collectKitForm();if(!data)return;
+  const gasUrl=cfg.gasUrl||'';if(!gasUrl){alert('URL Apps Script non configurée.');return;}
+  const btn=document.getElementById('saveGasBtn');
+  btn.textContent='⏳ Enregistrement…';btn.disabled=true;
+  try{
+    const action=editingId?'updateKit':'addKit';
+    const resp=await fetch(gasUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})});
+    let result;try{result=await resp.json();}catch{result={success:true};}
+    if(result.success===false)throw new Error(result.error||'Erreur Apps Script');
+    btn.textContent='✅ Enregistré !';
+    setTimeout(()=>{closeAdmin();doRefresh();},800);
+  }catch(e){
+    btn.textContent='❌ Erreur';
+    alert('Erreur : '+e.message+'\n\nVérifiez que votre Web App Apps Script est déployée et accessible.');
+    btn.disabled=false;btn.textContent='⚡ Enregistrer dans Sheets';
+  }
+}
+
+async function delKit(id){
+  const k=kits.find(x=>x.id===id);
+  const hasGAS=!!(cfg.gasUrl||'').trim();
+  if(hasGAS){
+    if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\nAction irréversible.'))return;
+    try{
+      const resp=await fetch(cfg.gasUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});
+      let result;try{result=await resp.json();}catch{result={success:true};}
+      if(result.success===false)throw new Error(result.error||'Erreur');
+      doRefresh();
+    }catch(e){alert('Erreur suppression : '+e.message);}
+  } else {
+    if(!confirm('Supprimer "'+k?.nom+'" localement ?'))return;
+    delete kitOverrides[id];
+    kits=kits.filter(x=>x.id!==id);renderGrid();
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════════
+// SETTINGS
+// ══════════════════════════════════════════════════════════════════
+function openSettings(){
+  document.getElementById('s-form').value  = cfg.formUrl||'';
+  document.getElementById('s-email').value = cfg.adminEmail||'';
+  document.getElementById('s-kits').value  = cfg.urlKits||'';
+  document.getElementById('s-resa').value  = cfg.urlResa||'';
+  document.getElementById('s-gas').value   = cfg.gasUrl||'';
+  document.getElementById('s-p1').value='';
+  document.getElementById('s-p2').value='';
+  document.getElementById('pwd-msg').textContent='';
+  renderCatsList();
+  document.getElementById('settingsOv').classList.add('open');
+}
+function closeSettings(){document.getElementById('settingsOv').classList.remove('open');}
+async function saveSettings(){
+  const gasUrlInput = document.getElementById('s-gas').value.trim();
+  cfg.gasUrl = gasUrlInput||cfg.gasUrl;
+  // ⚠️ Si l'URL GAS change, il faut aussi mettre à jour GAS_URL dans le fichier HTML
+  // et re-uploader sur GitHub pour que ça fonctionne sur tous les appareils
+  cfg.formUrl    = document.getElementById('s-form').value.trim()||DEFAULT_FORM;
+  cfg.adminEmail = document.getElementById('s-email').value.trim();
+  cfg.urlKits    = document.getElementById('s-kits').value.trim()||DEFAULT_URL_KITS;
+  cfg.urlResa    = document.getElementById('s-resa').value.trim()||DEFAULT_URL_RESA;
+
+  const btn = document.querySelector('#settingsOv .bs');
+  if(btn){ btn.textContent='⏳ Enregistrement…'; btn.disabled=true; }
+
+  // Sauvegarde dans l'onglet PARAMETRES si Apps Script configuré
+  const saved = await saveSettingsToSheet({
+    form_url:        cfg.formUrl,
+    admin_email:     cfg.adminEmail,
+    apps_script_url: cfg.gasUrl,
+    url_kits:        cfg.urlKits,
+    url_resa:        cfg.urlResa
+  });
+
+  if(btn){ btn.textContent='💾 Enregistrer'; btn.disabled=false; }
+  if(saved){
+    document.getElementById('meResaLink').href=cfg.formUrl;
+    closeSettings();
+    doRefresh();
+  } else {
+    alert('Paramètres sauvegardés localement uniquement.\nVérifiez l\'URL Apps Script.');
+    document.getElementById('meResaLink').href=cfg.formUrl;
+    closeSettings();
+    doRefresh();
+  }
+}
+function chgPwd(){
+  const p1=document.getElementById('s-p1').value,p2=document.getElementById('s-p2').value,m=document.getElementById('pwd-msg');
+  if(p1.length<4){m.style.color='#ef4444';m.textContent='Min 4 caractères.';return;}
+  if(p1!==p2){m.style.color='#ef4444';m.textContent='Mots de passe différents.';return;}
+  cfg.pwd=p1;saveSettingsToSheet({pwd:p1});m.style.color='#22c55e';m.textContent='Modifié !';
+  document.getElementById('s-p1').value='';document.getElementById('s-p2').value='';
+}
+function renderCatsList(){
+  // Affiche les cats des kits chargés (non éditables ici — viennent du Sheet)
+  const all=new Set();kits.forEach(k=>(k.cats||[]).forEach(c=>all.add(c)));
+  document.getElementById('catsList').innerHTML=[...all].map(c=>`
+    <div style="display:flex;align-items:center;gap:6px;background:var(--fp);padding:5px 9px;border-radius:6px;font-size:12px">
+      <span style="flex:1">${c}</span>
+      <span style="font-size:10px;color:var(--gris)">(depuis Sheets)</span>
+    </div>`).join('')||'<p style="font-size:11px;color:var(--gris)">Chargez les kits pour voir les catégories.</p>';
+}
+function addCat(){}// Les cats viennent du Sheet — info seulement
+
+// ══════════════════════════════════════════════════════════════════
+// MODE EMPLOI
+// ══════════════════════════════════════════════════════════════════
+function renderMeContent(){document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;}
+function openMeEd(){document.getElementById('meTA').value=cfg.meContent||DEFAULT_ME;document.getElementById('meOv').classList.add('open');}
+function closeMeEd(){document.getElementById('meOv').classList.remove('open');}
+async function saveMeContent(){
+  cfg.meContent=document.getElementById('meTA').value;
+  renderMeContent();closeMeEd();
+  await saveSettingsToSheet({mode_emploi: cfg.meContent});
+}
+
+// ══════════════════════════════════════════════════════════════════
+// NAV
+// ══════════════════════════════════════════════════════════════════
+function switchTab(t){
+  document.getElementById('pcat').style.display=t==='cat'?'':'none';
+  document.getElementById('pme').style.display=t==='me'?'':'none';
+  document.getElementById('tab-cat').classList.toggle('act',t==='cat');
+  document.getElementById('tab-me').classList.toggle('act',t==='me');
+}
+function setFilter(v,el){
+  filterActive=v;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  renderGrid();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════════
+loadCfg();
+chkResetToken();
+// Lance le chargement : d'abord les settings depuis Sheets, puis les données
+(async function(){
+  await loadSettingsFromSheet();  // charge form_url, logo, mode emploi, pwd depuis PARAMETRES
+  applyLogo();
+  renderMeContent();
+  document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
+  await initApp();
+})();
+// Rafraîchit les réservations toutes les 5 minutes (sans recharger les kits)
+setInterval(()=>{ loadReservations().then(()=>renderGrid()); }, 5*60*1000);
+</script>
+</body>
+</html>
