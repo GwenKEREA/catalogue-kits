@@ -58,7 +58,6 @@ body.adm .ab{display:flex;}
 .stb span{font-size:12px;color:var(--gris);}
 .stb strong{color:var(--bx);}
 .grid{max-width:1200px;margin:12px auto 60px;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;}
-/* CARDS */
 .card{background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 2px 9px rgba(78,24,45,.07);transition:transform .18s,box-shadow .18s;position:relative;}
 .card:not(.km):not(.kav):hover{transform:translateY(-3px);box-shadow:0 7px 20px rgba(78,24,45,.12);}
 .card.km{opacity:.74;}
@@ -97,7 +96,6 @@ body.adm .cab{display:flex;}
 .ce,.cd{width:24px;height:24px;border-radius:5px;border:none;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;}
 .ce{background:var(--fb);color:var(--bx);}
 .cd{background:#fee2e2;color:#ef4444;}
-/* LOADING */
 .lstate{grid-column:1/-1;text-align:center;padding:55px 20px;}
 .lsp{width:38px;height:38px;border:3px solid var(--gc);border-top-color:var(--rv);border-radius:50%;animation:sp .75s linear infinite;margin:0 auto 12px;}
 @keyframes sp{to{transform:rotate(360deg)}}
@@ -106,14 +104,12 @@ body.adm .cab{display:flex;}
 .estate .ei{font-size:36px;margin-bottom:9px;}
 .estate h3{font-size:15px;color:var(--bx);margin-bottom:5px;}
 .estate p{font-size:12px;color:var(--gris);margin-bottom:12px;line-height:1.5;}
-/* OVERLAYS */
 .ov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.52);z-index:200;backdrop-filter:blur(5px);}
 .ov.open{display:flex;align-items:center;justify-content:center;padding:20px;animation:fi .18s;}
 @keyframes fi{from{opacity:0}to{opacity:1}}
 .modal{background:#fff;border-radius:16px;width:100%;max-height:92vh;overflow-y:auto;animation:sl .2s ease;position:relative;}
 @keyframes sl{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
 .mc{position:absolute;top:11px;right:11px;background:rgba(255,255,255,.9);border:none;width:29px;height:29px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--bx);z-index:5;}
-/* DISPO MODAL */
 #dov .modal{max-width:440px;}
 .db{padding:24px;}
 .db h3{font-size:16px;font-weight:700;color:var(--bx);margin-bottom:5px;}
@@ -135,7 +131,6 @@ body.adm .cab{display:flex;}
 .sc{padding:3px 9px;background:var(--fp);border-radius:14px;font-size:11px;color:var(--bx);font-weight:500;cursor:pointer;border:1.5px solid var(--gc);transition:all .14s;}
 .sc:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
 .dfoot{display:flex;gap:8px;}
-/* DETAIL MODAL */
 #detov .modal{max-width:600px;}
 .mth{height:155px;display:flex;align-items:center;justify-content:center;font-size:65px;border-radius:16px 16px 0 0;overflow:hidden;position:relative;}
 .mth img{width:100%;height:100%;object-fit:cover;}
@@ -168,7 +163,6 @@ body.adm .cab{display:flex;}
 .rbadge{font-size:9px;background:#f59e0b;color:#fff;padding:1px 5px;border-radius:5px;font-weight:700;margin-left:auto;white-space:nowrap;}
 .mft{padding:0 20px 16px;display:flex;gap:7px;}
 .mft .brs{flex:1;justify-content:center;padding:10px;font-size:13px;border-radius:8px;}
-/* MODE EMPLOI */
 #pme{display:none;max-width:780px;margin:24px auto 80px;padding:0 32px;}
 .gcard{background:#fff;border-radius:13px;padding:22px;box-shadow:0 2px 9px rgba(78,24,45,.07);margin-bottom:13px;}
 .gcard h2{font-size:17px;color:var(--bx);margin-bottom:13px;display:flex;align-items:center;gap:8px;}
@@ -183,7 +177,6 @@ body.adm .meb{display:inline-flex;}
 .dli{display:flex;align-items:center;gap:8px;font-size:12px;color:#444;}
 .ldot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .abox{background:var(--fb);border-left:4px solid var(--rose);border-radius:0 8px 8px 0;padding:9px 13px;margin-top:10px;font-size:12px;color:var(--bx);line-height:1.5;}
-/* AUTH */
 .auth-m{background:#fff;border-radius:16px;max-width:360px;width:100%;padding:28px;text-align:center;animation:sl .2s ease;}
 .auth-m h3{font-size:17px;color:var(--bx);margin-bottom:4px;}
 .auth-m p{font-size:12px;color:var(--gris);margin-bottom:18px;}
@@ -191,7 +184,6 @@ body.adm .meb{display:inline-flex;}
 .ain:focus{border-color:var(--rose);}
 .aerr{color:#ef4444;font-size:11px;margin-bottom:8px;display:none;}
 .alink{font-size:11px;color:var(--gris);margin-top:8px;cursor:pointer;text-decoration:underline;}
-/* ADMIN PANEL */
 .aov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:300;backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;}
 .aov.open{display:flex;}
 .am{background:#fff;border-radius:16px;max-width:660px;width:100%;max-height:92vh;overflow-y:auto;animation:sl .2s ease;}
@@ -291,7 +283,6 @@ footer strong{color:#fff;}
   <button class="tb" onclick="switchTab('me')" id="tab-me">📋 Mode d'emploi</button>
 </div>
 
-<!-- CATALOGUE -->
 <div id="pcat">
   <div class="ctl">
     <div class="sw">
@@ -307,13 +298,13 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- MODE EMPLOI -->
 <div id="pme">
   <div class="gcard">
     <h2>📋 Mode d'emploi des réservations</h2>
     <div class="mec" id="meContent"></div>
     <button class="btn btn-p meb" onclick="openMeEd()">✏️ Modifier</button>
   </div>
+
   <div class="gcard">
     <h2>📊 Légende</h2>
     <div class="dleg">
@@ -322,11 +313,10 @@ footer strong{color:#fff;}
       <div class="dli"><span class="ldot" style="background:#9ca3af"></span>En maintenance — non réservable</div>
       <div class="dli"><span class="ldot" style="background:#a855f7"></span>À venir — en cours de constitution</div>
     </div>
-    <div class="abox">⚠️ <strong>Important :</strong> Vérifiez que vous êtes dans la liste des intervenants autorisés.
+    <div class="abox">⚠️ <strong>Important :</strong> Vérifiez que vous êtes dans la liste des intervenants autorisés. Doute : <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87e1e8f5eae6f3eee8e9c7ece2f5e2e6a9e2f2">[email&#160;protected]</a></strong></div>
   </div>
- 
+</div>
 
-<!-- DISPO MODAL -->
 <div class="ov" id="dov" onclick="if(event.target===this)closeDispo()">
   <div class="modal">
     <button class="mc" onclick="closeDispo()">✕</button>
@@ -353,7 +343,6 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- DETAIL MODAL -->
 <div class="ov" id="detov" onclick="if(event.target===this)closeDetail()">
   <div class="modal">
     <button class="mc" onclick="closeDetail()">✕</button>
@@ -372,7 +361,6 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- AUTH -->
 <div class="ov" id="authOv" onclick="if(event.target===this)closeAuth()">
   <div class="auth-m">
     <div style="font-size:32px;margin-bottom:8px">🔐</div>
@@ -385,7 +373,6 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- LOGO UPLOAD -->
 <div class="ov" id="logoOv" onclick="if(event.target===this)closeLogoUpload()">
   <div class="modal" style="max-width:380px">
     <button class="mc" onclick="closeLogoUpload()">✕</button>
@@ -405,12 +392,10 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- ADMIN KIT PANEL — connecté Apps Script -->
 <div class="aov" id="adminOv" onclick="if(event.target===this)closeAdmin()">
   <div class="am">
     <div class="amh"><h3 id="adminTitle">➕ Nouveau kit</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeAdmin()">✕</button></div>
     <div class="abody">
-      <!-- INDICATEUR MODE -->
       <div id="gasIndicator" style="font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;display:none"></div>
       <div class="fr2">
         <div class="fg"><label>kit_id * (identifiant unique)</label><input type="text" id="f-id" placeholder="Ex: KIT_MON_KIT_1"><small>Majuscules, underscores, pas d'espaces</small></div>
@@ -460,13 +445,13 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- SETTINGS -->
 <div class="aov" id="settingsOv" onclick="if(event.target===this)closeSettings()">
   <div class="am">
     <div class="amh"><h3>⚙️ Paramètres</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeSettings()">✕</button></div>
     <div class="abody">
       <div class="fg"><label>Lien du formulaire de réservation</label><input type="text" id="s-form" placeholder="https://forms.gle/..."></div>
       <div class="fg"><label>Email admin</label><input type="email" id="s-email" placeholder="votre@email.fr"></div>
+
       <div class="secs">
         <h4>🔐 Mot de passe admin</h4>
         <div class="fr2">
@@ -476,6 +461,7 @@ footer strong{color:#fff;}
         <div id="pwd-msg" style="font-size:11px;margin-top:-7px;margin-bottom:8px"></div>
         <button class="btn btn-p" onclick="chgPwd()" style="padding:6px 12px;font-size:11px">Changer</button>
       </div>
+
       <div class="secs">
         <h4>👥 Intervenants autorisés (filtre)</h4>
         <div id="catsList" style="display:flex;flex-direction:column;gap:5px;margin-bottom:8px"></div>
@@ -484,10 +470,10 @@ footer strong{color:#fff;}
           <button class="btn btn-p" onclick="addCat()" style="padding:6px 10px;font-size:11px">+ Ajouter</button>
         </div>
       </div>
+
       <div class="secs">
         <h4>⚡ Apps Script Web App (admin avancé)</h4>
-        <div class="fg"><label>URL de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"><small>Permet d'écrire dans l'onglet KITS depuis ce site. Voir instructions dans Admin → Gérer les kits.</small></div>
-      </div>
+        <div class="fg"><label>URL de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"><small>Permet d'écrire dans l'onglet KITS depuis ce site.</small></div>
         <div class="fg"><label>Onglet KITS</label><input type="text" id="s-kits"><small>Fichier → Partager → Publier sur le web → KITS → CSV → copier l'URL</small></div>
         <div class="fg"><label>Onglet RESERVATIONS</label><input type="text" id="s-resa"><small>Même procédure pour l'onglet RESERVATIONS</small></div>
       </div>
@@ -496,7 +482,6 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- ME EDITOR -->
 <div class="meov" id="meOv" onclick="if(event.target===this)closeMeEd()">
   <div class="am" style="max-width:700px">
     <div class="memh"><h3>✏️ Mode d'emploi</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeMeEd()">✕</button></div>
@@ -507,24 +492,17 @@ footer strong{color:#fff;}
 
 <footer><strong>KEREA</strong> — 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="22444d504f43564b4d4c6249475047430c4757">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══════════════════════════════════════════════════════════════════
-// CONFIGURATION
-// ══════════════════════════════════════════════════════════════════
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
 const BASE = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
 const DEFAULT_URL_KITS   = BASE + "&gid=1506266286";
 const DEFAULT_URL_RESA   = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=2030429958&single=true&output=csv`;
 const DEFAULT_URL_PARAMS = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=1711789336&single=true&output=csv`;
-const DEFAULT_FORM     = "VOTRE_LIEN_FORMULAIRE_ICI";
-const DEFAULT_PWD      = "kerea2025";
-
-// ══════════════════════════════════════════════════════════════
-// ⚠️ COLLE ICI L'URL DE TON WEB APP APPS SCRIPT APRÈS DÉPLOIEMENT
-// Hardcodée ici → fonctionne sur TOUS les appareils sans localStorage
-// Après avoir modifié cette ligne, re-upload index.html sur GitHub
-// ══════════════════════════════════════════════════════════════
+const DEFAULT_FORM = "VOTRE_LIEN_FORMULAIRE_ICI";
+const DEFAULT_PWD  = "kerea2025";
 const GAS_URL = "https://script.google.com/macros/s/AKfycbzLxqVYwsElZF1BIcNmObXzCc6dE_3DiDB51-piuFl6sQXfuJD6hgMPEPwvkrQXlnY/exec";
+
 const DEFAULT_ME = `<h3>Comment réserver un kit ?</h3>
 <p>Une procédure de réservation est disponible pour les collaborateurs EFFICIENCE et KEREA sur les espaces documentaires respectifs.</p>
 <h3>Étapes</h3>
@@ -547,33 +525,27 @@ const DEFAULT_ME = `<h3>Comment réserver un kit ?</h3>
 </ul>
 <p><strong>Le formateur/intervenant restituant le kit est responsable de son état.</strong></p>`;
 
-// Pas de localStorage — tout est stocké dans Google Sheets (onglet PARAMETRES)
-
-// ══════════════════════════════════════════════════════════════════
-// STATE
-// ══════════════════════════════════════════════════════════════════
-let cfg, kits=[], reservations=[], kitOverrides={}, // surcharges admin locales
-    filterActive='tous', editingId=null, curPhoto=null, dispoKitId=null;
+let cfg, kits=[], reservations=[], kitOverrides={}, filterActive='tous', editingId=null, curPhoto=null, dispoKitId=null;
 
 function loadCfg(){
   cfg = {
-    pwd:DEFAULT_PWD, formUrl:DEFAULT_FORM, adminEmail:'',
-    meContent:DEFAULT_ME, logo:null,
-    urlKits:DEFAULT_URL_KITS, urlResa:DEFAULT_URL_RESA,
-    gasUrl:GAS_URL  // hardcodé dans le fichier HTML — fonctionne sur tous les appareils
+    pwd:DEFAULT_PWD,
+    formUrl:DEFAULT_FORM,
+    adminEmail:'',
+    meContent:DEFAULT_ME,
+    logo:null,
+    urlKits:DEFAULT_URL_KITS,
+    urlResa:DEFAULT_URL_RESA,
+    gasUrl:GAS_URL
   };
   kitOverrides = {};
 }
 
-// Charge les paramètres depuis l'onglet PARAMETRES publié en CSV
 async function loadSettingsFromSheet(){
   try{
     const resp = await fetch(DEFAULT_URL_PARAMS, {cache:'no-store'});
     if(!resp.ok) return;
     const txt = await resp.text();
-
-    // Parser CSV spécial pour PARAMETRES (2 colonnes : cle, valeur)
-    // Gère les guillemets doubles "" dans les champs entre guillemets
     const map = {};
     const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n');
     let headers = null;
@@ -583,34 +555,27 @@ async function loadSettingsFromSheet(){
       const cols = parseCSVLine_(line);
       if(!headers){ headers=cols; continue; }
       const k = (cols[0]||'').trim();
-      // La valeur peut être entre guillemets — parseCSVLine_ les enlève déjà
-      // Les "" dans le CSV représentent un " dans la valeur réelle
       let v = (cols[1]||'').trim();
       if(k) map[k] = v;
     }
-
     if(map['form_url'])    cfg.formUrl    = map['form_url'];
     if(map['admin_email']) cfg.adminEmail = map['admin_email'];
-       if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
+    if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
     if(map['pwd_hash']||map['pwd']) cfg.pwd = map['pwd_hash']||map['pwd'];
     if(map['url_kits'])    cfg.urlKits    = map['url_kits'];
     if(map['url_resa'])    cfg.urlResa    = map['url_resa'];
-
     console.log('Paramètres chargés:', Object.keys(map));
   }catch(e){
     console.warn('Impossible de charger les paramètres:', e);
   }
 }
 
-// Parser CSV robuste pour une seule ligne
-// Gère : champs entre guillemets, guillemets doublés ""
 function parseCSVLine_(line){
-  const cols=[];
-  let cur='', inQ=false;
+  const cols=[]; let cur='', inQ=false;
   for(let i=0;i<line.length;i++){
     const c=line[i];
     if(c==='"'){
-      if(inQ && line[i+1]==='"'){ cur+='"'; i++; } // "" → "
+      if(inQ && line[i+1]==='"'){ cur+='"'; i++; }
       else inQ=!inQ;
     } else if(c===','&&!inQ){
       cols.push(cur); cur='';
@@ -622,7 +587,6 @@ function parseCSVLine_(line){
   return cols;
 }
 
-// Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
 async function saveSettingsToSheet(data){
   const gasUrl = cfg.gasUrl||GAS_URL;
   if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI'){
@@ -630,30 +594,21 @@ async function saveSettingsToSheet(data){
     return false;
   }
   try{
-    // mode no-cors nécessaire depuis GitHub Pages → Apps Script
-    // La réponse sera opaque mais l'écriture fonctionne quand même
     await fetch(gasUrl,{
       method:'POST',
       mode:'no-cors',
-      headers:{'Content-Type':'text/plain'}, // text/plain évite le preflight CORS
+      headers:{'Content-Type':'text/plain'},
       body:JSON.stringify({action:'saveSettings', data})
     });
-    return true; // avec no-cors on ne peut pas lire la réponse, on suppose succès
+    return true;
   }catch(e){
     console.warn('Erreur saveSettings:', e);
     return false;
   }
 }
 
+function saveCfg(){}
 
-function saveCfg(){
-  // Rien en localStorage — tout est dans Google Sheets (PARAMETRES)
-  // L'URL GAS est hardcodée dans le fichier HTML
-}
-
-// ══════════════════════════════════════════════════════════════════
-// CSV PARSER
-// ══════════════════════════════════════════════════════════════════
 function parseCSV(txt){
   const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(l=>l.trim());
   if(lines.length<2) return [];
@@ -677,7 +632,6 @@ function splitLine(line){
   return r;
 }
 
-// Parse date ISO yyyy-mm-dd ou DD/MM/YYYY → Date locale minuit
 function pd(s){
   if(!s) return null;
   s=String(s).trim();
@@ -689,7 +643,6 @@ function pd(s){
 }
 const fmt=d=>d?d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'}):'?';
 
-// Normalise un nom de kit : minuscules, sans accents, sans espaces/ponctuation
 function nk(s){
   if(!s) return '';
   return String(s).toLowerCase()
@@ -697,12 +650,6 @@ function nk(s){
     .replace(/[^a-z0-9]/g,'');
 }
 
-// ══════════════════════════════════════════════════════════════════
-// CHARGEMENT ONGLET KITS
-// Colonnes : kit_id, nom_kit, nom_formulaire, description, contenu,
-//            taille, poids, icone, couleur, categories,
-//            maintenance, maintenance_msg, avenir, avenir_msg, actif
-// ══════════════════════════════════════════════════════════════════
 async function loadKits(){
   try{
     const resp = await fetch(cfg.urlKits, {cache:'no-store'});
@@ -715,13 +662,12 @@ async function loadKits(){
       .filter(r=> (r['actif']||'').toUpperCase()==='OUI' || !r['actif'])
       .map(r=>{
         const id = r['kit_id'] || r['nom_kit'];
-        // Applique les surcharges locales admin si elles existent
         const ov = kitOverrides[id] || {};
         return {
           id,
           kit_id:      id,
           nom:         ov.nom        || r['nom_kit']          || '',
-          nom_form:    r['nom_formulaire'] || r['nom_kit']    || '', // clé de matching avec RESERVATIONS
+          nom_form:    r['nom_formulaire'] || r['nom_kit']    || '',
           description: ov.description|| r['description']      || '',
           contenu:    (ov.contenu    || r['contenu']          || '').split(',').map(s=>s.trim()).filter(Boolean),
           taille:      ov.taille     || r['taille']            || '',
@@ -743,11 +689,6 @@ async function loadKits(){
   }
 }
 
-// ══════════════════════════════════════════════════════════════════
-// CHARGEMENT ONGLET RESERVATIONS
-// Colonnes réelles : reservation_id, horodateur, kit_id, nom_kit,
-//   date_debut, date_fin, prenom, nom, structure, statut
-// ══════════════════════════════════════════════════════════════════
 async function loadReservations(){
   try{
     const resp = await fetch(cfg.urlResa, {cache:'no-store'});
@@ -761,7 +702,6 @@ async function loadReservations(){
         nom_kit:    (r['nom_kit']   || '').trim(),
         date_debut: pd(r['date_debut']),
         date_fin:   pd(r['date_fin']),
-        // Statut : "active" = réservation en cours, vide ou autre = ignoré
         statut:     (r['statut']    || '').trim().toLowerCase(),
         who:        [r['prenom']||'', r['nom']||''].filter(Boolean).join(' '),
         struct:     (r['structure'] || '').trim(),
@@ -770,7 +710,6 @@ async function loadReservations(){
         r.kit_id &&
         r.date_debut && !isNaN(r.date_debut) &&
         r.date_fin   && !isNaN(r.date_fin)   &&
-        // On garde toutes les lignes sauf statut explicitement "annulé"
         r.statut !== 'annulé' && r.statut !== 'annule' && r.statut !== 'cancelled'
       );
     return true;
@@ -780,20 +719,12 @@ async function loadReservations(){
   }
 }
 
-// ══════════════════════════════════════════════════════════════════
-// LOGIQUE DE DISPONIBILITÉ
-// Matching direct par kit_id (colonne exacte dans RESERVATIONS)
-// Fallback par nom_kit normalisé si kit_id absent
-// ══════════════════════════════════════════════════════════════════
 function getKitDispo(kitObj, deb, fin){
   const today = new Date(); today.setHours(0,0,0,0);
   const d = deb || today;
   const f = fin || today;
-
-  // Matching par kit_id exact (colonne directe — 100% fiable)
   const matches = reservations.filter(r=>{
     if(r.kit_id && kitObj.kit_id && r.kit_id === kitObj.kit_id) return true;
-    // Fallback : correspondance normalisée par nom_kit
     if(r.nom_kit && kitObj.nom){
       const rn = nk(r.nom_kit);
       const kn = nk(kitObj.nom);
@@ -801,10 +732,8 @@ function getKitDispo(kitObj, deb, fin){
     }
     return false;
   });
-
   const conflicts = matches.filter(r=> r.date_debut <= f && r.date_fin >= d);
   const upcoming  = matches.filter(r=> r.date_debut > f).sort((a,b)=>a.date_debut-b.date_debut);
-
   return { status: conflicts.length ? 'indispo' : 'dispo', conflicts, upcoming, all:matches };
 }
 
@@ -812,9 +741,6 @@ const dlabel = s=>({dispo:'Disponible',indispo:'Réservé',maint:'En maintenance
 const dcolor  = s=>({dispo:'#22c55e',indispo:'#ef4444',maint:'#9ca3af',avenir:'#a855f7'}[s]||'#22c55e');
 const dotcls  = s=>({dispo:'dg',indispo:'di',maint:'dm',avenir:'dav'}[s]||'dg');
 
-// ══════════════════════════════════════════════════════════════════
-// INIT — chargement parallèle des deux onglets
-// ══════════════════════════════════════════════════════════════════
 async function initApp(){
   setSS('loading','Chargement des données…');
   document.getElementById('kitsGrid').innerHTML =
@@ -842,7 +768,7 @@ async function initApp(){
   } else {
     setSS('error',`${kits.length} kits — réservations non accessibles (vérifiez l'URL RESERVATIONS)`);
   }
-  // Bouton refresh visible en mode admin
+
   if(document.body.classList.contains('adm')){
     document.getElementById('syncA').innerHTML=`<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>`;
   }
@@ -859,11 +785,7 @@ function setSS(state, msg){
   document.getElementById('stxt').textContent=msg;
 }
 
-// ══════════════════════════════════════════════════════════════════
-// RENDU GRILLE
-// ══════════════════════════════════════════════════════════════════
 function buildFilterChips(){
-  // Collecte les catégories uniques depuis les kits chargés
   const allCats = new Set();
   kits.forEach(k=>(k.cats||[]).forEach(c=>allCats.add(c)));
   const div = document.getElementById('filterChips');
@@ -950,9 +872,6 @@ function renderGrid(){
   }).join('');
 }
 
-// ══════════════════════════════════════════════════════════════════
-// DISPO CHECK MODAL
-// ══════════════════════════════════════════════════════════════════
 function openDispo(kitId){
   dispoKitId = kitId;
   const k = kits.find(x=>x.id===kitId);
@@ -1016,7 +935,6 @@ function chkDispo(){
 }
 
 function findSimilar(k, deb, fin){
-  // Kits du même type de base (même nom sans le numéro final) disponibles sur la période
   const base = k.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
   return kits.filter(x=>{
     if(x.id===k.id || x.maintenance || x.avenir) return false;
@@ -1030,9 +948,6 @@ function switchDispo(kitId){
   setTimeout(()=>openDispo(kitId), 120);
 }
 
-// ══════════════════════════════════════════════════════════════════
-// DETAIL MODAL
-// ══════════════════════════════════════════════════════════════════
 function openDetail(id){
   const k = kits.find(x=>x.id===id); if(!k) return;
   const isMaint=!!k.maintenance, isAv=!isMaint&&!!k.avenir;
@@ -1060,14 +975,12 @@ function openDetail(id){
     ? k.cats.map(c=>`<span class="ic">${c}</span>`).join('')
     : `<span style="color:#999;font-size:11px">Non renseigné</span>`;
 
-  // Bannière maintenance / à venir
   const ban = document.getElementById('mStBan');
   ban.className = 'stban'+(isMaint?' sm':isAv?' sav':'');
   ban.style.display = (isMaint||isAv)?'flex':'none';
   ban.textContent   = isMaint?(k.maintenanceMsg||'Ce kit est temporairement en maintenance.')
                     : isAv   ?(k.avenirMsg    ||'Ce kit est en cours de constitution.'):'';
 
-  // Planning des réservations
   const all = (dispo.all||[]).sort((a,b)=>a.date_debut-b.date_debut);
   const today = new Date(); today.setHours(0,0,0,0);
   const rs=document.getElementById('mResaSec'), rl=document.getElementById('mResaList');
@@ -1089,7 +1002,6 @@ function openDetail(id){
     rl.innerHTML = '<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';
   }
 
-  // Bouton réserver
   const btn = document.getElementById('mResaBtn');
   const canResa = !isMaint && !isAv && dispo.status!=='indispo';
   if(canResa){
@@ -1108,9 +1020,6 @@ function openDetail(id){
 }
 function closeDetail(){document.getElementById('detov').classList.remove('open');}
 
-// ══════════════════════════════════════════════════════════════════
-// AUTH
-// ══════════════════════════════════════════════════════════════════
 function reqAdmin(){
   if(document.body.classList.contains('adm')){exitAdmin();return;}
   document.getElementById('authIn').value='';
@@ -1140,21 +1049,17 @@ function resetPwd(){
   if(!e){alert('Aucun email configuré dans Paramètres.');return;}
   const tok=btoa(Date.now()+Math.random());
   const link=location.href.split('?')[0]+'?rt='+encodeURIComponent(tok);
-  // reset token: 
   alert(`Lien de réinitialisation :\n${link}\n\n(En production : envoyé à ${e})`);
 }
 function chkResetToken(){
   const tok=new URLSearchParams(location.search).get('rt');
   if(!tok) return;
-  if(false){ // reset token désactivé sans localStorage
+  if(false){
     const np=prompt('Nouveau mot de passe admin :');
     if(np&&np.length>=4){cfg.pwd=np;saveCfg();alert('Mot de passe modifié !');history.replaceState({},'',location.pathname);}
   }
 }
 
-// ══════════════════════════════════════════════════════════════════
-// LOGO
-// ══════════════════════════════════════════════════════════════════
 function applyLogo(){
   const img=document.getElementById('logoImg'), badge=document.getElementById('logoBadge');
   if(cfg.logo){img.src=cfg.logo;img.style.display='block';badge.style.display='none';}
@@ -1179,12 +1084,10 @@ async function saveLogo(){
   if(p.style.display!=='none'&&p.src){
     cfg.logo=p.src;
     applyLogo();
-    // Si c'est une URL (pas base64), sauvegarde dans Sheets
     if(!p.src.startsWith('data:')){
       await saveSettingsToSheet({logo_url: p.src});
     } else {
-      // Base64 : trop grand pour Sheets, on informe l'utilisateur
-      alert('⚠️ Pour que le logo reste pour tous les utilisateurs, hébergez-le sur Google Drive et collez l\'URL publique ici au lieu d\'uploader un fichier local.');
+      alert('⚠️ Pour que le logo reste pour tous les utilisateurs, hébergez-le sur Google Drive et collez l\\'URL publique ici au lieu d\\'uploader un fichier local.');
     }
   }
   closeLogoUpload();
@@ -1195,9 +1098,6 @@ async function rmLogo(){
   closeLogoUpload();
 }
 
-// ══════════════════════════════════════════════════════════════════
-// ADMIN KIT — connecté Apps Script
-// ══════════════════════════════════════════════════════════════════
 const EMOJIS={
   'Santé':['🩺','🚑','🏥','💊','🩹','🫀','🧬','💉','🧯','♥️'],
   'Formation':['📚','📋','📝','✏️','🎓','📊','💡','📌','🗂️','📖'],
@@ -1232,7 +1132,7 @@ function openAdmin(id){
     document.getElementById('saveLocalBtn').style.display='none';
   } else {
     ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#fef9c3;color:#713f12;border:1.5px solid #fde68a';
-    ind.textContent='⚠️ Apps Script non configuré — sauvegarde locale uniquement. Configurez l\'URL dans Paramètres.';
+    ind.textContent='⚠️ Apps Script non configuré — sauvegarde locale uniquement. Configurez l\\'URL dans Paramètres.';
     document.getElementById('saveGasBtn').style.display='none';
     document.getElementById('saveLocalBtn').style.display='inline-flex';
   }
@@ -1241,7 +1141,7 @@ function openAdmin(id){
   document.getElementById('f-nomform').value  = k?.nom_form||k?.nom||'';
   document.getElementById('f-icon').value     = k?.icon||'📦';
   document.getElementById('f-desc').value     = k?.description||'';
-  document.getElementById('f-contenu').value  = (k?.contenu||[]).join('\n');
+  document.getElementById('f-contenu').value  = (k?.contenu||[]).join('\\n');
   document.getElementById('f-taille').value   = k?.taille||'';
   document.getElementById('f-poids').value    = k?.poids||'';
   document.getElementById('f-col').value      = k?.couleur||'#F2EDF0';
@@ -1271,19 +1171,19 @@ function collectKitForm(){
   const nom=document.getElementById('f-nom').value.trim();
   if(!nom){alert('Le nom du kit est obligatoire.');return null;}
   let kid=document.getElementById('f-id').value.trim();
-  if(!kid){kid='KIT_'+nom.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z0-9]+/g,'_').replace(/^_|_$/g,'');document.getElementById('f-id').value=kid;}
-  return{kit_id:kid,nom_kit:nom,nom_formulaire:document.getElementById('f-nomform').value.trim()||nom,description:document.getElementById('f-desc').value.trim(),contenu:document.getElementById('f-contenu').value.split('\n').map(l=>l.trim()).filter(Boolean).join(', '),taille:document.getElementById('f-taille').value.trim(),poids:document.getElementById('f-poids').value.trim(),icone:document.getElementById('f-icon').value.trim()||'📦',couleur:document.getElementById('f-col').value,categories:document.getElementById('f-cats').value.trim(),maintenance:document.getElementById('f-maint').checked?'OUI':'NON',maintenance_msg:document.getElementById('f-maint-msg').value.trim(),avenir:document.getElementById('f-av').checked?'OUI':'NON',avenir_msg:document.getElementById('f-av-msg').value.trim(),actif:document.getElementById('f-actif').value};
+  if(!kid){kid='KIT_'+nom.toUpperCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^A-Z0-9]+/g,'_').replace(/^_|_$/g,'');document.getElementById('f-id').value=kid;}
+  return{kit_id:kid,nom_kit:nom,nom_formulaire:document.getElementById('f-nomform').value.trim()||nom,description:document.getElementById('f-desc').value.trim(),contenu:document.getElementById('f-contenu').value.split('\\n').map(l=>l.trim()).filter(Boolean).join(', '),taille:document.getElementById('f-taille').value.trim(),poids:document.getElementById('f-poids').value.trim(),icone:document.getElementById('f-icon').value.trim()||'📦',couleur:document.getElementById('f-col').value,categories:document.getElementById('f-cats').value.trim(),maintenance:document.getElementById('f-maint').checked?'OUI':'NON',maintenance_msg:document.getElementById('f-maint-msg').value.trim(),avenir:document.getElementById('f-av').checked?'OUI':'NON',avenir_msg:document.getElementById('f-av-msg').value.trim(),actif:document.getElementById('f-actif').value};
 }
 
 function saveKitLocal(){
   const data=collectKitForm();if(!data)return;
   const id=data.kit_id;
   const ov={nom:data.nom_kit,icon:data.icone,photo:curPhoto,description:data.description,contenu:data.contenu.split(',').map(s=>s.trim()).filter(Boolean),taille:data.taille,poids:data.poids,couleur:data.couleur,cats:data.categories.split(',').map(s=>s.trim()).filter(Boolean),maintenance:data.maintenance==='OUI',maintenanceMsg:data.maintenance_msg,avenir:data.avenir==='OUI',avenirMsg:data.avenir_msg};
-  kitOverrides[id]=ov; // surcharges locales temporaires uniquement
+  kitOverrides[id]=ov;
   if(!editingId){kits.push({...ov,id,kit_id:id,nom_form:data.nom_formulaire,nom:data.nom_kit});}
   else{const idx=kits.findIndex(x=>x.id===id);if(idx>=0)kits[idx]={...kits[idx],...ov};}
   closeAdmin();renderGrid();
-  alert('✅ Sauvegardé localement.\n⚠️ Ces données seront perdues à la prochaine actualisation depuis Sheets.\nConfigurez Apps Script pour une sauvegarde permanente.');
+  alert('✅ Sauvegardé localement.\\n⚠️ Ces données seront perdues à la prochaine actualisation depuis Sheets.\\nConfigurez Apps Script pour une sauvegarde permanente.');
 }
 
 async function saveKitGAS(){
@@ -1293,14 +1193,12 @@ async function saveKitGAS(){
   btn.textContent='⏳ Enregistrement…';btn.disabled=true;
   try{
     const action=editingId?'updateKit':'addKit';
-    // mode no-cors depuis GitHub Pages — réponse opaque mais écriture fonctionne
     await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action,data})});
-    let result={success:true}; // no-cors = on suppose succès
     btn.textContent='✅ Enregistré !';
     setTimeout(()=>{closeAdmin();doRefresh();},800);
   }catch(e){
     btn.textContent='❌ Erreur';
-    alert('Erreur : '+e.message+'\n\nVérifiez que votre Web App Apps Script est déployée et accessible.');
+    alert('Erreur : '+e.message+'\\n\\nVérifiez que votre Web App Apps Script est déployée et accessible.');
     btn.disabled=false;btn.textContent='⚡ Enregistrer dans Sheets';
   }
 }
@@ -1309,10 +1207,9 @@ async function delKit(id){
   const k=kits.find(x=>x.id===id);
   const hasGAS=!!(cfg.gasUrl||'').trim();
   if(hasGAS){
-    if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\nAction irréversible.'))return;
+    if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\\nAction irréversible.'))return;
     try{
       await fetch(cfg.gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});
-      let result={success:true};
       doRefresh();
     }catch(e){alert('Erreur suppression : '+e.message);}
   } else {
@@ -1322,10 +1219,6 @@ async function delKit(id){
   }
 }
 
-
-// ══════════════════════════════════════════════════════════════════
-// SETTINGS
-// ══════════════════════════════════════════════════════════════════
 function openSettings(){
   document.getElementById('s-form').value  = cfg.formUrl||'';
   document.getElementById('s-email').value = cfg.adminEmail||'';
@@ -1342,8 +1235,6 @@ function closeSettings(){document.getElementById('settingsOv').classList.remove(
 async function saveSettings(){
   const gasUrlInput = document.getElementById('s-gas').value.trim();
   cfg.gasUrl = gasUrlInput||cfg.gasUrl;
-  // ⚠️ Si l'URL GAS change, il faut aussi mettre à jour GAS_URL dans le fichier HTML
-  // et re-uploader sur GitHub pour que ça fonctionne sur tous les appareils
   cfg.formUrl    = document.getElementById('s-form').value.trim()||DEFAULT_FORM;
   cfg.adminEmail = document.getElementById('s-email').value.trim();
   cfg.urlKits    = document.getElementById('s-kits').value.trim()||DEFAULT_URL_KITS;
@@ -1352,7 +1243,6 @@ async function saveSettings(){
   const btn = document.querySelector('#settingsOv .bs');
   if(btn){ btn.textContent='⏳ Enregistrement…'; btn.disabled=true; }
 
-  // Sauvegarde dans l'onglet PARAMETRES si Apps Script configuré
   const saved = await saveSettingsToSheet({
     form_url:        cfg.formUrl,
     admin_email:     cfg.adminEmail,
@@ -1362,15 +1252,12 @@ async function saveSettings(){
   });
 
   if(btn){ btn.textContent='💾 Enregistrer'; btn.disabled=false; }
-  if(saved){
-    document.getElementById('meResaLink').href=cfg.formUrl;
-    closeSettings();
-    doRefresh();
-  } else {
-    alert('Paramètres sauvegardés localement uniquement.\nVérifiez l\'URL Apps Script.');
-    document.getElementById('meResaLink').href=cfg.formUrl;
-    closeSettings();
-    doRefresh();
+  document.getElementById('meResaLink') && (document.getElementById('meResaLink').href=cfg.formUrl);
+  closeSettings();
+  doRefresh();
+
+  if(!saved){
+    alert('Paramètres sauvegardés localement uniquement. Vérifiez l\\'URL Apps Script.');
   }
 }
 function chgPwd(){
@@ -1381,7 +1268,6 @@ function chgPwd(){
   document.getElementById('s-p1').value='';document.getElementById('s-p2').value='';
 }
 function renderCatsList(){
-  // Affiche les cats des kits chargés (non éditables ici — viennent du Sheet)
   const all=new Set();kits.forEach(k=>(k.cats||[]).forEach(c=>all.add(c)));
   document.getElementById('catsList').innerHTML=[...all].map(c=>`
     <div style="display:flex;align-items:center;gap:6px;background:var(--fp);padding:5px 9px;border-radius:6px;font-size:12px">
@@ -1389,11 +1275,8 @@ function renderCatsList(){
       <span style="font-size:10px;color:var(--gris)">(depuis Sheets)</span>
     </div>`).join('')||'<p style="font-size:11px;color:var(--gris)">Chargez les kits pour voir les catégories.</p>';
 }
-function addCat(){}// Les cats viennent du Sheet — info seulement
+function addCat(){}
 
-// ══════════════════════════════════════════════════════════════════
-// MODE EMPLOI
-// ══════════════════════════════════════════════════════════════════
 function renderMeContent(){document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;}
 function openMeEd(){document.getElementById('meTA').value=cfg.meContent||DEFAULT_ME;document.getElementById('meOv').classList.add('open');}
 function closeMeEd(){document.getElementById('meOv').classList.remove('open');}
@@ -1404,9 +1287,6 @@ function saveMeContent(){
   alert("Mode d’emploi enregistré.");
 }
 
-// ══════════════════════════════════════════════════════════════════
-// NAV
-// ══════════════════════════════════════════════════════════════════
 function switchTab(t){
   document.getElementById('pcat').style.display=t==='cat'?'block':'none';
   document.getElementById('pme').style.display=t==='me'?'block':'none';
@@ -1421,30 +1301,19 @@ function setFilter(v,el){
   renderGrid();
 }
 
-// ══════════════════════════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════════════════════════
-// Lance le chargement
 (async function(){
   loadCfg();
   chkResetToken();
-  // Lance d'abord avec les valeurs par défaut
   applyLogo();
   renderMeContent();
-  document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
 
-  // Charge les paramètres depuis Sheets puis met à jour l'affichage
   await loadSettingsFromSheet();
 
-  // Met à jour l'affichage avec les vraies valeurs
   applyLogo();
   document.getElementById('meContent').innerHTML = cfg.meContent||DEFAULT_ME;
-  document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
 
-  // Charge les kits et réservations
   await initApp();
 })();
-// Rafraîchit les réservations toutes les 5 minutes (sans recharger les kits)
 setInterval(()=>{ loadReservations().then(()=>renderGrid()); }, 5*60*1000);
 </script>
 </body>
