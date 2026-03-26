@@ -1413,8 +1413,8 @@ async function saveMeContent(){
 // NAV
 // ══════════════════════════════════════════════════════════════════
 function switchTab(t){
-  document.getElementById('pcat').style.display=t==='cat'?'':'none';
-  document.getElementById('pme').style.display=t==='me'?'':'none';
+  document.getElementById('pcat').style.display=t==='cat'?'block':'none';
+  document.getElementById('pme').style.display=t==='me'?'block':'none';
   document.getElementById('tab-cat').classList.toggle('act',t==='cat');
   document.getElementById('tab-me').classList.toggle('act',t==='me');
   if(t==='me'){ document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME; }
