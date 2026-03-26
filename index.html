@@ -572,7 +572,7 @@ function loadCfg(){
 // Charge les paramètres depuis l'onglet PARAMETRES via Apps Script
 async function loadSettingsFromSheet(){
   const gasUrl = cfg.gasUrl||GAS_URL;
-  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI') return; // Pas encore configuré
+  if(!gasUrl||gasUrl==='https://script.google.com/macros/s/AKfycbzLxqVYwsElZF1BIcNmObXzCc6dE_3DiDB51-piuFl6sQXfuJD6hgMPEPwvkrQXlnY/exec') return; // Pas encore configuré
   try{
     const resp = await fetch(gasUrl+'?action=getSettings',{cache:'no-store'});
     if(!resp.ok) return;
