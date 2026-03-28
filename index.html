@@ -996,6 +996,9 @@ function chkDispo(){
     document.getElementById('simBlock').style.display='none';
     document.getElementById('dGoBtn').href = cfg.formUrl||DEFAULT_FORM;
     document.getElementById('dGoBtn').style.display='flex';
+    document.getElementById('dGoBtn').textContent='📝 Accéder au formulaire →';
+    document.getElementById('dGoBtn').style.background='';
+    document.getElementById('dGoBtn').onclick = null;
   } else {
     rDiv.className='dr ko';
     document.getElementById('drTitle').innerHTML='❌ Indisponible pour cette période';
@@ -1009,7 +1012,20 @@ function chkDispo(){
     if(res.upcoming.length)
       sub+=`<br><br>Prochaine disponibilité : après le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
     document.getElementById('drSub').innerHTML=sub;
-    document.getElementById('dGoBtn').style.display='none';
+    // Bouton formulaire visible même si indispo — avec avertissement
+    document.getElementById('dGoBtn').href = cfg.formUrl||DEFAULT_FORM;
+    document.getElementById('dGoBtn').style.display='flex';
+    document.getElementById('dGoBtn').textContent='📝 Accéder au formulaire →';
+    document.getElementById('dGoBtn').style.background='';
+    document.getElementById('dGoBtn').onclick = null;
+    document.getElementById('dGoBtn').textContent='⚠️ Confirmer quand même →';
+    document.getElementById('dGoBtn').style.background='#f59e0b';
+    document.getElementById('dGoBtn').onclick = function(ev){
+      ev.preventDefault();
+      if(confirm('⚠️ Ce kit est indisponible sur les dates choisies.\n\nÊtes-vous sûr de vouloir soumettre votre demande de réservation sur ces dates ?\n\nVotre demande sera examinée par l\'équipe KEREA.')){
+        window.open(cfg.formUrl||DEFAULT_FORM, '_blank');
+      }
+    };
     const sims = findSimilar(k, deb, fin);
     const sb=document.getElementById('simBlock');
     if(sims.length){
