@@ -35,10 +35,31 @@ header{background:var(--bx);position:sticky;top:0;z-index:100;box-shadow:0 2px 1
 body.adm .ab{display:flex;}
 .ab button{background:var(--rose);color:#fff;border:none;padding:2px 9px;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:11px;}
 .ab .gb{background:rgba(78,24,45,.08);color:var(--bx);border:1px solid var(--gc);}
-.hero{background:linear-gradient(135deg,var(--bx) 0%,#7a2a42 100%);padding:36px 32px 28px;text-align:center;position:relative;overflow:hidden;}
+#profilBanner{display:none;background:var(--fp);border-bottom:1.5px solid var(--gc);padding:6px 32px;font-size:12px;color:var(--bx);gap:8px;align-items:center;justify-content:center;}
+#profilBanner.show{display:flex;}
+#profilBanner strong{color:var(--rv);}
+#profilBanner button{background:none;border:1px solid var(--gc);color:var(--gris);padding:2px 9px;border-radius:4px;cursor:pointer;font-size:11px;font-family:'DM Sans',sans-serif;}
+#profilBanner button:hover{border-color:var(--rv);color:var(--rv);}
+#profilScreen{display:none;min-height:80vh;align-items:center;justify-content:center;flex-direction:column;gap:0;padding:40px 20px;}
+#profilScreen.show{display:flex;}
+.ps-hero{text-align:center;margin-bottom:32px;}
+.ps-hero .icon{font-size:48px;margin-bottom:12px;}
+.ps-hero h2{font-size:22px;font-weight:700;color:var(--bx);margin-bottom:6px;}
+.ps-hero p{font-size:13px;color:var(--gris);max-width:380px;line-height:1.6;}
+.ps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:700px;width:100%;}
+.ps-card{background:#fff;border:2px solid var(--gc);border-radius:14px;padding:22px 18px;text-align:center;cursor:pointer;transition:all .2s;position:relative;}
+.ps-card:hover{border-color:var(--rv);transform:translateY(-3px);box-shadow:0 8px 24px rgba(78,24,45,.13);}
+.ps-card.selected{border-color:var(--rv);background:var(--fp);}
+.ps-card .pc-icon{font-size:32px;margin-bottom:10px;}
+.ps-card .pc-name{font-size:14px;font-weight:600;color:var(--bx);margin-bottom:4px;}
+.ps-card .pc-desc{font-size:11px;color:var(--gris);line-height:1.4;}
+.ps-btn{margin-top:24px;background:var(--rv);color:#fff;border:none;padding:12px 36px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .18s;display:none;}
+.ps-btn:hover{background:var(--rose);}
+.ps-btn.show{display:inline-flex;align-items:center;gap:6px;}
+.hero{background:linear-gradient(135deg,var(--bx) 0%,#7a2a42 100%);padding:28px 32px 22px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-55px;right:-55px;width:240px;height:240px;background:var(--rv);opacity:.06;border-radius:50%;}
 .hero::after{content:'';position:absolute;bottom:-65px;left:-35px;width:200px;height:200px;background:var(--rose);opacity:.07;border-radius:50%;}
-.hero h2{color:#fff;font-size:24px;font-weight:600;margin-bottom:4px;position:relative;}
+.hero h2{color:#fff;font-size:22px;font-weight:600;margin-bottom:4px;position:relative;}
 .hero p{color:rgba(255,255,255,.55);font-size:13px;position:relative;}
 .tabs{max-width:1200px;margin:16px auto 0;padding:0 32px;display:flex;gap:3px;}
 .tb{padding:7px 15px;border-radius:7px;border:none;cursor:pointer;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;background:transparent;color:var(--gris);transition:all .16s;}
@@ -50,24 +71,22 @@ body.adm .ab{display:flex;}
 #si{width:100%;padding:8px 11px 8px 34px;border:1.5px solid var(--gc);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;background:#fff;color:var(--bx);outline:none;transition:border-color .18s;}
 #si:focus{border-color:var(--rose);}
 #si::placeholder{color:#ccc;}
-.fc{display:flex;gap:5px;flex-wrap:wrap;}
-.chip{padding:5px 11px;border-radius:18px;font-size:11px;font-weight:500;cursor:pointer;border:1.5px solid var(--gc);background:#fff;color:var(--gris);transition:all .16s;font-family:'DM Sans',sans-serif;}
-.chip:hover{border-color:var(--rose);color:var(--rose);}
-.chip.on{background:var(--rose);border-color:var(--rose);color:#fff;}
+.resa-bar{max-width:1200px;margin:12px auto 0;padding:0 32px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;}
+.btn-resa-global{background:var(--rv);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px;transition:background .18s;}
+.btn-resa-global:hover{background:var(--rose);}
+.btn-annul-global{background:#fff;color:var(--bx);border:1.5px solid var(--gc);padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:6px;transition:all .18s;}
+.btn-annul-global:hover{border-color:var(--rv);color:var(--rv);}
 .stb{max-width:1200px;margin:9px auto 0;padding:0 32px;}
 .stb span{font-size:12px;color:var(--gris);}
 .stb strong{color:var(--bx);}
 .grid{max-width:1200px;margin:12px auto 60px;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;}
-/* CARDS */
 .card{background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 2px 9px rgba(78,24,45,.07);transition:transform .18s,box-shadow .18s;position:relative;}
 .card:not(.km):not(.kav):hover{transform:translateY(-3px);box-shadow:0 7px 20px rgba(78,24,45,.12);}
-.card.km{opacity:.74;}
-.card.kav{opacity:.79;}
+.card.km{opacity:.74;}.card.kav{opacity:.79;}
 .ct{height:135px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden;}
 .ct img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
 .ct .ei{position:relative;z-index:1;}
-.card.km .ct{filter:grayscale(.6);}
-.card.kav .ct{filter:saturate(.3);}
+.card.km .ct{filter:grayscale(.6);}.card.kav .ct{filter:saturate(.3);}
 .cbs{position:absolute;top:7px;left:7px;display:flex;flex-wrap:wrap;gap:3px;z-index:2;}
 .cb{padding:2px 5px;border-radius:6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;background:rgba(255,255,255,.9);color:var(--bx);}
 .ddot{position:absolute;top:7px;right:7px;width:10px;height:10px;border-radius:50%;border:2px solid #fff;z-index:2;}
@@ -76,8 +95,7 @@ body.adm .ab{display:flex;}
 .card.km .sov.mov{display:flex;background:rgba(107,114,128,.1);}
 .card.kav .sov.aov{display:flex;background:rgba(109,40,217,.07);}
 .sbadge{padding:4px 11px;border-radius:18px;font-size:11px;font-weight:700;}
-.mbadge{background:#374151;color:#fff;}
-.avbadge{background:rgba(109,40,217,.8);color:#fff;}
+.mbadge{background:#374151;color:#fff;}.avbadge{background:rgba(109,40,217,.8);color:#fff;}
 .cbody{padding:11px 13px 13px;}
 .cname{font-size:13px;font-weight:600;color:var(--bx);margin-bottom:3px;line-height:1.3;}
 .cdesc{font-size:11px;color:var(--gris);line-height:1.4;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
@@ -88,16 +106,10 @@ body.adm .ab{display:flex;}
 .cfoot{display:flex;gap:5px;}
 .bdt{flex:1;background:var(--fp);color:var(--bx);padding:6px;border-radius:6px;font-size:11px;font-weight:500;text-align:center;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s;}
 .bdt:hover{background:var(--gc);}
-.brs{flex:1.4;background:var(--rv);color:#fff;padding:6px;border-radius:6px;font-size:11px;font-weight:500;text-align:center;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:3px;transition:background .16s;}
-.brs:hover:not(.dis){background:var(--rose);}
-.brs.dis{background:#d1d5db;color:#9ca3af;cursor:not-allowed;pointer-events:none;}
-.brs.avb{background:rgba(109,40,217,.7);}
 .cab{display:none;position:absolute;bottom:6px;right:6px;gap:3px;z-index:10;}
 body.adm .cab{display:flex;}
 .ce,.cd{width:24px;height:24px;border-radius:5px;border:none;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;}
-.ce{background:var(--fb);color:var(--bx);}
-.cd{background:#fee2e2;color:#ef4444;}
-/* LOADING */
+.ce{background:var(--fb);color:var(--bx);}.cd{background:#fee2e2;color:#ef4444;}
 .lstate{grid-column:1/-1;text-align:center;padding:55px 20px;}
 .lsp{width:38px;height:38px;border:3px solid var(--gc);border-top-color:var(--rv);border-radius:50%;animation:sp .75s linear infinite;margin:0 auto 12px;}
 @keyframes sp{to{transform:rotate(360deg)}}
@@ -106,28 +118,28 @@ body.adm .cab{display:flex;}
 .estate .ei{font-size:36px;margin-bottom:9px;}
 .estate h3{font-size:15px;color:var(--bx);margin-bottom:5px;}
 .estate p{font-size:12px;color:var(--gris);margin-bottom:12px;line-height:1.5;}
-/* OVERLAYS */
 .ov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.52);z-index:200;backdrop-filter:blur(5px);}
 .ov.open{display:flex;align-items:center;justify-content:center;padding:20px;animation:fi .18s;}
 @keyframes fi{from{opacity:0}to{opacity:1}}
 .modal{background:#fff;border-radius:16px;width:100%;max-height:92vh;overflow-y:auto;animation:sl .2s ease;position:relative;}
 @keyframes sl{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
 .mc{position:absolute;top:11px;right:11px;background:rgba(255,255,255,.9);border:none;width:29px;height:29px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--bx);z-index:5;}
-/* DISPO MODAL */
-#dov .modal{max-width:440px;}
+#dov .modal{max-width:480px;}
 .db{padding:24px;}
 .db h3{font-size:16px;font-weight:700;color:var(--bx);margin-bottom:5px;}
-.ktag{font-size:11px;color:var(--gris);margin-bottom:16px;background:var(--fp);display:inline-block;padding:2px 9px;border-radius:18px;}
+.resa-warning{background:#fff8e1;border:1.5px solid #f59e0b;border-radius:9px;padding:11px 13px;margin-bottom:14px;font-size:12px;color:#7c4a00;line-height:1.6;}
+.resa-warning strong{display:block;margin-bottom:4px;font-size:13px;}
+.resa-warning ul{margin-left:14px;margin-top:4px;}
+.resa-warning li{margin-bottom:2px;}
 .drow{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
 .df label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bx);display:block;margin-bottom:3px;}
-.df input{width:100%;padding:8px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--bx);outline:none;transition:border-color .18s;}
-.df input:focus{border-color:var(--rose);}
+.df input[type=date]{width:100%;padding:8px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--bx);outline:none;transition:border-color .18s;cursor:pointer;}
+.df input[type=date]:focus{border-color:var(--rose);}
 .dr{border-radius:9px;padding:11px 13px;margin-bottom:14px;display:none;}
 .dr.ok{background:#f0fdf4;border:1.5px solid #86efac;}
 .dr.ko{background:#fef2f2;border:1.5px solid #fca5a5;}
 .drt{font-weight:700;font-size:13px;margin-bottom:3px;display:flex;align-items:center;gap:6px;}
-.dr.ok .drt{color:#166534;}
-.dr.ko .drt{color:#991b1b;}
+.dr.ok .drt{color:#166534;}.dr.ko .drt{color:#991b1b;}
 .drs{font-size:11px;color:#444;line-height:1.5;}
 .simb{margin-top:7px;}
 .simb p{font-size:10px;font-weight:700;color:var(--bx);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
@@ -135,7 +147,12 @@ body.adm .cab{display:flex;}
 .sc{padding:3px 9px;background:var(--fp);border-radius:14px;font-size:11px;color:var(--bx);font-weight:500;cursor:pointer;border:1.5px solid var(--gc);transition:all .14s;}
 .sc:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
 .dfoot{display:flex;gap:8px;}
-/* DETAIL MODAL */
+#dGoBtn{flex:1.5;justify-content:center;padding:9px;display:none;}
+#dGoBtn.blocked{background:#d1d5db !important;color:#9ca3af !important;cursor:not-allowed !important;pointer-events:none !important;}
+.kit-sel-wrap{margin-bottom:14px;}
+.kit-sel-wrap label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bx);display:block;margin-bottom:4px;}
+#dispoKitSelect{width:100%;padding:8px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--bx);outline:none;background:#fff;transition:border-color .18s;cursor:pointer;}
+#dispoKitSelect:focus{border-color:var(--rose);}
 #detov .modal{max-width:600px;}
 .mth{height:155px;display:flex;align-items:center;justify-content:center;font-size:65px;border-radius:16px 16px 0 0;overflow:hidden;position:relative;}
 .mth img{width:100%;height:100%;object-fit:cover;}
@@ -167,8 +184,9 @@ body.adm .cab{display:flex;}
 .rwho{color:var(--gris);font-size:10px;}
 .rbadge{font-size:9px;background:#f59e0b;color:#fff;padding:1px 5px;border-radius:5px;font-weight:700;margin-left:auto;white-space:nowrap;}
 .mft{padding:0 20px 16px;display:flex;gap:7px;}
-.mft .brs{flex:1;justify-content:center;padding:10px;font-size:13px;border-radius:8px;}
-/* MODE EMPLOI */
+.mft .brs{flex:1;justify-content:center;padding:10px;font-size:13px;border-radius:8px;background:var(--rv);color:#fff;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;display:flex;align-items:center;gap:5px;}
+.mft .brs:hover{background:var(--rose);}
+.mft .brs.dis{background:#d1d5db;color:#9ca3af;cursor:not-allowed;}
 #pme{display:none;max-width:780px;margin:24px auto 80px;padding:0 32px;}
 .gcard{background:#fff;border-radius:13px;padding:22px;box-shadow:0 2px 9px rgba(78,24,45,.07);margin-bottom:13px;}
 .gcard h2{font-size:17px;color:var(--bx);margin-bottom:13px;display:flex;align-items:center;gap:8px;}
@@ -183,7 +201,6 @@ body.adm .meb{display:inline-flex;}
 .dli{display:flex;align-items:center;gap:8px;font-size:12px;color:#444;}
 .ldot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .abox{background:var(--fb);border-left:4px solid var(--rose);border-radius:0 8px 8px 0;padding:9px 13px;margin-top:10px;font-size:12px;color:var(--bx);line-height:1.5;}
-/* AUTH */
 .auth-m{background:#fff;border-radius:16px;max-width:360px;width:100%;padding:28px;text-align:center;animation:sl .2s ease;}
 .auth-m h3{font-size:17px;color:var(--bx);margin-bottom:4px;}
 .auth-m p{font-size:12px;color:var(--gris);margin-bottom:18px;}
@@ -191,7 +208,6 @@ body.adm .meb{display:inline-flex;}
 .ain:focus{border-color:var(--rose);}
 .aerr{color:#ef4444;font-size:11px;margin-bottom:8px;display:none;}
 .alink{font-size:11px;color:var(--gris);margin-top:8px;cursor:pointer;text-decoration:underline;}
-/* ADMIN PANEL */
 .aov{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:300;backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px;}
 .aov.open{display:flex;}
 .am{background:#fff;border-radius:16px;max-width:660px;width:100%;max-height:92vh;overflow-y:auto;animation:sl .2s ease;}
@@ -205,16 +221,12 @@ body.adm .meb{display:inline-flex;}
 .fg textarea{min-height:62px;resize:vertical;}
 .fg small{font-size:10px;color:var(--gris);margin-top:2px;display:block;}
 .fr2{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-.cc{display:flex;flex-direction:column;gap:5px;background:var(--fp);border-radius:7px;padding:9px 11px;}
-.cci{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--bx);cursor:pointer;}
-.cci input[type=checkbox]{width:13px;height:13px;accent-color:var(--rv);}
 .pw{border:2px dashed var(--gc);border-radius:7px;padding:11px;text-align:center;cursor:pointer;transition:border-color .18s;position:relative;}
 .pw:hover{border-color:var(--rose);}
 .pw input{position:absolute;inset:0;opacity:0;cursor:pointer;}
 .pp{width:100%;max-height:90px;object-fit:cover;border-radius:5px;margin-top:5px;display:none;}
 .tw{display:flex;align-items:center;justify-content:space-between;border-radius:7px;padding:9px 11px;margin-bottom:8px;}
-.twm{background:var(--fp);}
-.twa{background:#f5f3ff;border:1px solid #e9d5ff;}
+.twm{background:var(--fp);}.twa{background:#f5f3ff;border:1px solid #e9d5ff;}
 .tw .tl strong{font-size:12px;font-weight:600;display:block;}
 .tw .tl small{font-size:10px;color:var(--gris);}
 .tg{position:relative;width:38px;height:21px;flex-shrink:0;}
@@ -228,8 +240,7 @@ input:checked+.sl2:before{transform:translateX(17px);}
 .epg{display:flex;flex-wrap:wrap;gap:4px;background:var(--fp);border-radius:7px;padding:8px;max-height:130px;overflow-y:auto;}
 .epgrp{width:100%;font-size:9px;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.05em;margin:4px 0 2px;}
 .epb{font-size:18px;background:#fff;border:2px solid var(--gc);border-radius:5px;width:32px;height:32px;cursor:pointer;transition:all .1s;display:flex;align-items:center;justify-content:center;}
-.epb:hover{border-color:var(--rose);}
-.epb.sel{background:var(--rose);border-color:var(--rose);}
+.epb:hover{border-color:var(--rose);}.epb.sel{background:var(--rose);border-color:var(--rose);}
 .amf{padding:0 17px 17px;display:flex;gap:7px;justify-content:flex-end;}
 .bc{background:var(--fp);color:var(--bx);padding:7px 14px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;}
 .bs{background:var(--rv);color:#fff;padding:7px 16px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:600;}
@@ -248,10 +259,54 @@ footer strong{color:#fff;}
 @media(max-width:600px){
   .hi{padding:9px 13px;}.sb{padding:4px 13px;}
   .hero{padding:22px 13px;}
-  .ctl,.tabs,.grid,.stb{padding-left:13px;padding-right:13px;}
+  .ctl,.tabs,.grid,.stb,.resa-bar{padding-left:13px;padding-right:13px;}
   .fr2{grid-template-columns:1fr;}.sps{grid-template-columns:1fr;}
   #pme{padding:0 13px;}.drow{grid-template-columns:1fr;}
+  .ps-grid{grid-template-columns:1fr;}
+  #profilScreen{padding:24px 13px;}
 }
+/* ── FORMULAIRE RÉSERVATION / ANNULATION ─────────────────────────── */
+#formResaOv,#formAnnulOv{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:250;backdrop-filter:blur(5px);overflow-y:auto;padding:20px;}
+#formResaOv.open,#formAnnulOv.open{display:flex;align-items:flex-start;justify-content:center;}
+.form-modal{background:#fff;border-radius:16px;width:100%;max-width:680px;margin:auto;animation:sl .2s ease;position:relative;}
+.form-mh{background:var(--bx);border-radius:16px 16px 0 0;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
+.form-mh h3{color:#fff;font-size:15px;font-weight:600;}
+.form-body{padding:20px;}
+.form-section{margin-bottom:18px;border-bottom:1px solid var(--gc);padding-bottom:14px;}
+.form-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.form-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gris);margin-bottom:10px;}
+.fg2{margin-bottom:10px;}
+.fg2 label{display:block;font-size:11px;font-weight:600;color:var(--bx);margin-bottom:3px;}
+.fg2 label .req{color:var(--rv);margin-left:2px;}
+.fg2 input,.fg2 select,.fg2 textarea{width:100%;padding:8px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--bx);background:#fff;outline:none;transition:border-color .18s;}
+.fg2 input:focus,.fg2 select:focus,.fg2 textarea:focus{border-color:var(--rose);}
+.fg2 input[readonly]{background:var(--fp);cursor:default;color:var(--bx);}
+.fg2 textarea{min-height:60px;resize:vertical;}
+.fg2 small{font-size:10px;color:var(--gris);margin-top:2px;display:block;}
+.fg2 input[type=date]{cursor:pointer;}
+.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;}
+.fr2f{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.kit-checks{display:flex;flex-direction:column;gap:6px;background:var(--fp);border-radius:8px;padding:10px 12px;max-height:200px;overflow-y:auto;}
+.kit-check-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--bx);cursor:pointer;}
+.kit-check-item input[type=checkbox]{width:14px;height:14px;accent-color:var(--rv);cursor:pointer;flex-shrink:0;}
+.form-warn{background:#fff8e1;border:1.5px solid #f59e0b;border-radius:8px;padding:10px 12px;font-size:11px;color:#7c4a00;line-height:1.6;margin-bottom:14px;}
+.form-warn ul{margin-left:14px;margin-top:3px;}
+.form-footer{padding:14px 20px;border-top:1px solid var(--gc);display:flex;gap:9px;justify-content:flex-end;background:#fafafa;border-radius:0 0 16px 16px;}
+.form-submit{background:var(--rv);color:#fff;border:none;padding:10px 26px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .18s;}
+.form-submit:hover{background:var(--rose);}
+.form-submit:disabled{background:#d1d5db;color:#9ca3af;cursor:not-allowed;}
+.form-cancel{background:var(--fp);color:var(--bx);border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.form-success{text-align:center;padding:40px 24px;}
+.form-success .fs-icon{font-size:52px;margin-bottom:12px;}
+.form-success h3{font-size:17px;color:var(--bx);margin-bottom:6px;}
+.form-success p{font-size:13px;color:var(--gris);line-height:1.6;}
+.form-error{background:#fef2f2;border:1.5px solid #fca5a5;border-radius:7px;padding:9px 12px;font-size:12px;color:#991b1b;margin-bottom:12px;display:none;}
+.acces-radio{display:flex;flex-direction:column;gap:5px;}
+.acces-radio label{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--bx);cursor:pointer;padding:5px 8px;border-radius:6px;border:1.5px solid var(--gc);transition:all .15s;}
+.acces-radio label:hover{border-color:var(--rv);}
+.acces-radio input[type=radio]{accent-color:var(--rv);width:14px;height:14px;}
+.acces-radio label:has(input:checked){border-color:var(--rv);background:var(--fp);}
+@media(max-width:600px){.fr3{grid-template-columns:1fr;}.fr2f{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -273,6 +328,11 @@ footer strong{color:#fff;}
   </div>
 </header>
 
+<div id="profilBanner">
+  <span>👤 Profil actif : <strong id="profilNom">—</strong></span>
+  <button onclick="changerProfil()">Changer de profil</button>
+</div>
+
 <div class="ab" id="adminBanner">
   <span>✏️ Mode administration</span>
   <button onclick="exitAdmin()">Quitter</button>
@@ -281,66 +341,94 @@ footer strong{color:#fff;}
   <button class="gb" onclick="doRefresh()">🔄 Actualiser données</button>
 </div>
 
-<div class="hero">
-  <h2>📦 Catalogue du matériel en stock</h2>
-  <p>Vérifiez la disponibilité avant de soumettre votre demande de réservation</p>
+<div id="profilScreen">
+  <div class="ps-hero">
+    <div class="icon">📦</div>
+    <h2>Bienvenue dans le catalogue KEREA</h2>
+    <p>Sélectionnez votre profil pour accéder aux kits disponibles pour votre structure.</p>
+  </div>
+  <div class="ps-grid" id="profilGrid"></div>
+  <button class="ps-btn" id="profilConfirmBtn" onclick="confirmerProfil()">Accéder au catalogue →</button>
 </div>
 
-<div class="tabs">
-  <button class="tb act" onclick="switchTab('cat')" id="tab-cat">🗂 Catalogue</button>
-  <button class="tb" onclick="switchTab('me')" id="tab-me">📋 Mode d'emploi</button>
-</div>
-
-<!-- CATALOGUE -->
-<div id="pcat">
-  <div class="ctl">
-    <div class="sw">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="si" placeholder="Rechercher un kit…" oninput="renderGrid()">
+<div id="appContent" style="display:none">
+  <div class="hero">
+    <h2>📦 Catalogue du matériel en stock</h2>
+    <p id="heroSub">Vérifiez la disponibilité avant de soumettre votre demande de réservation</p>
+  </div>
+  <div class="tabs">
+    <button class="tb act" onclick="switchTab('cat')" id="tab-cat">🗂 Catalogue</button>
+    <button class="tb" onclick="switchTab('me')" id="tab-me">📋 Mode d'emploi</button>
+  </div>
+  <div id="pcat">
+    <div class="resa-bar">
+      <button class="btn-resa-global" onclick="openDispoGlobal()">📅 Réserver un kit</button>
+      <button class="btn-annul-global" onclick="ouvrirAnnulation()">↩️ Annuler une réservation</button>
     </div>
-    <div class="fc" id="filterChips"><button class="chip on" onclick="setFilter('tous',this)">Tous</button></div>
-    <div id="addBtn" style="display:none"><button class="btn btn-p" onclick="openAdmin(null)" style="padding:6px 12px;font-size:12px">＋ Kit</button></div>
-  </div>
-  <div class="stb"><span id="statsText"></span></div>
-  <div class="grid" id="kitsGrid">
-    <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>
-  </div>
-</div>
-
-<!-- MODE EMPLOI -->
-<div id="pme">
-  <div class="gcard">
-    <h2>📋 Mode d'emploi des réservations</h2>
-    <div class="mec" id="meContent"></div>
-    <button class="btn btn-p meb" onclick="openMeEd()">✏️ Modifier</button>
-  </div>
-  <div class="gcard">
-    <h2>📊 Légende</h2>
-    <div class="dleg">
-      <div class="dli"><span class="ldot" style="background:#22c55e"></span>Disponible — libre aux dates souhaitées</div>
-      <div class="dli"><span class="ldot" style="background:#ef4444"></span>Réservé — en cours d'utilisation à ce jour</div>
-      <div class="dli"><span class="ldot" style="background:#9ca3af"></span>En maintenance — non réservable</div>
-      <div class="dli"><span class="ldot" style="background:#a855f7"></span>À venir — en cours de constitution</div>
+    <div class="ctl">
+      <div class="sw">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="si" placeholder="Rechercher un kit…" oninput="renderGrid()">
+      </div>
+      <div id="addBtn" style="display:none"><button class="btn btn-p" onclick="openAdmin(null)" style="padding:6px 12px;font-size:12px">＋ Kit</button></div>
     </div>
-    <div class="abox">⚠️ <strong>Important :</strong> Vérifiez que vous êtes dans la liste des intervenants autorisés. Doute : <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87e1e8f5eae6f3eee8e9c7ece2f5e2e6a9e2f2">[email&#160;protected]</a></strong></div>
+    <div class="stb"><span id="statsText"></span></div>
+    <div class="grid" id="kitsGrid">
+      <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>
+    </div>
   </div>
-  <div class="gcard" style="text-align:center">
-    <h2 style="justify-content:center">📅 Formulaire de réservation</h2>
-    <p style="color:var(--gris);font-size:12px;margin-bottom:13px">Cliquez sur <strong>📅 Réserver</strong> sur un kit pour vérifier la disponibilité.</p>
-    <a id="meResaLink" href="#" target="_blank" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px">📅 Accéder au formulaire</a>
+  <div id="pme">
+    <div class="gcard">
+      <h2>📋 Mode d'emploi des réservations</h2>
+      <div class="mec" id="meContent"></div>
+      <button class="btn btn-p meb" onclick="openMeEd()">✏️ Modifier</button>
+    </div>
+    <div class="gcard">
+      <h2>📊 Légende</h2>
+      <div class="dleg">
+        <div class="dli"><span class="ldot" style="background:#22c55e"></span>Disponible — libre aux dates souhaitées</div>
+        <div class="dli"><span class="ldot" style="background:#ef4444"></span>Réservé — en cours d'utilisation à ce jour</div>
+        <div class="dli"><span class="ldot" style="background:#9ca3af"></span>En maintenance — non réservable</div>
+        <div class="dli"><span class="ldot" style="background:#a855f7"></span>À venir — en cours de constitution</div>
+      </div>
+      <div class="abox">⚠️ <strong>Important :</strong> Réservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour après</strong>. Vérifiez la disponibilité de tous les kits avant de soumettre le formulaire.</div>
+    </div>
+    <div class="gcard" style="text-align:center">
+      <h2 style="justify-content:center">📅 Formulaire de réservation</h2>
+      <p style="color:var(--gris);font-size:12px;margin-bottom:13px">Cliquez sur <strong>📅 Réserver un kit</strong> pour vérifier la disponibilité.</p>
+      <a id="meResaLink" href="#" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px" onclick="event.preventDefault();ouvrirFormulaireResa()">📅 Accéder au formulaire</a>
+    </div>
   </div>
 </div>
 
-<!-- DISPO MODAL -->
+<!-- MODAL DISPO -->
 <div class="ov" id="dov" onclick="if(event.target===this)closeDispo()">
   <div class="modal">
     <button class="mc" onclick="closeDispo()">✕</button>
     <div class="db">
       <h3>📅 Vérifier la disponibilité</h3>
-      <div class="ktag" id="dKitName"></div>
+      <div class="kit-sel-wrap">
+        <label>Kit concerné</label>
+        <select id="dispoKitSelect" onchange="onKitSelectChange()">
+          <option value="">— Choisissez un kit —</option>
+        </select>
+      </div>
+      <div class="resa-warning">
+        <strong>⚠️ Règles de réservation importantes</strong>
+        <ul>
+          <li>Réservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour après</strong> votre intervention</li>
+          <li>Si vous réservez plusieurs kits, vérifiez la disponibilité de <strong>l'ensemble des kits</strong> avant de procéder à la réservation</li>
+        </ul>
+      </div>
       <div class="drow">
-        <div class="df"><label>Date de début</label><input type="date" id="dDeb" onchange="chkDispo()"></div>
-        <div class="df"><label>Date de fin</label><input type="date" id="dFin" onchange="chkDispo()"></div>
+        <div class="df">
+          <label>Date de début</label>
+          <input type="date" id="dDeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispo()">
+        </div>
+        <div class="df">
+          <label>Date de fin</label>
+          <input type="date" id="dFin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispo()">
+        </div>
       </div>
       <div class="dr" id="drResult">
         <div class="drt" id="drTitle"></div>
@@ -352,7 +440,7 @@ footer strong{color:#fff;}
       </div>
       <div class="dfoot">
         <button class="bc btn" onclick="closeDispo()" style="flex:1;justify-content:center;padding:9px">Annuler</button>
-        <a id="dGoBtn" href="#" target="_blank" class="btn btn-p" style="flex:1.5;justify-content:center;padding:9px;display:none">📝 Accéder au formulaire →</a>
+        <a id="dGoBtn" href="#" class="btn btn-p" style="flex:1.5;justify-content:center;padding:9px;display:none">📝 Remplir le formulaire →</a>
       </div>
     </div>
   </div>
@@ -373,7 +461,9 @@ footer strong{color:#fff;}
       <div class="ms"><h4>Intervenants autorisés à réserver</h4><div class="ics" id="mInter"></div></div>
       <div class="ms" id="mResaSec" style="display:none"><h4>Planning des réservations</h4><div class="rtl" id="mResaList"></div></div>
     </div>
-    <div class="mft"><a id="mResaBtn" class="brs btn">📅 Vérifier &amp; réserver</a></div>
+    <div class="mft">
+      <button id="mResaBtn" class="brs" onclick="ouvrirDispoDepuisDetail()">📅 Vérifier &amp; réserver</button>
+    </div>
   </div>
 </div>
 
@@ -410,33 +500,28 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- ADMIN KIT PANEL — connecté Apps Script -->
+<!-- ADMIN KIT PANEL -->
 <div class="aov" id="adminOv" onclick="if(event.target===this)closeAdmin()">
   <div class="am">
     <div class="amh"><h3 id="adminTitle">➕ Nouveau kit</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeAdmin()">✕</button></div>
     <div class="abody">
-      <!-- INDICATEUR MODE -->
       <div id="gasIndicator" style="font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;display:none"></div>
       <div class="fr2">
-        <div class="fg"><label>kit_id * (identifiant unique)</label><input type="text" id="f-id" placeholder="Ex: KIT_MON_KIT_1"><small>Majuscules, underscores, pas d'espaces</small></div>
+        <div class="fg"><label>kit_id *</label><input type="text" id="f-id" placeholder="Ex: KIT_MON_KIT_1"><small>Majuscules, underscores, pas d'espaces</small></div>
         <div class="fg"><label>Nom du kit *</label><input type="text" id="f-nom" placeholder="Ex: Kit Mon Kit 1"></div>
       </div>
-      <div class="fg"><label>Nom formulaire * (affiché dans le formulaire de réservation)</label><input type="text" id="f-nomform" placeholder="Ex: Kit Mon Kit 1"><small>Doit correspondre exactement à ce que saisit l'intervenant dans le formulaire</small></div>
-      <div class="fg"><label>Icône</label>
-        <input type="text" id="f-icon" placeholder="📦" maxlength="4">
-      </div>
+      <div class="fg"><label>Nom formulaire *</label><input type="text" id="f-nomform"></div>
+      <div class="fg"><label>Icône</label><input type="text" id="f-icon" placeholder="📦" maxlength="4"></div>
       <div class="fg"><label>Choisir une icône</label><div class="epg" id="epGrid"></div></div>
-      <div class="fg">
-        <label>Photo (optionnel)</label>
-        <div class="pw">
-          <input type="file" id="f-photo" accept="image/*" onchange="prevPhoto(this)">
-          <div id="photoPrompt" style="font-size:11px;color:var(--gris)">📷 Cliquez ou glissez (max 2 Mo)</div>
+      <div class="fg"><label>Photo (optionnel)</label>
+        <div class="pw"><input type="file" id="f-photo" accept="image/*" onchange="prevPhoto(this)">
+          <div id="photoPrompt" style="font-size:11px;color:var(--gris)">📷 Cliquez ou glissez</div>
           <img id="photoPrev" class="pp">
           <button id="rmPhBtn" style="display:none;margin-top:5px;background:#fee2e2;color:#ef4444;border:none;border-radius:4px;padding:2px 7px;cursor:pointer;font-size:10px;font-family:inherit" onclick="rmPhoto(event)">✕ Supprimer</button>
         </div>
       </div>
       <div class="fg"><label>Description</label><textarea id="f-desc"></textarea></div>
-      <div class="fg"><label>Contenu (un élément par ligne — sera stocké séparé par virgules dans le Sheet)</label><textarea id="f-contenu"></textarea></div>
+      <div class="fg"><label>Contenu (un élément par ligne)</label><textarea id="f-contenu"></textarea></div>
       <div class="fr2">
         <div class="fg"><label>Taille</label><input type="text" id="f-taille"></div>
         <div class="fg"><label>Poids</label><input type="text" id="f-poids"></div>
@@ -444,13 +529,12 @@ footer strong{color:#fff;}
       <div class="fg"><label>Couleur de fond</label>
         <select id="f-col"><option value="#F2EDF0">Rose pâle</option><option value="#F4F2EF">Crème</option><option value="#F3ECDA">Beige</option></select>
       </div>
-      <div class="fg"><label>Catégories / Intervenants autorisés (séparés par virgules)</label>
-        <input type="text" id="f-cats" placeholder="Ex: Efficience, Pôle Formation KEREA">
-        <small>Ces valeurs apparaissent comme filtres dans le catalogue</small>
+      <div class="fg"><label>Catégories / Intervenants autorisés</label>
+        <input type="text" id="f-cats" placeholder="Ex: Efficience, Pôle Formation KEREA"><small>Séparés par virgules</small>
       </div>
-      <div class="tw twm"><div class="tl"><strong>🔧 En maintenance</strong><small>Grise le kit, désactive la réservation</small></div><label class="tg"><input type="checkbox" id="f-maint" onchange="togF('m')"><span class="sl2"></span></label></div>
+      <div class="tw twm"><div class="tl"><strong>🔧 En maintenance</strong><small>Grise le kit</small></div><label class="tg"><input type="checkbox" id="f-maint" onchange="togF('m')"><span class="sl2"></span></label></div>
       <div id="mw" class="fg"><label>Message maintenance</label><input type="text" id="f-maint-msg"></div>
-      <div class="tw twa"><div class="tl"><strong style="color:#7c3aed">🚧 À venir</strong><small>Badge violet, réservation désactivée</small></div><label class="tg"><input type="checkbox" id="f-av" onchange="togF('a')"><span class="sl2"></span></label></div>
+      <div class="tw twa"><div class="tl"><strong style="color:#7c3aed">🚧 À venir</strong><small>Badge violet</small></div><label class="tg"><input type="checkbox" id="f-av" onchange="togF('a')"><span class="sl2"></span></label></div>
       <div id="aw" class="fg"><label>Message à venir</label><input type="text" id="f-av-msg"></div>
       <div class="fg" style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:10px 12px;">
         <label style="color:#166534">✅ Actif (visible dans le catalogue)</label>
@@ -470,7 +554,6 @@ footer strong{color:#fff;}
   <div class="am">
     <div class="amh"><h3>⚙️ Paramètres</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeSettings()">✕</button></div>
     <div class="abody">
-      <div class="fg"><label>Lien du formulaire de réservation</label><input type="text" id="s-form" placeholder="https://forms.gle/..."></div>
       <div class="fg"><label>Email admin</label><input type="email" id="s-email" placeholder="votre@email.fr"></div>
       <div class="secs">
         <h4>🔐 Mot de passe admin</h4>
@@ -482,19 +565,10 @@ footer strong{color:#fff;}
         <button class="btn btn-p" onclick="chgPwd()" style="padding:6px 12px;font-size:11px">Changer</button>
       </div>
       <div class="secs">
-        <h4>👥 Intervenants autorisés (filtre)</h4>
-        <div id="catsList" style="display:flex;flex-direction:column;gap:5px;margin-bottom:8px"></div>
-        <div style="display:flex;gap:6px">
-          <input type="text" id="newCat" placeholder="Ajouter…" style="flex:1;padding:6px 9px;border:1.5px solid var(--gc);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:11px;outline:none">
-          <button class="btn btn-p" onclick="addCat()" style="padding:6px 10px;font-size:11px">+ Ajouter</button>
-        </div>
-      </div>
-      <div class="secs">
-        <h4>⚡ Apps Script Web App (admin avancé)</h4>
-        <div class="fg"><label>URL de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"><small>Permet d'écrire dans l'onglet KITS depuis ce site. Voir instructions dans Admin → Gérer les kits.</small></div>
-      </div>
-        <div class="fg"><label>Onglet KITS</label><input type="text" id="s-kits"><small>Fichier → Partager → Publier sur le web → KITS → CSV → copier l'URL</small></div>
-        <div class="fg"><label>Onglet RESERVATIONS</label><input type="text" id="s-resa"><small>Même procédure pour l'onglet RESERVATIONS</small></div>
+        <h4>⚡ Apps Script Web App</h4>
+        <div class="fg"><label>URL de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"></div>
+        <div class="fg"><label>Onglet KITS (CSV publié)</label><input type="text" id="s-kits"></div>
+        <div class="fg"><label>Onglet RESERVATIONS (CSV publié)</label><input type="text" id="s-resa"></div>
       </div>
     </div>
     <div class="amf"><button class="bc" onclick="closeSettings()">Annuler</button><button class="bs" onclick="saveSettings()">💾 Enregistrer</button></div>
@@ -510,164 +584,358 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<footer><strong>KEREA</strong> — 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="22444d504f43564b4d4c6249475047430c4757">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+<!-- ══ FORMULAIRE DE RÉSERVATION ══ -->
+<div id="formResaOv" onclick="if(event.target===this)fermerFormulaireResa()">
+  <div class="form-modal">
+    <div class="form-mh">
+      <h3>📅 Demande de réservation</h3>
+      <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireResa()">✕</button>
+    </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══════════════════════════════════════════════════════════════════
-// CONFIGURATION
-// ══════════════════════════════════════════════════════════════════
+    <!-- ÉTAT SUCCÈS -->
+    <div id="resaSucces" class="form-success" style="display:none">
+      <div class="fs-icon">✅</div>
+      <h3>Demande envoyée !</h3>
+      <p>Votre demande de réservation a bien été transmise.<br>Vous recevrez une confirmation par e-mail.</p>
+      <button class="form-submit" style="margin-top:16px" onclick="fermerFormulaireResa()">Fermer</button>
+    </div>
+
+    <!-- FORMULAIRE -->
+    <div id="resaFormContent">
+      <div class="form-body">
+        <div class="form-warn">
+          <strong>⚠️ Règles importantes</strong>
+          <ul>
+            <li>Réservez <strong>1 jour avant</strong> et <strong>1 jour après</strong> votre intervention</li>
+            <li>Vérifiez la disponibilité de <strong>tous les kits</strong> avant de soumettre</li>
+          </ul>
+        </div>
+        <div id="resaFormError" class="form-error"></div>
+
+        <!-- SECTION 1 : Identité -->
+        <div class="form-section">
+          <div class="form-section-title">👤 Vos coordonnées</div>
+          <div class="fr2f">
+            <div class="fg2"><label>Nom <span class="req">*</span></label><input type="text" id="r-nom" placeholder="Dupont"></div>
+            <div class="fg2"><label>Prénom <span class="req">*</span></label><input type="text" id="r-prenom" placeholder="Marie"></div>
+          </div>
+          <div class="fg2"><label>Adresse e-mail <span class="req">*</span></label><input type="email" id="r-email" placeholder="marie.dupont@exemple.fr"></div>
+          <div class="fg2">
+            <label>Réservation pour le compte de <span class="req">*</span></label>
+            <input type="text" id="r-structure" readonly style="background:var(--fp);font-weight:600;">
+            <small>Profil sélectionné à l'entrée du catalogue</small>
+          </div>
+        </div>
+
+        <!-- SECTION 2 : Kits -->
+        <div class="form-section">
+          <div class="form-section-title">📦 Kit(s) concerné(s) <span class="req">*</span></div>
+          <div class="kit-checks" id="r-kits-list">
+            <!-- Rempli dynamiquement par JS -->
+          </div>
+        </div>
+
+        <!-- SECTION 3 : Dates réservation -->
+        <div class="form-section">
+          <div class="form-section-title">📅 Dates de réservation</div>
+          <div class="fr2f">
+            <div class="fg2"><label>Date de début <span class="req">*</span></label>
+              <input type="date" id="r-deb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
+            </div>
+            <div class="fg2"><label>Date de fin <span class="req">*</span></label>
+              <input type="date" id="r-fin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
+            </div>
+          </div>
+          <small style="color:var(--gris);font-size:10px">Week-ends et jours fériés non disponibles. Incluez J-1 avant et J+1 après votre intervention.</small>
+        </div>
+
+        <!-- SECTION 4 : Dates intervention -->
+        <div class="form-section">
+          <div class="form-section-title">🎓 Dates de l'intervention</div>
+          <div class="fr2f">
+            <div class="fg2"><label>Date de début d'intervention</label>
+              <input type="date" id="r-intdeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
+            </div>
+            <div class="fg2"><label>Date de fin d'intervention</label>
+              <input type="date" id="r-intfin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
+            </div>
+          </div>
+          <div class="fr2f" style="margin-top:8px">
+            <div class="fg2"><label>Horaire de début</label><input type="time" id="r-hdeb" placeholder="08:30"></div>
+            <div class="fg2"><label>Horaire de fin</label><input type="time" id="r-hfin" placeholder="17:00"></div>
+          </div>
+        </div>
+
+        <!-- SECTION 5 : Client / Entreprise -->
+        <div class="form-section">
+          <div class="form-section-title">🏢 Client / Entreprise</div>
+          <div class="fg2"><label>Nom du client / entreprise <span class="req">*</span></label><input type="text" id="r-entreprise" placeholder="Entreprise ABC"></div>
+          <div class="fg2"><label>Adresse de livraison <span class="req">*</span></label><input type="text" id="r-adresse" placeholder="12 rue de la Paix, 75001 Paris"></div>
+          <div class="fr3">
+            <div class="fg2"><label>Étage</label><input type="text" id="r-etage" placeholder="2ème étage"></div>
+            <div class="fg2"><label>PC sécurité / accès</label><input type="text" id="r-acces" placeholder="Badge requis"></div>
+            <div class="fg2"><label>Place de parking</label><input type="text" id="r-parking" placeholder="Oui / Non"></div>
+          </div>
+          <div class="fg2">
+            <label>Ascenseur</label>
+            <select id="r-ascenseur">
+              <option value="">— Sélectionner —</option>
+              <option value="Oui">Oui</option>
+              <option value="Non">Non</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SECTION 6 : Livraison -->
+        <div class="form-section">
+          <div class="form-section-title">🚚 Livraison</div>
+          <div class="fg2"><label>Créneau souhaité de livraison <span class="req">*</span></label>
+            <select id="r-creneau">
+              <option value="">— Sélectionner —</option>
+              <option value="Matin (8h-12h)">Matin (8h-12h)</option>
+              <option value="Après-midi (13h-17h)">Après-midi (13h-17h)</option>
+              <option value="Journée (8h-17h)">Journée (8h-17h)</option>
+              <option value="Matin (8h-10h)">Matin (8h-10h)</option>
+              <option value="Matin (10h-12h)">Matin (10h-12h)</option>
+            </select>
+          </div>
+          <div class="fg2"><label>Personne(s) sur place pour réceptionner <span class="req">*</span></label><input type="text" id="r-contact" placeholder="Jean Martin"></div>
+          <div class="fg2"><label>Fonction(s)</label><input type="text" id="r-fonction" placeholder="Responsable RH"></div>
+          <div class="fr2f">
+            <div class="fg2"><label>Mail(s) contact</label><input type="email" id="r-mailcontact" placeholder="jean.martin@exemple.fr"></div>
+            <div class="fg2"><label>Téléphone portable <span class="req">*</span></label><input type="tel" id="r-tel" placeholder="06 12 34 56 78"></div>
+          </div>
+          <div class="fg2"><label>Téléphone fixe</label><input type="tel" id="r-telfixe" placeholder="01 23 45 67 89"></div>
+        </div>
+
+        <!-- SECTION 7 : Reprise -->
+        <div class="form-section">
+          <div class="form-section-title">↩️ Reprise</div>
+          <div class="fg2">
+            <label>Le kit doit-il être récupéré ?</label>
+            <select id="r-recuperation">
+              <option value="Oui">Oui</option>
+              <option value="Non">Non</option>
+            </select>
+          </div>
+          <div class="fg2">
+            <label>Votre réservation nécessite-t-elle une livraison et/ou une reprise ?</label>
+            <select id="r-typelivraison">
+              <option value="Livraison et reprise">Livraison et reprise</option>
+              <option value="Livraison uniquement">Livraison uniquement</option>
+              <option value="Reprise uniquement">Reprise uniquement</option>
+            </select>
+          </div>
+          <div class="fg2"><label>Adresse de reprise <small style="font-weight:400">(si différente de la livraison)</small></label>
+            <input type="text" id="r-adresserep" placeholder="Laisser vide si identique à la livraison">
+          </div>
+          <div class="fg2"><label>Créneau souhaité de reprise</label>
+            <select id="r-creneaurep">
+              <option value="">— Sélectionner —</option>
+              <option value="Matin (8h-12h)">Matin (8h-12h)</option>
+              <option value="Après-midi (13h-17h)">Après-midi (13h-17h)</option>
+              <option value="Journée (8h-17h)">Journée (8h-17h)</option>
+              <option value="Matin (8h-10h)">Matin (8h-10h)</option>
+              <option value="Matin (10h-12h)">Matin (10h-12h)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SECTION 8 : Kit nutrition (conditionnel) -->
+        <div class="form-section" id="r-nutrition-section" style="display:none">
+          <div class="form-section-title">🥗 Kit nutrition / vélosmoothie</div>
+          <div class="fg2"><label>Type de kit nutrition</label><input type="text" id="r-kitnutrition" placeholder="Ex: Vélosmoothie"></div>
+          <div class="fg2"><label>Quantités (kg bananes, kg fruits surgelés, litres jus de pomme)</label><textarea id="r-quantites" placeholder="Ex: 2 kg bananes, 1 kg fruits surgelés, 2L jus de pomme"></textarea></div>
+        </div>
+
+      </div><!-- /form-body -->
+      <div class="form-footer">
+        <button class="form-cancel" onclick="fermerFormulaireResa()">Annuler</button>
+        <button class="form-submit" id="r-submitBtn" onclick="soumettreResa()">📤 Envoyer la demande</button>
+      </div>
+    </div><!-- /resaFormContent -->
+  </div>
+</div>
+
+<!-- ══ FORMULAIRE D'ANNULATION ══ -->
+<div id="formAnnulOv" onclick="if(event.target===this)fermerFormulaireAnnulation()">
+  <div class="form-modal" style="max-width:520px">
+    <div class="form-mh">
+      <h3>↩️ Annulation de réservation</h3>
+      <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireAnnulation()">✕</button>
+    </div>
+
+    <!-- ÉTAT SUCCÈS -->
+    <div id="annulSucces" class="form-success" style="display:none">
+      <div class="fs-icon">✅</div>
+      <h3>Annulation transmise !</h3>
+      <p>Votre demande d'annulation a bien été reçue.<br>L'équipe KEREA en prendra note.</p>
+      <button class="form-submit" style="margin-top:16px" onclick="fermerFormulaireAnnulation()">Fermer</button>
+    </div>
+
+    <!-- FORMULAIRE -->
+    <div id="annulFormContent">
+      <div class="form-body">
+        <div id="annulFormError" class="form-error"></div>
+
+        <!-- Identité -->
+        <div class="form-section">
+          <div class="form-section-title">👤 Vos coordonnées</div>
+          <div class="fr2f">
+            <div class="fg2"><label>Nom <span class="req">*</span></label><input type="text" id="a-nom" placeholder="Dupont"></div>
+            <div class="fg2"><label>Prénom <span class="req">*</span></label><input type="text" id="a-prenom" placeholder="Marie"></div>
+          </div>
+          <div class="fg2"><label>Adresse e-mail <span class="req">*</span></label><input type="email" id="a-email" placeholder="marie.dupont@exemple.fr"></div>
+          <div class="fg2"><label>Structure</label><input type="text" id="a-structure" readonly style="background:var(--fp);font-weight:600;"></div>
+        </div>
+
+        <!-- Kits -->
+        <div class="form-section">
+          <div class="form-section-title">📦 Kit(s) à annuler <span class="req">*</span></div>
+          <div class="kit-checks" id="a-kits-list"></div>
+        </div>
+
+        <!-- Dates -->
+        <div class="form-section">
+          <div class="form-section-title">📅 Date de l'intervention à annuler</div>
+          <div class="fg2"><label>Date de début de la réservation <span class="req">*</span></label>
+            <input type="date" id="a-date" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
+          </div>
+        </div>
+
+        <!-- Entreprise -->
+        <div class="form-section">
+          <div class="form-section-title">🏢 Client / Entreprise</div>
+          <div class="fg2"><label>Nom du client / entreprise <span class="req">*</span></label><input type="text" id="a-entreprise" placeholder="Entreprise ABC"></div>
+          <div class="fg2"><label>Téléphone portable</label><input type="tel" id="a-tel" placeholder="06 12 34 56 78"></div>
+        </div>
+
+      </div>
+      <div class="form-footer">
+        <button class="form-cancel" onclick="fermerFormulaireAnnulation()">Annuler</button>
+        <button class="form-submit" id="a-submitBtn" onclick="soumettreAnnulation()">↩️ Confirmer l'annulation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer><strong>KEREA</strong> — 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; formation@kerea.eu &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+
+<script>
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
 const BASE = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
 const DEFAULT_URL_KITS   = BASE + "&gid=1506266286";
 const DEFAULT_URL_RESA   = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=2030429958&single=true&output=csv`;
 const DEFAULT_URL_PARAMS = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=1711789336&single=true&output=csv`;
-const DEFAULT_FORM     = "VOTRE_LIEN_FORMULAIRE_ICI";
-const DEFAULT_PWD      = "kerea2025";
-
-// ══════════════════════════════════════════════════════════════
-// ⚠️ COLLE ICI L'URL DE TON WEB APP APPS SCRIPT APRÈS DÉPLOIEMENT
-// Hardcodée ici → fonctionne sur TOUS les appareils sans localStorage
-// Après avoir modifié cette ligne, re-upload index.html sur GitHub
-// ══════════════════════════════════════════════════════════════
+const DEFAULT_FORM       = "VOTRE_LIEN_FORMULAIRE_ICI";
+const DEFAULT_PWD        = "kerea2025";
+// ⚠️ IMPORTANT : Mettre à jour cette URL après chaque nouveau déploiement de la Web App Apps Script
 const GAS_URL = "https://script.google.com/macros/s/AKfycbzLxqVYwsElZF1BIcNmObXzCc6dE_3DiDB51-piuFl6sQXfuJD6hgMPEPwvkrQXlnY/exec";
-const DEFAULT_ME = `<h3>Comment réserver un kit ?</h3>
-<p>Une procédure de réservation est disponible pour les collaborateurs EFFICIENCE et KEREA sur les espaces documentaires respectifs.</p>
-<h3>Étapes</h3>
-<ul>
-<li>Consultez le catalogue et trouvez le kit adapté à votre intervention</li>
-<li>Cliquez sur <strong>📅 Réserver</strong> — une fenêtre vous demande vos dates souhaitées</li>
-<li>Si le kit est disponible, vous serez redirigé vers le formulaire de réservation</li>
-<li>Si le kit est indisponible, des alternatives vous seront proposées</li>
-</ul>
-<h3>À la réception</h3>
-<ul>
-<li>Vérifier le contenu et remplir la checklist (QR code sur la boîte)</li>
-<li>S'assurer de la charge des appareils électroniques (DAE, tablettes, casque VR)</li>
-</ul>
-<h3>Au retour du kit</h3>
-<ul>
-<li>Nettoyer avec les lingettes fournies et remplir le suivi hygiène</li>
-<li>Vérifier que tout est rangé et en bon état</li>
-<li>Indiquer les consommables à recharger</li>
-</ul>
-<p><strong>Le formateur/intervenant restituant le kit est responsable de son état.</strong></p>`;
 
-// Pas de localStorage — tout est stocké dans Google Sheets (onglet PARAMETRES)
+function getJoursFeries(year) {
+  const jf = [];
+  const a=year%19,b=Math.floor(year/100),c=year%100,d=Math.floor(b/4),e=b%4;
+  const f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30;
+  const i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7;
+  const m=Math.floor((a+11*h+22*l)/451);
+  const month=Math.floor((h+l-7*m+114)/31);
+  const day=((h+l-7*m+114)%31)+1;
+  const paques = new Date(year,month-1,day);
+  const add=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+  const fmt2=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  [new Date(year,0,1),add(paques,1),new Date(year,4,1),new Date(year,4,8),add(paques,39),
+   add(paques,50),new Date(year,6,14),new Date(year,7,15),new Date(year,10,1),
+   new Date(year,10,11),new Date(year,11,25)].forEach(d=>jf.push(fmt2(d)));
+  return jf;
+}
+const FERIES = new Set([...getJoursFeries(new Date().getFullYear()), ...getJoursFeries(new Date().getFullYear()+1)]);
+function isJourBloqu(dateStr) {
+  if (!dateStr) return false;
+  const d = new Date(dateStr + 'T00:00:00');
+  const dow = d.getDay();
+  if (dow === 0 || dow === 6) return true;
+  return FERIES.has(dateStr);
+}
+function prochainOuvrable(dateStr) {
+  let d = new Date(dateStr + 'T00:00:00');
+  const fmt = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  while (isJourBloqu(fmt(d))) { d.setDate(d.getDate()+1); }
+  return fmt(d);
+}
 
-// ══════════════════════════════════════════════════════════════════
-// STATE
-// ══════════════════════════════════════════════════════════════════
-let cfg, kits=[], reservations=[], kitOverrides={}, // surcharges admin locales
-    filterActive='tous', editingId=null, curPhoto=null, dispoKitId=null;
+const PROFILS = [
+  { id: 'efficience',  label: 'Efficience',           icon: '💼', desc: 'Collaborateurs Efficience',  cat: 'Efficience' },
+  { id: 'formation',   label: 'Pôle Formation KEREA',  icon: '🎓', desc: 'Pôle Formation KEREA',       cat: 'Pôle Formation KEREA' },
+  { id: 'infirmerie',  label: 'Pôle Infirmerie KEREA', icon: '🏥', desc: 'Pôle Infirmerie KEREA',      cat: 'Pôle Infirmerie KEREA' },
+];
+let profilActif = null;
+let cfg, kits=[], reservations=[], kitOverrides={}, editingId=null, curPhoto=null, dispoKitId=null;
 
 function loadCfg(){
-  cfg = {
-    pwd:DEFAULT_PWD, formUrl:DEFAULT_FORM, adminEmail:'',
-    meContent:DEFAULT_ME, logo:null,
-    urlKits:DEFAULT_URL_KITS, urlResa:DEFAULT_URL_RESA,
-    gasUrl:GAS_URL  // hardcodé dans le fichier HTML — fonctionne sur tous les appareils
-  };
+  cfg = { pwd:DEFAULT_PWD, formUrl:DEFAULT_FORM, adminEmail:'', meContent:DEFAULT_ME,
+          logo:null, urlKits:DEFAULT_URL_KITS, urlResa:DEFAULT_URL_RESA, gasUrl:GAS_URL };
   kitOverrides = {};
 }
 
-// Charge les paramètres depuis l'onglet PARAMETRES publié en CSV
 async function loadSettingsFromSheet(){
   try{
     const resp = await fetch(DEFAULT_URL_PARAMS, {cache:'no-store'});
     if(!resp.ok) return;
     const txt = await resp.text();
-
-    // Parser CSV spécial pour PARAMETRES (2 colonnes : cle, valeur)
-    // Gère les guillemets doubles "" dans les champs entre guillemets
     const map = {};
     const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n');
     let headers = null;
     for(let i=0;i<lines.length;i++){
-      const line = lines[i];
-      if(!line.trim()) continue;
-      const cols = parseCSVLine_(line);
-      if(!headers){ headers=cols; continue; }
-      const k = (cols[0]||'').trim();
-      // La valeur peut être entre guillemets — parseCSVLine_ les enlève déjà
-      // Les "" dans le CSV représentent un " dans la valeur réelle
-      let v = (cols[1]||'').trim();
-      if(k) map[k] = v;
+      const line=lines[i]; if(!line.trim()) continue;
+      const cols=parseCSVLine_(line);
+      if(!headers){headers=cols;continue;}
+      const k=(cols[0]||'').trim(), v=(cols[1]||'').trim();
+      if(k) map[k]=v;
     }
-
     if(map['form_url'])    cfg.formUrl    = map['form_url'];
     if(map['admin_email']) cfg.adminEmail = map['admin_email'];
     if(map['mode_emploi']) cfg.meContent  = map['mode_emploi'];
     if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
     if(map['pwd_hash']||map['pwd']) cfg.pwd = map['pwd_hash']||map['pwd'];
-    if(map['url_kits'] && map['url_kits'].indexOf('docs.google')!==-1) cfg.urlKits = map['url_kits'];
-    if(map['url_resa'] && map['url_resa'].indexOf('docs.google')!==-1) cfg.urlResa = map['url_resa'];
-
-    console.log('Paramètres chargés:', Object.keys(map));
-  }catch(e){
-    console.warn('Impossible de charger les paramètres:', e);
-  }
+    if(map['url_kits']&&map['url_kits'].indexOf('docs.google')!==-1) cfg.urlKits=map['url_kits'];
+    if(map['url_resa']&&map['url_resa'].indexOf('docs.google')!==-1) cfg.urlResa=map['url_resa'];
+  }catch(e){ console.warn('loadSettings:',e); }
 }
-
-// Parser CSV robuste pour une seule ligne
-// Gère : champs entre guillemets, guillemets doublés ""
 function parseCSVLine_(line){
-  const cols=[];
-  let cur='', inQ=false;
+  const cols=[];let cur='',inQ=false;
   for(let i=0;i<line.length;i++){
     const c=line[i];
-    if(c==='"'){
-      if(inQ && line[i+1]==='"'){ cur+='"'; i++; } // "" → "
-      else inQ=!inQ;
-    } else if(c===','&&!inQ){
-      cols.push(cur); cur='';
-    } else {
-      cur+=c;
-    }
+    if(c==='"'){if(inQ&&line[i+1]==='"'){cur+='"';i++;}else inQ=!inQ;}
+    else if(c===','&&!inQ){cols.push(cur);cur='';}
+    else cur+=c;
   }
-  cols.push(cur);
-  return cols;
+  cols.push(cur);return cols;
 }
-
-// Sauvegarde les paramètres dans l'onglet PARAMETRES via Apps Script
 async function saveSettingsToSheet(data){
-  const gasUrl = cfg.gasUrl||GAS_URL;
-  if(!gasUrl||gasUrl==='COLLER_URL_APPS_SCRIPT_ICI'){
-    alert('URL Apps Script non configurée.');
-    return false;
-  }
+  const gasUrl=cfg.gasUrl||GAS_URL;
+  if(!gasUrl) return false;
   try{
-    // mode no-cors nécessaire depuis GitHub Pages → Apps Script
-    // La réponse sera opaque mais l'écriture fonctionne quand même
-    await fetch(gasUrl,{
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'text/plain'}, // text/plain évite le preflight CORS
-      body:JSON.stringify({action:'saveSettings', data})
-    });
-    return true; // avec no-cors on ne peut pas lire la réponse, on suppose succès
-  }catch(e){
-    console.warn('Erreur saveSettings:', e);
-    return false;
-  }
+    await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'saveSettings',data})});
+    return true;
+  }catch(e){return false;}
 }
 
+const DEFAULT_ME = `<h3>Comment réserver un kit ?</h3>
+<p>Sélectionnez votre profil, vérifiez la disponibilité du kit, puis remplissez le formulaire intégré.</p>
+<h3>⚠️ Règles importantes</h3>
+<ul>
+<li>Réservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour après</strong></li>
+<li>Si vous réservez plusieurs kits, vérifiez la disponibilité de l'ensemble avant de soumettre</li>
+<li>Les week-ends et jours fériés ne sont pas réservables</li>
+</ul>`;
 
-function saveCfg(){
-  // Rien en localStorage — tout est dans Google Sheets (PARAMETRES)
-  // L'URL GAS est hardcodée dans le fichier HTML
-}
-
-// ══════════════════════════════════════════════════════════════════
-// CSV PARSER
-// ══════════════════════════════════════════════════════════════════
 function parseCSV(txt){
-  const lines = txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(l=>l.trim());
+  const lines=txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(l=>l.trim());
   if(lines.length<2) return [];
-  const hdrs = splitLine(lines[0]);
+  const hdrs=splitLine(lines[0]);
   return lines.slice(1).map(l=>{
-    const cols = splitLine(l);
-    const o={};
-    hdrs.forEach((h,i)=>{ o[h.trim()] = (cols[i]||'').trim().replace(/^"|"$/g,''); });
+    const cols=splitLine(l);const o={};
+    hdrs.forEach((h,i)=>{o[h.trim()]=(cols[i]||'').trim().replace(/^"|"$/g,'');});
     return o;
   }).filter(r=>Object.values(r).some(v=>v));
 }
@@ -679,14 +947,10 @@ function splitLine(line){
     else if((c===','||c==='\t')&&!q){r.push(cur);cur='';}
     else cur+=c;
   }
-  r.push(cur);
-  return r;
+  r.push(cur);return r;
 }
-
-// Parse date ISO yyyy-mm-dd ou DD/MM/YYYY → Date locale minuit
 function pd(s){
-  if(!s) return null;
-  s=String(s).trim();
+  if(!s) return null;s=String(s).trim();
   let m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if(m) return new Date(+m[1],+m[2]-1,+m[3]);
   m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
@@ -694,239 +958,138 @@ function pd(s){
   return null;
 }
 const fmt=d=>d?d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'}):'?';
+function nk(s){if(!s)return '';return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');}
 
-// Normalise un nom de kit : minuscules, sans accents, sans espaces/ponctuation
-function nk(s){
-  if(!s) return '';
-  return String(s).toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-    .replace(/[^a-z0-9]/g,'');
-}
-
-// ══════════════════════════════════════════════════════════════════
-// CHARGEMENT ONGLET KITS
-// Colonnes : kit_id, nom_kit, nom_formulaire, description, contenu,
-//            taille, poids, icone, couleur, categories,
-//            maintenance, maintenance_msg, avenir, avenir_msg, actif
-// ══════════════════════════════════════════════════════════════════
 async function loadKits(){
   try{
-    const resp = await fetch(cfg.urlKits, {cache:'no-store'});
+    const resp=await fetch(cfg.urlKits,{cache:'no-store'});
     if(!resp.ok) throw new Error('HTTP '+resp.status);
-    const txt = await resp.text();
-    const rows = parseCSV(txt);
-    if(!rows.length) throw new Error('Onglet KITS vide');
-
-    kits = rows
-      .filter(r=> (r['actif']||'').toUpperCase()==='OUI' || !r['actif'])
-      .map(r=>{
-        const id = r['kit_id'] || r['nom_kit'];
-        // Applique les surcharges locales admin si elles existent
-        const ov = kitOverrides[id] || {};
-        return {
-          id,
-          kit_id:      id,
-          nom:         ov.nom        || r['nom_kit']          || '',
-          nom_form:    r['nom_formulaire'] || r['nom_kit']    || '', // clé de matching avec RESERVATIONS
-          description: ov.description|| r['description']      || '',
-          contenu:    (ov.contenu    || r['contenu']          || '').split(',').map(s=>s.trim()).filter(Boolean),
-          taille:      ov.taille     || r['taille']            || '',
-          poids:       ov.poids      || r['poids']             || '',
-          icon:        ov.icon       || r['icone']             || '📦',
-          couleur:     ov.couleur    || r['couleur']           || '#F2EDF0',
-          photo:       ov.photo      || null,
-          cats:       (r['categories']||'').split(',').map(s=>s.trim()).filter(Boolean),
-          maintenance: ov.maintenance!==undefined ? ov.maintenance : (r['maintenance']||'').toUpperCase()==='OUI',
-          maintenanceMsg: ov.maintenanceMsg || r['maintenance_msg'] || '',
-          avenir:     ov.avenir!==undefined ? ov.avenir : (r['avenir']||'').toUpperCase()==='OUI',
-          avenirMsg:   ov.avenirMsg  || r['avenir_msg']        || '',
-        };
-      });
+    const rows=parseCSV(await resp.text());
+    if(!rows.length) throw new Error('KITS vide');
+    kits=rows.filter(r=>(r['actif']||'').toUpperCase()==='OUI'||!r['actif']).map(r=>{
+      const id=r['kit_id']||r['nom_kit'];
+      const ov=kitOverrides[id]||{};
+      return {id,kit_id:id,nom:ov.nom||r['nom_kit']||'',nom_form:r['nom_formulaire']||r['nom_kit']||'',
+        description:ov.description||r['description']||'',
+        contenu:(ov.contenu||r['contenu']||'').split(',').map(s=>s.trim()).filter(Boolean),
+        taille:ov.taille||r['taille']||'',poids:ov.poids||r['poids']||'',
+        icon:ov.icon||r['icone']||'📦',couleur:ov.couleur||r['couleur']||'#F2EDF0',photo:ov.photo||null,
+        cats:(r['categories']||'').split(',').map(s=>s.trim()).filter(Boolean),
+        maintenance:ov.maintenance!==undefined?ov.maintenance:(r['maintenance']||'').toUpperCase()==='OUI',
+        maintenanceMsg:ov.maintenanceMsg||r['maintenance_msg']||'',
+        avenir:ov.avenir!==undefined?ov.avenir:(r['avenir']||'').toUpperCase()==='OUI',
+        avenirMsg:ov.avenirMsg||r['avenir_msg']||''};
+    });
     return true;
-  }catch(e){
-    console.error('loadKits:',e.message);
-    return false;
-  }
+  }catch(e){console.error('loadKits:',e.message);return false;}
 }
-
-// ══════════════════════════════════════════════════════════════════
-// CHARGEMENT ONGLET RESERVATIONS
-// Colonnes réelles : reservation_id, horodateur, kit_id, nom_kit,
-//   date_debut, date_fin, prenom, nom, structure, statut
-// ══════════════════════════════════════════════════════════════════
 async function loadReservations(){
   try{
-    const resp = await fetch(cfg.urlResa, {cache:'no-store'});
+    const resp=await fetch(cfg.urlResa,{cache:'no-store'});
     if(!resp.ok) throw new Error('HTTP '+resp.status);
-    const txt = await resp.text();
-    const rows = parseCSV(txt);
-
-    reservations = rows
-      .map(r=>({
-        kit_id:     (r['kit_id']    || '').trim(),
-        nom_kit:    (r['nom_kit']   || '').trim(),
-        date_debut: pd(r['date_debut']),
-        date_fin:   pd(r['date_fin']),
-        // Statut : "active" = réservation en cours, vide ou autre = ignoré
-        statut:     (r['statut']    || '').trim().toLowerCase(),
-        who:        [r['prenom']||'', r['nom']||''].filter(Boolean).join(' '),
-        struct:     (r['structure'] || '').trim(),
-      }))
-      .filter(r=>
-        r.kit_id &&
-        r.date_debut && !isNaN(r.date_debut) &&
-        r.date_fin   && !isNaN(r.date_fin)   &&
-        // On garde toutes les lignes sauf statut explicitement "annulé"
-        r.statut !== 'annulé' && r.statut !== 'annule' && r.statut !== 'cancelled'
-      );
+    reservations=parseCSV(await resp.text()).map(r=>({
+      kit_id:(r['kit_id']||'').trim(),nom_kit:(r['nom_kit']||'').trim(),
+      date_debut:pd(r['date_debut']),date_fin:pd(r['date_fin']),
+      statut:(r['statut']||'').trim().toLowerCase(),
+      who:[r['prenom']||'',r['nom']||''].filter(Boolean).join(' '),struct:(r['structure']||'').trim()
+    })).filter(r=>r.kit_id&&r.date_debut&&!isNaN(r.date_debut)&&r.date_fin&&!isNaN(r.date_fin)&&
+      r.statut!=='annulé'&&r.statut!=='annule'&&r.statut!=='cancelled');
     return true;
-  }catch(e){
-    console.error('loadReservations:',e.message);
-    return false;
-  }
+  }catch(e){console.error('loadReservations:',e.message);return false;}
 }
-
-// ══════════════════════════════════════════════════════════════════
-// LOGIQUE DE DISPONIBILITÉ
-// Matching direct par kit_id (colonne exacte dans RESERVATIONS)
-// Fallback par nom_kit normalisé si kit_id absent
-// ══════════════════════════════════════════════════════════════════
-function getKitDispo(kitObj, deb, fin){
-  const today = new Date(); today.setHours(0,0,0,0);
-  const d = deb || today;
-  const f = fin || today;
-
-  // Matching par kit_id exact (colonne directe — 100% fiable)
-  const matches = reservations.filter(r=>{
-    if(r.kit_id && kitObj.kit_id && r.kit_id === kitObj.kit_id) return true;
-    // Fallback : correspondance normalisée par nom_kit
-    if(r.nom_kit && kitObj.nom){
-      const rn = nk(r.nom_kit);
-      const kn = nk(kitObj.nom);
-      if(rn === kn) return true;
-    }
+function getKitDispo(kitObj,deb,fin){
+  const today=new Date();today.setHours(0,0,0,0);
+  const d=deb||today,f=fin||today;
+  const matches=reservations.filter(r=>{
+    if(r.kit_id&&kitObj.kit_id&&r.kit_id===kitObj.kit_id) return true;
+    if(r.nom_kit&&kitObj.nom){const rn=nk(r.nom_kit),kn=nk(kitObj.nom);if(rn===kn)return true;}
     return false;
   });
-
-  const conflicts = matches.filter(r=> r.date_debut <= f && r.date_fin >= d);
-  const upcoming  = matches.filter(r=> r.date_debut > f).sort((a,b)=>a.date_debut-b.date_debut);
-
-  return { status: conflicts.length ? 'indispo' : 'dispo', conflicts, upcoming, all:matches };
+  const conflicts=matches.filter(r=>r.date_debut<=f&&r.date_fin>=d);
+  const upcoming=matches.filter(r=>r.date_debut>f).sort((a,b)=>a.date_debut-b.date_debut);
+  return {status:conflicts.length?'indispo':'dispo',conflicts,upcoming,all:matches};
+}
+const dlabel=s=>({dispo:'Disponible',indispo:'Réservé',maint:'En maintenance',avenir:'À venir'}[s]||'Disponible');
+const dcolor=s=>({dispo:'#22c55e',indispo:'#ef4444',maint:'#9ca3af',avenir:'#a855f7'}[s]||'#22c55e');
+const dotcls=s=>({dispo:'dg',indispo:'di',maint:'dm',avenir:'dav'}[s]||'dg');
+function kitsForProfil(profil){
+  if(!profil) return kits;
+  return kits.filter(k=>(k.cats||[]).includes(profil.cat));
 }
 
-const dlabel = s=>({dispo:'Disponible',indispo:'Réservé',maint:'En maintenance',avenir:'À venir'}[s]||'Disponible');
-const dcolor  = s=>({dispo:'#22c55e',indispo:'#ef4444',maint:'#9ca3af',avenir:'#a855f7'}[s]||'#22c55e');
-const dotcls  = s=>({dispo:'dg',indispo:'di',maint:'dm',avenir:'dav'}[s]||'dg');
+function buildProfilScreen(){
+  document.getElementById('profilGrid').innerHTML=PROFILS.map(p=>`
+    <div class="ps-card" id="pcard-${p.id}" onclick="selectProfil('${p.id}')">
+      <div class="pc-icon">${p.icon}</div>
+      <div class="pc-name">${p.label}</div>
+      <div class="pc-desc">${p.desc}</div>
+    </div>`).join('');
+}
+function selectProfil(id){
+  document.querySelectorAll('.ps-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('pcard-'+id).classList.add('selected');
+  profilActif=PROFILS.find(p=>p.id===id);
+  const btn=document.getElementById('profilConfirmBtn');
+  btn.classList.add('show');
+  btn.textContent=`Accéder au catalogue ${profilActif.icon} →`;
+}
+function confirmerProfil(){
+  if(!profilActif) return;
+  document.getElementById('profilScreen').classList.remove('show');
+  document.getElementById('appContent').style.display='block';
+  document.getElementById('profilBanner').classList.add('show');
+  document.getElementById('profilNom').textContent=profilActif.icon+' '+profilActif.label;
+  renderGrid();
+}
+function changerProfil(){
+  profilActif=null;
+  document.getElementById('appContent').style.display='none';
+  document.getElementById('profilBanner').classList.remove('show');
+  document.getElementById('profilScreen').classList.add('show');
+  document.querySelectorAll('.ps-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('profilConfirmBtn').classList.remove('show');
+}
 
-// ══════════════════════════════════════════════════════════════════
-// INIT — chargement parallèle des deux onglets
-// ══════════════════════════════════════════════════════════════════
 async function initApp(){
   setSS('loading','Chargement des données…');
-  document.getElementById('kitsGrid').innerHTML =
-    '<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>';
-
-  const [kOk, rOk] = await Promise.all([loadKits(), loadReservations()]);
-
-  if(!kOk || kits.length===0){
-    document.getElementById('kitsGrid').innerHTML=`
-      <div class="estate">
-        <div class="ei">⚠️</div>
-        <h3>Impossible de charger les kits</h3>
-        <p>Vérifiez que l'onglet KITS est publié en CSV.<br>Puis configurez l'URL dans <strong>Admin → Paramètres</strong>.</p>
-        <button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">⚙️ Configurer</button>
-      </div>`;
-    setSS('error','Onglet KITS inaccessible — vérifiez les paramètres');
-    return;
+  document.getElementById('kitsGrid').innerHTML='<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>';
+  const [kOk,rOk]=await Promise.all([loadKits(),loadReservations()]);
+  if(!kOk||kits.length===0){
+    document.getElementById('kitsGrid').innerHTML='<div class="estate"><div class="ei">⚠️</div><h3>Impossible de charger les kits</h3><p>Vérifiez que l'onglet KITS est publié en CSV.</p><button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">⚙️ Configurer</button></div>';
+    setSS('error','Onglet KITS inaccessible');return;
   }
-
-  buildFilterChips();
-  renderGrid();
-
-  if(kOk && rOk){
-    setSS('ok',`${kits.length} kit${kits.length>1?'s':''} · ${reservations.length} réservation${reservations.length>1?'s':''} chargées`);
-  } else {
-    setSS('error',`${kits.length} kits — réservations non accessibles (vérifiez l'URL RESERVATIONS)`);
-  }
-  // Bouton refresh visible en mode admin
-  if(document.body.classList.contains('adm')){
-    document.getElementById('syncA').innerHTML=`<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>`;
-  }
+  if(profilActif) renderGrid();
+  if(kOk&&rOk) setSS('ok',`${kits.length} kit${kits.length>1?'s':''} · ${reservations.length} réservation${reservations.length>1?'s':''} chargées`);
+  else setSS('error',`${kits.length} kits — réservations non accessibles`);
+  if(document.body.classList.contains('adm')) document.getElementById('syncA').innerHTML='<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>';
 }
-
-async function doRefresh(){
-  kits=[];reservations=[];
-  await initApp();
-}
-
-function setSS(state, msg){
+async function doRefresh(){kits=[];reservations=[];await initApp();}
+function setSS(state,msg){
   const d=document.getElementById('sdot');
   d.className='dot'+(state==='loading'?' ld':state==='error'?' er':'');
   document.getElementById('stxt').textContent=msg;
 }
 
-// ══════════════════════════════════════════════════════════════════
-// RENDU GRILLE
-// ══════════════════════════════════════════════════════════════════
-function buildFilterChips(){
-  // Collecte les catégories uniques depuis les kits chargés
-  const allCats = new Set();
-  kits.forEach(k=>(k.cats||[]).forEach(c=>allCats.add(c)));
-  const div = document.getElementById('filterChips');
-  div.innerHTML=`<button class="chip on" onclick="setFilter('tous',this)">Tous</button>`;
-  allCats.forEach(c=>{
-    const b=document.createElement('button');
-    b.className='chip'; b.textContent=c;
-    b.onclick=()=>setFilter(c,b);
-    div.appendChild(b);
-  });
-}
-
 function renderGrid(){
-  const grid = document.getElementById('kitsGrid');
-  const q = document.getElementById('si').value.toLowerCase();
-
-  const filtered = kits.filter(k=>{
-    const mc = filterActive==='tous' || (k.cats||[]).includes(filterActive);
-    const ms = !q || k.nom.toLowerCase().includes(q)
-                   || (k.description||'').toLowerCase().includes(q)
-                   || (k.contenu||[]).some(c=>c.toLowerCase().includes(q));
-    return mc && ms;
-  });
-
-  document.getElementById('statsText').innerHTML =
-    `<strong>${filtered.length}</strong> kit${filtered.length>1?'s':''} trouvé${filtered.length>1?'s':''}`;
-
-  if(!filtered.length){
-    grid.innerHTML=`<div class="ems"><div class="ei">🔍</div><p>Aucun kit ne correspond.</p></div>`;
-    return;
-  }
-
-  const today = new Date(); today.setHours(0,0,0,0);
-
-  grid.innerHTML = filtered.map(k=>{
-    const isMaint = !!k.maintenance;
-    const isAv    = !isMaint && !!k.avenir;
-    const dispo   = (isMaint||isAv)
-      ? {status: isMaint?'maint':'avenir', conflicts:[], upcoming:[]}
-      : getKitDispo(k, today, today);
-    const ds = dispo.status;
-    const canResa = !isMaint && !isAv; // Toujours actif sauf maintenance/à venir — la fenêtre gère l'indispo
-
-    const cats  = (k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
-    const thumb = k.photo
-      ? `<img src="${k.photo}" alt="${k.nom}">`
-      : `<span class="ei">${k.icon||'📦'}</span>`;
-
-    let hint = '';
-    if(!isMaint&&!isAv&&dispo.conflicts&&dispo.conflicts.length)
-      hint=`<div class="ch vis">📅 Réservé — vérifiez vos dates</div>`;
-    else if(!isMaint&&!isAv&&dispo.upcoming&&dispo.upcoming.length)
-      hint=`<div class="ch vis">📅 Prochaine resa : ${fmt(dispo.upcoming[0].date_debut)}</div>`;
-
+  if(!profilActif&&!document.body.classList.contains('adm')) return;
+  const grid=document.getElementById('kitsGrid');
+  const q=document.getElementById('si').value.toLowerCase();
+  const base=document.body.classList.contains('adm')?kits:kitsForProfil(profilActif);
+  const filtered=base.filter(k=>!q||k.nom.toLowerCase().includes(q)||(k.description||'').toLowerCase().includes(q)||(k.contenu||[]).some(c=>c.toLowerCase().includes(q)));
+  document.getElementById('statsText').innerHTML=`<strong>${filtered.length}</strong> kit${filtered.length>1?'s':''} trouvé${filtered.length>1?'s':''}${profilActif?' pour '+profilActif.label:''}`;
+  if(!filtered.length){grid.innerHTML='<div class="ems"><div class="ei">🔍</div><p>Aucun kit ne correspond.</p></div>';return;}
+  const today=new Date();today.setHours(0,0,0,0);
+  grid.innerHTML=filtered.map(k=>{
+    const isMaint=!!k.maintenance,isAv=!isMaint&&!!k.avenir;
+    const dispo=(isMaint||isAv)?{status:isMaint?'maint':'avenir',conflicts:[],upcoming:[]}:getKitDispo(k,today,today);
+    const ds=dispo.status;
+    const cats=(k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
+    const thumb=k.photo?`<img src="${k.photo}" alt="${k.nom}">`:`<span class="ei">${k.icon||'📦'}</span>`;
+    let hint='';
+    if(!isMaint&&!isAv&&dispo.conflicts&&dispo.conflicts.length) hint='<div class="ch vis">📅 Réservé — vérifiez vos dates</div>';
+    else if(!isMaint&&!isAv&&dispo.upcoming&&dispo.upcoming.length) hint=`<div class="ch vis">📅 Prochaine resa : ${fmt(dispo.upcoming[0].date_debut)}</div>`;
     return `<div class="card${isMaint?' km':''}${isAv?' kav':''}">
-      <div class="ct" style="background:${k.couleur}">
-        ${thumb}
+      <div class="ct" style="background:${k.couleur}">${thumb}
         <div class="cbs">${cats}</div>
         <span class="ddot ${dotcls(ds)}" title="${dlabel(ds)}"></span>
         <div class="sov mov"><div class="sbadge mbadge">🔧 En maintenance</div></div>
@@ -939,14 +1102,8 @@ function renderGrid(){
           ${k.poids?`<span class="mt">⚖️ ${k.poids}</span>`:''}
           ${k.taille?`<span class="mt">📐 ${k.taille}</span>`:''}
           <span class="mt" style="color:${dcolor(ds)}">● ${dlabel(ds)}</span>
-        </div>
-        ${hint}
-        <div class="cfoot">
-          <button class="bdt" onclick="openDetail('${k.id}')">🔍 Détail</button>
-          ${canResa
-            ?`<button class="brs" onclick="openDispo('${k.id}')">📅 Réserver</button>`
-            :`<span class="brs dis${isAv?' avb':''}">${isMaint?'🔧 Maintenance':isAv?'🚧 À venir':'❌ Réservé'}</span>`}
-        </div>
+        </div>${hint}
+        <div class="cfoot"><button class="bdt" onclick="openDetail('${k.id}')">🔍 Détail</button></div>
       </div>
       <div class="cab">
         <button class="ce" onclick="openAdmin('${k.id}');event.stopPropagation()">✏️</button>
@@ -956,187 +1113,125 @@ function renderGrid(){
   }).join('');
 }
 
-// ══════════════════════════════════════════════════════════════════
-// DISPO CHECK MODAL
-// ══════════════════════════════════════════════════════════════════
-function openDispo(kitId){
-  dispoKitId = kitId;
-  const k = kits.find(x=>x.id===kitId);
-  document.getElementById('dKitName').textContent = k ? k.nom : '';
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('dDeb').value = today;
-  document.getElementById('dFin').value = today;
-  document.getElementById('dDeb').min = today;
-  document.getElementById('dFin').min = today;
-  document.getElementById('drResult').style.display='none';
-  document.getElementById('dGoBtn').style.display='none';
-  document.getElementById('dov').classList.add('open');
-  chkDispo();
+function populateKitSelect(preselect){
+  const sel=document.getElementById('dispoKitSelect');
+  const base=profilActif?kitsForProfil(profilActif):kits;
+  sel.innerHTML=`<option value="">— Choisissez un kit —</option>`+base.filter(k=>!k.maintenance&&!k.avenir).map(k=>`<option value="${k.id}">${k.nom}</option>`).join('');
+  if(preselect) sel.value=preselect;
 }
+function openDispoGlobal(){dispoKitId=null;populateKitSelect(null);resetDispoResult();setDateMin();document.getElementById('dov').classList.add('open');}
+function openDispo(kitId){dispoKitId=kitId;populateKitSelect(kitId);resetDispoResult();setDateMin();document.getElementById('dov').classList.add('open');if(kitId)chkDispo();}
+function ouvrirDispoDepuisDetail(){const id=document.getElementById('mTitle').dataset.kitId;closeDetail();setTimeout(()=>openDispo(id),120);}
 function closeDispo(){document.getElementById('dov').classList.remove('open');dispoKitId=null;}
-
+function setDateMin(){
+  const todayStr=new Date().toISOString().split('T')[0];
+  const min=prochainOuvrable(todayStr);
+  ['dDeb','dFin'].forEach(id=>{document.getElementById(id).value=min;document.getElementById(id).min=min;});
+}
+function resetDispoResult(){document.getElementById('drResult').style.display='none';document.getElementById('dGoBtn').style.display='none';}
+function onKitSelectChange(){
+  dispoKitId=document.getElementById('dispoKitSelect').value||null;
+  if(dispoKitId&&document.getElementById('dDeb').value) chkDispo();
+  else resetDispoResult();
+}
 function chkDispo(){
-  if(!dispoKitId) return;
-  const k = kits.find(x=>x.id===dispoKitId); if(!k) return;
-  const ds = document.getElementById('dDeb').value;
-  const fs = document.getElementById('dFin').value;
+  const kitId=document.getElementById('dispoKitSelect').value;
+  if(!kitId){resetDispoResult();return;}
+  const k=kits.find(x=>x.id===kitId);if(!k)return;
+  let ds=document.getElementById('dDeb').value;
+  let fs=document.getElementById('dFin').value;
   if(!ds||!fs) return;
-  const deb=new Date(ds), fin=new Date(fs);
+  if(isJourBloqu(ds)){ds=prochainOuvrable(ds);document.getElementById('dDeb').value=ds;}
+  if(isJourBloqu(fs)||fs<ds){fs=prochainOuvrable(fs<ds?ds:fs);document.getElementById('dFin').value=fs;}
   document.getElementById('dFin').min=ds;
-  if(fin<deb){document.getElementById('dFin').value=ds; return;}
-
-  const res = getKitDispo(k, deb, fin);
-  const rDiv = document.getElementById('drResult');
+  const deb=new Date(ds),fin=new Date(fs);
+  const res=getKitDispo(k,deb,fin);
+  const rDiv=document.getElementById('drResult');
   rDiv.style.display='block';
-
+  const goBtn=document.getElementById('dGoBtn');
   if(res.status==='dispo'){
     rDiv.className='dr ok';
     document.getElementById('drTitle').innerHTML='✅ Disponible pour cette période';
     document.getElementById('drSub').innerHTML=`Le kit <strong>${k.nom}</strong> est libre du ${fmt(deb)} au ${fmt(fin)}.`;
     document.getElementById('simBlock').style.display='none';
-    document.getElementById('dGoBtn').href = cfg.formUrl||DEFAULT_FORM;
-    document.getElementById('dGoBtn').style.display='flex';
-    document.getElementById('dGoBtn').textContent='📝 Accéder au formulaire →';
-    document.getElementById('dGoBtn').style.background='';
-    document.getElementById('dGoBtn').onclick = null;
+    goBtn.href='#';goBtn.style.display='flex';
+    goBtn.textContent='📝 Remplir le formulaire →';
+    goBtn.className='btn btn-p';
+    goBtn.style.background='';goBtn.style.pointerEvents='';goBtn.style.cursor='';goBtn.style.color='';
+    goBtn.removeAttribute('aria-disabled');
+    goBtn.onclick=function(ev){
+      ev.preventDefault();
+      const sel=document.getElementById('dispoKitSelect');
+      const kitNom=sel.options[sel.selectedIndex]?sel.options[sel.selectedIndex].text:'';
+      closeDispo();
+      setTimeout(()=>ouvrirFormulaireResa(kitNom,ds,fs),120);
+    };
   } else {
     rDiv.className='dr ko';
     document.getElementById('drTitle').innerHTML='❌ Indisponible pour cette période';
     let sub=`Le kit <strong>${k.nom}</strong> est déjà réservé sur tout ou partie de cette période.`;
     if(res.conflicts.length){
       sub+=`<br><br>Conflit${res.conflicts.length>1?'s':''} :`;
-      res.conflicts.slice(0,4).forEach(c=>{
-        sub+=`<br>• ${fmt(c.date_debut)} → ${fmt(c.date_fin)}${c.who?' <span style="color:var(--gris)">('+c.who+')</span>':''}`;
-      });
+      res.conflicts.slice(0,4).forEach(c=>{sub+=`<br>• ${fmt(c.date_debut)} → ${fmt(c.date_fin)}${c.who?' <span style="color:var(--gris)">('+c.who+')</span>':''}`;});
     }
-    if(res.upcoming.length)
-      sub+=`<br><br>Prochaine disponibilité : après le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
+    if(res.upcoming.length) sub+=`<br><br>Prochaine disponibilité : après le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
     document.getElementById('drSub').innerHTML=sub;
-    // Bouton formulaire visible même si indispo — avec avertissement
-    document.getElementById('dGoBtn').href = cfg.formUrl||DEFAULT_FORM;
-    document.getElementById('dGoBtn').style.display='flex';
-    document.getElementById('dGoBtn').textContent='📝 Accéder au formulaire →';
-    document.getElementById('dGoBtn').style.background='';
-    document.getElementById('dGoBtn').onclick = null;
-    document.getElementById('dGoBtn').textContent='⚠️ Confirmer quand même →';
-    document.getElementById('dGoBtn').style.background='#f59e0b';
-    document.getElementById('dGoBtn').onclick = function(ev){
-      ev.preventDefault();
-      if(confirm('⚠️ Ce kit est indisponible sur les dates choisies.\n\nÊtes-vous sûr de vouloir soumettre votre demande de réservation sur ces dates ?\n\nVotre demande sera examinée par l\'équipe KEREA.')){
-        window.open(cfg.formUrl||DEFAULT_FORM, '_blank');
-      }
-    };
-    const sims = findSimilar(k, deb, fin);
+    goBtn.style.display='flex';goBtn.className='btn btn-p blocked';
+    goBtn.textContent="🚫 Kit indisponible — choisissez d'autres dates";
+    goBtn.href='#';goBtn.setAttribute('aria-disabled','true');goBtn.onclick=e=>e.preventDefault();
+    const sims=findSimilar(k,deb,fin);
     const sb=document.getElementById('simBlock');
-    if(sims.length){
-      sb.style.display='block';
-      document.getElementById('simList').innerHTML=sims.map(sk=>
-        `<span class="sc" onclick="switchDispo('${sk.id}')">${sk.icon||'📦'} ${sk.nom}</span>`
-      ).join('');
-    } else sb.style.display='none';
+    if(sims.length){sb.style.display='block';document.getElementById('simList').innerHTML=sims.map(sk=>`<span class="sc" onclick="switchDispoKit('${sk.id}')">${sk.icon||'📦'} ${sk.nom}</span>`).join('');}
+    else sb.style.display='none';
   }
 }
-
-function findSimilar(k, deb, fin){
-  // Kits du même type de base (même nom sans le numéro final) disponibles sur la période
-  const base = k.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
-  return kits.filter(x=>{
-    if(x.id===k.id || x.maintenance || x.avenir) return false;
-    const xbase = x.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
-    return xbase===base && getKitDispo(x,deb,fin).status==='dispo';
+function findSimilar(k,deb,fin){
+  const base=k.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
+  const pool=profilActif?kitsForProfil(profilActif):kits;
+  return pool.filter(x=>{
+    if(x.id===k.id||x.maintenance||x.avenir)return false;
+    return x.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim()===base&&getKitDispo(x,deb,fin).status==='dispo';
   }).slice(0,4);
 }
+function switchDispoKit(kitId){document.getElementById('dispoKitSelect').value=kitId;dispoKitId=kitId;chkDispo();}
+function ouvrirAnnulation(){ouvrirFormulaireAnnulation();}
 
-function switchDispo(kitId){
-  closeDispo();
-  setTimeout(()=>openDispo(kitId), 120);
-}
-
-// ══════════════════════════════════════════════════════════════════
-// DETAIL MODAL
-// ══════════════════════════════════════════════════════════════════
 function openDetail(id){
-  const k = kits.find(x=>x.id===id); if(!k) return;
-  const isMaint=!!k.maintenance, isAv=!isMaint&&!!k.avenir;
-  const dispo = (isMaint||isAv)
-    ? {status:isMaint?'maint':'avenir',conflicts:[],upcoming:[],all:[]}
-    : getKitDispo(k);
-
-  const th = document.getElementById('mThumb');
-  th.style.background = k.couleur;
-  th.style.filter = isMaint?'grayscale(.5)':isAv?'saturate(.3)':'';
-  th.innerHTML = k.photo
-    ? `<img src="${k.photo}" alt="${k.nom}">`
-    : `<span style="font-size:65px;position:relative;z-index:1">${k.icon||'📦'}</span>`;
-
-  document.getElementById('mCats').innerHTML = (k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
-  document.getElementById('mTitle').textContent = k.nom;
-  document.getElementById('mDesc').textContent  = k.description || '—';
-  document.getElementById('mContenu').innerHTML = (k.contenu||[]).map(c=>`<li>${c}</li>`).join('');
-  document.getElementById('mSpecs').innerHTML = `
+  const k=kits.find(x=>x.id===id);if(!k)return;
+  const isMaint=!!k.maintenance,isAv=!isMaint&&!!k.avenir;
+  const dispo=(isMaint||isAv)?{status:isMaint?'maint':'avenir',conflicts:[],upcoming:[],all:[]}:getKitDispo(k);
+  const th=document.getElementById('mThumb');
+  th.style.background=k.couleur;th.style.filter=isMaint?'grayscale(.5)':isAv?'saturate(.3)':'';
+  th.innerHTML=k.photo?`<img src="${k.photo}" alt="${k.nom}">`:`<span style="font-size:65px;position:relative;z-index:1">${k.icon||'📦'}</span>`;
+  document.getElementById('mCats').innerHTML=(k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
+  const titEl=document.getElementById('mTitle');titEl.textContent=k.nom;titEl.dataset.kitId=k.id;
+  document.getElementById('mDesc').textContent=k.description||'—';
+  document.getElementById('mContenu').innerHTML=(k.contenu||[]).map(c=>`<li>${c}</li>`).join('');
+  document.getElementById('mSpecs').innerHTML=`
     <div class="sp"><label>Poids</label><strong>${k.poids||'—'}</strong></div>
     <div class="sp"><label>Taille</label><strong>${k.taille||'—'}</strong></div>
     <div class="sp"><label>Disponibilité</label><strong style="color:${dcolor(dispo.status)}">${dlabel(dispo.status)}</strong></div>
     <div class="sp"><label>Catégories</label><strong style="font-size:11px">${(k.cats||[]).join(', ')||'—'}</strong></div>`;
-  document.getElementById('mInter').innerHTML = (k.cats||[]).length
-    ? k.cats.map(c=>`<span class="ic">${c}</span>`).join('')
-    : `<span style="color:#999;font-size:11px">Non renseigné</span>`;
-
-  // Bannière maintenance / à venir
-  const ban = document.getElementById('mStBan');
-  ban.className = 'stban'+(isMaint?' sm':isAv?' sav':'');
-  ban.style.display = (isMaint||isAv)?'flex':'none';
-  ban.textContent   = isMaint?(k.maintenanceMsg||'Ce kit est temporairement en maintenance.')
-                    : isAv   ?(k.avenirMsg    ||'Ce kit est en cours de constitution.'):'';
-
-  // Planning des réservations
-  const all = (dispo.all||[]).sort((a,b)=>a.date_debut-b.date_debut);
-  const today = new Date(); today.setHours(0,0,0,0);
-  const rs=document.getElementById('mResaSec'), rl=document.getElementById('mResaList');
-  if(all.length){
-    rs.style.display='';
-    rl.innerHTML = all.map(r=>{
-      const cur = r.date_debut<=today && r.date_fin>=today;
-      return `<div class="ri${cur?' cur':''}">
-        <span class="rdot"></span>
-        <div>
-          <div class="rdat">${fmt(r.date_debut)} → ${fmt(r.date_fin)}</div>
-          ${r.who?`<div class="rwho">${r.who}${r.struct?' · '+r.struct:''}</div>`:''}
-        </div>
-        ${cur?`<span class="rbadge">En cours</span>`:''}
-      </div>`;
-    }).join('');
-  } else {
-    rs.style.display = reservations.length ? '' : 'none';
-    rl.innerHTML = '<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';
-  }
-
-  // Bouton réserver
-  const btn = document.getElementById('mResaBtn');
-  const canResa = !isMaint && !isAv && dispo.status!=='indispo';
-  if(canResa){
-    btn.removeAttribute('href'); btn.removeAttribute('aria-disabled');
-    btn.className='brs btn';
-    btn.textContent='📅 Vérifier & réserver';
-    btn.onclick=()=>{closeDetail();setTimeout(()=>openDispo(k.id),120);};
-  } else {
-    btn.onclick=null; btn.removeAttribute('href');
-    btn.setAttribute('aria-disabled','true');
-    btn.className='brs btn dis'+(isAv?' avb':'');
-    btn.textContent = isMaint?'🔧 En maintenance':isAv?'🚧 À venir':'❌ Réservé actuellement';
-  }
-
+  document.getElementById('mInter').innerHTML=(k.cats||[]).length?k.cats.map(c=>`<span class="ic">${c}</span>`).join(''):'<span style="color:#999;font-size:11px">Non renseigné</span>';
+  const ban=document.getElementById('mStBan');
+  ban.className='stban'+(isMaint?' sm':isAv?' sav':'');
+  ban.style.display=(isMaint||isAv)?'flex':'none';
+  ban.textContent=isMaint?(k.maintenanceMsg||'Ce kit est temporairement en maintenance.'):isAv?(k.avenirMsg||'Ce kit est en cours de constitution.'):'';
+  const all=(dispo.all||[]).sort((a,b)=>a.date_debut-b.date_debut);
+  const today=new Date();today.setHours(0,0,0,0);
+  const rs=document.getElementById('mResaSec'),rl=document.getElementById('mResaList');
+  if(all.length){rs.style.display='';rl.innerHTML=all.map(r=>{const cur=r.date_debut<=today&&r.date_fin>=today;return`<div class="ri${cur?' cur':''}"><span class="rdot"></span><div><div class="rdat">${fmt(r.date_debut)} → ${fmt(r.date_fin)}</div>${r.who?`<div class="rwho">${r.who}${r.struct?' · '+r.struct:''}</div>`:''}</div>${cur?'<span class="rbadge">En cours</span>':''}</div>`;}).join('');}
+  else{rs.style.display=reservations.length?'':'none';rl.innerHTML='<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';}
+  const btn=document.getElementById('mResaBtn');
+  btn.className='brs'+(isMaint||isAv?' dis':'');
+  btn.textContent=isMaint?'🔧 En maintenance':isAv?'🚧 À venir':'📅 Vérifier & réserver';
   document.getElementById('detov').classList.add('open');
 }
 function closeDetail(){document.getElementById('detov').classList.remove('open');}
 
-// ══════════════════════════════════════════════════════════════════
-// AUTH
-// ══════════════════════════════════════════════════════════════════
 function reqAdmin(){
   if(document.body.classList.contains('adm')){exitAdmin();return;}
-  document.getElementById('authIn').value='';
-  document.getElementById('authErr').style.display='none';
+  document.getElementById('authIn').value='';document.getElementById('authErr').style.display='none';
   document.getElementById('authOv').classList.add('open');
   setTimeout(()=>document.getElementById('authIn').focus(),100);
 }
@@ -1146,139 +1241,59 @@ function chkAuth(){
   else{document.getElementById('authErr').style.display='block';document.getElementById('authIn').value='';}
 }
 function enterAdmin(){
-  document.body.classList.add('adm');
-  document.getElementById('adminBtn').textContent='🔒 Quitter';
+  document.body.classList.add('adm');document.getElementById('adminBtn').textContent='🔒 Quitter';
   document.getElementById('addBtn').style.display='';
-  document.getElementById('syncA').innerHTML=`<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>`;
+  document.getElementById('syncA').innerHTML='<button class="sbtn" onclick="doRefresh()">🔄 Actualiser</button>';
+  if(!profilActif){document.getElementById('profilScreen').classList.remove('show');document.getElementById('appContent').style.display='block';}
+  renderGrid();
 }
 function exitAdmin(){
-  document.body.classList.remove('adm');
-  document.getElementById('adminBtn').textContent='⚙️ Admin';
-  document.getElementById('addBtn').style.display='none';
-  document.getElementById('syncA').innerHTML='';
+  document.body.classList.remove('adm');document.getElementById('adminBtn').textContent='⚙️ Admin';
+  document.getElementById('addBtn').style.display='none';document.getElementById('syncA').innerHTML='';
+  if(!profilActif){document.getElementById('appContent').style.display='none';document.getElementById('profilScreen').classList.add('show');}
+  else renderGrid();
 }
-function resetPwd(){
-  const e=cfg.adminEmail;
-  if(!e){alert('Aucun email configuré dans Paramètres.');return;}
-  const tok=btoa(Date.now()+Math.random());
-  const link=location.href.split('?')[0]+'?rt='+encodeURIComponent(tok);
-  // reset token: 
-  alert(`Lien de réinitialisation :\n${link}\n\n(En production : envoyé à ${e})`);
-}
-function chkResetToken(){
-  const tok=new URLSearchParams(location.search).get('rt');
-  if(!tok) return;
-  if(false){ // reset token désactivé sans localStorage
-    const np=prompt('Nouveau mot de passe admin :');
-    if(np&&np.length>=4){cfg.pwd=np;saveCfg();alert('Mot de passe modifié !');history.replaceState({},'',location.pathname);}
-  }
-}
+function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configuré dans Paramètres.');return;}alert('Contactez l'administrateur à : '+e);}
 
-// ══════════════════════════════════════════════════════════════════
-// LOGO
-// ══════════════════════════════════════════════════════════════════
 function applyLogo(){
-  const img=document.getElementById('logoImg'), badge=document.getElementById('logoBadge');
+  const img=document.getElementById('logoImg'),badge=document.getElementById('logoBadge');
   if(cfg.logo){img.src=cfg.logo;img.style.display='block';badge.style.display='none';}
   else{img.style.display='none';badge.style.display='flex';}
 }
-function openLogoUpload(){
-  document.getElementById('logoIn').value='';
-  document.getElementById('logoPrev').style.display='none';
-  document.getElementById('logoPrompt').style.display='block';
-  document.getElementById('logoOv').classList.add('open');
-}
+function openLogoUpload(){document.getElementById('logoIn').value='';document.getElementById('logoPrev').style.display='none';document.getElementById('logoPrompt').style.display='block';document.getElementById('logoOv').classList.add('open');}
 function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
-function prevLogo(i){
-  const f=i.files[0]; if(!f) return;
-  if(f.size>1024*1024){alert('Max 1 Mo.');return;}
-  const r=new FileReader();
-  r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};
-  r.readAsDataURL(f);
-}
-async function saveLogo(){
-  const p=document.getElementById('logoPrev');
-  if(p.style.display!=='none'&&p.src){
-    cfg.logo=p.src;
-    applyLogo();
-    // Si c'est une URL (pas base64), sauvegarde dans Sheets
-    if(!p.src.startsWith('data:')){
-      await saveSettingsToSheet({logo_url: p.src});
-    } else {
-      // Base64 : trop grand pour Sheets, on informe l'utilisateur
-      alert('⚠️ Pour que le logo reste pour tous les utilisateurs, hébergez-le sur Google Drive et collez l\'URL publique ici au lieu d\'uploader un fichier local.');
-    }
-  }
-  closeLogoUpload();
-}
-async function rmLogo(){
-  cfg.logo=null;applyLogo();
-  await saveSettingsToSheet({logo_url:''});
-  closeLogoUpload();
-}
+function prevLogo(i){const f=i.files[0];if(!f)return;if(f.size>1024*1024){alert('Max 1 Mo.');return;}const r=new FileReader();r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};r.readAsDataURL(f);}
+async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('⚠️ Hébergez le logo sur Google Drive et collez l'URL publique.');}closeLogoUpload();}
+async function rmLogo(){cfg.logo=null;applyLogo();await saveSettingsToSheet({logo_url:''});closeLogoUpload();}
 
-// ══════════════════════════════════════════════════════════════════
-// ADMIN KIT — connecté Apps Script
-// ══════════════════════════════════════════════════════════════════
-const EMOJIS={
-  'Santé':['🩺','🚑','🏥','💊','🩹','🫀','🧬','💉','🧯','♥️'],
-  'Formation':['📚','📋','📝','✏️','🎓','📊','💡','📌','🗂️','📖'],
-  'Tech':['💻','📱','🖥️','📡','🎥','🎤','🔌','🥽','🎒'],
-  'Prévention':['⚗️','⚠️','🚧','🔥','⚡','🦺','🧤','👷','🚗'],
-  'Bien-être':['🧠','😴','🥗','💪','🚴','❤️','🎀','👨‍⚕️','🌸'],
-  'Divers':['📦','📣','🏆','⭐','🎯','🔧','🔑','♿','🚙','🏪','🎡','🦴']
-};
+const EMOJIS={'Santé':['🩺','🚑','🏥','💊','🩹','🫀','🧬','💉','🧯','♥️'],'Formation':['📚','📋','📝','✏️','🎓','📊','💡','📌','🗂️','📖'],'Tech':['💻','📱','🖥️','📡','🎥','🎤','🔌','🥽','🎒'],'Prévention':['⚗️','⚠️','🚧','🔥','⚡','🦺','🧤','👷','🚗'],'Bien-être':['🧠','😴','🥗','💪','🚴','❤️','🎀','👨‍⚕️','🌸'],'Divers':['📦','📣','🏆','⭐','🎯','🔧','🔑','♿','🚙','🏪','🎡','🦴']};
 function buildEP(cur){
   const div=document.getElementById('epGrid');div.innerHTML='';
   Object.entries(EMOJIS).forEach(([g,es])=>{
     const lbl=document.createElement('div');lbl.className='epgrp';lbl.textContent=g;div.appendChild(lbl);
-    es.forEach(e=>{
-      const b=document.createElement('button');b.type='button';b.className='epb'+(e===cur?' sel':'');b.textContent=e;
-      b.onclick=()=>{document.getElementById('f-icon').value=e;div.querySelectorAll('.epb').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');};
-      div.appendChild(b);
-    });
+    es.forEach(e=>{const b=document.createElement('button');b.type='button';b.className='epb'+(e===cur?' sel':'');b.textContent=e;b.onclick=()=>{document.getElementById('f-icon').value=e;div.querySelectorAll('.epb').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');};div.appendChild(b);});
   });
 }
-
 function openAdmin(id){
-  editingId=id; curPhoto=null;
-  const k = id ? kits.find(x=>x.id===id) : null;
-  const hasGAS = !!(cfg.gasUrl||'').trim();
-  document.getElementById('adminTitle').textContent = id ? '✏️ Modifier le kit' : '➕ Nouveau kit';
-  const ind=document.getElementById('gasIndicator');
-  ind.style.display='block';
-  if(hasGAS){
-    ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#f0fdf4;color:#166534;border:1.5px solid #86efac';
-    ind.textContent='⚡ Apps Script configuré — modifications écrites dans Google Sheets';
-    document.getElementById('saveGasBtn').style.display='inline-flex';
-    document.getElementById('saveLocalBtn').style.display='none';
-  } else {
-    ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#fef9c3;color:#713f12;border:1.5px solid #fde68a';
-    ind.textContent='⚠️ Apps Script non configuré — sauvegarde locale uniquement. Configurez l\'URL dans Paramètres.';
-    document.getElementById('saveGasBtn').style.display='none';
-    document.getElementById('saveLocalBtn').style.display='inline-flex';
-  }
-  document.getElementById('f-id').value       = k?.kit_id||'';
-  document.getElementById('f-nom').value      = k?.nom||'';
-  document.getElementById('f-nomform').value  = k?.nom_form||k?.nom||'';
-  document.getElementById('f-icon').value     = k?.icon||'📦';
-  document.getElementById('f-desc').value     = k?.description||'';
-  document.getElementById('f-contenu').value  = (k?.contenu||[]).join('\n');
-  document.getElementById('f-taille').value   = k?.taille||'';
-  document.getElementById('f-poids').value    = k?.poids||'';
-  document.getElementById('f-col').value      = k?.couleur||'#F2EDF0';
-  document.getElementById('f-cats').value     = (k?.cats||[]).join(', ');
-  document.getElementById('f-maint').checked      = !!k?.maintenance;
-  document.getElementById('f-maint-msg').value    = k?.maintenanceMsg||'';
-  document.getElementById('f-av').checked         = !!k?.avenir;
-  document.getElementById('f-av-msg').value        = k?.avenirMsg||'';
-  document.getElementById('f-actif').value         = 'OUI';
+  editingId=id;curPhoto=null;
+  const k=id?kits.find(x=>x.id===id):null;
+  const hasGAS=!!(cfg.gasUrl||'').trim();
+  document.getElementById('adminTitle').textContent=id?'✏️ Modifier le kit':'➕ Nouveau kit';
+  const ind=document.getElementById('gasIndicator');ind.style.display='block';
+  if(hasGAS){ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#f0fdf4;color:#166534;border:1.5px solid #86efac';ind.textContent='⚡ Apps Script configuré — modifications écrites dans Google Sheets';document.getElementById('saveGasBtn').style.display='inline-flex';document.getElementById('saveLocalBtn').style.display='none';}
+  else{ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#fef9c3;color:#713f12;border:1.5px solid #fde68a';ind.textContent='⚠️ Apps Script non configuré — sauvegarde locale uniquement.';document.getElementById('saveGasBtn').style.display='none';document.getElementById('saveLocalBtn').style.display='inline-flex';}
+  document.getElementById('f-id').value=k?.kit_id||'';document.getElementById('f-nom').value=k?.nom||'';
+  document.getElementById('f-nomform').value=k?.nom_form||k?.nom||'';document.getElementById('f-icon').value=k?.icon||'📦';
+  document.getElementById('f-desc').value=k?.description||'';document.getElementById('f-contenu').value=(k?.contenu||[]).join('\n');
+  document.getElementById('f-taille').value=k?.taille||'';document.getElementById('f-poids').value=k?.poids||'';
+  document.getElementById('f-col').value=k?.couleur||'#F2EDF0';document.getElementById('f-cats').value=(k?.cats||[]).join(', ');
+  document.getElementById('f-maint').checked=!!k?.maintenance;document.getElementById('f-maint-msg').value=k?.maintenanceMsg||'';
+  document.getElementById('f-av').checked=!!k?.avenir;document.getElementById('f-av-msg').value=k?.avenirMsg||'';
+  document.getElementById('f-actif').value='OUI';
   const pv=document.getElementById('photoPrev'),pp=document.getElementById('photoPrompt'),rb=document.getElementById('rmPhBtn');
   if(k?.photo){pv.src=k.photo;pv.style.display='block';pp.style.display='none';rb.style.display='inline-block';curPhoto=k.photo;}
   else{pv.style.display='none';pv.src='';pp.style.display='block';rb.style.display='none';}
-  document.getElementById('f-photo').value='';
-  buildEP(k?.icon||'📦');
-  togF('m');togF('a');
+  document.getElementById('f-photo').value='';buildEP(k?.icon||'📦');togF('m');togF('a');
   document.getElementById('adminOv').classList.add('open');
 }
 function closeAdmin(){document.getElementById('adminOv').classList.remove('open');editingId=null;}
@@ -1288,7 +1303,6 @@ function togF(w){
 }
 function prevPhoto(i){const f=i.files[0];if(!f)return;if(f.size>2*1024*1024){alert('Max 2 Mo.');i.value='';return;}const r=new FileReader();r.onload=e=>{curPhoto=e.target.result;const p=document.getElementById('photoPrev');p.src=curPhoto;p.style.display='block';document.getElementById('photoPrompt').style.display='none';document.getElementById('rmPhBtn').style.display='inline-block';};r.readAsDataURL(f);}
 function rmPhoto(e){e.preventDefault();e.stopPropagation();curPhoto=null;document.getElementById('f-photo').value='';document.getElementById('photoPrev').style.display='none';document.getElementById('photoPrev').src='';document.getElementById('photoPrompt').style.display='block';document.getElementById('rmPhBtn').style.display='none';}
-
 function collectKitForm(){
   const nom=document.getElementById('f-nom').value.trim();
   if(!nom){alert('Le nom du kit est obligatoire.');return null;}
@@ -1296,104 +1310,54 @@ function collectKitForm(){
   if(!kid){kid='KIT_'+nom.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z0-9]+/g,'_').replace(/^_|_$/g,'');document.getElementById('f-id').value=kid;}
   return{kit_id:kid,nom_kit:nom,nom_formulaire:document.getElementById('f-nomform').value.trim()||nom,description:document.getElementById('f-desc').value.trim(),contenu:document.getElementById('f-contenu').value.split('\n').map(l=>l.trim()).filter(Boolean).join(', '),taille:document.getElementById('f-taille').value.trim(),poids:document.getElementById('f-poids').value.trim(),icone:document.getElementById('f-icon').value.trim()||'📦',couleur:document.getElementById('f-col').value,categories:document.getElementById('f-cats').value.trim(),maintenance:document.getElementById('f-maint').checked?'OUI':'NON',maintenance_msg:document.getElementById('f-maint-msg').value.trim(),avenir:document.getElementById('f-av').checked?'OUI':'NON',avenir_msg:document.getElementById('f-av-msg').value.trim(),actif:document.getElementById('f-actif').value};
 }
-
 function saveKitLocal(){
   const data=collectKitForm();if(!data)return;
   const id=data.kit_id;
   const ov={nom:data.nom_kit,icon:data.icone,photo:curPhoto,description:data.description,contenu:data.contenu.split(',').map(s=>s.trim()).filter(Boolean),taille:data.taille,poids:data.poids,couleur:data.couleur,cats:data.categories.split(',').map(s=>s.trim()).filter(Boolean),maintenance:data.maintenance==='OUI',maintenanceMsg:data.maintenance_msg,avenir:data.avenir==='OUI',avenirMsg:data.avenir_msg};
-  kitOverrides[id]=ov; // surcharges locales temporaires uniquement
+  kitOverrides[id]=ov;
   if(!editingId){kits.push({...ov,id,kit_id:id,nom_form:data.nom_formulaire,nom:data.nom_kit});}
   else{const idx=kits.findIndex(x=>x.id===id);if(idx>=0)kits[idx]={...kits[idx],...ov};}
-  closeAdmin();renderGrid();
-  alert('✅ Sauvegardé localement.\n⚠️ Ces données seront perdues à la prochaine actualisation depuis Sheets.\nConfigurez Apps Script pour une sauvegarde permanente.');
+  closeAdmin();renderGrid();alert('✅ Sauvegardé localement.\n⚠️ Ces données seront perdues à la prochaine actualisation.');
 }
-
 async function saveKitGAS(){
   const data=collectKitForm();if(!data)return;
   const gasUrl=cfg.gasUrl||'';if(!gasUrl){alert('URL Apps Script non configurée.');return;}
-  const btn=document.getElementById('saveGasBtn');
-  btn.textContent='⏳ Enregistrement…';btn.disabled=true;
-  try{
-    const action=editingId?'updateKit':'addKit';
-    // mode no-cors depuis GitHub Pages — réponse opaque mais écriture fonctionne
-    await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action,data})});
-    let result={success:true}; // no-cors = on suppose succès
-    btn.textContent='✅ Enregistré !';
-    setTimeout(()=>{closeAdmin();doRefresh();},800);
-  }catch(e){
-    btn.textContent='❌ Erreur';
-    alert('Erreur : '+e.message+'\n\nVérifiez que votre Web App Apps Script est déployée et accessible.');
-    btn.disabled=false;btn.textContent='⚡ Enregistrer dans Sheets';
-  }
+  const btn=document.getElementById('saveGasBtn');btn.textContent='⏳ Enregistrement…';btn.disabled=true;
+  try{await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:editingId?'updateKit':'addKit',data})});btn.textContent='✅ Enregistré !';setTimeout(()=>{closeAdmin();doRefresh();},800);}
+  catch(e){btn.textContent='❌ Erreur';alert('Erreur : '+e.message);btn.disabled=false;btn.textContent='⚡ Enregistrer dans Sheets';}
 }
-
 async function delKit(id){
   const k=kits.find(x=>x.id===id);
-  const hasGAS=!!(cfg.gasUrl||'').trim();
-  if(hasGAS){
+  if(!!(cfg.gasUrl||'').trim()){
     if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\nAction irréversible.'))return;
-    try{
-      await fetch(cfg.gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});
-      let result={success:true};
-      doRefresh();
-    }catch(e){alert('Erreur suppression : '+e.message);}
-  } else {
+    try{await fetch(cfg.gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});doRefresh();}
+    catch(e){alert('Erreur suppression : '+e.message);}
+  }else{
     if(!confirm('Supprimer "'+k?.nom+'" localement ?'))return;
-    delete kitOverrides[id];
-    kits=kits.filter(x=>x.id!==id);renderGrid();
+    delete kitOverrides[id];kits=kits.filter(x=>x.id!==id);renderGrid();
   }
 }
 
-
-// ══════════════════════════════════════════════════════════════════
-// SETTINGS
-// ══════════════════════════════════════════════════════════════════
 function openSettings(){
-  document.getElementById('s-form').value  = cfg.formUrl||'';
-  document.getElementById('s-email').value = cfg.adminEmail||'';
-  document.getElementById('s-kits').value  = cfg.urlKits||'';
-  document.getElementById('s-resa').value  = cfg.urlResa||'';
-  document.getElementById('s-gas').value   = cfg.gasUrl||'';
-  document.getElementById('s-p1').value='';
-  document.getElementById('s-p2').value='';
+  document.getElementById('s-email').value=cfg.adminEmail||'';
+  document.getElementById('s-kits').value=cfg.urlKits||'';
+  document.getElementById('s-resa').value=cfg.urlResa||'';
+  document.getElementById('s-gas').value=cfg.gasUrl||'';
+  document.getElementById('s-p1').value='';document.getElementById('s-p2').value='';
   document.getElementById('pwd-msg').textContent='';
-  renderCatsList();
   document.getElementById('settingsOv').classList.add('open');
 }
 function closeSettings(){document.getElementById('settingsOv').classList.remove('open');}
 async function saveSettings(){
-  const gasUrlInput = document.getElementById('s-gas').value.trim();
-  cfg.gasUrl = gasUrlInput||cfg.gasUrl;
-  // ⚠️ Si l'URL GAS change, il faut aussi mettre à jour GAS_URL dans le fichier HTML
-  // et re-uploader sur GitHub pour que ça fonctionne sur tous les appareils
-  cfg.formUrl    = document.getElementById('s-form').value.trim()||DEFAULT_FORM;
-  cfg.adminEmail = document.getElementById('s-email').value.trim();
-  cfg.urlKits    = document.getElementById('s-kits').value.trim()||DEFAULT_URL_KITS;
-  cfg.urlResa    = document.getElementById('s-resa').value.trim()||DEFAULT_URL_RESA;
-
-  const btn = document.querySelector('#settingsOv .bs');
-  if(btn){ btn.textContent='⏳ Enregistrement…'; btn.disabled=true; }
-
-  // Sauvegarde dans l'onglet PARAMETRES si Apps Script configuré
-  const saved = await saveSettingsToSheet({
-    form_url:        cfg.formUrl,
-    admin_email:     cfg.adminEmail,
-    apps_script_url: cfg.gasUrl,
-    url_kits:        cfg.urlKits,
-    url_resa:        cfg.urlResa
-  });
-
-  if(btn){ btn.textContent='💾 Enregistrer'; btn.disabled=false; }
-  if(saved){
-    document.getElementById('meResaLink').href=cfg.formUrl;
-    closeSettings();
-    doRefresh();
-  } else {
-    alert('Paramètres sauvegardés localement uniquement.\nVérifiez l\'URL Apps Script.');
-    document.getElementById('meResaLink').href=cfg.formUrl;
-    closeSettings();
-    doRefresh();
-  }
+  cfg.gasUrl=document.getElementById('s-gas').value.trim()||cfg.gasUrl;
+  cfg.adminEmail=document.getElementById('s-email').value.trim();
+  cfg.urlKits=document.getElementById('s-kits').value.trim()||DEFAULT_URL_KITS;
+  cfg.urlResa=document.getElementById('s-resa').value.trim()||DEFAULT_URL_RESA;
+  const btn=document.querySelector('#settingsOv .bs');
+  if(btn){btn.textContent='⏳ Enregistrement…';btn.disabled=true;}
+  await saveSettingsToSheet({admin_email:cfg.adminEmail,apps_script_url:cfg.gasUrl,url_kits:cfg.urlKits,url_resa:cfg.urlResa});
+  if(btn){btn.textContent='💾 Enregistrer';btn.disabled=false;}
+  closeSettings();doRefresh();
 }
 function chgPwd(){
   const p1=document.getElementById('s-p1').value,p2=document.getElementById('s-p2').value,m=document.getElementById('pwd-msg');
@@ -1402,71 +1366,286 @@ function chgPwd(){
   cfg.pwd=p1;saveSettingsToSheet({pwd:p1});m.style.color='#22c55e';m.textContent='Modifié !';
   document.getElementById('s-p1').value='';document.getElementById('s-p2').value='';
 }
-function renderCatsList(){
-  // Affiche les cats des kits chargés (non éditables ici — viennent du Sheet)
-  const all=new Set();kits.forEach(k=>(k.cats||[]).forEach(c=>all.add(c)));
-  document.getElementById('catsList').innerHTML=[...all].map(c=>`
-    <div style="display:flex;align-items:center;gap:6px;background:var(--fp);padding:5px 9px;border-radius:6px;font-size:12px">
-      <span style="flex:1">${c}</span>
-      <span style="font-size:10px;color:var(--gris)">(depuis Sheets)</span>
-    </div>`).join('')||'<p style="font-size:11px;color:var(--gris)">Chargez les kits pour voir les catégories.</p>';
-}
-function addCat(){}// Les cats viennent du Sheet — info seulement
-
-// ══════════════════════════════════════════════════════════════════
-// MODE EMPLOI
-// ══════════════════════════════════════════════════════════════════
 function renderMeContent(){document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;}
 function openMeEd(){document.getElementById('meTA').value=cfg.meContent||DEFAULT_ME;document.getElementById('meOv').classList.add('open');}
 function closeMeEd(){document.getElementById('meOv').classList.remove('open');}
-async function saveMeContent(){
-  cfg.meContent=document.getElementById('meTA').value;
-  renderMeContent();closeMeEd();
-  await saveSettingsToSheet({mode_emploi: cfg.meContent});
-}
-
-// ══════════════════════════════════════════════════════════════════
-// NAV
-// ══════════════════════════════════════════════════════════════════
+async function saveMeContent(){cfg.meContent=document.getElementById('meTA').value;renderMeContent();closeMeEd();await saveSettingsToSheet({mode_emploi:cfg.meContent});}
 function switchTab(t){
   document.getElementById('pcat').style.display=t==='cat'?'block':'none';
   document.getElementById('pme').style.display=t==='me'?'block':'none';
   document.getElementById('tab-cat').classList.toggle('act',t==='cat');
   document.getElementById('tab-me').classList.toggle('act',t==='me');
-  if(t==='me'){ document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME; }
-}
-function setFilter(v,el){
-  filterActive=v;
-  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
-  el.classList.add('on');
-  renderGrid();
+  if(t==='me') document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;
 }
 
-// ══════════════════════════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════════════════════════
-// Lance le chargement
+// ── HELPERS DATE ────────────────────────────────────────────────────
+function todayStr(){return new Date().toISOString().split('T')[0];}
+function setDateMinField(id){
+  const min=prochainOuvrable(todayStr());
+  const el=document.getElementById(id);
+  el.min=min;
+  if(!el.value||el.value<min) el.value=min;
+}
+
+// ── OUVERTURE FORMULAIRE RÉSERVATION ────────────────────────────────
+function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
+  // Reset état
+  document.getElementById('resaSucces').style.display='none';
+  document.getElementById('resaFormContent').style.display='block';
+  document.getElementById('resaFormError').style.display='none';
+  document.getElementById('resaFormError').textContent='';
+  document.getElementById('r-submitBtn').disabled=false;
+  document.getElementById('r-submitBtn').textContent='📤 Envoyer la demande';
+
+  // Pré-remplir structure depuis profil
+  document.getElementById('r-structure').value = profilActif ? profilActif.label : '';
+
+  // Dates pré-remplies depuis la modal dispo
+  const min=prochainOuvrable(todayStr());
+  const deb=document.getElementById('r-deb');
+  const fin=document.getElementById('r-fin');
+  deb.min=min; fin.min=min;
+  deb.value = dateDebStr||min;
+  fin.value = dateFinStr||min;
+
+  // Dates intervention : vider
+  ['r-intdeb','r-intfin'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.min=min; el.value='';
+  });
+
+  // Construire liste de kits filtrés par profil
+  const pool = profilActif ? kitsForProfil(profilActif) : kits;
+  const reservables = pool.filter(k=>!k.maintenance&&!k.avenir);
+  const list = document.getElementById('r-kits-list');
+  list.innerHTML = reservables.map(k=>`
+    <label class="kit-check-item">
+      <input type="checkbox" value="${k.nom_form||k.nom}" ${kitNomPreselect&&(k.nom===kitNomPreselect||k.nom_form===kitNomPreselect)?'checked':''}>
+      <span>${k.nom}</span>
+    </label>`).join('');
+
+  // Section nutrition : afficher si kit vélosmoothie coché
+  list.addEventListener('change', ()=>{
+    const checked=[...list.querySelectorAll('input:checked')].map(c=>c.value.toLowerCase());
+    const hasNutrition=checked.some(v=>v.includes('nutrition')||v.includes('velo')||v.includes('vélo'));
+    document.getElementById('r-nutrition-section').style.display=hasNutrition?'block':'none';
+  });
+
+  // Vider les autres champs
+  ['r-nom','r-prenom','r-email','r-entreprise','r-adresse','r-etage','r-acces','r-parking',
+   'r-contact','r-fonction','r-mailcontact','r-tel','r-telfixe','r-adresserep',
+   'r-kitnutrition','r-quantites'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value='';
+  });
+  document.getElementById('r-ascenseur').value='';
+  document.getElementById('r-creneau').value='';
+  document.getElementById('r-creneaurep').value='';
+  document.getElementById('r-recuperation').value='Oui';
+  document.getElementById('r-typelivraison').value='Livraison et reprise';
+  document.getElementById('r-nutrition-section').style.display='none';
+
+  document.getElementById('formResaOv').classList.add('open');
+}
+
+function fermerFormulaireResa(){
+  document.getElementById('formResaOv').classList.remove('open');
+}
+
+// ── OUVERTURE FORMULAIRE ANNULATION ──────────────────────────────────
+function ouvrirFormulaireAnnulation(){
+  document.getElementById('annulSucces').style.display='none';
+  document.getElementById('annulFormContent').style.display='block';
+  document.getElementById('annulFormError').style.display='none';
+  document.getElementById('a-submitBtn').disabled=false;
+  document.getElementById('a-submitBtn').textContent="↩️ Confirmer l'annulation";
+
+  document.getElementById('a-structure').value = profilActif ? profilActif.label : '';
+
+  // Kits
+  const pool = profilActif ? kitsForProfil(profilActif) : kits;
+  const reservables = pool.filter(k=>!k.maintenance&&!k.avenir);
+  document.getElementById('a-kits-list').innerHTML = reservables.map(k=>`
+    <label class="kit-check-item">
+      <input type="checkbox" value="${k.nom_form||k.nom}">
+      <span>${k.nom}</span>
+    </label>`).join('');
+
+  // Date min
+  const min=prochainOuvrable(todayStr());
+  const dateEl=document.getElementById('a-date');
+  dateEl.min=min; dateEl.value='';
+
+  ['a-nom','a-prenom','a-email','a-entreprise','a-tel'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+
+  document.getElementById('formAnnulOv').classList.add('open');
+}
+
+function fermerFormulaireAnnulation(){
+  document.getElementById('formAnnulOv').classList.remove('open');
+}
+
+// ── SOUMISSION RÉSERVATION ────────────────────────────────────────────
+async function soumettreResa(){
+  const err = document.getElementById('resaFormError');
+  err.style.display='none';
+
+  // Validation champs obligatoires
+  const nom      = document.getElementById('r-nom').value.trim();
+  const prenom   = document.getElementById('r-prenom').value.trim();
+  const email    = document.getElementById('r-email').value.trim();
+  const structure= document.getElementById('r-structure').value.trim();
+  const deb      = document.getElementById('r-deb').value;
+  const fin      = document.getElementById('r-fin').value;
+  const entreprise=document.getElementById('r-entreprise').value.trim();
+  const adresse  = document.getElementById('r-adresse').value.trim();
+  const contact  = document.getElementById('r-contact').value.trim();
+  const tel      = document.getElementById('r-tel').value.trim();
+  const creneau  = document.getElementById('r-creneau').value;
+
+  const kitsCoches=[...document.querySelectorAll('#r-kits-list input:checked')].map(c=>c.value);
+
+  const missing=[];
+  if(!nom) missing.push('Nom');
+  if(!prenom) missing.push('Prénom');
+  if(!email) missing.push('E-mail');
+  if(!deb) missing.push('Date de début');
+  if(!fin) missing.push('Date de fin');
+  if(!kitsCoches.length) missing.push('Au moins un kit');
+  if(!entreprise) missing.push('Nom du client / entreprise');
+  if(!adresse) missing.push('Adresse de livraison');
+  if(!contact) missing.push('Contact sur place');
+  if(!tel) missing.push('Téléphone portable');
+  if(!creneau) missing.push('Créneau de livraison');
+
+  if(missing.length){
+    err.textContent='Champs obligatoires manquants : '+missing.join(', ');
+    err.style.display='block';
+    err.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+
+  const btn=document.getElementById('r-submitBtn');
+  btn.disabled=true; btn.textContent='⏳ Envoi en cours…';
+
+  // Construction de l'objet données — colonnes exactes du sheet
+  const data={
+    action: 'soumettreReservation',
+    typedemande: 'réservation',
+    structure,
+    kits: kitsCoches.join(', '),
+    nom, prenom, email,
+    date_debut: deb,
+    date_fin: fin,
+    date_intervention_debut: document.getElementById('r-intdeb').value||'',
+    date_intervention_fin:   document.getElementById('r-intfin').value||'',
+    heure_debut: document.getElementById('r-hdeb').value||'',
+    heure_fin:   document.getElementById('r-hfin').value||'',
+    entreprise, adresse,
+    etage:    document.getElementById('r-etage').value.trim()||'',
+    acces:    document.getElementById('r-acces').value.trim()||'',
+    parking:  document.getElementById('r-parking').value.trim()||'',
+    ascenseur:document.getElementById('r-ascenseur').value||'',
+    creneau_livraison: creneau,
+    contact, fonction: document.getElementById('r-fonction').value.trim()||'',
+    mail_contact:   document.getElementById('r-mailcontact').value.trim()||'',
+    tel, tel_fixe:  document.getElementById('r-telfixe').value.trim()||'',
+    recuperation:   document.getElementById('r-recuperation').value||'Oui',
+    type_livraison: document.getElementById('r-typelivraison').value||'',
+    adresse_reprise: document.getElementById('r-adresserep').value.trim()||'',
+    creneau_reprise: document.getElementById('r-creneaurep').value||'',
+    kit_nutrition:  document.getElementById('r-kitnutrition').value.trim()||'',
+    quantites:      document.getElementById('r-quantites').value.trim()||''
+  };
+
+  try{
+    await fetch(GAS_URL,{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
+      body: JSON.stringify(data)
+    });
+    // no-cors → réponse opaque → on considère succès
+    document.getElementById('resaFormContent').style.display='none';
+    document.getElementById('resaSucces').style.display='block';
+    // Rafraîchir les réservations en fond
+    setTimeout(()=>loadReservations().then(()=>renderGrid()), 3000);
+  }catch(e){
+    err.textContent='Erreur lors de l\'envoi. Veuillez réessayer. ('+e.message+')';
+    err.style.display='block';
+    btn.disabled=false; btn.textContent='📤 Envoyer la demande';
+  }
+}
+
+// ── SOUMISSION ANNULATION ─────────────────────────────────────────────
+async function soumettreAnnulation(){
+  const err=document.getElementById('annulFormError');
+  err.style.display='none';
+
+  const nom      =document.getElementById('a-nom').value.trim();
+  const prenom   =document.getElementById('a-prenom').value.trim();
+  const email    =document.getElementById('a-email').value.trim();
+  const structure=document.getElementById('a-structure').value.trim();
+  const date     =document.getElementById('a-date').value;
+  const entreprise=document.getElementById('a-entreprise').value.trim();
+  const tel      =document.getElementById('a-tel').value.trim();
+  const kitsCoches=[...document.querySelectorAll('#a-kits-list input:checked')].map(c=>c.value);
+
+  const missing=[];
+  if(!nom) missing.push('Nom');
+  if(!prenom) missing.push('Prénom');
+  if(!email) missing.push('E-mail');
+  if(!date) missing.push('Date');
+  if(!kitsCoches.length) missing.push('Au moins un kit');
+  if(!entreprise) missing.push('Nom du client');
+
+  if(missing.length){
+    err.textContent='Champs obligatoires manquants : '+missing.join(', ');
+    err.style.display='block';
+    return;
+  }
+
+  const btn=document.getElementById('a-submitBtn');
+  btn.disabled=true; btn.textContent='⏳ Envoi en cours…';
+
+  const data={
+    action: 'soumettreReservation',
+    typedemande: 'annulation',
+    structure, nom, prenom, email,
+    date_annulation: date,
+    kits: kitsCoches.join(', '),
+    entreprise, tel
+  };
+
+  try{
+    await fetch(GAS_URL,{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
+      body: JSON.stringify(data)
+    });
+    document.getElementById('annulFormContent').style.display='none';
+    document.getElementById('annulSucces').style.display='block';
+    setTimeout(()=>loadReservations().then(()=>renderGrid()), 3000);
+  }catch(e){
+    err.textContent='Erreur lors de l\'envoi. Veuillez réessayer.';
+    err.style.display='block';
+    btn.disabled=false; btn.textContent="↩️ Confirmer l'annulation";
+  }
+}
+
 (async function(){
-  loadCfg();
-  chkResetToken();
-  // Lance d'abord avec les valeurs par défaut
-  applyLogo();
-  renderMeContent();
-  document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
-
-  // Charge les paramètres depuis Sheets puis met à jour l'affichage
+  loadCfg();applyLogo();renderMeContent();
   await loadSettingsFromSheet();
-
-  // Met à jour l'affichage avec les vraies valeurs
   applyLogo();
-  document.getElementById('meContent').innerHTML = cfg.meContent||DEFAULT_ME;
-  document.getElementById('meResaLink').href = cfg.formUrl||DEFAULT_FORM;
-
-  // Charge les kits et réservations
-  await initApp();
+  document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;
+  await Promise.all([loadKits(),loadReservations()]);
+  setSS('ok',`${kits.length} kit${kits.length>1?'s':''} chargé${kits.length>1?'s':''}`);
+  buildProfilScreen();
+  document.getElementById('profilScreen').classList.add('show');
 })();
-// Rafraîchit les réservations toutes les 5 minutes (sans recharger les kits)
-setInterval(()=>{ loadReservations().then(()=>renderGrid()); }, 5*60*1000);
+
+setInterval(()=>{loadReservations().then(()=>{if(profilActif||document.body.classList.contains('adm'))renderGrid();});},5*60*1000);
 </script>
 </body>
 </html>
