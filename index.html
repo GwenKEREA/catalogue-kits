@@ -14,6 +14,7 @@ header{background:var(--bx);position:sticky;top:0;z-index:100;box-shadow:0 2px 1
 .hi{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 32px;gap:16px;}
 .la{display:flex;align-items:center;gap:11px;}
 #logoImg{height:42px;width:auto;max-width:110px;object-fit:contain;display:none;border-radius:5px;}
+#logoEfficience{height:42px;width:auto;max-width:110px;object-fit:contain;display:none;border-radius:5px;}
 .lb{background:var(--rv);color:#fff;font-size:19px;font-weight:700;width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .lt h1{color:#fff;font-size:18px;font-weight:600;letter-spacing:.05em;}
 .lt p{color:rgba(255,255,255,.45);font-size:10px;text-transform:uppercase;letter-spacing:.1em;}
@@ -324,7 +325,8 @@ footer strong{color:#fff;}
 <header>
   <div class="hi">
     <div class="la">
-      <img id="logoImg" alt="Logo">
+      <img id="logoImg" alt="Logo KEREA">
+      <img id="logoEfficience" alt="Logo Efficience">
       <div class="lb" id="logoBadge">K</div>
       <div class="lt"><h1>KEREA-EFFICIENCE</h1><p>Catalogue des kits</p></div>
     </div>
@@ -485,20 +487,32 @@ footer strong{color:#fff;}
 
 <!-- LOGO UPLOAD -->
 <div class="ov" id="logoOv" onclick="if(event.target===this)closeLogoUpload()">
-  <div class="modal" style="max-width:380px">
-    <button class="mc" onclick="closeLogoUpload()">✅</button>
+  <div class="modal" style="max-width:420px">
+    <button class="mc" onclick="closeLogoUpload()">✕</button>
     <div style="padding:24px">
-      <h3 style="font-size:16px;color:var(--bx);margin-bottom:4px">🖼️ Logo</h3>
-      <p style="font-size:12px;color:var(--gris);margin-bottom:14px">PNG transparent recommandé, max 1 Mo.</p>
-      <div class="pw" style="margin-bottom:12px">
-        <input type="file" id="logoIn" accept="image/*" onchange="prevLogo(this)">
-        <div id="logoPrompt" style="font-size:12px;color:var(--gris)">📂 Cliquez pour choisir</div>
-        <img id="logoPrev" style="max-height:65px;margin-top:6px;display:none;border-radius:5px">
+      <h3 style="font-size:16px;color:var(--bx);margin-bottom:14px">🖼️ Logos</h3>
+
+      <!-- Logo KEREA -->
+      <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--gc)">
+        <p style="font-size:12px;font-weight:600;color:var(--bx);margin-bottom:6px">Logo KEREA</p>
+        <div class="fg"><label>URL du logo</label><input type="text" id="logoUrl1" placeholder="https://..."></div>
+        <div style="display:flex;gap:7px;margin-top:6px">
+          <button class="bc btn" onclick="rmLogo(1)" style="flex:1;justify-content:center;font-size:11px">Supprimer</button>
+          <img id="logoPrev1" style="max-height:36px;border-radius:4px;display:none">
+        </div>
       </div>
-      <div style="display:flex;gap:7px">
-        <button class="bc btn" onclick="rmLogo()" style="flex:1;justify-content:center">Supprimer</button>
-        <button class="bs btn" onclick="saveLogo()" style="flex:1.4;justify-content:center">💾 Enregistrer</button>
+
+      <!-- Logo Efficience -->
+      <div style="margin-bottom:14px">
+        <p style="font-size:12px;font-weight:600;color:var(--bx);margin-bottom:6px">Logo Efficience</p>
+        <div class="fg"><label>URL du logo</label><input type="text" id="logoUrl2" placeholder="https://..."></div>
+        <div style="display:flex;gap:7px;margin-top:6px">
+          <button class="bc btn" onclick="rmLogo(2)" style="flex:1;justify-content:center;font-size:11px">Supprimer</button>
+          <img id="logoPrev2" style="max-height:36px;border-radius:4px;display:none">
+        </div>
       </div>
+
+      <button class="bs btn" onclick="saveLogos()" style="width:100%;justify-content:center">💾 Enregistrer</button>
     </div>
   </div>
 </div>
@@ -864,7 +878,7 @@ let cfg, kits=[], reservations=[], kitOverrides={}, editingId=null, curPhoto=nul
 
 function loadCfg(){
   cfg = { pwd:DEFAULT_PWD, formUrl:DEFAULT_FORM, adminEmail:'', meContent:DEFAULT_ME,
-          logo:null, urlKits:DEFAULT_URL_KITS, urlResa:DEFAULT_URL_RESA, gasUrl:GAS_URL };
+          logo:null, logo2:null, urlKits:DEFAULT_URL_KITS, urlResa:DEFAULT_URL_RESA, gasUrl:GAS_URL };
   kitOverrides = {};
 }
 
@@ -887,6 +901,7 @@ async function loadSettingsFromSheet(){
     if(map['admin_email']) cfg.adminEmail = map['admin_email'];
     if(map['mode_emploi']) cfg.meContent  = map['mode_emploi'];
     if(map['logo_url'])    cfg.logo       = map['logo_url']||null;
+    if(map['logo_efficience_url']) cfg.logo2 = map['logo_efficience_url']||null;
     if(map['pwd_hash']||map['pwd']) cfg.pwd = map['pwd_hash']||map['pwd'];
     if(map['url_kits']&&map['url_kits'].indexOf('docs.google')!==-1) cfg.urlKits=map['url_kits'];
     if(map['url_resa']&&map['url_resa'].indexOf('docs.google')!==-1) cfg.urlResa=map['url_resa'];
@@ -1234,15 +1249,36 @@ function exitAdmin(){
 function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configuré dans Paramètres.');return;}alert('Contactez l\'administrateur : '+e);}
 
 function applyLogo(){
-  const img=document.getElementById('logoImg'),badge=document.getElementById('logoBadge');
-  if(cfg.logo){img.src=cfg.logo;img.style.display='block';badge.style.display='none';}
-  else{img.style.display='none';badge.style.display='flex';}
+  const img=document.getElementById('logoImg'),img2=document.getElementById('logoEfficience'),badge=document.getElementById('logoBadge');
+  if(cfg.logo){img.src=cfg.logo;img.style.display='block';}
+  else{img.style.display='none';}
+  if(cfg.logo2){img2.src=cfg.logo2;img2.style.display='block';}
+  else{img2.style.display='none';}
+  // Badge K visible seulement si aucun logo
+  badge.style.display=(!cfg.logo&&!cfg.logo2)?'flex':'none';
 }
-function openLogoUpload(){document.getElementById('logoIn').value='';document.getElementById('logoPrev').style.display='none';document.getElementById('logoPrompt').style.display='block';document.getElementById('logoOv').classList.add('open');}
+function openLogoUpload(){
+  document.getElementById('logoUrl1').value=cfg.logo||'';
+  document.getElementById('logoUrl2').value=cfg.logo2||'';
+  const p1=document.getElementById('logoPrev1'),p2=document.getElementById('logoPrev2');
+  if(cfg.logo){p1.src=cfg.logo;p1.style.display='block';}else{p1.style.display='none';}
+  if(cfg.logo2){p2.src=cfg.logo2;p2.style.display='block';}else{p2.style.display='none';}
+  document.getElementById('logoOv').classList.add('open');
+}
 function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
-function prevLogo(i){const f=i.files[0];if(!f)return;if(f.size>1024*1024){alert('Max 1 Mo.');return;}const r=new FileReader();r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};r.readAsDataURL(f);}
-async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('⚠️ Hébergez le logo sur Google Drive et collez l\'URL publique.');}closeLogoUpload();}
-async function rmLogo(){cfg.logo=null;applyLogo();await saveSettingsToSheet({logo_url:''});closeLogoUpload();}
+function rmLogo(n){
+  if(n===1){document.getElementById('logoUrl1').value='';document.getElementById('logoPrev1').style.display='none';}
+  if(n===2){document.getElementById('logoUrl2').value='';document.getElementById('logoPrev2').style.display='none';}
+}
+async function saveLogos(){
+  const url1=document.getElementById('logoUrl1').value.trim();
+  const url2=document.getElementById('logoUrl2').value.trim();
+  cfg.logo=url1||null;
+  cfg.logo2=url2||null;
+  applyLogo();
+  await saveSettingsToSheet({logo_url:url1, logo_efficience_url:url2});
+  closeLogoUpload();
+}
 
 const EMOJIS={'Santé':['💊','🩺','❤️','🏥','🩹','💉','🫀','🧬','🔬','🧪'],'Formation':['📚','🎓','📝','✏️','💡','🧠','📖','👨‍🏫','📋','🎯'],'Tech':['💻','📱','⌨️','🖥️','🔧','⚙️','🛠️','📡','🔌'],'Prévention':['🛡️','⚠️','🦺','🔥','🧯','🚨','👷','🧤','🥽'],'Bien-être':['🧘','🌿','💆','🍎','🏃','💪','🧴','🫶','☀️'],'Divers':['📦','🎪','🎨','🏆','🎭','🎵','🎲','⭐','🌍','🔑','📸','🎁']};
 function buildEP(cur){
