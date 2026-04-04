@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catalogue Kits  KEREA</title>
+<title>Catalogue Kits ï¿½ KEREA</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
 :root{--bx:#4E182D;--rose:#D84958;--rv:#EA3A54;--fp:#F2EDF0;--fc:#F4F2EF;--fb:#F3ECDA;--gc:#e8e2e5;--gris:#7a7a7a;}
@@ -169,7 +169,7 @@ body.adm .cab{display:flex;}
 .ms p{font-size:13px;line-height:1.55;color:#444;}
 .cl{list-style:none;display:flex;flex-direction:column;gap:3px;}
 .cl li{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:#444;line-height:1.4;}
-.cl li::before{content:'';color:var(--rose);font-size:14px;line-height:1;flex-shrink:0;}
+.cl li::before{content:'ï¿½';color:var(--rose);font-size:14px;line-height:1;flex-shrink:0;}
 .sps{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
 .sp{background:var(--fp);border-radius:7px;padding:8px 10px;}
 .sp label{font-size:10px;color:var(--gris);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:1px;}
@@ -266,7 +266,7 @@ footer strong{color:#fff;}
   .ps-grid{grid-template-columns:1fr;}
   #profilScreen{padding:24px 13px;}
 }
-/* -- FORMULAIRE RSERVATION / ANNULATION --------------------------- */
+/* -- FORMULAIRE Rï¿½SERVATION / ANNULATION --------------------------- */
 #formResaOv,#formAnnulOv{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:250;backdrop-filter:blur(5px);overflow-y:auto;padding:20px;}
 #formResaOv.open,#formAnnulOv.open{display:flex;align-items:flex-start;justify-content:center;}
 .form-modal{background:#fff;border-radius:16px;width:100%;max-width:680px;margin:auto;animation:sl .2s ease;position:relative;}
@@ -324,38 +324,38 @@ footer strong{color:#fff;}
     </div>
   </div>
   <div class="sb">
-    <div class="ss"><span class="dot ld" id="sdot"></span><span id="stxt">Chargement</span></div>
+    <div class="ss"><span class="dot ld" id="sdot"></span><span id="stxt">Chargementï¿½</span></div>
     <div class="sa" id="syncA"></div>
   </div>
 </header>
 
 <div id="profilBanner">
-  <span>?? Profil actif : <strong id="profilNom"></strong></span>
+  <span>?? Profil actif : <strong id="profilNom">ï¿½</strong></span>
   <button onclick="changerProfil()">Changer de profil</button>
 </div>
 
 <div class="ab" id="adminBanner">
   <span>?? Mode administration</span>
   <button onclick="exitAdmin()">Quitter</button>
-  <button class="gb" onclick="openSettings()">?? Paramtres</button>
+  <button class="gb" onclick="openSettings()">?? Paramï¿½tres</button>
   <button class="gb" onclick="openLogoUpload()">?? Logo</button>
-  <button class="gb" onclick="doRefresh()">?? Actualiser donnes</button>
+  <button class="gb" onclick="doRefresh()">?? Actualiser donnï¿½es</button>
 </div>
 
 <div id="profilScreen">
   <div class="ps-hero">
     <div class="icon">??</div>
     <h2>Bienvenue dans le catalogue KEREA</h2>
-    <p>Slectionnez votre profil pour accder aux kits disponibles pour votre structure.</p>
+    <p>Sï¿½lectionnez votre profil pour accï¿½der aux kits disponibles pour votre structure.</p>
   </div>
   <div class="ps-grid" id="profilGrid"></div>
-  <button class="ps-btn" id="profilConfirmBtn" onclick="confirmerProfil()">Accder au catalogue ?</button>
+  <button class="ps-btn" id="profilConfirmBtn" onclick="confirmerProfil()">Accï¿½der au catalogue ?</button>
 </div>
 
 <div id="appContent" style="display:none">
   <div class="hero">
-    <h2>?? Catalogue du matriel en stock</h2>
-    <p id="heroSub">Vrifiez la disponibilit avant de soumettre votre demande de rservation</p>
+    <h2>?? Catalogue du matï¿½riel en stock</h2>
+    <p id="heroSub">Vï¿½rifiez la disponibilitï¿½ avant de soumettre votre demande de rï¿½servation</p>
   </div>
   <div class="tabs">
     <button class="tb act" onclick="switchTab('cat')" id="tab-cat">?? Catalogue</button>
@@ -363,8 +363,8 @@ footer strong{color:#fff;}
   </div>
   <div id="pcat">
     <div class="resa-bar">
-      <button class="btn-resa-global" onclick="openDispoGlobal()">?? Rserver un kit</button>
-      <button class="btn-annul-global" onclick="ouvrirAnnulation()">?? Annuler une rservation</button>
+      <button class="btn-resa-global" onclick="openDispoGlobal()">?? Rï¿½server un kit</button>
+      <button class="btn-annul-global" onclick="ouvrirAnnulation()">?? Annuler une rï¿½servation</button>
     </div>
     <div class="ctl">
       <div class="sw">
@@ -375,29 +375,29 @@ footer strong{color:#fff;}
     </div>
     <div class="stb"><span id="statsText"></span></div>
     <div class="grid" id="kitsGrid">
-      <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>
+      <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheetsï¿½</p></div>
     </div>
   </div>
   <div id="pme">
     <div class="gcard">
-      <h2>?? Mode d'emploi des rservations</h2>
+      <h2>?? Mode d'emploi des rï¿½servations</h2>
       <div class="mec" id="meContent"></div>
       <button class="btn btn-p meb" onclick="openMeEd()">?? Modifier</button>
     </div>
     <div class="gcard">
-      <h2>?? Lgende</h2>
+      <h2>?? Lï¿½gende</h2>
       <div class="dleg">
-        <div class="dli"><span class="ldot" style="background:#22c55e"></span>Disponible  libre aux dates souhaites</div>
-        <div class="dli"><span class="ldot" style="background:#ef4444"></span>Rserv  en cours d'utilisation  ce jour</div>
-        <div class="dli"><span class="ldot" style="background:#9ca3af"></span>En maintenance  non rservable</div>
-        <div class="dli"><span class="ldot" style="background:#a855f7"></span> venir  en cours de constitution</div>
+        <div class="dli"><span class="ldot" style="background:#22c55e"></span>Disponible ï¿½ libre aux dates souhaitï¿½es</div>
+        <div class="dli"><span class="ldot" style="background:#ef4444"></span>Rï¿½servï¿½ ï¿½ en cours d'utilisation ï¿½ ce jour</div>
+        <div class="dli"><span class="ldot" style="background:#9ca3af"></span>En maintenance ï¿½ non rï¿½servable</div>
+        <div class="dli"><span class="ldot" style="background:#a855f7"></span>ï¿½ venir ï¿½ en cours de constitution</div>
       </div>
-      <div class="abox">?? <strong>Important :</strong> Rservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprs</strong>. Vrifiez la disponibilit de tous les kits avant de soumettre le formulaire.</div>
+      <div class="abox">?? <strong>Important :</strong> Rï¿½servez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprï¿½s</strong>. Vï¿½rifiez la disponibilitï¿½ de tous les kits avant de soumettre le formulaire.</div>
     </div>
     <div class="gcard" style="text-align:center">
-      <h2 style="justify-content:center">?? Formulaire de rservation</h2>
-      <p style="color:var(--gris);font-size:12px;margin-bottom:13px">Cliquez sur <strong>?? Rserver un kit</strong> pour vrifier la disponibilit.</p>
-      <a id="meResaLink" href="#" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px" onclick="event.preventDefault();ouvrirFormulaireResa()">?? Accder au formulaire</a>
+      <h2 style="justify-content:center">?? Formulaire de rï¿½servation</h2>
+      <p style="color:var(--gris);font-size:12px;margin-bottom:13px">Cliquez sur <strong>?? Rï¿½server un kit</strong> pour vï¿½rifier la disponibilitï¿½.</p>
+      <a id="meResaLink" href="#" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px" onclick="event.preventDefault();ouvrirFormulaireResa()">?? Accï¿½der au formulaire</a>
     </div>
   </div>
 </div>
@@ -407,23 +407,23 @@ footer strong{color:#fff;}
   <div class="modal">
     <button class="mc" onclick="closeDispo()">?</button>
     <div class="db">
-      <h3>?? Vrifier la disponibilit</h3>
+      <h3>?? Vï¿½rifier la disponibilitï¿½</h3>
       <div class="kit-sel-wrap">
-        <label>Kit concern</label>
+        <label>Kit concernï¿½</label>
         <select id="dispoKitSelect" onchange="onKitSelectChange()">
-          <option value=""> Choisissez un kit </option>
+          <option value="">ï¿½ Choisissez un kit ï¿½</option>
         </select>
       </div>
       <div class="resa-warning">
-        <strong>?? Rgles de rservation importantes</strong>
+        <strong>?? Rï¿½gles de rï¿½servation importantes</strong>
         <ul>
-          <li>Rservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprs</strong> votre intervention</li>
-          <li>Si vous rservez plusieurs kits, vrifiez la disponibilit de <strong>l'ensemble des kits</strong> avant de procder  la rservation</li>
+          <li>Rï¿½servez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprï¿½s</strong> votre intervention</li>
+          <li>Si vous rï¿½servez plusieurs kits, vï¿½rifiez la disponibilitï¿½ de <strong>l'ensemble des kits</strong> avant de procï¿½der ï¿½ la rï¿½servation</li>
         </ul>
       </div>
       <div class="drow">
         <div class="df">
-          <label>Date de dbut</label>
+          <label>Date de dï¿½but</label>
           <input type="date" id="dDeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispo()">
         </div>
         <div class="df">
@@ -458,12 +458,12 @@ footer strong{color:#fff;}
       <div id="mStBan" class="stban"></div>
       <div class="ms"><h4>Description</h4><p id="mDesc"></p></div>
       <div class="ms"><h4>Contenu du kit</h4><ul class="cl" id="mContenu"></ul></div>
-      <div class="ms"><h4>Caractristiques</h4><div class="sps" id="mSpecs"></div></div>
-      <div class="ms"><h4>Intervenants autoriss  rserver</h4><div class="ics" id="mInter"></div></div>
-      <div class="ms" id="mResaSec" style="display:none"><h4>Planning des rservations</h4><div class="rtl" id="mResaList"></div></div>
+      <div class="ms"><h4>Caractï¿½ristiques</h4><div class="sps" id="mSpecs"></div></div>
+      <div class="ms"><h4>Intervenants autorisï¿½s ï¿½ rï¿½server</h4><div class="ics" id="mInter"></div></div>
+      <div class="ms" id="mResaSec" style="display:none"><h4>Planning des rï¿½servations</h4><div class="rtl" id="mResaList"></div></div>
     </div>
     <div class="mft">
-      <button id="mResaBtn" class="brs" onclick="ouvrirDispoDepuisDetail()">?? Vrifier &amp; rserver</button>
+      <button id="mResaBtn" class="brs" onclick="ouvrirDispoDepuisDetail()">?? Vï¿½rifier &amp; rï¿½server</button>
     </div>
   </div>
 </div>
@@ -472,12 +472,12 @@ footer strong{color:#fff;}
 <div class="ov" id="authOv" onclick="if(event.target===this)closeAuth()">
   <div class="auth-m">
     <div style="font-size:32px;margin-bottom:8px">??</div>
-    <h3>Accs Administration</h3>
+    <h3>Accï¿½s Administration</h3>
     <p>Entrez le mot de passe.</p>
     <input type="password" class="ain" id="authIn" placeholder="••••••••" onkeydown="if(event.key==='Enter')chkAuth()">
     <div class="aerr" id="authErr">Mot de passe incorrect.</div>
-    <button class="btn btn-p" style="width:100%;justify-content:center;padding:9px" onclick="chkAuth()">Accder</button>
-    <div class="alink" onclick="resetPwd()">Mot de passe oubli ?</div>
+    <button class="btn btn-p" style="width:100%;justify-content:center;padding:9px" onclick="chkAuth()">Accï¿½der</button>
+    <div class="alink" onclick="resetPwd()">Mot de passe oubliï¿½ ?</div>
   </div>
 </div>
 
@@ -487,7 +487,7 @@ footer strong{color:#fff;}
     <button class="mc" onclick="closeLogoUpload()">?</button>
     <div style="padding:24px">
       <h3 style="font-size:16px;color:var(--bx);margin-bottom:4px">?? Logo</h3>
-      <p style="font-size:12px;color:var(--gris);margin-bottom:14px">PNG transparent recommand, max 1 Mo.</p>
+      <p style="font-size:12px;color:var(--gris);margin-bottom:14px">PNG transparent recommandï¿½, max 1 Mo.</p>
       <div class="pw" style="margin-bottom:12px">
         <input type="file" id="logoIn" accept="image/*" onchange="prevLogo(this)">
         <div id="logoPrompt" style="font-size:12px;color:var(--gris)">?? Cliquez pour choisir</div>
@@ -512,8 +512,8 @@ footer strong{color:#fff;}
         <div class="fg"><label>Nom du kit *</label><input type="text" id="f-nom" placeholder="Ex: Kit Mon Kit 1"></div>
       </div>
       <div class="fg"><label>Nom formulaire *</label><input type="text" id="f-nomform"></div>
-      <div class="fg"><label>Icne</label><input type="text" id="f-icon" placeholder="??" maxlength="4"></div>
-      <div class="fg"><label>Choisir une icne</label><div class="epg" id="epGrid"></div></div>
+      <div class="fg"><label>Icï¿½ne</label><input type="text" id="f-icon" placeholder="??" maxlength="4"></div>
+      <div class="fg"><label>Choisir une icï¿½ne</label><div class="epg" id="epGrid"></div></div>
       <div class="fg"><label>Photo (optionnel)</label>
         <div class="pw"><input type="file" id="f-photo" accept="image/*" onchange="prevPhoto(this)">
           <div id="photoPrompt" style="font-size:11px;color:var(--gris)">?? Cliquez ou glissez</div>
@@ -522,24 +522,24 @@ footer strong{color:#fff;}
         </div>
       </div>
       <div class="fg"><label>Description</label><textarea id="f-desc"></textarea></div>
-      <div class="fg"><label>Contenu (un lment par ligne)</label><textarea id="f-contenu"></textarea></div>
+      <div class="fg"><label>Contenu (un ï¿½lï¿½ment par ligne)</label><textarea id="f-contenu"></textarea></div>
       <div class="fr2">
         <div class="fg"><label>Taille</label><input type="text" id="f-taille"></div>
         <div class="fg"><label>Poids</label><input type="text" id="f-poids"></div>
       </div>
       <div class="fg"><label>Couleur de fond</label>
-        <select id="f-col"><option value="#F2EDF0">Rose ple</option><option value="#F4F2EF">Crme</option><option value="#F3ECDA">Beige</option></select>
+        <select id="f-col"><option value="#F2EDF0">Rose pï¿½le</option><option value="#F4F2EF">Crï¿½me</option><option value="#F3ECDA">Beige</option></select>
       </div>
-      <div class="fg"><label>Catgories / Intervenants autoriss</label>
-        <input type="text" id="f-cats" placeholder="Ex: Efficience, Pôle Formation KEREA"><small>Spars par virgules</small>
+      <div class="fg"><label>Catï¿½gories / Intervenants autorisï¿½s</label>
+        <input type="text" id="f-cats" placeholder="Ex: Efficience, Pôle Formation KEREA"><small>Sï¿½parï¿½s par virgules</small>
       </div>
       <div class="tw twm"><div class="tl"><strong>?? En maintenance</strong><small>Grise le kit</small></div><label class="tg"><input type="checkbox" id="f-maint" onchange="togF('m')"><span class="sl2"></span></label></div>
       <div id="mw" class="fg"><label>Message maintenance</label><input type="text" id="f-maint-msg"></div>
-      <div class="tw twa"><div class="tl"><strong style="color:#7c3aed">??  venir</strong><small>Badge violet</small></div><label class="tg"><input type="checkbox" id="f-av" onchange="togF('a')"><span class="sl2"></span></label></div>
-      <div id="aw" class="fg"><label>Message  venir</label><input type="text" id="f-av-msg"></div>
+      <div class="tw twa"><div class="tl"><strong style="color:#7c3aed">?? ï¿½ venir</strong><small>Badge violet</small></div><label class="tg"><input type="checkbox" id="f-av" onchange="togF('a')"><span class="sl2"></span></label></div>
+      <div id="aw" class="fg"><label>Message ï¿½ venir</label><input type="text" id="f-av-msg"></div>
       <div class="fg" style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:10px 12px;">
         <label style="color:#166534">? Actif (visible dans le catalogue)</label>
-        <select id="f-actif"><option value="OUI">OUI  Visible</option><option value="NON">NON  Masqu</option></select>
+        <select id="f-actif"><option value="OUI">OUI ï¿½ Visible</option><option value="NON">NON ï¿½ Masquï¿½</option></select>
       </div>
     </div>
     <div class="amf">
@@ -553,7 +553,7 @@ footer strong{color:#fff;}
 <!-- SETTINGS -->
 <div class="aov" id="settingsOv" onclick="if(event.target===this)closeSettings()">
   <div class="am">
-    <div class="amh"><h3>?? Paramtres</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeSettings()">?</button></div>
+    <div class="amh"><h3>?? Paramï¿½tres</h3><button class="mc" style="background:rgba(255,255,255,.15);color:#fff" onclick="closeSettings()">?</button></div>
     <div class="abody">
       <div class="fg"><label>Email admin</label><input type="email" id="s-email" placeholder="votre@email.fr"></div>
       <div class="secs">
@@ -568,8 +568,8 @@ footer strong{color:#fff;}
       <div class="secs">
         <h4>? Apps Script Web App</h4>
         <div class="fg"><label> de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"></div>
-        <div class="fg"><label>Onglet KITS (CSV publi)</label><input type="text" id="s-kits"></div>
-        <div class="fg"><label>Onglet RESERVATIONS (CSV publi)</label><input type="text" id="s-resa"></div>
+        <div class="fg"><label>Onglet KITS (CSV publiï¿½)</label><input type="text" id="s-kits"></div>
+        <div class="fg"><label>Onglet RESERVATIONS (CSV publiï¿½)</label><input type="text" id="s-resa"></div>
       </div>
     </div>
     <div class="amf"><button class="bc" onclick="closeSettings()">Annuler</button><button class="bs" onclick="saveSettings()">?? Enregistrer</button></div>
@@ -589,15 +589,15 @@ footer strong{color:#fff;}
 <div id="formResaOv" onclick="if(event.target===this)fermerFormulaireResa()">
   <div class="form-modal">
     <div class="form-mh">
-      <h3>?? Demande de rservation</h3>
+      <h3>?? Demande de rï¿½servation</h3>
       <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireResa()">?</button>
     </div>
 
     <!-- ÉTAT SUCCÈS -->
     <div id="resaSucces" class="form-success" style="display:none">
       <div class="fs-icon">?</div>
-      <h3>Demande envoye !</h3>
-      <p>Votre demande de rservation a bien t transmise.<br>Vous recevrez une confirmation par e-mail.</p>
+      <h3>Demande envoyï¿½e !</h3>
+      <p>Votre demande de rï¿½servation a bien ï¿½tï¿½ transmise.<br>Vous recevrez une confirmation par e-mail.</p>
       <button class="form-submit" style="margin-top:16px" onclick="fermerFormulaireResa()">Fermer</button>
     </div>
 
@@ -605,32 +605,32 @@ footer strong{color:#fff;}
     <div id="resaFormContent">
       <div class="form-body">
         <div class="form-warn">
-          <strong>?? Rgles importantes</strong>
+          <strong>?? Rï¿½gles importantes</strong>
           <ul>
-            <li>Rservez <strong>1 jour avant</strong> et <strong>1 jour aprs</strong> votre intervention</li>
-            <li>Vrifiez la disponibilit de <strong>tous les kits</strong> avant de soumettre</li>
+            <li>Rï¿½servez <strong>1 jour avant</strong> et <strong>1 jour aprï¿½s</strong> votre intervention</li>
+            <li>Vï¿½rifiez la disponibilitï¿½ de <strong>tous les kits</strong> avant de soumettre</li>
           </ul>
         </div>
         <div id="resaFormError" class="form-error"></div>
 
         <!-- SECTION 1 : Identité -->
         <div class="form-section">
-          <div class="form-section-title">?? Vos coordonnes</div>
+          <div class="form-section-title">?? Vos coordonnï¿½es</div>
           <div class="fr2f">
             <div class="fg2"><label>Nom <span class="req">*</span></label><input type="text" id="r-nom" placeholder="Dupont"></div>
-            <div class="fg2"><label>Prnom <span class="req">*</span></label><input type="text" id="r-prenom" placeholder="Marie"></div>
+            <div class="fg2"><label>Prï¿½nom <span class="req">*</span></label><input type="text" id="r-prenom" placeholder="Marie"></div>
           </div>
           <div class="fg2"><label>Adresse e-mail <span class="req">*</span></label><input type="email" id="r-email" placeholder="marie.dupont@exemple.fr"></div>
           <div class="fg2">
-            <label>Rservation pour le compte de <span class="req">*</span></label>
+            <label>Rï¿½servation pour le compte de <span class="req">*</span></label>
             <input type="text" id="r-structure" readonly style="background:var(--fp);font-weight:600;">
-            <small>Profil slectionn  l'entre du catalogue</small>
+            <small>Profil sï¿½lectionnï¿½ ï¿½ l'entrï¿½e du catalogue</small>
           </div>
         </div>
 
         <!-- SECTION 2 : Kits -->
         <div class="form-section">
-          <div class="form-section-title">?? Kit(s) concern(s) <span class="req">*</span></div>
+          <div class="form-section-title">?? Kit(s) concernï¿½(s) <span class="req">*</span></div>
           <div class="kit-checks" id="r-kits-list">
             <!-- Rempli dynamiquement par JS -->
           </div>
@@ -638,23 +638,23 @@ footer strong{color:#fff;}
 
         <!-- SECTION 3 : Dates réservation -->
         <div class="form-section">
-          <div class="form-section-title">?? Dates de rservation</div>
+          <div class="form-section-title">?? Dates de rï¿½servation</div>
           <div class="fr2f">
-            <div class="fg2"><label>Date de dbut <span class="req">*</span></label>
+            <div class="fg2"><label>Date de dï¿½but <span class="req">*</span></label>
               <input type="date" id="r-deb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
             </div>
             <div class="fg2"><label>Date de fin <span class="req">*</span></label>
               <input type="date" id="r-fin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
             </div>
           </div>
-          <small style="color:var(--gris);font-size:10px">Week-ends et jours fris non disponibles. Incluez J-1 avant et J+1 aprs votre intervention.</small>
+          <small style="color:var(--gris);font-size:10px">Week-ends et jours fï¿½riï¿½s non disponibles. Incluez J-1 avant et J+1 aprï¿½s votre intervention.</small>
         </div>
 
         <!-- SECTION 4 : Dates intervention -->
         <div class="form-section">
           <div class="form-section-title">?? Dates de l'intervention</div>
           <div class="fr2f">
-            <div class="fg2"><label>Date de dbut d'intervention</label>
+            <div class="fg2"><label>Date de dï¿½but d'intervention</label>
               <input type="date" id="r-intdeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
             </div>
             <div class="fg2"><label>Date de fin d'intervention</label>
@@ -662,7 +662,7 @@ footer strong{color:#fff;}
             </div>
           </div>
           <div class="fr2f" style="margin-top:8px">
-            <div class="fg2"><label>Horaire de dbut</label><input type="time" id="r-hdeb" placeholder="08:30"></div>
+            <div class="fg2"><label>Horaire de dï¿½but</label><input type="time" id="r-hdeb" placeholder="08:30"></div>
             <div class="fg2"><label>Horaire de fin</label><input type="time" id="r-hfin" placeholder="17:00"></div>
           </div>
         </div>
@@ -673,14 +673,14 @@ footer strong{color:#fff;}
           <div class="fg2"><label>Nom du client / entreprise <span class="req">*</span></label><input type="text" id="r-entreprise" placeholder="Entreprise ABC"></div>
           <div class="fg2"><label>Adresse de livraison <span class="req">*</span></label><input type="text" id="r-adresse" placeholder="12 rue de la Paix, 75001 Paris"></div>
           <div class="fr3">
-            <div class="fg2"><label>tage</label><input type="text" id="r-etage" placeholder="2ème étage"></div>
-            <div class="fg2"><label>PC scurit / accs</label><input type="text" id="r-acces" placeholder="Badge requis"></div>
+            <div class="fg2"><label>ï¿½tage</label><input type="text" id="r-etage" placeholder="2ème étage"></div>
+            <div class="fg2"><label>PC sï¿½curitï¿½ / accï¿½s</label><input type="text" id="r-acces" placeholder="Badge requis"></div>
             <div class="fg2"><label>Place de parking</label><input type="text" id="r-parking" placeholder="Oui / Non"></div>
           </div>
           <div class="fg2">
             <label>Ascenseur</label>
             <select id="r-ascenseur">
-              <option value=""> Slectionner </option>
+              <option value="">ï¿½ Sï¿½lectionner ï¿½</option>
               <option value="Oui">Oui</option>
               <option value="Non">Non</option>
             </select>
@@ -690,52 +690,52 @@ footer strong{color:#fff;}
         <!-- SECTION 6 : Livraison -->
         <div class="form-section">
           <div class="form-section-title">?? Livraison</div>
-          <div class="fg2"><label>Crneau souhait de livraison <span class="req">*</span></label>
+          <div class="fg2"><label>Crï¿½neau souhaitï¿½ de livraison <span class="req">*</span></label>
             <select id="r-creneau">
-              <option value=""> Slectionner </option>
+              <option value="">ï¿½ Sï¿½lectionner ï¿½</option>
               <option value="Matin (8h-12h)">Matin (8h-12h)</option>
-              <option value="Après-midi (13h-17h)">Aprs-midi (13h-17h)</option>
-              <option value="Journée (8h-17h)">Journe (8h-17h)</option>
+              <option value="Après-midi (13h-17h)">Aprï¿½s-midi (13h-17h)</option>
+              <option value="Journée (8h-17h)">Journï¿½e (8h-17h)</option>
               <option value="Matin (8h-10h)">Matin (8h-10h)</option>
               <option value="Matin (10h-12h)">Matin (10h-12h)</option>
             </select>
           </div>
-          <div class="fg2"><label>Personne(s) sur place pour rceptionner <span class="req">*</span></label><input type="text" id="r-contact" placeholder="Jean Martin"></div>
+          <div class="fg2"><label>Personne(s) sur place pour rï¿½ceptionner <span class="req">*</span></label><input type="text" id="r-contact" placeholder="Jean Martin"></div>
           <div class="fg2"><label>Fonction(s)</label><input type="text" id="r-fonction" placeholder="Responsable RH"></div>
           <div class="fr2f">
             <div class="fg2"><label>Mail(s) contact</label><input type="email" id="r-mailcontact" placeholder="jean.martin@exemple.fr"></div>
-            <div class="fg2"><label>Tlphone portable <span class="req">*</span></label><input type="tel" id="r-tel" placeholder="06 12 34 56 78"></div>
+            <div class="fg2"><label>Tï¿½lï¿½phone portable <span class="req">*</span></label><input type="tel" id="r-tel" placeholder="06 12 34 56 78"></div>
           </div>
-          <div class="fg2"><label>Tlphone fixe</label><input type="tel" id="r-telfixe" placeholder="01 23 45 67 89"></div>
+          <div class="fg2"><label>Tï¿½lï¿½phone fixe</label><input type="tel" id="r-telfixe" placeholder="01 23 45 67 89"></div>
         </div>
 
         <!-- SECTION 7 : Reprise -->
         <div class="form-section">
           <div class="form-section-title">?? Reprise</div>
           <div class="fg2">
-            <label>Le kit doit-il tre rcupr ?</label>
+            <label>Le kit doit-il ï¿½tre rï¿½cupï¿½rï¿½ ?</label>
             <select id="r-recuperation">
               <option value="Oui">Oui</option>
               <option value="Non">Non</option>
             </select>
           </div>
           <div class="fg2">
-            <label>Votre rservation ncessite-t-elle une livraison et/ou une reprise ?</label>
+            <label>Votre rï¿½servation nï¿½cessite-t-elle une livraison et/ou une reprise ?</label>
             <select id="r-typelivraison">
               <option value="Livraison et reprise">Livraison et reprise</option>
               <option value="Livraison uniquement">Livraison uniquement</option>
               <option value="Reprise uniquement">Reprise uniquement</option>
             </select>
           </div>
-          <div class="fg2"><label>Adresse de reprise <small style="font-weight:400">(si diffrente de la livraison)</small></label>
+          <div class="fg2"><label>Adresse de reprise <small style="font-weight:400">(si diffï¿½rente de la livraison)</small></label>
             <input type="text" id="r-adresserep" placeholder="Laisser vide si identique à la livraison">
           </div>
-          <div class="fg2"><label>Crneau souhait de reprise</label>
+          <div class="fg2"><label>Crï¿½neau souhaitï¿½ de reprise</label>
             <select id="r-creneaurep">
-              <option value=""> Slectionner </option>
+              <option value="">ï¿½ Sï¿½lectionner ï¿½</option>
               <option value="Matin (8h-12h)">Matin (8h-12h)</option>
-              <option value="Après-midi (13h-17h)">Aprs-midi (13h-17h)</option>
-              <option value="Journée (8h-17h)">Journe (8h-17h)</option>
+              <option value="Après-midi (13h-17h)">Aprï¿½s-midi (13h-17h)</option>
+              <option value="Journée (8h-17h)">Journï¿½e (8h-17h)</option>
               <option value="Matin (8h-10h)">Matin (8h-10h)</option>
               <option value="Matin (10h-12h)">Matin (10h-12h)</option>
             </select>
@@ -744,9 +744,9 @@ footer strong{color:#fff;}
 
         <!-- SECTION 8 : Kit nutrition (conditionnel) -->
         <div class="form-section" id="r-nutrition-section" style="display:none">
-          <div class="form-section-title">?? Kit nutrition / vlosmoothie</div>
+          <div class="form-section-title">?? Kit nutrition / vï¿½losmoothie</div>
           <div class="fg2"><label>Type de kit nutrition</label><input type="text" id="r-kitnutrition" placeholder="Ex: Vélosmoothie"></div>
-          <div class="fg2"><label>Quantits (kg bananes, kg fruits surgels, litres jus de pomme)</label><textarea id="r-quantites" placeholder="Ex: 2 kg bananes, 1 kg fruits surgelés, 2L jus de pomme"></textarea></div>
+          <div class="fg2"><label>Quantitï¿½s (kg bananes, kg fruits surgelï¿½s, litres jus de pomme)</label><textarea id="r-quantites" placeholder="Ex: 2 kg bananes, 1 kg fruits surgelés, 2L jus de pomme"></textarea></div>
         </div>
 
       </div><!-- /form-body -->
@@ -762,7 +762,7 @@ footer strong{color:#fff;}
 <div id="formAnnulOv" onclick="if(event.target===this)fermerFormulaireAnnulation()">
   <div class="form-modal" style="max-width:520px">
     <div class="form-mh">
-      <h3>?? Annulation de rservation</h3>
+      <h3>?? Annulation de rï¿½servation</h3>
       <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireAnnulation()">?</button>
     </div>
 
@@ -770,7 +770,7 @@ footer strong{color:#fff;}
     <div id="annulSucces" class="form-success" style="display:none">
       <div class="fs-icon">?</div>
       <h3>Annulation transmise !</h3>
-      <p>Votre demande d'annulation a bien t reue.<br>L'quipe KEREA en prendra note.</p>
+      <p>Votre demande d'annulation a bien ï¿½tï¿½ reï¿½ue.<br>L'ï¿½quipe KEREA en prendra note.</p>
       <button class="form-submit" style="margin-top:16px" onclick="fermerFormulaireAnnulation()">Fermer</button>
     </div>
 
@@ -781,10 +781,10 @@ footer strong{color:#fff;}
 
         <!-- Identité -->
         <div class="form-section">
-          <div class="form-section-title">?? Vos coordonnes</div>
+          <div class="form-section-title">?? Vos coordonnï¿½es</div>
           <div class="fr2f">
             <div class="fg2"><label>Nom <span class="req">*</span></label><input type="text" id="a-nom" placeholder="Dupont"></div>
-            <div class="fg2"><label>Prnom <span class="req">*</span></label><input type="text" id="a-prenom" placeholder="Marie"></div>
+            <div class="fg2"><label>Prï¿½nom <span class="req">*</span></label><input type="text" id="a-prenom" placeholder="Marie"></div>
           </div>
           <div class="fg2"><label>Adresse e-mail <span class="req">*</span></label><input type="email" id="a-email" placeholder="marie.dupont@exemple.fr"></div>
           <div class="fg2"><label>Structure</label><input type="text" id="a-structure" readonly style="background:var(--fp);font-weight:600;"></div>
@@ -792,14 +792,14 @@ footer strong{color:#fff;}
 
         <!-- Kits -->
         <div class="form-section">
-          <div class="form-section-title">?? Kit(s)  annuler <span class="req">*</span></div>
+          <div class="form-section-title">?? Kit(s) ï¿½ annuler <span class="req">*</span></div>
           <div class="kit-checks" id="a-kits-list"></div>
         </div>
 
         <!-- Dates -->
         <div class="form-section">
-          <div class="form-section-title">?? Date de l'intervention  annuler</div>
-          <div class="fg2"><label>Date de dbut de la rservation <span class="req">*</span></label>
+          <div class="form-section-title">?? Date de l'intervention ï¿½ annuler</div>
+          <div class="fg2"><label>Date de dï¿½but de la rï¿½servation <span class="req">*</span></label>
             <input type="date" id="a-date" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
           </div>
         </div>
@@ -808,7 +808,7 @@ footer strong{color:#fff;}
         <div class="form-section">
           <div class="form-section-title">?? Client / Entreprise</div>
           <div class="fg2"><label>Nom du client / entreprise <span class="req">*</span></label><input type="text" id="a-entreprise" placeholder="Entreprise ABC"></div>
-          <div class="fg2"><label>Tlphone portable</label><input type="tel" id="a-tel" placeholder="06 12 34 56 78"></div>
+          <div class="fg2"><label>Tï¿½lï¿½phone portable</label><input type="tel" id="a-tel" placeholder="06 12 34 56 78"></div>
         </div>
 
       </div>
@@ -820,9 +820,9 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<footer><strong>KEREA</strong>  33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ef8f1ecf3ffeaf7f1f0def5fbecfbffb0fbeb">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+<footer><strong>KEREA</strong> ï¿½ 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bfd9d0cdd2decbd6d0d1ffd4dacddade91daca">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
 const BASE = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
 const DEFAULT_URL_KITS   = BASE + "&gid=1506266286";
@@ -830,7 +830,7 @@ const DEFAULT_URL_RESA   = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}
 const DEFAULT_URL_PARAMS = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?gid=1711789336&single=true&output=csv`;
 const DEFAULT_FORM       = "VOTRE_LIEN_FORMULAIRE_ICI";
 const DEFAULT_PWD        = "kerea2025";
-// ?? IMPORTANT : Mettre  jour cette URL aprs chaque nouveau dploiement de la Web App Apps Script
+// ?? IMPORTANT : Mettre ï¿½ jour cette URL aprï¿½s chaque nouveau dï¿½ploiement de la Web App Apps Script
 const GAS_URL = "https://script.google.com/macros/s/AKfycbwfCv5jfc_D9gLbhP6L_u6TcQRkdR94FPxAjhDTbDsDgRQBHRcG8D5MN5F_qvEj0zUD/exec";
 
 function getJoursFeries(year) {
@@ -865,9 +865,9 @@ function prochainOuvrable(dateStr) {
 }
 
 const PROFILS = [
-  { id: 'efficience',  label: 'Efficience',           icon: '??', desc: 'Collaborateurs Efficience',  cat: 'Efficience' },
-  { id: 'formation',   label: 'Ple Formation KEREA',  icon: '??', desc: 'Ple Formation KEREA',       cat: 'Ple Formation KEREA' },
-  { id: 'infirmerie',  label: 'Ple Infirmerie KEREA', icon: '??', desc: 'Ple Infirmerie KEREA',      cat: 'Ple Infirmerie KEREA' },
+  { id: 'efficience',  label: 'Efficience',            icon: '💼', desc: 'Collaborateurs Efficience',   cat: 'Efficience' },
+  { id: 'formation',   label: 'Pôle Formation KEREA',  icon: '🎓', desc: 'Pôle Formation KEREA',        cat: 'Pôle Formation KEREA' },
+  { id: 'infirmerie',  label: 'Pôle Infirmerie KEREA', icon: '🏥', desc: 'Pôle Infirmerie KEREA',       cat: 'Pôle Infirmerie KEREA' },
 ];
 let profilActif = null;
 let cfg, kits=[], reservations=[], kitOverrides={}, editingId=null, curPhoto=null, dispoKitId=null;
@@ -921,13 +921,13 @@ async function saveSettingsToSheet(data){
   }catch(e){return false;}
 }
 
-const DEFAULT_ME = `<h3>Comment rserver un kit ?</h3>
-<p>Slectionnez votre profil, vrifiez la disponibilit du kit, puis remplissez le formulaire intgr.</p>
-<h3>?? Rgles importantes</h3>
+const DEFAULT_ME = `<h3>Comment rï¿½server un kit ?</h3>
+<p>Sï¿½lectionnez votre profil, vï¿½rifiez la disponibilitï¿½ du kit, puis remplissez le formulaire intï¿½grï¿½.</p>
+<h3>?? Rï¿½gles importantes</h3>
 <ul>
-<li>Rservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprs</strong></li>
-<li>Si vous rservez plusieurs kits, vrifiez la disponibilit de l\'ensemble avant de soumettre</li>
-<li>Les week-ends et jours fris ne sont pas rservables</li>
+<li>Rï¿½servez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprï¿½s</strong></li>
+<li>Si vous rï¿½servez plusieurs kits, vï¿½rifiez la disponibilitï¿½ de l'ensemble avant de soumettre</li>
+<li>Les week-ends et jours fï¿½riï¿½s ne sont pas rï¿½servables</li>
 </ul>`;
 
 function parseCSV(txt){
@@ -994,7 +994,7 @@ async function loadReservations(){
       statut:(r['statut']||'').trim().toLowerCase(),
       who:[r['prenom']||'',r['nom']||''].filter(Boolean).join(' '),struct:(r['structure']||'').trim()
     })).filter(r=>r.kit_id&&r.date_debut&&!isNaN(r.date_debut)&&r.date_fin&&!isNaN(r.date_fin)&&
-      r.statut!=='annulé'&&r.statut!=='annule'&&r.statut!=='cancelled');
+      r.statut!=='annulï¿½'&&r.statut!=='annule'&&r.statut!=='cancelled');
     return true;
   }catch(e){console.error('loadReservations:',e.message);return false;}
 }
@@ -1010,7 +1010,7 @@ function getKitDispo(kitObj,deb,fin){
   const upcoming=matches.filter(r=>r.date_debut>f).sort((a,b)=>a.date_debut-b.date_debut);
   return {status:conflicts.length?'indispo':'dispo',conflicts,upcoming,all:matches};
 }
-const dlabel=s=>({dispo:'Disponible',indispo:'Rserv',maint:'En maintenance',avenir:' venir'}[s]||'Disponible');
+const dlabel=s=>({dispo:'Disponible',indispo:'Rï¿½servï¿½',maint:'En maintenance',avenir:'ï¿½ venir'}[s]||'Disponible');
 const dcolor=s=>({dispo:'#22c55e',indispo:'#ef4444',maint:'#9ca3af',avenir:'#a855f7'}[s]||'#22c55e');
 const dotcls=s=>({dispo:'dg',indispo:'di',maint:'dm',avenir:'dav'}[s]||'dg');
 function kitsForProfil(profil){
@@ -1032,7 +1032,7 @@ function selectProfil(id){
   profilActif=PROFILS.find(p=>p.id===id);
   const btn=document.getElementById('profilConfirmBtn');
   btn.classList.add('show');
-  btn.textContent=`Accder au catalogue ${profilActif.icon} ?`;
+  btn.textContent=`Accï¿½der au catalogue ${profilActif.icon} ?`;
 }
 function confirmerProfil(){
   if(!profilActif) return;
@@ -1052,16 +1052,16 @@ function changerProfil(){
 }
 
 async function initApp(){
-  setSS('loading','Chargement des données…');
-  document.getElementById('kitsGrid').innerHTML='<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>';
+  setSS('loading','Chargement des donnï¿½esï¿½');
+  document.getElementById('kitsGrid').innerHTML='<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheetsï¿½</p></div>';
   const [kOk,rOk]=await Promise.all([loadKits(),loadReservations()]);
   if(!kOk||kits.length===0){
     document.getElementById('kitsGrid').innerHTML='<div class="estate"><div class="ei">??</div><h3>Impossible de charger les kits</h3><p>Vérifiez que l\'onglet KITS est publié en CSV.</p><button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">?? Configurer</button></div>';
     setSS('error','Onglet KITS inaccessible');return;
   }
   if(profilActif) renderGrid();
-  if(kOk&&rOk) setSS('ok',`${kits.length} kit${kits.length>1?'s':''} · ${reservations.length} réservation${reservations.length>1?'s':''} chargées`);
-  else setSS('error',`${kits.length} kits — réservations non accessibles`);
+  if(kOk&&rOk) setSS('ok',`${kits.length} kit${kits.length>1?'s':''} ï¿½ ${reservations.length} rï¿½servation${reservations.length>1?'s':''} chargï¿½es`);
+  else setSS('error',`${kits.length} kits ï¿½ rï¿½servations non accessibles`);
   if(document.body.classList.contains('adm')) document.getElementById('syncA').innerHTML='<button class="sbtn" onclick="doRefresh()">?? Actualiser</button>';
 }
 async function doRefresh(){kits=[];reservations=[];await initApp();}
@@ -1077,7 +1077,7 @@ function renderGrid(){
   const q=document.getElementById('si').value.toLowerCase();
   const base=document.body.classList.contains('adm')?kits:kitsForProfil(profilActif);
   const filtered=base.filter(k=>!q||k.nom.toLowerCase().includes(q)||(k.description||'').toLowerCase().includes(q)||(k.contenu||[]).some(c=>c.toLowerCase().includes(q)));
-  document.getElementById('statsText').innerHTML=`<strong>${filtered.length}</strong> kit${filtered.length>1?'s':''} trouv${filtered.length>1?'s':''}${profilActif?' pour '+profilActif.label:''}`;
+  document.getElementById('statsText').innerHTML=`<strong>${filtered.length}</strong> kit${filtered.length>1?'s':''} trouvï¿½${filtered.length>1?'s':''}${profilActif?' pour '+profilActif.label:''}`;
   if(!filtered.length){grid.innerHTML='<div class="ems"><div class="ei">??</div><p>Aucun kit ne correspond.</p></div>';return;}
   const today=new Date();today.setHours(0,0,0,0);
   grid.innerHTML=filtered.map(k=>{
@@ -1087,14 +1087,14 @@ function renderGrid(){
     const cats=(k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
     const thumb=k.photo?`<img src="${k.photo}" alt="${k.nom}">`:`<span class="ei">${k.icon||'??'}</span>`;
     let hint='';
-    if(!isMaint&&!isAv&&dispo.conflicts&&dispo.conflicts.length) hint='<div class="ch vis">?? Rserv  vrifiez vos dates</div>';
+    if(!isMaint&&!isAv&&dispo.conflicts&&dispo.conflicts.length) hint='<div class="ch vis">?? Rï¿½servï¿½ ï¿½ vï¿½rifiez vos dates</div>';
     else if(!isMaint&&!isAv&&dispo.upcoming&&dispo.upcoming.length) hint=`<div class="ch vis">?? Prochaine resa : ${fmt(dispo.upcoming[0].date_debut)}</div>`;
     return `<div class="card${isMaint?' km':''}${isAv?' kav':''}">
       <div class="ct" style="background:${k.couleur}">${thumb}
         <div class="cbs">${cats}</div>
         <span class="ddot ${dotcls(ds)}" title="${dlabel(ds)}"></span>
         <div class="sov mov"><div class="sbadge mbadge">?? En maintenance</div></div>
-        <div class="sov aov"><div class="sbadge avbadge">??  venir</div></div>
+        <div class="sov aov"><div class="sbadge avbadge">?? ï¿½ venir</div></div>
       </div>
       <div class="cbody">
         <div class="cname">${k.nom}</div>
@@ -1104,7 +1104,7 @@ function renderGrid(){
           ${k.taille?`<span class="mt">?? ${k.taille}</span>`:''}
           <span class="mt" style="color:${dcolor(ds)}">? ${dlabel(ds)}</span>
         </div>${hint}
-        <div class="cfoot"><button class="bdt" onclick="openDetail('${k.id}')">?? Dtail</button></div>
+        <div class="cfoot"><button class="bdt" onclick="openDetail('${k.id}')">?? Dï¿½tail</button></div>
       </div>
       <div class="cab">
         <button class="ce" onclick="openAdmin('${k.id}');event.stopPropagation()">??</button>
@@ -1117,7 +1117,7 @@ function renderGrid(){
 function populateKitSelect(preselect){
   const sel=document.getElementById('dispoKitSelect');
   const base=profilActif?kitsForProfil(profilActif):kits;
-  sel.innerHTML=`<option value=""> Choisissez un kit </option>`+base.filter(k=>!k.maintenance&&!k.avenir).map(k=>`<option value="${k.id}">${k.nom}</option>`).join('');
+  sel.innerHTML=`<option value="">ï¿½ Choisissez un kit ï¿½</option>`+base.filter(k=>!k.maintenance&&!k.avenir).map(k=>`<option value="${k.id}">${k.nom}</option>`).join('');
   if(preselect) sel.value=preselect;
 }
 function openDispoGlobal(){dispoKitId=null;populateKitSelect(null);resetDispoResult();setDateMin();document.getElementById('dov').classList.add('open');}
@@ -1152,7 +1152,7 @@ function chkDispo(){
   const goBtn=document.getElementById('dGoBtn');
   if(res.status==='dispo'){
     rDiv.className='dr ok';
-    document.getElementById('drTitle').innerHTML='? Disponible pour cette priode';
+    document.getElementById('drTitle').innerHTML='? Disponible pour cette pï¿½riode';
     document.getElementById('drSub').innerHTML=`Le kit <strong>${k.nom}</strong> est libre du ${fmt(deb)} au ${fmt(fin)}.`;
     document.getElementById('simBlock').style.display='none';
     goBtn.href='#';goBtn.style.display='flex';
@@ -1169,16 +1169,16 @@ function chkDispo(){
     };
   } else {
     rDiv.className='dr ko';
-    document.getElementById('drTitle').innerHTML='? Indisponible pour cette priode';
-    let sub=`Le kit <strong>${k.nom}</strong> est dj rserv sur tout ou partie de cette priode.`;
+    document.getElementById('drTitle').innerHTML='? Indisponible pour cette pï¿½riode';
+    let sub=`Le kit <strong>${k.nom}</strong> est dï¿½jï¿½ rï¿½servï¿½ sur tout ou partie de cette pï¿½riode.`;
     if(res.conflicts.length){
       sub+=`<br><br>Conflit${res.conflicts.length>1?'s':''} :`;
-      res.conflicts.slice(0,4).forEach(c=>{sub+=`<br> ${fmt(c.date_debut)} ? ${fmt(c.date_fin)}${c.who?' <span style="color:var(--gris)">('+c.who+')</span>':''}`;});
+      res.conflicts.slice(0,4).forEach(c=>{sub+=`<br>ï¿½ ${fmt(c.date_debut)} ? ${fmt(c.date_fin)}${c.who?' <span style="color:var(--gris)">('+c.who+')</span>':''}`;});
     }
-    if(res.upcoming.length) sub+=`<br><br>Prochaine disponibilit : aprs le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
+    if(res.upcoming.length) sub+=`<br><br>Prochaine disponibilitï¿½ : aprï¿½s le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
     document.getElementById('drSub').innerHTML=sub;
     goBtn.style.display='flex';goBtn.className='btn btn-p blocked';
-    goBtn.textContent="?? Kit indisponible  choisissez d'autres dates";
+    goBtn.textContent="?? Kit indisponible ï¿½ choisissez d'autres dates";
     goBtn.href='#';goBtn.setAttribute('aria-disabled','true');goBtn.onclick=e=>e.preventDefault();
     const sims=findSimilar(k,deb,fin);
     const sb=document.getElementById('simBlock');
@@ -1206,14 +1206,14 @@ function openDetail(id){
   th.innerHTML=k.photo?`<img src="${k.photo}" alt="${k.nom}">`:`<span style="font-size:65px;position:relative;z-index:1">${k.icon||'??'}</span>`;
   document.getElementById('mCats').innerHTML=(k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
   const titEl=document.getElementById('mTitle');titEl.textContent=k.nom;titEl.dataset.kitId=k.id;
-  document.getElementById('mDesc').textContent=k.description||'';
+  document.getElementById('mDesc').textContent=k.description||'ï¿½';
   document.getElementById('mContenu').innerHTML=(k.contenu||[]).map(c=>`<li>${c}</li>`).join('');
   document.getElementById('mSpecs').innerHTML=`
-    <div class="sp"><label>Poids</label><strong>${k.poids||''}</strong></div>
-    <div class="sp"><label>Taille</label><strong>${k.taille||''}</strong></div>
-    <div class="sp"><label>Disponibilit</label><strong style="color:${dcolor(dispo.status)}">${dlabel(dispo.status)}</strong></div>
-    <div class="sp"><label>Catgories</label><strong style="font-size:11px">${(k.cats||[]).join(', ')||''}</strong></div>`;
-  document.getElementById('mInter').innerHTML=(k.cats||[]).length?k.cats.map(c=>`<span class="ic">${c}</span>`).join(''):'<span style="color:#999;font-size:11px">Non renseign</span>';
+    <div class="sp"><label>Poids</label><strong>${k.poids||'ï¿½'}</strong></div>
+    <div class="sp"><label>Taille</label><strong>${k.taille||'ï¿½'}</strong></div>
+    <div class="sp"><label>Disponibilitï¿½</label><strong style="color:${dcolor(dispo.status)}">${dlabel(dispo.status)}</strong></div>
+    <div class="sp"><label>Catï¿½gories</label><strong style="font-size:11px">${(k.cats||[]).join(', ')||'ï¿½'}</strong></div>`;
+  document.getElementById('mInter').innerHTML=(k.cats||[]).length?k.cats.map(c=>`<span class="ic">${c}</span>`).join(''):'<span style="color:#999;font-size:11px">Non renseignï¿½</span>';
   const ban=document.getElementById('mStBan');
   ban.className='stban'+(isMaint?' sm':isAv?' sav':'');
   ban.style.display=(isMaint||isAv)?'flex':'none';
@@ -1221,11 +1221,11 @@ function openDetail(id){
   const all=(dispo.all||[]).sort((a,b)=>a.date_debut-b.date_debut);
   const today=new Date();today.setHours(0,0,0,0);
   const rs=document.getElementById('mResaSec'),rl=document.getElementById('mResaList');
-  if(all.length){rs.style.display='';rl.innerHTML=all.map(r=>{const cur=r.date_debut<=today&&r.date_fin>=today;return`<div class="ri${cur?' cur':''}"><span class="rdot"></span><div><div class="rdat">${fmt(r.date_debut)} ? ${fmt(r.date_fin)}</div>${r.who?`<div class="rwho">${r.who}${r.struct?'  '+r.struct:''}</div>`:''}</div>${cur?'<span class="rbadge">En cours</span>':''}</div>`;}).join('');}
-  else{rs.style.display=reservations.length?'':'none';rl.innerHTML='<div style="font-size:11px;color:#999">Aucune rservation pour ce kit.</div>';}
+  if(all.length){rs.style.display='';rl.innerHTML=all.map(r=>{const cur=r.date_debut<=today&&r.date_fin>=today;return`<div class="ri${cur?' cur':''}"><span class="rdot"></span><div><div class="rdat">${fmt(r.date_debut)} ? ${fmt(r.date_fin)}</div>${r.who?`<div class="rwho">${r.who}${r.struct?' ï¿½ '+r.struct:''}</div>`:''}</div>${cur?'<span class="rbadge">En cours</span>':''}</div>`;}).join('');}
+  else{rs.style.display=reservations.length?'':'none';rl.innerHTML='<div style="font-size:11px;color:#999">Aucune rï¿½servation pour ce kit.</div>';}
   const btn=document.getElementById('mResaBtn');
   btn.className='brs'+(isMaint||isAv?' dis':'');
-  btn.textContent=isMaint?'?? En maintenance':isAv?'??  venir':'?? Vrifier & rserver';
+  btn.textContent=isMaint?'?? En maintenance':isAv?'?? ï¿½ venir':'?? Vï¿½rifier & rï¿½server';
   document.getElementById('detov').classList.add('open');
 }
 function closeDetail(){document.getElementById('detov').classList.remove('open');}
@@ -1254,7 +1254,7 @@ function exitAdmin(){
   if(!profilActif){document.getElementById('appContent').style.display='none';document.getElementById('profilScreen').classList.add('show');}
   else renderGrid();
 }
-function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configuré dans Paramètres.');return;}alert('Contactez l\'administrateur : '+e);}
+function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configurï¿½ dans Paramï¿½tres.');return;}alert('Contactez l\'administrateur ï¿½ : '+e);}
 
 function applyLogo(){
   const img=document.getElementById('logoImg'),badge=document.getElementById('logoBadge');
@@ -1264,10 +1264,10 @@ function applyLogo(){
 function openLogoUpload(){document.getElementById('logoIn').value='';document.getElementById('logoPrev').style.display='none';document.getElementById('logoPrompt').style.display='block';document.getElementById('logoOv').classList.add('open');}
 function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
 function prevLogo(i){const f=i.files[0];if(!f)return;if(f.size>1024*1024){alert('Max 1 Mo.');return;}const r=new FileReader();r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};r.readAsDataURL(f);}
-async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('?? Hbergez le logo sur Google Drive et collez l\'URL publique.');}closeLogoUpload();}
+async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('?? Hï¿½bergez le logo sur Google Drive et collez l\'URL publique.');}closeLogoUpload();}
 async function rmLogo(){cfg.logo=null;applyLogo();await saveSettingsToSheet({logo_url:''});closeLogoUpload();}
 
-const EMOJIS={'Sant':['??','??','??','??','??','??','??','??','??','??'],'Formation':['??','??','??','??','??','??','??','??','???','??'],'Tech':['??','??','???','??','??','??','??','??','??'],'Prvention':['??','??','??','??','?','??','??','??','??'],'Bien-tre':['??','??','??','??','??','??','??','?????','??'],'Divers':['??','??','??','?','??','??','??','?','??','??','??','??']};
+const EMOJIS={'Santï¿½':['??','??','??','??','??','??','??','??','??','??'],'Formation':['??','??','??','??','??','??','??','??','???','??'],'Tech':['??','??','???','??','??','??','??','??','??'],'Prï¿½vention':['??','??','??','??','?','??','??','??','??'],'Bien-ï¿½tre':['??','??','??','??','??','??','??','?????','??'],'Divers':['??','??','??','?','??','??','??','?','??','??','??','??']};
 function buildEP(cur){
   const div=document.getElementById('epGrid');div.innerHTML='';
   Object.entries(EMOJIS).forEach(([g,es])=>{
@@ -1281,8 +1281,8 @@ function openAdmin(id){
   const hasGAS=!!(cfg.gasUrl||'').trim();
   document.getElementById('adminTitle').textContent=id?'?? Modifier le kit':'? Nouveau kit';
   const ind=document.getElementById('gasIndicator');ind.style.display='block';
-  if(hasGAS){ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#f0fdf4;color:#166534;border:1.5px solid #86efac';ind.textContent='? Apps Script configur  modifications crites dans Google Sheets';document.getElementById('saveGasBtn').style.display='inline-flex';document.getElementById('saveLocalBtn').style.display='none';}
-  else{ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#fef9c3;color:#713f12;border:1.5px solid #fde68a';ind.textContent='?? Apps Script non configur  sauvegarde locale uniquement.';document.getElementById('saveGasBtn').style.display='none';document.getElementById('saveLocalBtn').style.display='inline-flex';}
+  if(hasGAS){ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#f0fdf4;color:#166534;border:1.5px solid #86efac';ind.textContent='? Apps Script configurï¿½ ï¿½ modifications ï¿½crites dans Google Sheets';document.getElementById('saveGasBtn').style.display='inline-flex';document.getElementById('saveLocalBtn').style.display='none';}
+  else{ind.style.cssText='display:block;font-size:11px;padding:7px 10px;border-radius:6px;margin-bottom:11px;background:#fef9c3;color:#713f12;border:1.5px solid #fde68a';ind.textContent='?? Apps Script non configurï¿½ ï¿½ sauvegarde locale uniquement.';document.getElementById('saveGasBtn').style.display='none';document.getElementById('saveLocalBtn').style.display='inline-flex';}
   document.getElementById('f-id').value=k?.kit_id||'';document.getElementById('f-nom').value=k?.nom||'';
   document.getElementById('f-nomform').value=k?.nom_form||k?.nom||'';document.getElementById('f-icon').value=k?.icon||'??';
   document.getElementById('f-desc').value=k?.description||'';document.getElementById('f-contenu').value=(k?.contenu||[]).join('\n');
@@ -1318,19 +1318,19 @@ function saveKitLocal(){
   kitOverrides[id]=ov;
   if(!editingId){kits.push({...ov,id,kit_id:id,nom_form:data.nom_formulaire,nom:data.nom_kit});}
   else{const idx=kits.findIndex(x=>x.id===id);if(idx>=0)kits[idx]={...kits[idx],...ov};}
-  closeAdmin();renderGrid();alert('? Sauvegard localement.\n?? Ces donnes seront perdues  la prochaine actualisation.');
+  closeAdmin();renderGrid();alert('? Sauvegardï¿½ localement.\n?? Ces donnï¿½es seront perdues ï¿½ la prochaine actualisation.');
 }
 async function saveKitGAS(){
   const data=collectKitForm();if(!data)return;
-  const gasUrl=cfg.gasUrl||'';if(!gasUrl){alert('URL Apps Script non configure.');return;}
-  const btn=document.getElementById('saveGasBtn');btn.textContent='? Enregistrement';btn.disabled=true;
-  try{await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:editingId?'updateKit':'addKit',data})});btn.textContent='? Enregistr !';setTimeout(()=>{closeAdmin();doRefresh();},800);}
+  const gasUrl=cfg.gasUrl||'';if(!gasUrl){alert('URL Apps Script non configurï¿½e.');return;}
+  const btn=document.getElementById('saveGasBtn');btn.textContent='? Enregistrementï¿½';btn.disabled=true;
+  try{await fetch(gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:editingId?'updateKit':'addKit',data})});btn.textContent='? Enregistrï¿½ !';setTimeout(()=>{closeAdmin();doRefresh();},800);}
   catch(e){btn.textContent='? Erreur';alert('Erreur : '+e.message);btn.disabled=false;btn.textContent='? Enregistrer dans Sheets';}
 }
 async function delKit(id){
   const k=kits.find(x=>x.id===id);
   if(!!(cfg.gasUrl||'').trim()){
-    if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\nAction irrversible.'))return;
+    if(!confirm('Supprimer "'+k?.nom+'" de Google Sheets ?\nAction irrï¿½versible.'))return;
     try{await fetch(cfg.gasUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'deleteKit',data:{kit_id:id}})});doRefresh();}
     catch(e){alert('Erreur suppression : '+e.message);}
   }else{
@@ -1355,16 +1355,16 @@ async function saveSettings(){
   cfg.urlKits=document.getElementById('s-kits').value.trim()||DEFAULT_URL_KITS;
   cfg.urlResa=document.getElementById('s-resa').value.trim()||DEFAULT_URL_RESA;
   const btn=document.querySelector('#settingsOv .bs');
-  if(btn){btn.textContent='? Enregistrement';btn.disabled=true;}
+  if(btn){btn.textContent='? Enregistrementï¿½';btn.disabled=true;}
   await saveSettingsToSheet({admin_email:cfg.adminEmail,apps_script_url:cfg.gasUrl,url_kits:cfg.urlKits,url_resa:cfg.urlResa});
   if(btn){btn.textContent='?? Enregistrer';btn.disabled=false;}
   closeSettings();doRefresh();
 }
 function chgPwd(){
   const p1=document.getElementById('s-p1').value,p2=document.getElementById('s-p2').value,m=document.getElementById('pwd-msg');
-  if(p1.length<4){m.style.color='#ef4444';m.textContent='Min 4 caractres.';return;}
-  if(p1!==p2){m.style.color='#ef4444';m.textContent='Mots de passe diffrents.';return;}
-  cfg.pwd=p1;saveSettingsToSheet({pwd:p1});m.style.color='#22c55e';m.textContent='Modifi !';
+  if(p1.length<4){m.style.color='#ef4444';m.textContent='Min 4 caractï¿½res.';return;}
+  if(p1!==p2){m.style.color='#ef4444';m.textContent='Mots de passe diffï¿½rents.';return;}
+  cfg.pwd=p1;saveSettingsToSheet({pwd:p1});m.style.color='#22c55e';m.textContent='Modifiï¿½ !';
   document.getElementById('s-p1').value='';document.getElementById('s-p2').value='';
 }
 function renderMeContent(){document.getElementById('meContent').innerHTML=cfg.meContent||DEFAULT_ME;}
@@ -1388,9 +1388,9 @@ function setDateMinField(id){
   if(!el.value||el.value<min) el.value=min;
 }
 
-// -- OUVERTURE FORMULAIRE RSERVATION --------------------------------
+// -- OUVERTURE FORMULAIRE Rï¿½SERVATION --------------------------------
 function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
-  // Reset tat
+  // Reset ï¿½tat
   document.getElementById('resaSucces').style.display='none';
   document.getElementById('resaFormContent').style.display='block';
   document.getElementById('resaFormError').style.display='none';
@@ -1398,10 +1398,10 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
   document.getElementById('r-submitBtn').disabled=false;
   document.getElementById('r-submitBtn').textContent='?? Envoyer la demande';
 
-  // Pr-remplir structure depuis profil
+  // Prï¿½-remplir structure depuis profil
   document.getElementById('r-structure').value = profilActif ? profilActif.label : '';
 
-  // Dates pr-remplies depuis la modal dispo
+  // Dates prï¿½-remplies depuis la modal dispo
   const min=prochainOuvrable(todayStr());
   const deb=document.getElementById('r-deb');
   const fin=document.getElementById('r-fin');
@@ -1415,7 +1415,7 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
     el.min=min; el.value='';
   });
 
-  // Construire liste de kits filtrs par profil
+  // Construire liste de kits filtrï¿½s par profil
   const pool = profilActif ? kitsForProfil(profilActif) : kits;
   const reservables = pool.filter(k=>!k.maintenance&&!k.avenir);
   const list = document.getElementById('r-kits-list');
@@ -1425,10 +1425,10 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
       <span>${k.nom}</span>
     </label>`).join('');
 
-  // Section nutrition : afficher si kit vlosmoothie coch
+  // Section nutrition : afficher si kit vï¿½losmoothie cochï¿½
   list.addEventListener('change', ()=>{
     const checked=[...list.querySelectorAll('input:checked')].map(c=>c.value.toLowerCase());
-    const hasNutrition=checked.some(v=>v.includes('nutrition')||v.includes('velo')||v.includes('vlo'));
+    const hasNutrition=checked.some(v=>v.includes('nutrition')||v.includes('velo')||v.includes('vï¿½lo'));
     document.getElementById('r-nutrition-section').style.display=hasNutrition?'block':'none';
   });
 
@@ -1488,7 +1488,7 @@ function fermerFormulaireAnnulation(){
   document.getElementById('formAnnulOv').classList.remove('open');
 }
 
-// -- SOUMISSION RSERVATION --------------------------------------------
+// -- SOUMISSION Rï¿½SERVATION --------------------------------------------
 async function soumettreResa(){
   const err = document.getElementById('resaFormError');
   err.style.display='none';
@@ -1510,16 +1510,16 @@ async function soumettreResa(){
 
   const missing=[];
   if(!nom) missing.push('Nom');
-  if(!prenom) missing.push('Prnom');
+  if(!prenom) missing.push('Prï¿½nom');
   if(!email) missing.push('E-mail');
-  if(!deb) missing.push('Date de dbut');
+  if(!deb) missing.push('Date de dï¿½but');
   if(!fin) missing.push('Date de fin');
   if(!kitsCoches.length) missing.push('Au moins un kit');
   if(!entreprise) missing.push('Nom du client / entreprise');
   if(!adresse) missing.push('Adresse de livraison');
   if(!contact) missing.push('Contact sur place');
-  if(!tel) missing.push('Tlphone portable');
-  if(!creneau) missing.push('Crneau de livraison');
+  if(!tel) missing.push('Tï¿½lï¿½phone portable');
+  if(!creneau) missing.push('Crï¿½neau de livraison');
 
   if(missing.length){
     err.textContent='Champs obligatoires manquants : '+missing.join(', ');
@@ -1529,12 +1529,12 @@ async function soumettreResa(){
   }
 
   const btn=document.getElementById('r-submitBtn');
-  btn.disabled=true; btn.textContent='? Envoi en cours';
+  btn.disabled=true; btn.textContent='? Envoi en coursï¿½';
 
-  // Construction de l'objet donnes  colonnes exactes du sheet
+  // Construction de l'objet donnï¿½es ï¿½ colonnes exactes du sheet
   const data={
     action: 'soumettreReservation',
-    typedemande: 'rservation',
+    typedemande: 'rï¿½servation',
     structure,
     kits: kitsCoches.join(', '),
     nom, prenom, email,
@@ -1567,13 +1567,13 @@ async function soumettreResa(){
       headers:{'Content-Type':'text/plain'},
       body: JSON.stringify(data)
     });
-    // no-cors ? rponse opaque ? on considre succs
+    // no-cors ? rï¿½ponse opaque ? on considï¿½re succï¿½s
     document.getElementById('resaFormContent').style.display='none';
     document.getElementById('resaSucces').style.display='block';
-    // Rafrachir les rservations en fond
+    // Rafraï¿½chir les rï¿½servations en fond
     setTimeout(()=>loadReservations().then(()=>renderGrid()), 3000);
   }catch(e){
-    err.textContent='Erreur lors de l\'envoi. Veuillez ressayer. ('+e.message+')';
+    err.textContent='Erreur lors de l\'envoi. Veuillez rï¿½essayer. ('+e.message+')';
     err.style.display='block';
     btn.disabled=false; btn.textContent='?? Envoyer la demande';
   }
@@ -1595,7 +1595,7 @@ async function soumettreAnnulation(){
 
   const missing=[];
   if(!nom) missing.push('Nom');
-  if(!prenom) missing.push('Prnom');
+  if(!prenom) missing.push('Prï¿½nom');
   if(!email) missing.push('E-mail');
   if(!date) missing.push('Date');
   if(!kitsCoches.length) missing.push('Au moins un kit');
@@ -1608,7 +1608,7 @@ async function soumettreAnnulation(){
   }
 
   const btn=document.getElementById('a-submitBtn');
-  btn.disabled=true; btn.textContent='? Envoi en cours';
+  btn.disabled=true; btn.textContent='? Envoi en coursï¿½';
 
   const data={
     action: 'soumettreReservation',
@@ -1631,7 +1631,7 @@ async function soumettreAnnulation(){
   }catch(e){
     err.textContent='Erreur lors de l\'envoi. Veuillez réessayer.';
     err.style.display='block';
-    btn.disabled=false; btn.textContent="\u21a9\ufe0f Confirmer l'annulation";
+    btn.disabled=false; btn.textContent="↩️ Confirmer l'annulation";
   }
 }
 </script>
