@@ -964,7 +964,7 @@ function getJoursFeries(year) {
    new Date(year,10,11),new Date(year,11,25)].forEach(d=>jf.push(fmt2(d)));
   return jf;
 }
-const FERIES = new Set([...getJoursFeries(new Date().getFullYear()), ...getJoursFeries(new Date().getFullYear()+1)]);
+const FERIES = new Set([...getJoursFeries(new Date().getFullYear()), ...getJoursFeries(new Date().getFullYear()+1), ...getJoursFeries(new Date().getFullYear()+2), ...getJoursFeries(new Date().getFullYear()+3), ...getJoursFeries(new Date().getFullYear()+4)]);
 function isJourBloqu(dateStr) {
   if (!dateStr) return false;
   const d = new Date(dateStr + 'T00:00:00');
@@ -1538,16 +1538,17 @@ function openCal(inputId){
   calState[inputId]={month:curDate.getMonth(),year:curDate.getFullYear()};
   renderCal(inputId);
   drop.classList.add('open');
-  // Fermer si clic hors calendrier
+  // Fermer si clic hors du wrapper calendrier
   setTimeout(()=>{
+    const wrap=drop.closest('.cal-wrap');
     const closer=function(e){
-      if(!drop.contains(e.target)&&e.target.id!==inputId){
+      if(wrap&&!wrap.contains(e.target)){
         drop.classList.remove('open');
-        document.removeEventListener('click',closer);
+        document.removeEventListener('mousedown',closer);
       }
     };
-    document.addEventListener('click',closer);
-  },10);
+    document.addEventListener('mousedown',closer);
+  },50);
 }
 
 function renderCal(inputId){
@@ -1604,10 +1605,13 @@ function renderCal(inputId){
 }
 
 function calNav(inputId,dir){
+  event.stopPropagation();
   const s=calState[inputId];
   s.month+=dir;
   if(s.month>11){s.month=0;s.year++;}
   if(s.month<0){s.month=11;s.year--;}
+  // Ajouter les fériés de cette année si pas encore calculés
+  getJoursFeries(s.year).forEach(d=>FERIES.add(d));
   renderCal(inputId);
 }
 
