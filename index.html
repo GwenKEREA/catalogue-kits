@@ -707,7 +707,7 @@ footer strong{color:#fff;}
         <div class="form-section">
           <div class="form-section-title">🚚 Livraison</div>
           <div class="fg2">
-            <label>Livraison par prestataire <span class="req">*</span></label>
+            <label>Livraison <span class="req">*</span></label>
             <select id="r-livraison" onchange="toggleLivraisonFields()">
               <option value="Oui">Oui</option>
               <option value="Non">Non</option>
@@ -725,7 +725,7 @@ footer strong{color:#fff;}
             <div class="fg2"><label>Personne(s) sur place pour réceptionner <span class="req">*</span></label><input type="text" id="r-contact" placeholder="Jean Martin"></div>
             <div class="fg2"><label>Fonction(s)</label><input type="text" id="r-fonction" placeholder="Responsable RH"></div>
             <div class="fr2f">
-              <div class="fg2"><label>Mail(s) contact <span class="req" id="r-mailcontact-req">*</span></label><input type="email" id="r-mailcontact" placeholder="jean.martin@exemple.fr"></div>
+              <div class="fg2"><label>Mail(s) contact <span class="req">*</span></label><input type="email" id="r-mailcontact" placeholder="jean.martin@exemple.fr"></div>
               <div class="fg2"><label>Téléphone portable</label><input type="tel" id="r-tel" placeholder="06 12 34 56 78"></div>
             </div>
             <div class="fg2"><label>Téléphone fixe</label><input type="tel" id="r-telfixe" placeholder="01 23 45 67 89"></div>
@@ -753,6 +753,21 @@ footer strong{color:#fff;}
                 <option value="Après-midi">Après-midi</option>
                 <option value="Journée">Journée</option>
               </select>
+            </div>
+            <div class="fg2" style="margin-top:8px">
+              <label class="kit-check-item" style="border:1.5px solid var(--gc);border-radius:7px;padding:8px 10px;" onclick="toggleRepriseIdentique()">
+                <input type="checkbox" id="r-reprise-identique" checked>
+                <span>Informations de contact identiques à la livraison</span>
+              </label>
+            </div>
+            <div id="r-reprise-contact-fields" style="display:none;margin-top:8px;">
+              <div class="fg2"><label>Personne(s) sur place pour la reprise <span class="req">*</span></label><input type="text" id="r-contact-rep" placeholder="Jean Martin"></div>
+              <div class="fg2"><label>Fonction(s)</label><input type="text" id="r-fonction-rep" placeholder="Responsable RH"></div>
+              <div class="fr2f">
+                <div class="fg2"><label>Mail(s) contact <span class="req">*</span></label><input type="email" id="r-mailcontact-rep" placeholder="jean.martin@exemple.fr"></div>
+                <div class="fg2"><label>Téléphone portable</label><input type="tel" id="r-tel-rep" placeholder="06 12 34 56 78"></div>
+              </div>
+              <div class="fg2"><label>Téléphone fixe</label><input type="tel" id="r-telfixe-rep" placeholder="01 23 45 67 89"></div>
             </div>
           </div>
         </div>
@@ -1409,6 +1424,10 @@ function toggleRepriseFields(){
   const oui=document.getElementById('r-recuperation').value==='Oui';
   document.getElementById('r-reprise-fields').style.display=oui?'block':'none';
 }
+function toggleRepriseIdentique(){
+  const cb=document.getElementById('r-reprise-identique');
+  document.getElementById('r-reprise-contact-fields').style.display=cb.checked?'none':'block';
+}
 
 // -- OUVERTURE FORMULAIRE RÉSERVATION --------------------------------
 function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
@@ -1449,18 +1468,21 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
   // Vider les champs texte
   ['r-nom','r-prenom','r-email','r-entreprise','r-adresse','r-etage','r-acces','r-parking',
    'r-contact','r-fonction','r-mailcontact','r-tel','r-telfixe','r-adresserep',
+   'r-contact-rep','r-fonction-rep','r-mailcontact-rep','r-tel-rep','r-telfixe-rep',
    'r-kitnutrition','r-quantites','r-hdeb','r-hfin'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.value='';
   });
   // Reset selects
   const livr=document.getElementById('r-livraison'); if(livr) livr.value='Oui';
   const recup=document.getElementById('r-recuperation'); if(recup) recup.value='Oui';
+  const repId=document.getElementById('r-reprise-identique'); if(repId) repId.checked=true;
   ['r-ascenseur','r-creneau','r-creneaurep'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.selectedIndex=0;
   });
   // Afficher les champs livraison et reprise par défaut
   toggleLivraisonFields();
   toggleRepriseFields();
+  toggleRepriseIdentique();
 
   document.getElementById('formResaOv').classList.add('open');
 }
@@ -1626,6 +1648,8 @@ async function soumettreResa(){
   const mailContact = document.getElementById('r-mailcontact').value.trim();
 
   const kitsCoches=[...document.querySelectorAll('#r-kits-list input:checked')].map(c=>c.value);
+  const recuperation = document.getElementById('r-recuperation').value;
+  const repriseIdentique = document.getElementById('r-reprise-identique').checked;
 
   const missing=[];
   if(!nom) missing.push('Nom');
@@ -1640,6 +1664,12 @@ async function soumettreResa(){
     if(!contact) missing.push('Contact sur place');
     if(!creneau) missing.push('Créneau de livraison');
     if(!mailContact) missing.push('Mail contact');
+  }
+  if(recuperation==='Oui' && !repriseIdentique){
+    const contactRep = document.getElementById('r-contact-rep').value.trim();
+    const mailRep = document.getElementById('r-mailcontact-rep').value.trim();
+    if(!contactRep) missing.push('Personne sur place pour la reprise');
+    if(!mailRep) missing.push('Mail contact reprise');
   }
 
   if(missing.length){
@@ -1676,10 +1706,16 @@ async function soumettreResa(){
     mail_contact: mailContact,
     tel:      document.getElementById('r-tel').value.trim()||'',
     tel_fixe: document.getElementById('r-telfixe').value.trim()||'',
-    recuperation:   document.getElementById('r-recuperation').value||'Oui',
-    type_livraison: livraison==='Oui'?(document.getElementById('r-recuperation').value==='Oui'?'Livraison et reprise':'Livraison uniquement'):(document.getElementById('r-recuperation').value==='Oui'?'Reprise uniquement':''),
+    recuperation: recuperation,
+    type_livraison: livraison==='Oui'?(recuperation==='Oui'?'Livraison et reprise':'Livraison uniquement'):(recuperation==='Oui'?'Reprise uniquement':''),
     adresse_reprise: document.getElementById('r-adresserep').value.trim()||'',
     creneau_reprise: document.getElementById('r-creneaurep').value||'',
+    reprise_contact_identique: repriseIdentique?'Oui':'Non',
+    contact_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-contact-rep').value.trim():'',
+    fonction_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-fonction-rep').value.trim():'',
+    mail_contact_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-mailcontact-rep').value.trim():'',
+    tel_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-tel-rep').value.trim():'',
+    tel_fixe_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-telfixe-rep').value.trim():'',
     kit_nutrition:  document.getElementById('r-kitnutrition').value.trim()||'',
     quantites:      document.getElementById('r-quantites').value.trim()||''
   };
