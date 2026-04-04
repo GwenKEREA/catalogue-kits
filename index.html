@@ -397,7 +397,7 @@ footer strong{color:#fff;}
     <div class="gcard" style="text-align:center">
       <h2 style="justify-content:center">?? Formulaire de rï¿½servation</h2>
       <p style="color:var(--gris);font-size:12px;margin-bottom:13px">Cliquez sur <strong>?? Rï¿½server un kit</strong> pour vï¿½rifier la disponibilitï¿½.</p>
-      <a id="meResaLink" href="#" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px" onclick="event.preventDefault();ouvrirFormulaireResa()">?? Accï¿½der au formulaire</a>
+      <a id="meResaLink" href="#" class="btn btn-p" style="display:inline-flex;padding:10px 22px;font-size:13px;border-radius:9px" href="https://forms.gle/gZDNSSz3tdxj9FHB8" target="_blank">📝 Accéder au formulaire</a>
     </div>
   </div>
 </div>
@@ -820,7 +820,7 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<footer><strong>KEREA</strong> ï¿½ 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bfd9d0cdd2decbd6d0d1ffd4dacddade91daca">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+<footer><strong>KEREA</strong> ï¿½ 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f59504d525e4b5650517f545a4d5a5e115a4a">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
 
 <script>
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
@@ -1056,7 +1056,7 @@ async function initApp(){
   document.getElementById('kitsGrid').innerHTML='<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheetsï¿½</p></div>';
   const [kOk,rOk]=await Promise.all([loadKits(),loadReservations()]);
   if(!kOk||kits.length===0){
-    document.getElementById('kitsGrid').innerHTML='<div class="estate"><div class="ei">??</div><h3>Impossible de charger les kits</h3><p>Vérifiez que l\'onglet KITS est publié en CSV.</p><button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">?? Configurer</button></div>';
+    document.getElementById('kitsGrid').innerHTML='<div class="estate"><div class="ei">??</div><h3>Impossible de charger les kits</h3><p>Vï¿½rifiez que l\'onglet KITS est publiï¿½ en CSV.</p><button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">?? Configurer</button></div>';
     setSS('error','Onglet KITS inaccessible');return;
   }
   if(profilActif) renderGrid();
@@ -1156,17 +1156,13 @@ function chkDispo(){
     document.getElementById('drSub').innerHTML=`Le kit <strong>${k.nom}</strong> est libre du ${fmt(deb)} au ${fmt(fin)}.`;
     document.getElementById('simBlock').style.display='none';
     goBtn.href='#';goBtn.style.display='flex';
-    goBtn.textContent='?? Remplir le formulaire ?';
+    goBtn.textContent='📝 Accéder au formulaire →';
     goBtn.className='btn btn-p';
     goBtn.style.background='';goBtn.style.pointerEvents='';goBtn.style.cursor='';goBtn.style.color='';
     goBtn.removeAttribute('aria-disabled');
-    goBtn.onclick=function(ev){
-      ev.preventDefault();
-      const sel=document.getElementById('dispoKitSelect');
-      const kitNom=sel.options[sel.selectedIndex]?sel.options[sel.selectedIndex].text:'';
-      closeDispo();
-      setTimeout(()=>ouvrirFormulaireResa(kitNom,ds,fs),120);
-    };
+    goBtn.href=cfg.formUrl||DEFAULT_FORM;
+    goBtn.target='_blank';
+    goBtn.onclick=null;
   } else {
     rDiv.className='dr ko';
     document.getElementById('drTitle').innerHTML='? Indisponible pour cette pï¿½riode';
@@ -1195,7 +1191,7 @@ function findSimilar(k,deb,fin){
   }).slice(0,4);
 }
 function switchDispoKit(kitId){document.getElementById('dispoKitSelect').value=kitId;dispoKitId=kitId;chkDispo();}
-function ouvrirAnnulation(){ouvrirFormulaireAnnulation();}
+function ouvrirAnnulation(){window.open(cfg.formUrl||DEFAULT_FORM,'_blank');}
 
 function openDetail(id){
   const k=kits.find(x=>x.id===id);if(!k)return;
@@ -1254,7 +1250,7 @@ function exitAdmin(){
   if(!profilActif){document.getElementById('appContent').style.display='none';document.getElementById('profilScreen').classList.add('show');}
   else renderGrid();
 }
-function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configurï¿½ dans Paramï¿½tres.');return;}alert('Contactez l\'administrateur ï¿½ : '+e);}
+function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configurï¿½ dans Paramï¿½tres.');return;}alert('Contactez l'administrateur ï¿½ : '+e);}
 
 function applyLogo(){
   const img=document.getElementById('logoImg'),badge=document.getElementById('logoBadge');
@@ -1264,7 +1260,7 @@ function applyLogo(){
 function openLogoUpload(){document.getElementById('logoIn').value='';document.getElementById('logoPrev').style.display='none';document.getElementById('logoPrompt').style.display='block';document.getElementById('logoOv').classList.add('open');}
 function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
 function prevLogo(i){const f=i.files[0];if(!f)return;if(f.size>1024*1024){alert('Max 1 Mo.');return;}const r=new FileReader();r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};r.readAsDataURL(f);}
-async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('?? Hï¿½bergez le logo sur Google Drive et collez l\'URL publique.');}closeLogoUpload();}
+async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('?? Hï¿½bergez le logo sur Google Drive et collez l'URL publique.');}closeLogoUpload();}
 async function rmLogo(){cfg.logo=null;applyLogo();await saveSettingsToSheet({logo_url:''});closeLogoUpload();}
 
 const EMOJIS={'Santï¿½':['??','??','??','??','??','??','??','??','??','??'],'Formation':['??','??','??','??','??','??','??','??','???','??'],'Tech':['??','??','???','??','??','??','??','??','??'],'Prï¿½vention':['??','??','??','??','?','??','??','??','??'],'Bien-ï¿½tre':['??','??','??','??','??','??','??','?????','??'],'Divers':['??','??','??','?','??','??','??','?','??','??','??','??']};
@@ -1390,64 +1386,9 @@ function setDateMinField(id){
 
 // -- OUVERTURE FORMULAIRE Rï¿½SERVATION --------------------------------
 function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
-  // Reset ï¿½tat
-  document.getElementById('resaSucces').style.display='none';
-  document.getElementById('resaFormContent').style.display='block';
-  document.getElementById('resaFormError').style.display='none';
-  document.getElementById('resaFormError').textContent='';
-  document.getElementById('r-submitBtn').disabled=false;
-  document.getElementById('r-submitBtn').textContent='?? Envoyer la demande';
-
-  // Prï¿½-remplir structure depuis profil
-  document.getElementById('r-structure').value = profilActif ? profilActif.label : '';
-
-  // Dates prï¿½-remplies depuis la modal dispo
-  const min=prochainOuvrable(todayStr());
-  const deb=document.getElementById('r-deb');
-  const fin=document.getElementById('r-fin');
-  deb.min=min; fin.min=min;
-  deb.value = dateDebStr||min;
-  fin.value = dateFinStr||min;
-
-  // Dates intervention : vider
-  ['r-intdeb','r-intfin'].forEach(id=>{
-    const el=document.getElementById(id);
-    el.min=min; el.value='';
-  });
-
-  // Construire liste de kits filtrï¿½s par profil
-  const pool = profilActif ? kitsForProfil(profilActif) : kits;
-  const reservables = pool.filter(k=>!k.maintenance&&!k.avenir);
-  const list = document.getElementById('r-kits-list');
-  list.innerHTML = reservables.map(k=>`
-    <label class="kit-check-item">
-      <input type="checkbox" value="${k.nom_form||k.nom}" ${kitNomPreselect&&(k.nom===kitNomPreselect||k.nom_form===kitNomPreselect)?'checked':''}>
-      <span>${k.nom}</span>
-    </label>`).join('');
-
-  // Section nutrition : afficher si kit vï¿½losmoothie cochï¿½
-  list.addEventListener('change', ()=>{
-    const checked=[...list.querySelectorAll('input:checked')].map(c=>c.value.toLowerCase());
-    const hasNutrition=checked.some(v=>v.includes('nutrition')||v.includes('velo')||v.includes('vï¿½lo'));
-    document.getElementById('r-nutrition-section').style.display=hasNutrition?'block':'none';
-  });
-
-  // Vider les autres champs
-  ['r-nom','r-prenom','r-email','r-entreprise','r-adresse','r-etage','r-acces','r-parking',
-   'r-contact','r-fonction','r-mailcontact','r-tel','r-telfixe','r-adresserep',
-   'r-kitnutrition','r-quantites'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.value='';
-  });
-  document.getElementById('r-ascenseur').value='';
-  document.getElementById('r-creneau').value='';
-  document.getElementById('r-creneaurep').value='';
-  document.getElementById('r-recuperation').value='Oui';
-  document.getElementById('r-typelivraison').value='Livraison et reprise';
-  document.getElementById('r-nutrition-section').style.display='none';
-
-  document.getElementById('formResaOv').classList.add('open');
+  window.open(cfg.formUrl||DEFAULT_FORM,'_blank');
 }
+
 
 function fermerFormulaireResa(){
   document.getElementById('formResaOv').classList.remove('open');
