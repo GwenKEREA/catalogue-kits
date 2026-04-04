@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catalogue Kits — KEREA</title>
+<title>Catalogue Kits — KEREA-EFFICIENCE</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
 :root{--bx:#4E182D;--rose:#D84958;--rv:#EA3A54;--fp:#F2EDF0;--fc:#F4F2EF;--fb:#F3ECDA;--gc:#e8e2e5;--gris:#7a7a7a;}
@@ -308,6 +308,15 @@ footer strong{color:#fff;}
 .acces-radio input[type=radio]{accent-color:var(--rv);width:14px;height:14px;}
 .acces-radio label:has(input:checked){border-color:var(--rv);background:var(--fp);}
 @media(max-width:600px){.fr3{grid-template-columns:1fr;}.fr2f{grid-template-columns:1fr;}}
+/* -- ITEMS RÉSERVATION ANNULATION -- */
+.resa-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--gc);border-radius:9px;cursor:pointer;transition:all .15s;background:#fff;}
+.resa-item:hover{border-color:var(--rv);background:var(--fp);}
+.resa-item.selected{border-color:var(--rv);background:var(--fp);box-shadow:0 0 0 2px rgba(234,58,84,.15);}
+.resa-item input[type=radio]{accent-color:var(--rv);width:16px;height:16px;flex-shrink:0;cursor:pointer;}
+.resa-item-body{flex:1;min-width:0;}
+.resa-item-kit{font-size:13px;font-weight:600;color:var(--bx);}
+.resa-item-dates{font-size:11px;color:var(--rv);font-weight:500;margin-top:2px;}
+.resa-item-info{font-size:10px;color:var(--gris);margin-top:1px;}
 </style>
 </head>
 <body>
@@ -317,7 +326,7 @@ footer strong{color:#fff;}
     <div class="la">
       <img id="logoImg" alt="Logo">
       <div class="lb" id="logoBadge">K</div>
-      <div class="lt"><h1>KEREA</h1><p>Catalogue des kits</p></div>
+      <div class="lt"><h1>KEREA-EFFICIENCE</h1><p>Catalogue des kits</p></div>
     </div>
     <div class="hr">
       <button class="btn btn-ad" onclick="reqAdmin()" id="adminBtn">🔒 Admin</button>
@@ -345,7 +354,7 @@ footer strong{color:#fff;}
 <div id="profilScreen">
   <div class="ps-hero">
     <div class="icon">📦</div>
-    <h2>Bienvenue dans le catalogue KEREA</h2>
+    <h2>Bienvenue dans le catalogue KEREA-EFFICIENCE</h2>
     <p>Sélectionnez votre profil pour accéder aux kits disponibles pour votre structure.</p>
   </div>
   <div class="ps-grid" id="profilGrid"></div>
@@ -363,8 +372,8 @@ footer strong{color:#fff;}
   </div>
   <div id="pcat">
     <div class="resa-bar">
-      <button class="btn-resa-global" onclick="openDispoGlobal()">📝 Réserver un kit</button>
-      <button class="btn-annul-global" onclick="ouvrirAnnulation()">↩️ Annuler une réservation</button>
+      <button class="btn-resa-global" onclick="ouvrirFormulaireResa()">📝 Réserver un kit</button>
+      <button class="btn-annul-global" onclick="ouvrirListeAnnulation()">↩️ Annuler une réservation</button>
     </div>
     <div class="ctl">
       <div class="sw">
@@ -404,44 +413,37 @@ footer strong{color:#fff;}
 
 <!-- MODAL DISPO -->
 <div class="ov" id="dov" onclick="if(event.target===this)closeDispo()">
-  <div class="modal">
-    <button class="mc" onclick="closeDispo()">✅</button>
+  <div class="modal" style="max-width:540px">
+    <button class="mc" onclick="closeDispo()">✕</button>
     <div class="db">
       <h3>📅 Vérifier la disponibilité</h3>
-      <div class="kit-sel-wrap">
-        <label>Kit concerné</label>
-        <select id="dispoKitSelect" onchange="onKitSelectChange()">
-          <option value="">— Choisissez un kit —</option>
-        </select>
-      </div>
       <div class="resa-warning">
         <strong>⚠️ Règles de réservation importantes</strong>
         <ul>
           <li>Réservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour après</strong> votre intervention</li>
-          <li>Si vous réservez plusieurs kits, vérifiez la disponibilité de <strong>l'ensemble des kits</strong> avant de procéder à la réservation</li>
+          <li>Vérifiez la disponibilité de <strong>tous les kits</strong> avant de procéder à la réservation</li>
         </ul>
+      </div>
+      <div class="kit-sel-wrap">
+        <label>Kit(s) à vérifier</label>
+        <div class="kit-checks" id="dispoKitChecks" style="max-height:160px">
+          <!-- Rempli dynamiquement -->
+        </div>
       </div>
       <div class="drow">
         <div class="df">
           <label>Date de début</label>
-          <input type="date" id="dDeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispo()">
+          <input type="date" id="dDeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispoMulti()">
         </div>
         <div class="df">
           <label>Date de fin</label>
-          <input type="date" id="dFin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispo()">
+          <input type="date" id="dFin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="chkDispoMulti()">
         </div>
       </div>
-      <div class="dr" id="drResult">
-        <div class="drt" id="drTitle"></div>
-        <div class="drs" id="drSub"></div>
-        <div class="simb" id="simBlock" style="display:none">
-          <p>Kits similaires disponibles :</p>
-          <div class="slist" id="simList"></div>
-        </div>
-      </div>
+      <div id="drResultMulti" style="display:none"></div>
       <div class="dfoot">
-        <button class="bc btn" onclick="closeDispo()" style="flex:1;justify-content:center;padding:9px">Annuler</button>
-        <a id="dGoBtn" href="#" class="btn btn-p" style="flex:1.5;justify-content:center;padding:9px;display:none">?? Remplir le formulaire ?</a>
+        <button class="bc btn" onclick="closeDispo()" style="flex:1;justify-content:center;padding:9px">Fermer</button>
+        <button id="dGoBtn" class="btn btn-p" style="flex:1.5;justify-content:center;padding:9px;display:none" onclick="lancerResaDepuisDispo()">📝 Réserver ces kits →</button>
       </div>
     </div>
   </div>
@@ -463,7 +465,7 @@ footer strong{color:#fff;}
       <div class="ms" id="mResaSec" style="display:none"><h4>Planning des réservations</h4><div class="rtl" id="mResaList"></div></div>
     </div>
     <div class="mft">
-      <button id="mResaBtn" class="brs" onclick="ouvrirDispoDepuisDetail()">?? Vérifier &amp; réserver</button>
+      <button id="mResaBtn" class="brs" onclick="ouvrirDispoDepuisDetail()">📅 Vérifier la disponibilité</button>
     </div>
   </div>
 </div>
@@ -758,23 +760,23 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- -- FORMULAIRE D'ANNULATION -- -->
+<!-- -- MODAL D'ANNULATION : LISTE DES RÉSERVATIONS ACTIVES -- -->
 <div id="formAnnulOv" onclick="if(event.target===this)fermerFormulaireAnnulation()">
-  <div class="form-modal" style="max-width:520px">
+  <div class="form-modal" style="max-width:600px">
     <div class="form-mh">
-      <h3>↩️ Annulation de réservation</h3>
-      <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireAnnulation()">✅</button>
+      <h3>↩️ Annuler une réservation</h3>
+      <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireAnnulation()">✕</button>
     </div>
 
     <!-- ÉTAT SUCCÈS -->
     <div id="annulSucces" class="form-success" style="display:none">
       <div class="fs-icon">✅</div>
       <h3>Annulation transmise !</h3>
-      <p>Votre demande d'annulation a bien été reçue.<br>L'équipe KEREA en prendra note.</p>
+      <p>Votre demande d'annulation a bien été reçue.<br>L'équipe KEREA-EFFICIENCE en prendra note.</p>
       <button class="form-submit" style="margin-top:16px" onclick="fermerFormulaireAnnulation()">Fermer</button>
     </div>
 
-    <!-- FORMULAIRE -->
+    <!-- LISTE + FORMULAIRE -->
     <div id="annulFormContent">
       <div class="form-body">
         <div id="annulFormError" class="form-error"></div>
@@ -787,30 +789,18 @@ footer strong{color:#fff;}
             <div class="fg2"><label>Prénom <span class="req">*</span></label><input type="text" id="a-prenom" placeholder="Marie"></div>
           </div>
           <div class="fg2"><label>Adresse e-mail <span class="req">*</span></label><input type="email" id="a-email" placeholder="marie.dupont@exemple.fr"></div>
-          <div class="fg2"><label>Structure</label><input type="text" id="a-structure" readonly style="background:var(--fp);font-weight:600;"></div>
         </div>
 
-        <!-- Kits -->
+        <!-- Liste des réservations actives -->
         <div class="form-section">
-          <div class="form-section-title">?? Kit(s) · annuler <span class="req">*</span></div>
-          <div class="kit-checks" id="a-kits-list"></div>
-        </div>
-
-        <!-- Dates -->
-        <div class="form-section">
-          <div class="form-section-title">?? Date de l'intervention · annuler</div>
-          <div class="fg2"><label>Date de début de la réservation <span class="req">*</span></label>
-            <input type="date" id="a-date" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');">
+          <div class="form-section-title">📋 Sélectionnez la réservation à annuler <span class="req">*</span></div>
+          <div id="annulResaList" style="display:flex;flex-direction:column;gap:6px;max-height:320px;overflow-y:auto;padding:4px 0;">
+            <!-- Rempli dynamiquement -->
+          </div>
+          <div id="annulResaEmpty" style="display:none;text-align:center;padding:20px;color:var(--gris);font-size:13px;">
+            Aucune réservation active trouvée pour votre profil.
           </div>
         </div>
-
-        <!-- Entreprise -->
-        <div class="form-section">
-          <div class="form-section-title">🏢 Client / Entreprise</div>
-          <div class="fg2"><label>Nom du client / entreprise <span class="req">*</span></label><input type="text" id="a-entreprise" placeholder="Entreprise ABC"></div>
-          <div class="fg2"><label>Téléphone portable</label><input type="tel" id="a-tel" placeholder="06 12 34 56 78"></div>
-        </div>
-
       </div>
       <div class="form-footer">
         <button class="form-cancel" onclick="fermerFormulaireAnnulation()">Annuler</button>
@@ -820,7 +810,7 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<footer><strong>KEREA</strong> · 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="mailto:formation@kerea.eu">formation@kerea.eu</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+<footer><strong>KEREA-EFFICIENCE</strong> · 33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="mailto:formation@kerea.eu">formation@kerea.eu</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
 
 <script>
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
@@ -1114,86 +1104,75 @@ function renderGrid(){
   }).join('');
 }
 
-function populateKitSelect(preselect){
-  const sel=document.getElementById('dispoKitSelect');
+function populateDispoChecks(preselectId){
+  const cont=document.getElementById('dispoKitChecks');
   const base=profilActif?kitsForProfil(profilActif):kits;
-  sel.innerHTML=`<option value="">— Choisissez un kit —</option>`+base.filter(k=>!k.maintenance&&!k.avenir).map(k=>`<option value="${k.id}">${k.nom}</option>`).join('');
-  if(preselect) sel.value=preselect;
+  cont.innerHTML=base.filter(k=>!k.maintenance&&!k.avenir).map(k=>`
+    <label class="kit-check-item">
+      <input type="checkbox" value="${k.id}" onchange="chkDispoMulti()"${preselectId===k.id?' checked':''}>
+      <span>${k.nom}</span>
+    </label>`).join('');
 }
-function openDispoGlobal(){dispoKitId=null;populateKitSelect(null);resetDispoResult();setDateMin();document.getElementById('dov').classList.add('open');}
-function openDispo(kitId){dispoKitId=kitId;populateKitSelect(kitId);resetDispoResult();setDateMin();document.getElementById('dov').classList.add('open');if(kitId)chkDispo();}
+function openDispoGlobal(){populateDispoChecks(null);document.getElementById('drResultMulti').style.display='none';document.getElementById('dGoBtn').style.display='none';setDateMin();document.getElementById('dov').classList.add('open');}
+function openDispo(kitId){populateDispoChecks(kitId);document.getElementById('drResultMulti').style.display='none';document.getElementById('dGoBtn').style.display='none';setDateMin();document.getElementById('dov').classList.add('open');if(kitId)chkDispoMulti();}
 function ouvrirDispoDepuisDetail(){const id=document.getElementById('mTitle').dataset.kitId;closeDetail();setTimeout(()=>openDispo(id),120);}
-function closeDispo(){document.getElementById('dov').classList.remove('open');dispoKitId=null;}
+function closeDispo(){document.getElementById('dov').classList.remove('open');}
 function setDateMin(){
   const todayStr=new Date().toISOString().split('T')[0];
   const min=prochainOuvrable(todayStr);
   ['dDeb','dFin'].forEach(id=>{document.getElementById(id).value=min;document.getElementById(id).min=min;});
 }
-function resetDispoResult(){document.getElementById('drResult').style.display='none';document.getElementById('dGoBtn').style.display='none';}
-function onKitSelectChange(){
-  dispoKitId=document.getElementById('dispoKitSelect').value||null;
-  if(dispoKitId&&document.getElementById('dDeb').value) chkDispo();
-  else resetDispoResult();
-}
-function chkDispo(){
-  const kitId=document.getElementById('dispoKitSelect').value;
-  if(!kitId){resetDispoResult();return;}
-  const k=kits.find(x=>x.id===kitId);if(!k)return;
+function chkDispoMulti(){
+  const checked=[...document.querySelectorAll('#dispoKitChecks input:checked')].map(c=>c.value);
+  const cont=document.getElementById('drResultMulti');
+  const goBtn=document.getElementById('dGoBtn');
+  if(!checked.length){cont.style.display='none';goBtn.style.display='none';return;}
   let ds=document.getElementById('dDeb').value;
   let fs=document.getElementById('dFin').value;
-  if(!ds||!fs) return;
+  if(!ds||!fs){cont.style.display='none';goBtn.style.display='none';return;}
   if(isJourBloqu(ds)){ds=prochainOuvrable(ds);document.getElementById('dDeb').value=ds;}
   if(isJourBloqu(fs)||fs<ds){fs=prochainOuvrable(fs<ds?ds:fs);document.getElementById('dFin').value=fs;}
   document.getElementById('dFin').min=ds;
   const deb=new Date(ds),fin=new Date(fs);
-  const res=getKitDispo(k,deb,fin);
-  const rDiv=document.getElementById('drResult');
-  rDiv.style.display='block';
-  const goBtn=document.getElementById('dGoBtn');
-  if(res.status==='dispo'){
-    rDiv.className='dr ok';
-    document.getElementById('drTitle').innerHTML='✅ Disponible pour cette période';
-    document.getElementById('drSub').innerHTML=`Le kit <strong>${k.nom}</strong> est libre du ${fmt(deb)} au ${fmt(fin)}.`;
-    document.getElementById('simBlock').style.display='none';
-    goBtn.href='#';goBtn.style.display='flex';
-    goBtn.textContent='📝 Remplir le formulaire →';
-    goBtn.className='btn btn-p';
-    goBtn.style.background='';goBtn.style.pointerEvents='';goBtn.style.cursor='';goBtn.style.color='';
-    goBtn.removeAttribute('aria-disabled');
-    goBtn.removeAttribute('target');
-    const kitNomForm = k.nom_form || k.nom;
-    const debStr = document.getElementById('dDeb').value;
-    const finStr = document.getElementById('dFin').value;
-    goBtn.onclick=function(e){e.preventDefault();closeDispo();ouvrirFormulaireResa(kitNomForm, debStr, finStr);};
-  } else {
-    rDiv.className='dr ko';
-    document.getElementById('drTitle').innerHTML='❌ Indisponible pour cette période';
-    let sub=`Le kit <strong>${k.nom}</strong> est déjà réservé sur tout ou partie de cette période.`;
-    if(res.conflicts.length){
-      sub+=`<br><br>Conflit${res.conflicts.length>1?'s':''} :`;
-      res.conflicts.slice(0,4).forEach(c=>{sub+=`<br>· ${fmt(c.date_debut)} ? ${fmt(c.date_fin)}${c.who?' <span style="color:var(--gris)">('+c.who+')</span>':''}`;});
+  let allDispo=true;
+  let html='';
+  checked.forEach(kitId=>{
+    const k=kits.find(x=>x.id===kitId);if(!k)return;
+    const res=getKitDispo(k,deb,fin);
+    if(res.status==='dispo'){
+      html+=`<div class="dr ok" style="margin-bottom:6px;display:block"><div class="drt" style="color:#166534">✅ ${k.nom}</div><div class="drs">Disponible du ${fmt(deb)} au ${fmt(fin)}</div></div>`;
+    } else {
+      allDispo=false;
+      let sub=`Réservé sur cette période.`;
+      if(res.conflicts.length) sub+=` Conflit : ${res.conflicts.map(c=>fmt(c.date_debut)+' → '+fmt(c.date_fin)).join(', ')}`;
+      if(res.upcoming.length) sub+=` Prochaine dispo : après le ${fmt(res.upcoming[0].date_fin)}.`;
+      html+=`<div class="dr ko" style="margin-bottom:6px;display:block"><div class="drt" style="color:#991b1b">❌ ${k.nom}</div><div class="drs">${sub}</div></div>`;
     }
-    if(res.upcoming.length) sub+=`<br><br>Prochaine disponibilité : après le <strong>${fmt(res.upcoming[0].date_debut)}</strong>.`;
-    document.getElementById('drSub').innerHTML=sub;
-    goBtn.style.display='flex';goBtn.className='btn btn-p blocked';
-    goBtn.textContent="?? Kit indisponible · choisissez d'autres dates";
-    goBtn.href='#';goBtn.setAttribute('aria-disabled','true');goBtn.onclick=e=>e.preventDefault();
-    const sims=findSimilar(k,deb,fin);
-    const sb=document.getElementById('simBlock');
-    if(sims.length){sb.style.display='block';document.getElementById('simList').innerHTML=sims.map(sk=>`<span class="sc" onclick="switchDispoKit('${sk.id}')">${sk.icon||'📦'} ${sk.nom}</span>`).join('');}
-    else sb.style.display='none';
+  });
+  cont.innerHTML=html;
+  cont.style.display='block';
+  if(allDispo&&checked.length){
+    goBtn.style.display='flex';
+    goBtn.textContent='📝 Réserver ces kits →';
+    goBtn.className='btn btn-p';
+    goBtn.disabled=false;
+  } else {
+    goBtn.style.display='flex';
+    goBtn.textContent='⛔ Certains kits indisponibles';
+    goBtn.className='btn btn-p blocked';
+    goBtn.disabled=true;
   }
 }
-function findSimilar(k,deb,fin){
-  const base=k.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim();
-  const pool=profilActif?kitsForProfil(profilActif):kits;
-  return pool.filter(x=>{
-    if(x.id===k.id||x.maintenance||x.avenir)return false;
-    return x.nom_form.replace(/\s+\d+\s*$/,'').toLowerCase().trim()===base&&getKitDispo(x,deb,fin).status==='dispo';
-  }).slice(0,4);
+function lancerResaDepuisDispo(){
+  const checked=[...document.querySelectorAll('#dispoKitChecks input:checked')].map(c=>{
+    const k=kits.find(x=>x.id===c.value);return k?(k.nom_form||k.nom):c.value;
+  });
+  const debStr=document.getElementById('dDeb').value;
+  const finStr=document.getElementById('dFin').value;
+  closeDispo();
+  ouvrirFormulaireResa(checked, debStr, finStr);
 }
-function switchDispoKit(kitId){document.getElementById('dispoKitSelect').value=kitId;dispoKitId=kitId;chkDispo();}
-function ouvrirAnnulation(){ouvrirFormulaireAnnulation();}
+function ouvrirAnnulation(){ouvrirListeAnnulation();}
 
 function openDetail(id){
   const k=kits.find(x=>x.id===id);if(!k)return;
@@ -1223,7 +1202,7 @@ function openDetail(id){
   else{rs.style.display=reservations.length?'':'none';rl.innerHTML='<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';}
   const btn=document.getElementById('mResaBtn');
   btn.className='brs'+(isMaint||isAv?' dis':'');
-  btn.textContent=isMaint?'🔧 En maintenance':isAv?'🔮 À venir':'📝 Vérifier & réserver';
+  btn.textContent=isMaint?'🔧 En maintenance':isAv?'🔮 À venir':'📅 Vérifier la disponibilité';
   document.getElementById('detov').classList.add('open');
 }
 function closeDetail(){document.getElementById('detov').classList.remove('open');}
@@ -1398,13 +1377,17 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
   // Pré-remplir la structure depuis le profil actif
   document.getElementById('r-structure').value = profilActif ? profilActif.label : '';
 
+  // kitNomPreselect peut être un string ou un tableau de strings
+  const preselects = Array.isArray(kitNomPreselect) ? kitNomPreselect : (kitNomPreselect ? [kitNomPreselect] : []);
+
   // Remplir la liste des kits avec checkboxes
   const pool = profilActif ? kitsForProfil(profilActif) : kits;
   const reservables = pool.filter(k=>!k.maintenance&&!k.avenir);
   document.getElementById('r-kits-list').innerHTML = reservables.map(k=>{
-    const checked = kitNomPreselect && (k.nom_form===kitNomPreselect||k.nom===kitNomPreselect);
+    const nomForm = k.nom_form||k.nom;
+    const checked = preselects.some(p => p===nomForm || p===k.nom);
     return `<label class="kit-check-item">
-      <input type="checkbox" value="${k.nom_form||k.nom}"${checked?' checked':''}>
+      <input type="checkbox" value="${nomForm}"${checked?' checked':''}>
       <span>${k.nom}</span>
     </label>`;
   }).join('');
@@ -1439,39 +1422,140 @@ function fermerFormulaireResa(){
   document.getElementById('formResaOv').classList.remove('open');
 }
 
-// -- OUVERTURE FORMULAIRE ANNULATION ----------------------------------
-function ouvrirFormulaireAnnulation(){
+// -- OUVERTURE LISTE ANNULATION (listing des résas actives) ----------------
+function ouvrirListeAnnulation(){
   document.getElementById('annulSucces').style.display='none';
   document.getElementById('annulFormContent').style.display='block';
   document.getElementById('annulFormError').style.display='none';
   document.getElementById('a-submitBtn').disabled=false;
-  document.getElementById('a-submitBtn').textContent="?? Confirmer l'annulation";
+  document.getElementById('a-submitBtn').textContent="↩️ Confirmer l\'annulation";
 
-  document.getElementById('a-structure').value = profilActif ? profilActif.label : '';
-
-  // Kits
-  const pool = profilActif ? kitsForProfil(profilActif) : kits;
-  const reservables = pool.filter(k=>!k.maintenance&&!k.avenir);
-  document.getElementById('a-kits-list').innerHTML = reservables.map(k=>`
-    <label class="kit-check-item">
-      <input type="checkbox" value="${k.nom_form||k.nom}">
-      <span>${k.nom}</span>
-    </label>`).join('');
-
-  // Date min
-  const min=prochainOuvrable(todayStr());
-  const dateEl=document.getElementById('a-date');
-  dateEl.min=min; dateEl.value='';
-
-  ['a-nom','a-prenom','a-email','a-entreprise','a-tel'].forEach(id=>{
+  // Vider les champs identité
+  ['a-nom','a-prenom','a-email'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.value='';
   });
+
+  // Construire la liste des réservations actives pour ce profil
+  const today=new Date();today.setHours(0,0,0,0);
+  const profilCat=profilActif?profilActif.cat:null;
+  const futureResas=reservations.filter(r=>{
+    if(r.date_fin<today) return false; // passée
+    // Filtrer par profil si actif
+    if(profilCat){
+      const k=kits.find(x=>x.kit_id===r.kit_id || nk(x.nom)===nk(r.nom_kit));
+      if(k && !(k.cats||[]).includes(profilCat)) return false;
+    }
+    return true;
+  }).sort((a,b)=>a.date_debut-b.date_debut);
+
+  const listEl=document.getElementById('annulResaList');
+  const emptyEl=document.getElementById('annulResaEmpty');
+
+  if(!futureResas.length){
+    listEl.style.display='none';
+    emptyEl.style.display='block';
+  } else {
+    emptyEl.style.display='none';
+    listEl.style.display='flex';
+    listEl.innerHTML=futureResas.map((r,i)=>{
+      const isCur=r.date_debut<=today&&r.date_fin>=today;
+      return `<label class="resa-item" onclick="this.querySelector('input').checked=true;document.querySelectorAll('.resa-item').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');">
+        <input type="radio" name="annulResa" value="${i}" style="display:none">
+        <div style="flex-shrink:0;font-size:20px">${isCur?'🔴':'📅'}</div>
+        <div class="resa-item-body">
+          <div class="resa-item-kit">${r.nom_kit||r.kit_id}</div>
+          <div class="resa-item-dates">${fmt(r.date_debut)} → ${fmt(r.date_fin)}${isCur?' <span style="background:#fee2e2;color:#991b1b;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:700">EN COURS</span>':''}</div>
+          <div class="resa-item-info">${r.who||''} ${r.struct?' · '+r.struct:''}</div>
+        </div>
+      </label>`;
+    }).join('');
+  }
 
   document.getElementById('formAnnulOv').classList.add('open');
 }
 
+// Alias
+function ouvrirFormulaireAnnulation(){ouvrirListeAnnulation();}
+
 function fermerFormulaireAnnulation(){
   document.getElementById('formAnnulOv').classList.remove('open');
+}
+
+// -- SOUMISSION ANNULATION (nouvelle version avec résa sélectionnée) ---------
+async function soumettreAnnulation(){
+  const err=document.getElementById('annulFormError');
+  err.style.display='none';
+
+  const nom=document.getElementById('a-nom').value.trim();
+  const prenom=document.getElementById('a-prenom').value.trim();
+  const email=document.getElementById('a-email').value.trim();
+  const structure=profilActif?profilActif.label:'';
+
+  // Récupérer la réservation sélectionnée
+  const selectedRadio=document.querySelector('input[name="annulResa"]:checked');
+
+  const missing=[];
+  if(!nom) missing.push('Nom');
+  if(!prenom) missing.push('Prénom');
+  if(!email) missing.push('E-mail');
+  if(!selectedRadio) missing.push('Sélectionnez une réservation');
+
+  if(missing.length){
+    err.textContent='Champs obligatoires manquants : '+missing.join(', ');
+    err.style.display='block';
+    return;
+  }
+
+  // Retrouver la réservation depuis l'index
+  const today=new Date();today.setHours(0,0,0,0);
+  const profilCat=profilActif?profilActif.cat:null;
+  const futureResas=reservations.filter(r=>{
+    if(r.date_fin<today) return false;
+    if(profilCat){
+      const k=kits.find(x=>x.kit_id===r.kit_id || nk(x.nom)===nk(r.nom_kit));
+      if(k && !(k.cats||[]).includes(profilCat)) return false;
+    }
+    return true;
+  }).sort((a,b)=>a.date_debut-b.date_debut);
+
+  const idx=parseInt(selectedRadio.value);
+  const resa=futureResas[idx];
+  if(!resa){
+    err.textContent='Réservation introuvable.';
+    err.style.display='block';
+    return;
+  }
+
+  const btn=document.getElementById('a-submitBtn');
+  btn.disabled=true; btn.textContent='⏳ Envoi en cours…';
+
+  const fmtDate=d=>d?`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`:'';
+
+  const data={
+    action: 'soumettreReservation',
+    typedemande: 'annulation',
+    structure, nom, prenom, email,
+    date_annulation: fmtDate(resa.date_debut),
+    date_debut: fmtDate(resa.date_debut),
+    date_fin: fmtDate(resa.date_fin),
+    kits: resa.nom_kit||resa.kit_id,
+    entreprise: ''
+  };
+
+  try{
+    await fetch(GAS_URL,{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
+      body: JSON.stringify(data)
+    });
+    document.getElementById('annulFormContent').style.display='none';
+    document.getElementById('annulSucces').style.display='block';
+    setTimeout(()=>loadReservations().then(()=>renderGrid()), 3000);
+  }catch(e){
+    err.textContent='Erreur lors de l\'envoi. Veuillez réessayer.';
+    err.style.display='block';
+    btn.disabled=false; btn.textContent="↩️ Confirmer l\'annulation";
+  }
 }
 
 // -- SOUMISSION RÉSERVATION --------------------------------------------
@@ -1565,61 +1649,6 @@ async function soumettreResa(){
   }
 }
 
-// -- SOUMISSION ANNULATION ---------------------------------------------
-async function soumettreAnnulation(){
-  const err=document.getElementById('annulFormError');
-  err.style.display='none';
-
-  const nom      =document.getElementById('a-nom').value.trim();
-  const prenom   =document.getElementById('a-prenom').value.trim();
-  const email    =document.getElementById('a-email').value.trim();
-  const structure=document.getElementById('a-structure').value.trim();
-  const date     =document.getElementById('a-date').value;
-  const entreprise=document.getElementById('a-entreprise').value.trim();
-  const tel      =document.getElementById('a-tel').value.trim();
-  const kitsCoches=[...document.querySelectorAll('#a-kits-list input:checked')].map(c=>c.value);
-
-  const missing=[];
-  if(!nom) missing.push('Nom');
-  if(!prenom) missing.push('Prénom');
-  if(!email) missing.push('E-mail');
-  if(!date) missing.push('Date');
-  if(!kitsCoches.length) missing.push('Au moins un kit');
-  if(!entreprise) missing.push('Nom du client');
-
-  if(missing.length){
-    err.textContent='Champs obligatoires manquants : '+missing.join(', ');
-    err.style.display='block';
-    return;
-  }
-
-  const btn=document.getElementById('a-submitBtn');
-  btn.disabled=true; btn.textContent='⏳ Envoi en cours…';
-
-  const data={
-    action: 'soumettreReservation',
-    typedemande: 'annulation',
-    structure, nom, prenom, email,
-    date_annulation: date,
-    kits: kitsCoches.join(', '),
-    entreprise, tel
-  };
-
-  try{
-    await fetch(GAS_URL,{
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'text/plain'},
-      body: JSON.stringify(data)
-    });
-    document.getElementById('annulFormContent').style.display='none';
-    document.getElementById('annulSucces').style.display='block';
-    setTimeout(()=>loadReservations().then(()=>renderGrid()), 3000);
-  }catch(e){
-    err.textContent='Erreur lors de l\'envoi. Veuillez réessayer.';
-    err.style.display='block';
-    btn.disabled=false; btn.textContent="↩️ Confirmer l'annulation";
-  }
-}
 
 // ── DÉMARRAGE DE L'APPLICATION ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
