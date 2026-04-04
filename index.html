@@ -776,11 +776,71 @@ footer strong{color:#fff;}
           </div>
         </div>
 
-        <!-- SECTION 8 : Kit nutrition (conditionnel) -->
+        <!-- SECTION 8 : Kit vélosmoothie (conditionnel - affiché si kit vélosmoothie coché) -->
         <div class="form-section" id="r-nutrition-section" style="display:none">
-          <div class="form-section-title">🍌 Kit nutrition / vélosmoothie</div>
-          <div class="fg2"><label>Type de kit nutrition</label><input type="text" id="r-kitnutrition" placeholder="Ex: Vélosmoothie"></div>
-          <div class="fg2"><label>Quantités (kg bananes, kg fruits surgelés, litres jus de pomme)</label><textarea id="r-quantites" placeholder="Ex: 2 kg bananes, 1 kg fruits surgelés, 2L jus de pomme"></textarea></div>
+          <div class="form-section-title">🍌 Kit Vélosmoothie — Quantités à prévoir</div>
+
+          <!-- Tableau anti-gaspi intégré -->
+          <div style="background:#fff8f0;border:1.5px solid #f59e0b;border-radius:9px;padding:14px;margin-bottom:14px;overflow-x:auto;">
+            <p style="font-size:13px;font-weight:700;color:#7c4a00;text-align:center;margin-bottom:4px">📊 Tableau anti-gaspi</p>
+            <p style="font-size:10px;color:#7c4a00;text-align:center;margin-bottom:10px">Pour des smoothies de 18 CL</p>
+            <table style="width:100%;border-collapse:collapse;font-size:11px;text-align:center;">
+              <tr style="background:#f59e0b;color:#fff;font-weight:700;">
+                <td style="padding:5px 4px;border-radius:4px 0 0 0">Nb smoothies</td>
+                <td style="padding:5px 3px">1</td><td style="padding:5px 3px">50</td><td style="padding:5px 3px">100</td>
+                <td style="padding:5px 3px">150</td><td style="padding:5px 3px">200</td><td style="padding:5px 3px">250</td>
+                <td style="padding:5px 3px">300</td><td style="padding:5px 3px">350</td><td style="padding:5px 3px">400</td>
+                <td style="padding:5px 3px;border-radius:0 4px 0 0">500</td>
+              </tr>
+              <tr style="background:#fff;">
+                <td style="padding:4px;font-weight:600;color:var(--bx)">Banane (kg)</td>
+                <td>0.03</td><td>2</td><td>4</td><td>5</td><td>7</td><td>9</td><td>10</td><td>12</td><td>14</td><td>17</td>
+              </tr>
+              <tr style="background:#fef3c7;">
+                <td style="padding:4px;font-weight:600;color:var(--bx)">Fruits surgelés (kg)</td>
+                <td>0.03</td><td>2</td><td>4</td><td>5</td><td>7</td><td>9</td><td>10</td><td>12</td><td>14</td><td>17</td>
+              </tr>
+              <tr style="background:#fff;">
+                <td style="padding:4px;font-weight:600;color:var(--bx)">Jus (L)</td>
+                <td>0.1</td><td>5</td><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td><td>35</td><td>40</td><td>50</td>
+              </tr>
+            </table>
+            <p style="font-size:10px;color:#7c4a00;margin-top:6px;text-align:center">Ce tableau vous aide à prévoir les justes quantités en fonction du nombre de smoothies à préparer.</p>
+          </div>
+
+          <!-- Champs -->
+          <div class="fg2"><label>Nombre de participants <span class="req">*</span></label>
+            <input type="number" id="r-vs-participants" placeholder="Ex: 150" min="1">
+          </div>
+          <div class="fg2"><label>Bananes (kg) <span class="req">*</span></label>
+            <input type="number" id="r-vs-bananes" placeholder="Ex: 5" min="0" step="0.5">
+            <small>Référez-vous au tableau ci-dessus</small>
+          </div>
+          <div class="fg2"><label>Commentaire fruits frais <small style="font-weight:400">(si autre type de fruits frais que bananes)</small></label>
+            <input type="text" id="r-vs-bananes-comment" placeholder="Ex: Mangues, fraises fraîches...">
+          </div>
+          <div class="fg2"><label>Fruits surgelés (kg) <span class="req">*</span></label>
+            <input type="number" id="r-vs-surgeles" placeholder="Ex: 5" min="0" step="0.5">
+          </div>
+          <div class="fg2"><label>Type de fruits surgelés</label>
+            <select id="r-vs-surgeles-type">
+              <option value="">— Sélectionner —</option>
+              <option value="Fruits jaunes">Fruits jaunes</option>
+              <option value="Fruits rouges">Fruits rouges</option>
+              <option value="Mixte jaunes/rouges">Mixte jaunes/rouges</option>
+            </select>
+            <small>Commentaire si besoin :</small>
+            <input type="text" id="r-vs-surgeles-comment" placeholder="Ex: Mangue + framboise" style="margin-top:4px">
+          </div>
+          <div class="fg2"><label>Eau (litres)</label>
+            <input type="number" id="r-vs-eau" placeholder="Ex: 10" min="0" step="1">
+          </div>
+          <div class="fg2"><label>Jus de pomme (litres) <span class="req">*</span></label>
+            <input type="number" id="r-vs-jus" placeholder="Ex: 15" min="0" step="1">
+          </div>
+          <div class="fg2"><label>Commentaire boissons <small style="font-weight:400">(si autre type de boissons)</small></label>
+            <input type="text" id="r-vs-jus-comment" placeholder="Ex: Jus d'orange, lait d'avoine...">
+          </div>
         </div>
 
       </div><!-- /form-body -->
@@ -1432,6 +1492,37 @@ function toggleRepriseIdentique(){
   const cb=document.getElementById('r-reprise-identique');
   document.getElementById('r-reprise-contact-fields').style.display=cb.checked?'none':'block';
 }
+function toggleVelosmoothieSection(){
+  const checkedEls=[...document.querySelectorAll('#r-kits-list input:checked')];
+  const hasVelo=checkedEls.some(c=>{
+    const kid=(c.dataset.kitid||'').toUpperCase();
+    const val=c.value.toLowerCase();
+    return kid.indexOf('VELOSMOOTHIE')!==-1||val.indexOf('velosmoothie')!==-1||val.indexOf('vélosmoothie')!==-1||val.indexOf('velo smoothie')!==-1||val.indexOf('vélo smoothie')!==-1;
+  });
+  document.getElementById('r-nutrition-section').style.display=hasVelo?'block':'none';
+}
+function isVelosmoothie(){
+  return document.getElementById('r-nutrition-section').style.display!=='none';
+}
+function buildVelosmoothieQuantites(){
+  if(!isVelosmoothie()) return '';
+  const parts=[];
+  const participants=document.getElementById('r-vs-participants').value||'';
+  const bananes=document.getElementById('r-vs-bananes').value||'';
+  const bananeCom=document.getElementById('r-vs-bananes-comment').value.trim();
+  const surgeles=document.getElementById('r-vs-surgeles').value||'';
+  const surgelesType=document.getElementById('r-vs-surgeles-type').value||'';
+  const surgelesCom=document.getElementById('r-vs-surgeles-comment').value.trim();
+  const eau=document.getElementById('r-vs-eau').value||'';
+  const jus=document.getElementById('r-vs-jus').value||'';
+  const jusCom=document.getElementById('r-vs-jus-comment').value.trim();
+  parts.push('Participants: '+participants);
+  parts.push('Bananes: '+bananes+' kg'+(bananeCom?' ('+bananeCom+')':''));
+  parts.push('Fruits surgelés: '+surgeles+' kg'+(surgelesType?' ['+surgelesType+']':'')+(surgelesCom?' ('+surgelesCom+')':''));
+  if(eau) parts.push('Eau: '+eau+' L');
+  parts.push('Jus de pomme: '+jus+' L'+(jusCom?' ('+jusCom+')':''));
+  return parts.join(' | ');
+}
 
 // -- OUVERTURE FORMULAIRE RÉSERVATION --------------------------------
 function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
@@ -1455,10 +1546,12 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
     const nomForm = k.nom_form||k.nom;
     const checked = preselects.some(p => p===nomForm || p===k.nom);
     return `<label class="kit-check-item">
-      <input type="checkbox" value="${nomForm}"${checked?' checked':''}>
+      <input type="checkbox" value="${nomForm}" data-kitid="${k.kit_id||''}" onchange="toggleVelosmoothieSection()"${checked?' checked':''}>
       <span>${k.nom}</span>
     </label>`;
   }).join('');
+  // Afficher/masquer la section vélosmoothie si pré-coché
+  toggleVelosmoothieSection();
 
   // Dates min
   const min=prochainOuvrable(todayStr());
@@ -1470,17 +1563,19 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
   if(dateFinStr) document.getElementById('r-fin').value=dateFinStr;
 
   // Vider les champs texte
-  ['r-nom','r-prenom','r-email','r-entreprise','r-adresse','r-etage','r-acces','r-parking',
+  ['r-nom','r-prenom','r-email','r-entreprise','r-adresse','r-etage','r-acces',
    'r-contact','r-fonction','r-mailcontact','r-tel','r-telfixe','r-adresserep',
    'r-contact-rep','r-fonction-rep','r-mailcontact-rep','r-tel-rep','r-telfixe-rep',
-   'r-kitnutrition','r-quantites','r-hdeb','r-hfin'].forEach(id=>{
+   'r-vs-participants','r-vs-bananes','r-vs-bananes-comment','r-vs-surgeles',
+   'r-vs-surgeles-comment','r-vs-eau','r-vs-jus','r-vs-jus-comment',
+   'r-hdeb','r-hfin'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.value='';
   });
   // Reset selects
   const livr=document.getElementById('r-livraison'); if(livr) livr.value='Oui';
   const recup=document.getElementById('r-recuperation'); if(recup) recup.value='Oui';
   const repId=document.getElementById('r-reprise-identique'); if(repId) repId.checked=true;
-  ['r-ascenseur','r-creneau','r-creneaurep'].forEach(id=>{
+  ['r-ascenseur','r-creneau','r-creneaurep','r-parking','r-vs-surgeles-type'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.selectedIndex=0;
   });
   // Afficher les champs livraison et reprise par défaut
@@ -1677,6 +1772,13 @@ async function soumettreResa(){
     if(!contactRep) missing.push('Personne sur place pour la reprise');
     if(!mailRep) missing.push('Mail contact reprise');
   }
+  // Validation vélosmoothie
+  if(isVelosmoothie()){
+    if(!document.getElementById('r-vs-participants').value) missing.push('Nombre de participants');
+    if(!document.getElementById('r-vs-bananes').value) missing.push('Bananes (kg)');
+    if(!document.getElementById('r-vs-surgeles').value) missing.push('Fruits surgelés (kg)');
+    if(!document.getElementById('r-vs-jus').value) missing.push('Jus de pomme (L)');
+  }
 
   if(missing.length){
     err.textContent='Champs obligatoires manquants : '+missing.join(', ');
@@ -1722,8 +1824,8 @@ async function soumettreResa(){
     mail_contact_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-mailcontact-rep').value.trim():'',
     tel_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-tel-rep').value.trim():'',
     tel_fixe_reprise: (recuperation==='Oui'&&!repriseIdentique)?document.getElementById('r-telfixe-rep').value.trim():'',
-    kit_nutrition:  document.getElementById('r-kitnutrition').value.trim()||'',
-    quantites:      document.getElementById('r-quantites').value.trim()||''
+    kit_nutrition:  isVelosmoothie()?'Oui':'',
+    quantites:      buildVelosmoothieQuantites()
   };
 
   try{
