@@ -369,13 +369,13 @@ footer strong{color:#fff;}
     <div class="ctl">
       <div class="sw">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="si" placeholder="Rechercher un kit" oninput="renderGrid()">
+        <input type="text" id="si" placeholder="Rechercher un kit…" oninput="renderGrid()">
       </div>
       <div id="addBtn" style="display:none"><button class="btn btn-p" onclick="openAdmin(null)" style="padding:6px 12px;font-size:12px">+ Kit</button></div>
     </div>
     <div class="stb"><span id="statsText"></span></div>
     <div class="grid" id="kitsGrid">
-      <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets</p></div>
+      <div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>
     </div>
   </div>
   <div id="pme">
@@ -474,7 +474,7 @@ footer strong{color:#fff;}
     <div style="font-size:32px;margin-bottom:8px">??</div>
     <h3>Accs Administration</h3>
     <p>Entrez le mot de passe.</p>
-    <input type="password" class="ain" id="authIn" placeholder="" onkeydown="if(event.key==='Enter')chkAuth()">
+    <input type="password" class="ain" id="authIn" placeholder="••••••••" onkeydown="if(event.key==='Enter')chkAuth()">
     <div class="aerr" id="authErr">Mot de passe incorrect.</div>
     <button class="btn btn-p" style="width:100%;justify-content:center;padding:9px" onclick="chkAuth()">Accder</button>
     <div class="alink" onclick="resetPwd()">Mot de passe oubli ?</div>
@@ -531,7 +531,7 @@ footer strong{color:#fff;}
         <select id="f-col"><option value="#F2EDF0">Rose ple</option><option value="#F4F2EF">Crme</option><option value="#F3ECDA">Beige</option></select>
       </div>
       <div class="fg"><label>Catgories / Intervenants autoriss</label>
-        <input type="text" id="f-cats" placeholder="Ex: Efficience, Ple Formation KEREA"><small>Spars par virgules</small>
+        <input type="text" id="f-cats" placeholder="Ex: Efficience, Pôle Formation KEREA"><small>Spars par virgules</small>
       </div>
       <div class="tw twm"><div class="tl"><strong>?? En maintenance</strong><small>Grise le kit</small></div><label class="tg"><input type="checkbox" id="f-maint" onchange="togF('m')"><span class="sl2"></span></label></div>
       <div id="mw" class="fg"><label>Message maintenance</label><input type="text" id="f-maint-msg"></div>
@@ -559,15 +559,15 @@ footer strong{color:#fff;}
       <div class="secs">
         <h4>?? Mot de passe admin</h4>
         <div class="fr2">
-          <div class="fg"><label>Nouveau</label><input type="password" id="s-p1" placeholder=""></div>
-          <div class="fg"><label>Confirmer</label><input type="password" id="s-p2" placeholder=""></div>
+          <div class="fg"><label>Nouveau</label><input type="password" id="s-p1" placeholder="••••••••"></div>
+          <div class="fg"><label>Confirmer</label><input type="password" id="s-p2" placeholder="••••••••"></div>
         </div>
         <div id="pwd-msg" style="font-size:11px;margin-top:-7px;margin-bottom:8px"></div>
         <button class="btn btn-p" onclick="chgPwd()" style="padding:6px 12px;font-size:11px">Changer</button>
       </div>
       <div class="secs">
         <h4>? Apps Script Web App</h4>
-        <div class="fg"><label> de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s//exec"></div>
+        <div class="fg"><label> de votre Web App Apps Script</label><input type="text" id="s-gas" placeholder="https://script.google.com/macros/s/…/exec"></div>
         <div class="fg"><label>Onglet KITS (CSV publi)</label><input type="text" id="s-kits"></div>
         <div class="fg"><label>Onglet RESERVATIONS (CSV publi)</label><input type="text" id="s-resa"></div>
       </div>
@@ -585,7 +585,7 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<!-- -- FORMULAIRE DE RSERVATION -- -->
+<!-- -- FORMULAIRE DE RÉSERVATION -- -->
 <div id="formResaOv" onclick="if(event.target===this)fermerFormulaireResa()">
   <div class="form-modal">
     <div class="form-mh">
@@ -593,7 +593,7 @@ footer strong{color:#fff;}
       <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireResa()">?</button>
     </div>
 
-    <!-- TAT SUCCS -->
+    <!-- ÉTAT SUCCÈS -->
     <div id="resaSucces" class="form-success" style="display:none">
       <div class="fs-icon">?</div>
       <h3>Demande envoye !</h3>
@@ -613,7 +613,7 @@ footer strong{color:#fff;}
         </div>
         <div id="resaFormError" class="form-error"></div>
 
-        <!-- SECTION 1 : Identit -->
+        <!-- SECTION 1 : Identité -->
         <div class="form-section">
           <div class="form-section-title">?? Vos coordonnes</div>
           <div class="fr2f">
@@ -636,7 +636,7 @@ footer strong{color:#fff;}
           </div>
         </div>
 
-        <!-- SECTION 3 : Dates rservation -->
+        <!-- SECTION 3 : Dates réservation -->
         <div class="form-section">
           <div class="form-section-title">?? Dates de rservation</div>
           <div class="fr2f">
@@ -673,7 +673,7 @@ footer strong{color:#fff;}
           <div class="fg2"><label>Nom du client / entreprise <span class="req">*</span></label><input type="text" id="r-entreprise" placeholder="Entreprise ABC"></div>
           <div class="fg2"><label>Adresse de livraison <span class="req">*</span></label><input type="text" id="r-adresse" placeholder="12 rue de la Paix, 75001 Paris"></div>
           <div class="fr3">
-            <div class="fg2"><label>tage</label><input type="text" id="r-etage" placeholder="2me tage"></div>
+            <div class="fg2"><label>tage</label><input type="text" id="r-etage" placeholder="2ème étage"></div>
             <div class="fg2"><label>PC scurit / accs</label><input type="text" id="r-acces" placeholder="Badge requis"></div>
             <div class="fg2"><label>Place de parking</label><input type="text" id="r-parking" placeholder="Oui / Non"></div>
           </div>
@@ -694,8 +694,8 @@ footer strong{color:#fff;}
             <select id="r-creneau">
               <option value=""> Slectionner </option>
               <option value="Matin (8h-12h)">Matin (8h-12h)</option>
-              <option value="Aprs-midi (13h-17h)">Aprs-midi (13h-17h)</option>
-              <option value="Journe (8h-17h)">Journe (8h-17h)</option>
+              <option value="Après-midi (13h-17h)">Aprs-midi (13h-17h)</option>
+              <option value="Journée (8h-17h)">Journe (8h-17h)</option>
               <option value="Matin (8h-10h)">Matin (8h-10h)</option>
               <option value="Matin (10h-12h)">Matin (10h-12h)</option>
             </select>
@@ -728,14 +728,14 @@ footer strong{color:#fff;}
             </select>
           </div>
           <div class="fg2"><label>Adresse de reprise <small style="font-weight:400">(si diffrente de la livraison)</small></label>
-            <input type="text" id="r-adresserep" placeholder="Laisser vide si identique  la livraison">
+            <input type="text" id="r-adresserep" placeholder="Laisser vide si identique à la livraison">
           </div>
           <div class="fg2"><label>Crneau souhait de reprise</label>
             <select id="r-creneaurep">
               <option value=""> Slectionner </option>
               <option value="Matin (8h-12h)">Matin (8h-12h)</option>
-              <option value="Aprs-midi (13h-17h)">Aprs-midi (13h-17h)</option>
-              <option value="Journe (8h-17h)">Journe (8h-17h)</option>
+              <option value="Après-midi (13h-17h)">Aprs-midi (13h-17h)</option>
+              <option value="Journée (8h-17h)">Journe (8h-17h)</option>
               <option value="Matin (8h-10h)">Matin (8h-10h)</option>
               <option value="Matin (10h-12h)">Matin (10h-12h)</option>
             </select>
@@ -745,8 +745,8 @@ footer strong{color:#fff;}
         <!-- SECTION 8 : Kit nutrition (conditionnel) -->
         <div class="form-section" id="r-nutrition-section" style="display:none">
           <div class="form-section-title">?? Kit nutrition / vlosmoothie</div>
-          <div class="fg2"><label>Type de kit nutrition</label><input type="text" id="r-kitnutrition" placeholder="Ex: Vlosmoothie"></div>
-          <div class="fg2"><label>Quantits (kg bananes, kg fruits surgels, litres jus de pomme)</label><textarea id="r-quantites" placeholder="Ex: 2 kg bananes, 1 kg fruits surgels, 2L jus de pomme"></textarea></div>
+          <div class="fg2"><label>Type de kit nutrition</label><input type="text" id="r-kitnutrition" placeholder="Ex: Vélosmoothie"></div>
+          <div class="fg2"><label>Quantits (kg bananes, kg fruits surgels, litres jus de pomme)</label><textarea id="r-quantites" placeholder="Ex: 2 kg bananes, 1 kg fruits surgelés, 2L jus de pomme"></textarea></div>
         </div>
 
       </div><!-- /form-body -->
@@ -766,7 +766,7 @@ footer strong{color:#fff;}
       <button class="mc" style="background:rgba(255,255,255,.15);color:#fff;position:relative;top:auto;right:auto" onclick="fermerFormulaireAnnulation()">?</button>
     </div>
 
-    <!-- TAT SUCCS -->
+    <!-- ÉTAT SUCCÈS -->
     <div id="annulSucces" class="form-success" style="display:none">
       <div class="fs-icon">?</div>
       <h3>Annulation transmise !</h3>
@@ -779,7 +779,7 @@ footer strong{color:#fff;}
       <div class="form-body">
         <div id="annulFormError" class="form-error"></div>
 
-        <!-- Identit -->
+        <!-- Identité -->
         <div class="form-section">
           <div class="form-section-title">?? Vos coordonnes</div>
           <div class="fr2f">
@@ -820,7 +820,7 @@ footer strong{color:#fff;}
   </div>
 </div>
 
-<footer><strong>KEREA</strong>  33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="197f766b74786d70767759727c6b7c78377c6c">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
+<footer><strong>KEREA</strong>  33 rue de Naples, 75008 Paris &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ef8f1ecf3ffeaf7f1f0def5fbecfbffb0fbeb">[email&#160;protected]</a> &nbsp;|&nbsp; www.kerea.eu &nbsp;|&nbsp; NDA : 11756685875</footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const SHEET_ID = "2PACX-1vTpLqbeuzAzGpy21oKoFhLBO69ICjF0y0SXonXPpbtkuho3nhDAasFGjDo3R_ExCoTWj6lR0JdF7_Q_";
@@ -926,7 +926,7 @@ const DEFAULT_ME = `<h3>Comment rserver un kit ?</h3>
 <h3>?? Rgles importantes</h3>
 <ul>
 <li>Rservez <strong>1 jour avant</strong> votre intervention et <strong>1 jour aprs</strong></li>
-<li>Si vous rservez plusieurs kits, vrifiez la disponibilit de l'ensemble avant de soumettre</li>
+<li>Si vous rservez plusieurs kits, vrifiez la disponibilit de l\'ensemble avant de soumettre</li>
 <li>Les week-ends et jours fris ne sont pas rservables</li>
 </ul>`;
 
@@ -994,7 +994,7 @@ async function loadReservations(){
       statut:(r['statut']||'').trim().toLowerCase(),
       who:[r['prenom']||'',r['nom']||''].filter(Boolean).join(' '),struct:(r['structure']||'').trim()
     })).filter(r=>r.kit_id&&r.date_debut&&!isNaN(r.date_debut)&&r.date_fin&&!isNaN(r.date_fin)&&
-      r.statut!=='annul'&&r.statut!=='annule'&&r.statut!=='cancelled');
+      r.statut!=='annulé'&&r.statut!=='annule'&&r.statut!=='cancelled');
     return true;
   }catch(e){console.error('loadReservations:',e.message);return false;}
 }
@@ -1052,16 +1052,16 @@ function changerProfil(){
 }
 
 async function initApp(){
-  setSS('loading','Chargement des donnes');
-  document.getElementById('kitsGrid').innerHTML='<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets</p></div>';
+  setSS('loading','Chargement des données…');
+  document.getElementById('kitsGrid').innerHTML='<div class="lstate"><div class="lsp"></div><p>Chargement depuis Google Sheets…</p></div>';
   const [kOk,rOk]=await Promise.all([loadKits(),loadReservations()]);
   if(!kOk||kits.length===0){
-    document.getElementById('kitsGrid').innerHTML='<div class="estate"><div class="ei">??</div><h3>Impossible de charger les kits</h3><p>Vrifiez que l'onglet KITS est publi en CSV.</p><button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">?? Configurer</button></div>';
+    document.getElementById('kitsGrid').innerHTML='<div class="estate"><div class="ei">??</div><h3>Impossible de charger les kits</h3><p>Vérifiez que l\'onglet KITS est publié en CSV.</p><button class="btn btn-p" onclick="reqAdmin()" style="margin:0 auto">?? Configurer</button></div>';
     setSS('error','Onglet KITS inaccessible');return;
   }
   if(profilActif) renderGrid();
-  if(kOk&&rOk) setSS('ok',`${kits.length} kit${kits.length>1?'s':''}  ${reservations.length} rservation${reservations.length>1?'s':''} charges`);
-  else setSS('error',`${kits.length} kits  rservations non accessibles`);
+  if(kOk&&rOk) setSS('ok',`${kits.length} kit${kits.length>1?'s':''} · ${reservations.length} réservation${reservations.length>1?'s':''} chargées`);
+  else setSS('error',`${kits.length} kits — réservations non accessibles`);
   if(document.body.classList.contains('adm')) document.getElementById('syncA').innerHTML='<button class="sbtn" onclick="doRefresh()">?? Actualiser</button>';
 }
 async function doRefresh(){kits=[];reservations=[];await initApp();}
@@ -1254,7 +1254,7 @@ function exitAdmin(){
   if(!profilActif){document.getElementById('appContent').style.display='none';document.getElementById('profilScreen').classList.add('show');}
   else renderGrid();
 }
-function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configur dans Paramtres.');return;}alert('Contactez l'administrateur  : '+e);}
+function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configuré dans Paramètres.');return;}alert('Contactez l\'administrateur : '+e);}
 
 function applyLogo(){
   const img=document.getElementById('logoImg'),badge=document.getElementById('logoBadge');
@@ -1264,7 +1264,7 @@ function applyLogo(){
 function openLogoUpload(){document.getElementById('logoIn').value='';document.getElementById('logoPrev').style.display='none';document.getElementById('logoPrompt').style.display='block';document.getElementById('logoOv').classList.add('open');}
 function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
 function prevLogo(i){const f=i.files[0];if(!f)return;if(f.size>1024*1024){alert('Max 1 Mo.');return;}const r=new FileReader();r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};r.readAsDataURL(f);}
-async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('?? Hbergez le logo sur Google Drive et collez l'URL publique.');}closeLogoUpload();}
+async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('?? Hbergez le logo sur Google Drive et collez l\'URL publique.');}closeLogoUpload();}
 async function rmLogo(){cfg.logo=null;applyLogo();await saveSettingsToSheet({logo_url:''});closeLogoUpload();}
 
 const EMOJIS={'Sant':['??','??','??','??','??','??','??','??','??','??'],'Formation':['??','??','??','??','??','??','??','??','???','??'],'Tech':['??','??','???','??','??','??','??','??','??'],'Prvention':['??','??','??','??','?','??','??','??','??'],'Bien-tre':['??','??','??','??','??','??','??','?????','??'],'Divers':['??','??','??','?','??','??','??','?','??','??','??','??']};
@@ -1631,7 +1631,7 @@ async function soumettreAnnulation(){
   }catch(e){
     err.textContent='Erreur lors de l\'envoi. Veuillez réessayer.';
     err.style.display='block';
-    btn.disabled=false; btn.textContent="↩️ Confirmer l'annulation";
+    btn.disabled=false; btn.textContent="\u21a9\ufe0f Confirmer l'annulation";
   }
 }
 </script>
