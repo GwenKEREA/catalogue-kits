@@ -1252,7 +1252,7 @@ function exitAdmin(){
   if(!profilActif){document.getElementById('appContent').style.display='none';document.getElementById('profilScreen').classList.add('show');}
   else renderGrid();
 }
-function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configuré dans Paramètres.');return;}alert('Contactez l'administrateur · : '+e);}
+function resetPwd(){const e=cfg.adminEmail;if(!e){alert('Aucun email configuré dans Paramètres.');return;}alert('Contactez l\'administrateur : '+e);}
 
 function applyLogo(){
   const img=document.getElementById('logoImg'),badge=document.getElementById('logoBadge');
@@ -1262,7 +1262,7 @@ function applyLogo(){
 function openLogoUpload(){document.getElementById('logoIn').value='';document.getElementById('logoPrev').style.display='none';document.getElementById('logoPrompt').style.display='block';document.getElementById('logoOv').classList.add('open');}
 function closeLogoUpload(){document.getElementById('logoOv').classList.remove('open');}
 function prevLogo(i){const f=i.files[0];if(!f)return;if(f.size>1024*1024){alert('Max 1 Mo.');return;}const r=new FileReader();r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').style.display='block';document.getElementById('logoPrompt').style.display='none';};r.readAsDataURL(f);}
-async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('⚠️ Hébergez le logo sur Google Drive et collez l'URL publique.');}closeLogoUpload();}
+async function saveLogo(){const p=document.getElementById('logoPrev');if(p.style.display!=='none'&&p.src){cfg.logo=p.src;applyLogo();if(!p.src.startsWith('data:')){await saveSettingsToSheet({logo_url:p.src});}else alert('⚠️ Hébergez le logo sur Google Drive et collez l\'URL publique.');}closeLogoUpload();}
 async function rmLogo(){cfg.logo=null;applyLogo();await saveSettingsToSheet({logo_url:''});closeLogoUpload();}
 
 const EMOJIS={'Santé':['💊','🩺','❤️','🏥','🩹','💉','🫀','🧬','🔬','🧪'],'Formation':['📚','🎓','📝','✏️','💡','🧠','📖','👨‍🏫','📋','🎯'],'Tech':['💻','📱','⌨️','🖥️','🔧','⚙️','🛠️','📡','🔌'],'Prévention':['🛡️','⚠️','🦺','🔥','🧯','🚨','👷','🧤','🥽'],'Bien-être':['🧘','🌿','💆','🍎','🏃','💪','🧴','🫶','☀️'],'Divers':['📦','🎪','🎨','🏆','🎭','🎵','🎲','⭐','🌍','🔑','📸','🎁']};
