@@ -691,7 +691,13 @@ footer strong{color:#fff;}
           <div class="fr3">
             <div class="fg2"><label>Étage</label><input type="text" id="r-etage" placeholder="2ème étage"></div>
             <div class="fg2"><label>PC sécurité / accès</label><input type="text" id="r-acces" placeholder="Badge requis"></div>
-            <div class="fg2"><label>Place de parking</label><input type="text" id="r-parking" placeholder="Oui / Non"></div>
+            <div class="fg2"><label>Place de parking</label>
+              <select id="r-parking">
+                <option value="">— Sélectionner —</option>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
+              </select>
+            </div>
           </div>
           <div class="fg2">
             <label>Ascenseur</label>
@@ -743,9 +749,6 @@ footer strong{color:#fff;}
             </select>
           </div>
           <div id="r-reprise-fields">
-            <div class="fg2"><label>Adresse de reprise <small style="font-weight:400">(si différente de la livraison)</small></label>
-              <input type="text" id="r-adresserep" placeholder="Laisser vide si identique à la livraison">
-            </div>
             <div class="fg2"><label>Créneau souhaité de reprise</label>
               <select id="r-creneaurep">
                 <option value="">— Sélectionner —</option>
@@ -757,10 +760,11 @@ footer strong{color:#fff;}
             <div class="fg2" style="margin-top:8px">
               <label class="kit-check-item" style="border:1.5px solid var(--gc);border-radius:7px;padding:8px 10px;" onclick="toggleRepriseIdentique()">
                 <input type="checkbox" id="r-reprise-identique" checked>
-                <span>Informations de contact identiques à la livraison</span>
+                <span>Informations identiques à la livraison</span>
               </label>
             </div>
             <div id="r-reprise-contact-fields" style="display:none;margin-top:8px;">
+              <div class="fg2"><label>Adresse de reprise <span class="req">*</span></label><input type="text" id="r-adresserep" placeholder="12 rue de la Paix, 75001 Paris"></div>
               <div class="fg2"><label>Personne(s) sur place pour la reprise <span class="req">*</span></label><input type="text" id="r-contact-rep" placeholder="Jean Martin"></div>
               <div class="fg2"><label>Fonction(s)</label><input type="text" id="r-fonction-rep" placeholder="Responsable RH"></div>
               <div class="fr2f">
@@ -1666,8 +1670,10 @@ async function soumettreResa(){
     if(!mailContact) missing.push('Mail contact');
   }
   if(recuperation==='Oui' && !repriseIdentique){
+    const adresseRep = document.getElementById('r-adresserep').value.trim();
     const contactRep = document.getElementById('r-contact-rep').value.trim();
     const mailRep = document.getElementById('r-mailcontact-rep').value.trim();
+    if(!adresseRep) missing.push('Adresse de reprise');
     if(!contactRep) missing.push('Personne sur place pour la reprise');
     if(!mailRep) missing.push('Mail contact reprise');
   }
