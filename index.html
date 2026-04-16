@@ -849,9 +849,6 @@ footer strong{color:#fff;}
             <input type="number" id="r-vs-bananes" placeholder="Ex: 5" min="0" step="0.5">
             <small>Référez-vous au tableau ci-dessus</small>
           </div>
-          <div class="fg2"><label>Commentaire fruits frais <small style="font-weight:400">(si autre type de fruits frais que bananes)</small></label>
-            <input type="text" id="r-vs-bananes-comment" placeholder="Ex: Mangues, fraises fraîches...">
-          </div>
           <div class="fg2"><label>Fruits surgelés (kg) <span class="req">*</span></label>
             <input type="number" id="r-vs-surgeles" placeholder="Ex: 5" min="0" step="0.5">
           </div>
@@ -862,17 +859,11 @@ footer strong{color:#fff;}
               <option value="Fruits rouges">Fruits rouges</option>
               <option value="Mixte jaunes/rouges">Mixte jaunes/rouges</option>
             </select>
-            <small>Commentaire si besoin :</small>
-            <input type="text" id="r-vs-surgeles-comment" placeholder="Ex: Mangue + framboise" style="margin-top:4px">
-          </div>
           <div class="fg2"><label>Eau (litres)</label>
             <input type="number" id="r-vs-eau" placeholder="Ex: 10" min="0" step="1">
           </div>
           <div class="fg2"><label>Jus de pomme (litres) <span class="req">*</span></label>
             <input type="number" id="r-vs-jus" placeholder="Ex: 15" min="0" step="1">
-          </div>
-          <div class="fg2"><label>Commentaire boissons <small style="font-weight:400">(si autre type de boissons)</small></label>
-            <input type="text" id="r-vs-jus-comment" placeholder="Ex: Jus d'orange, lait d'avoine...">
           </div>
         </div>
 
@@ -1666,18 +1657,15 @@ function buildVelosmoothieQuantites(){
   const parts=[];
   const participants=document.getElementById('r-vs-participants').value||'';
   const bananes=document.getElementById('r-vs-bananes').value||'';
-  const bananeCom=document.getElementById('r-vs-bananes-comment').value.trim();
   const surgeles=document.getElementById('r-vs-surgeles').value||'';
   const surgelesType=document.getElementById('r-vs-surgeles-type').value||'';
-  const surgelesCom=document.getElementById('r-vs-surgeles-comment').value.trim();
   const eau=document.getElementById('r-vs-eau').value||'';
   const jus=document.getElementById('r-vs-jus').value||'';
-  const jusCom=document.getElementById('r-vs-jus-comment').value.trim();
   parts.push('Participants: '+participants);
-  parts.push('Bananes: '+bananes+' kg'+(bananeCom?' ('+bananeCom+')':''));
-  parts.push('Fruits surgelés: '+surgeles+' kg'+(surgelesType?' ['+surgelesType+']':'')+(surgelesCom?' ('+surgelesCom+')':''));
+  parts.push('Bananes: '+bananes+' kg');
+  parts.push('Fruits surgelés: '+surgeles+' kg'+(surgelesType?' ['+surgelesType+']':''));
   if(eau) parts.push('Eau: '+eau+' L');
-  parts.push('Jus de pomme: '+jus+' L'+(jusCom?' ('+jusCom+')':''));
+  parts.push('Jus de pomme: '+jus+' L');
   return parts.join(' | ');
 }
 
@@ -1728,8 +1716,7 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
   ['r-nom','r-prenom','r-email','r-entreprise','r-adresse','r-etage','r-acces',
    'r-contact','r-fonction','r-mailcontact','r-tel','r-telfixe','r-adresserep',
    'r-contact-rep','r-fonction-rep','r-mailcontact-rep','r-tel-rep','r-telfixe-rep',
-   'r-vs-participants','r-vs-bananes','r-vs-bananes-comment','r-vs-surgeles',
-   'r-vs-surgeles-comment','r-vs-eau','r-vs-jus','r-vs-jus-comment',
+   'r-vs-participants','r-vs-bananes','r-vs-surgeles','r-vs-eau','r-vs-jus',
    'r-hdeb','r-hfin'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.value='';
   });
