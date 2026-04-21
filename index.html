@@ -188,7 +188,19 @@ body.adm .cab{display:flex;}
 .mft{padding:0 20px 16px;display:flex;gap:7px;}
 .mft .brs{flex:1;justify-content:center;padding:10px;font-size:13px;border-radius:8px;background:var(--rv);color:#fff;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;display:flex;align-items:center;gap:5px;}
 .mft .brs:hover{background:var(--rose);}
+.detail-kit-image{width:100%;border-radius:8px;margin-top:8px;box-shadow:0 2px 8px rgba(78,24,45,.1);}
 .mft .brs.dis{background:#d1d5db;color:#9ca3af;cursor:not-allowed;}
+.kit-agenda{margin-top:10px;}
+.kit-agenda h4{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gris);margin-bottom:6px;font-weight:700;}
+.agenda-month{margin-bottom:8px;}
+.agenda-month-title{font-size:11px;font-weight:600;color:var(--bx);margin-bottom:3px;}
+.agenda-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center;}
+.agenda-dow{font-size:8px;color:var(--gris);padding:2px 0;}
+.agenda-day{font-size:9px;padding:3px 1px;border-radius:3px;color:var(--bx);}
+.agenda-day.empty{visibility:hidden;}
+.agenda-day.reserved{background:#fee2e2;color:#991b1b;font-weight:600;}
+.agenda-day.today-mark{box-shadow:inset 0 0 0 1px var(--rv);}
+.agenda-day.past{color:#d1d5db;}
 #pme{display:none;max-width:780px;margin:24px auto 80px;padding:0 32px;}
 .gcard{background:#fff;border-radius:13px;padding:22px;box-shadow:0 2px 9px rgba(78,24,45,.07);margin-bottom:13px;}
 .gcard h2{font-size:17px;color:var(--bx);margin-bottom:13px;display:flex;align-items:center;gap:8px;}
@@ -258,6 +270,9 @@ input:checked+.sl2:before{transform:translateX(17px);}
 .ems .ei{font-size:36px;margin-bottom:8px;}
 footer{background:var(--bx);color:rgba(255,255,255,.38);text-align:center;padding:13px;font-size:11px;letter-spacing:.04em;}
 footer strong{color:#fff;}
+.resa-interne-section{display:none;margin-bottom:14px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:12px;}
+.resa-interne-section.show{display:block;}
+.resa-interne-section .form-section-title{color:#166534;}
 @media(max-width:600px){
   .hi{padding:9px 13px;}.sb{padding:4px 13px;}
   .hero{padding:22px 13px;}
@@ -270,7 +285,7 @@ footer strong{color:#fff;}
 /* -- FORMULAIRE RÉSERVATION / ANNULATION --------------------------- */
 #formResaOv,#formAnnulOv{display:none;position:fixed;inset:0;background:rgba(78,24,45,.6);z-index:250;backdrop-filter:blur(5px);overflow-y:auto;padding:20px;}
 #formResaOv.open,#formAnnulOv.open{display:flex;align-items:flex-start;justify-content:center;}
-.form-modal{background:#fff;border-radius:16px;width:100%;max-width:680px;margin:auto;animation:sl .2s ease;position:relative;}
+.form-modal{background:#fff;border-radius:16px;width:100%;max-width:820px;margin:auto;animation:sl .2s ease;position:relative;}
 .form-mh{background:var(--bx);border-radius:16px 16px 0 0;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
 .form-mh h3{color:#fff;font-size:15px;font-weight:600;}
 .form-body{padding:20px;}
@@ -457,14 +472,14 @@ footer strong{color:#fff;}
         <div class="df">
           <label>Date de début</label>
           <div class="cal-wrap">
-            <input type="text" class="cal-input" id="dDeb" placeholder="Sélectionner" readonly onclick="openCal('dDeb')">
+            <input type="text" class="cal-input" id="dDeb" placeholder="jj/mm/aaaa" onclick="openCal('dDeb')" onblur="parseCalInput('dDeb')" onkeydown="if(event.key==='Enter'){parseCalInput('dDeb');event.preventDefault();}">
             <div class="cal-drop" id="dDeb-cal"></div>
           </div>
         </div>
         <div class="df">
           <label>Date de fin</label>
           <div class="cal-wrap">
-            <input type="text" class="cal-input" id="dFin" placeholder="Sélectionner" readonly onclick="openCal('dFin')">
+            <input type="text" class="cal-input" id="dFin" placeholder="jj/mm/aaaa" onclick="openCal('dFin')" onblur="parseCalInput('dFin')" onkeydown="if(event.key==='Enter'){parseCalInput('dFin');event.preventDefault();}">
             <div class="cal-drop" id="dFin-cal"></div>
           </div>
         </div>
@@ -488,9 +503,11 @@ footer strong{color:#fff;}
       <div class="mtit" id="mTitle"></div>
       <div id="mStBan" class="stban"></div>
       <div class="ms"><h4>Description</h4><p id="mDesc"></p></div>
+      <div class="ms" id="mDetailImage" style="display:none"><img id="mDetailImg" class="detail-kit-image" alt="Catalogue formations"></div>
       <div class="ms"><h4>Contenu du kit</h4><ul class="cl" id="mContenu"></ul></div>
       <div class="ms"><h4>Caractéristiques</h4><div class="sps" id="mSpecs"></div></div>
       <div class="ms"><h4>Intervenants autorisés · réserver</h4><div class="ics" id="mInter"></div></div>
+      <div class="ms kit-agenda" id="mAgendaVisuel" style="display:none"><h4>Agenda des réservations</h4><div id="mAgendaContent"></div></div>
       <div class="ms" id="mResaSec" style="display:none"><h4>Planning des réservations</h4><div class="rtl" id="mResaList"></div></div>
     </div>
     <div class="mft">
@@ -671,6 +688,37 @@ footer strong{color:#fff;}
           </div>
         </div>
 
+        <!-- SECTION 1bis : Réservation interne (Efficience uniquement) -->
+        <div class="form-section resa-interne-section" id="r-interne-section">
+          <div class="form-section-title">🏢 Réservation interne Efficience</div>
+          <div class="fg2" style="margin-bottom:8px">
+            <label class="kit-check-item" style="border:1.5px solid #86efac;border-radius:7px;padding:8px 10px;">
+              <input type="checkbox" id="r-interne-check" onchange="toggleResaInterne()">
+              <span style="color:#166534;font-weight:600">Réservation interne (sans livraison externe)</span>
+            </label>
+          </div>
+          <div id="r-interne-fields" style="display:none">
+            <div class="fg2"><label>Centre concerné <span class="req">*</span></label>
+              <select id="r-interne-centre" onchange="document.getElementById('r-interne-autre-wrap').style.display=this.value==='Autre'?'block':'none'">
+                <option value="">— Sélectionner un centre —</option>
+                <option value="Paris — 33 rue de Naples">Paris — 33 rue de Naples</option>
+                <option value="Lyon">Lyon</option>
+                <option value="Marseille">Marseille</option>
+                <option value="Lille">Lille</option>
+                <option value="Bordeaux">Bordeaux</option>
+                <option value="Nantes">Nantes</option>
+                <option value="Strasbourg">Strasbourg</option>
+                <option value="Toulouse">Toulouse</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="fg2" id="r-interne-autre-wrap" style="display:none">
+              <label>Préciser le centre</label>
+              <input type="text" id="r-interne-autre" placeholder="Nom du centre">
+            </div>
+          </div>
+        </div>
+
         <!-- SECTION 2 : Kits -->
         <div class="form-section">
           <div class="form-section-title">📦 Kit(s) concerné(s) <span class="req">*</span></div>
@@ -685,13 +733,13 @@ footer strong{color:#fff;}
           <div class="fr2f">
             <div class="fg2"><label>Date de début <span class="req">*</span></label>
               <div class="cal-wrap">
-                <input type="text" class="cal-input" id="r-deb" placeholder="Sélectionner" readonly onclick="openCal('r-deb')">
+                <input type="text" class="cal-input" id="r-deb" placeholder="jj/mm/aaaa" onclick="openCal('r-deb')" onblur="parseCalInput('r-deb')" onkeydown="if(event.key==='Enter'){parseCalInput('r-deb');event.preventDefault();}">
                 <div class="cal-drop" id="r-deb-cal"></div>
               </div>
             </div>
             <div class="fg2"><label>Date de fin <span class="req">*</span></label>
               <div class="cal-wrap">
-                <input type="text" class="cal-input" id="r-fin" placeholder="Sélectionner" readonly onclick="openCal('r-fin')">
+                <input type="text" class="cal-input" id="r-fin" placeholder="jj/mm/aaaa" onclick="openCal('r-fin')" onblur="parseCalInput('r-fin')" onkeydown="if(event.key==='Enter'){parseCalInput('r-fin');event.preventDefault();}">
                 <div class="cal-drop" id="r-fin-cal"></div>
               </div>
             </div>
@@ -913,6 +961,7 @@ footer strong{color:#fff;}
           <div id="annulResaList" style="display:flex;flex-direction:column;gap:6px;max-height:320px;overflow-y:auto;padding:4px 0;">
             <!-- Rempli dynamiquement -->
           </div>
+          <div id="annulMultiKitWarn" class="form-warn" style="display:none"></div>
           <div id="annulResaEmpty" style="display:none;text-align:center;padding:20px;color:var(--gris);font-size:13px;">
             Aucune réservation active trouvée pour votre profil.
           </div>
@@ -1303,6 +1352,11 @@ function openDetail(id){
   document.getElementById('mCats').innerHTML=(k.cats||[]).map(c=>`<span class="cb">${c}</span>`).join('');
   const titEl=document.getElementById('mTitle');titEl.textContent=k.nom;titEl.dataset.kitId=k.id;
   document.getElementById('mDesc').textContent=k.description||'—';
+  // Image CRV
+  var imgSec=document.getElementById('mDetailImage'),imgEl=document.getElementById('mDetailImg');
+  var CRV_IDS=['KIT_CRV_VALISE','KIT_CRV_SAC_A_DOS_1','KIT_CRV_SAC_A_DOS_2','KIT_CRV_SAC_A_DOS_3'];
+  if(CRV_IDS.indexOf(k.kit_id)!==-1){imgSec.style.display='';imgEl.src='https://gwenkerea.github.io/catalogue-kits/Capture_reality.JPG';}
+  else{imgSec.style.display='none';imgEl.src='';}
   document.getElementById('mContenu').innerHTML=(k.contenu||[]).map(c=>`<li>${c}</li>`).join('');
   document.getElementById('mSpecs').innerHTML=`
     <div class="sp"><label>Poids</label><strong>${k.poids||'—'}</strong></div>
@@ -1319,6 +1373,7 @@ function openDetail(id){
   const rs=document.getElementById('mResaSec'),rl=document.getElementById('mResaList');
   if(all.length){rs.style.display='';rl.innerHTML=all.map(r=>{const cur=r.date_debut<=today&&r.date_fin>=today;return`<div class="ri${cur?' cur':''}"><span class="rdot"></span><div><div class="rdat">${fmt(r.date_debut)} ? ${fmt(r.date_fin)}</div>${r.who?`<div class="rwho">${r.who}${r.struct?' · '+r.struct:''}</div>`:''}</div>${cur?'<span class="rbadge">En cours</span>':''}</div>`;}).join('');}
   else{rs.style.display=reservations.length?'':'none';rl.innerHTML='<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';}
+  buildKitAgenda(k);
   const btn=document.getElementById('mResaBtn');
   btn.className='brs'+(isMaint||isAv?' dis':'');
   btn.textContent=isMaint?'🔧 En maintenance':isAv?'🔮 À venir':'📅 Vérifier la disponibilité';
@@ -1732,6 +1787,11 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
   toggleRepriseFields();
   toggleRepriseIdentique();
 
+  // Afficher section réservation interne si profil Efficience
+  var intSec=document.getElementById('r-interne-section');
+  if(intSec){intSec.classList.toggle('show',profilActif&&profilActif.id==='efficience');}
+  var intCb=document.getElementById('r-interne-check');
+  if(intCb){intCb.checked=false;document.getElementById('r-interne-fields').style.display='none';}
   document.getElementById('formResaOv').classList.add('open');
 }
 
@@ -1745,6 +1805,7 @@ function ouvrirListeAnnulation(){
   document.getElementById('annulSucces').style.display='none';
   document.getElementById('annulFormContent').style.display='block';
   document.getElementById('annulFormError').style.display='none';
+  document.getElementById('annulMultiKitWarn').style.display='none';
   document.getElementById('a-submitBtn').disabled=false;
   document.getElementById('a-submitBtn').textContent="↩️ Confirmer l\'annulation";
 
@@ -1775,9 +1836,10 @@ function ouvrirListeAnnulation(){
   } else {
     emptyEl.style.display='none';
     listEl.style.display='flex';
+    window._annulResaList=futureResas;
     listEl.innerHTML=futureResas.map((r,i)=>{
       const isCur=r.date_debut<=today&&r.date_fin>=today;
-      return `<label class="resa-item" onclick="this.querySelector('input').checked=true;document.querySelectorAll('.resa-item').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');">
+      return `<label class="resa-item" onclick="this.querySelector('input').checked=true;document.querySelectorAll('.resa-item').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');checkMultiKitWarn(window._annulResaList['+i+']);">
         <input type="radio" name="annulResa" value="${i}" style="display:none">
         <div style="flex-shrink:0;font-size:20px">${isCur?'🔴':'📅'}</div>
         <div class="resa-item-body">
@@ -1942,6 +2004,8 @@ async function soumettreResa(){
   // Construction de l'objet données — colonnes exactes du sheet
   const data={
     action: 'soumettreReservation',
+    reservation_interne: (document.getElementById('r-interne-check')&&document.getElementById('r-interne-check').checked)?'Oui':'Non',
+    centre_interne: (document.getElementById('r-interne-check')&&document.getElementById('r-interne-check').checked)?(document.getElementById('r-interne-centre').value==='Autre'?(document.getElementById('r-interne-autre').value||''):document.getElementById('r-interne-centre').value):'',
     typedemande: 'réservation',
     structure,
     kits: kitsCoches.join(', '),
@@ -2006,6 +2070,94 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('profilScreen').classList.add('show');
   await initApp();
 });
+// ── POINT 4e : PARSE SAISIE CLAVIER DATE ──────────────────────────
+function parseCalInput(inputId){
+  var el=document.getElementById(inputId);
+  var v=(el.value||'').trim();
+  if(!v){el.dataset.iso='';return;}
+  // Accepter dd/mm/yyyy, ddmmyyyy, dd-mm-yyyy
+  var m=v.match(/^(\d{1,2})[\/-]?(\d{1,2})[\/-]?(\d{4})$/);
+  if(!m){return;}
+  var day=parseInt(m[1]),mon=parseInt(m[2]),year=parseInt(m[3]);
+  if(mon<1||mon>12||day<1||day>31||year<2024){return;}
+  var iso=year+'-'+String(mon).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+  var d=new Date(iso+'T00:00:00');
+  if(isNaN(d.getTime())){return;}
+  var today=new Date();today.setHours(0,0,0,0);
+  if(d<today){el.value='';el.dataset.iso='';return;}
+  if(isJourBloqu(iso)){el.value='';el.dataset.iso='';alert('Cette date tombe un week-end ou jour férié.');return;}
+  el.value=fmtDisplay(iso);
+  el.dataset.iso=iso;
+  var drop=document.getElementById(inputId+'-cal');
+  if(drop)drop.classList.remove('open');
+  if(inputId==='dDeb'||inputId==='dFin')chkDispoMulti();
+}
+
+// ── POINT 4b : TOGGLE RÉSERVATION INTERNE ─────────────────────────
+function toggleResaInterne(){
+  var cb=document.getElementById('r-interne-check');
+  document.getElementById('r-interne-fields').style.display=cb.checked?'block':'none';
+  if(cb.checked){
+    document.getElementById('r-livraison').value='Non';toggleLivraisonFields();
+    document.getElementById('r-recuperation').value='Non';toggleRepriseFields();
+  }
+}
+
+// ── POINT 4c : AGENDA VISUEL PAR KIT ─────────────────────────────
+function buildKitAgenda(kitObj){
+  var container=document.getElementById('mAgendaContent');
+  var wrap=document.getElementById('mAgendaVisuel');
+  var today=new Date();today.setHours(0,0,0,0);
+  var allResa=reservations.filter(function(r){
+    if(r.kit_id&&kitObj.kit_id&&r.kit_id===kitObj.kit_id)return true;
+    if(r.nom_kit&&kitObj.nom&&nk(r.nom_kit)===nk(kitObj.nom))return true;
+    return false;
+  });
+  if(!allResa.length){wrap.style.display='none';return;}
+  wrap.style.display='';
+  var html='';
+  for(var mo=0;mo<2;mo++){
+    var dt=new Date(today.getFullYear(),today.getMonth()+mo,1);
+    var year=dt.getFullYear(),month=dt.getMonth();
+    var daysInMonth=new Date(year,month+1,0).getDate();
+    var startDow=dt.getDay();startDow=startDow===0?6:startDow-1;
+    html+='<div class="agenda-month"><div class="agenda-month-title">'+MOIS_FR[month]+' '+year+'</div>';
+    html+='<div class="agenda-grid">';
+    ['L','M','M','J','V','S','D'].forEach(function(j){html+='<div class="agenda-dow">'+j+'</div>';});
+    for(var e=0;e<startDow;e++)html+='<div class="agenda-day empty"></div>';
+    for(var d=1;d<=daysInMonth;d++){
+      var cur=new Date(year,month,d);cur.setHours(0,0,0,0);
+      var iso=fmtISO(cur);
+      var isRes=allResa.some(function(r){return r.date_debut<=cur&&r.date_fin>=cur;});
+      var isPast=cur<today;
+      var isToday=iso===fmtISO(today);
+      var cls='agenda-day';
+      if(isRes)cls+=' reserved';
+      if(isPast&&!isRes)cls+=' past';
+      if(isToday)cls+=' today-mark';
+      html+='<div class="'+cls+'">'+d+'</div>';
+    }
+    html+='</div></div>';
+  }
+  container.innerHTML=html;
+}
+
+// ── POINT 4a : ALERTE MULTI-KIT SUR ANNULATION ──────────────────
+function checkMultiKitWarn(selectedResa){
+  var warn=document.getElementById('annulMultiKitWarn');
+  if(!selectedResa||!selectedResa.who){warn.style.display='none';return;}
+  var sameSlot=reservations.filter(function(r){
+    if(r===selectedResa)return false;
+    if(!r.date_debut||!selectedResa.date_debut)return false;
+    return r.who===selectedResa.who&&r.date_debut.getTime()===selectedResa.date_debut.getTime();
+  });
+  if(sameSlot.length){
+    var kitNames=sameSlot.map(function(r){return r.nom_kit||r.kit_id;}).join(', ');
+    warn.innerHTML='<strong>\u26a0\ufe0f Attention</strong><br>Plusieurs kits sont réservés par <strong>'+selectedResa.who+'</strong> sur ce même créneau : '+kitNames+'. Pensez à les annuler le cas échéant.';
+    warn.style.display='block';
+  }else{warn.style.display='none';}
+}
+
 </script>
 </body>
 </html>
