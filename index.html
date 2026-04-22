@@ -206,7 +206,7 @@ body.adm .cab{display:flex;}
 .agenda-day.we{color:#e5e7eb;font-size:9px;}
 .dispo-planning{margin-top:8px;}
 .dispo-planning h4{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gris);margin-bottom:5px;font-weight:700;}
-.resa-interne-wrap{display:none;margin-bottom:10px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:12px;}
+.resa-interne-wrap{display:none;margin-bottom:10px;background:var(--fp);border:1.5px solid var(--gc);border-radius:8px;padding:12px;}
 .resa-interne-wrap.show{display:block;}
 #pme{display:none;max-width:780px;margin:24px auto 80px;padding:0 32px;}
 .gcard{background:#fff;border-radius:13px;padding:22px;box-shadow:0 2px 9px rgba(78,24,45,.07);margin-bottom:13px;}
@@ -340,7 +340,7 @@ footer strong{color:#fff;}
 /* -- CALENDRIER PERSONNALISÉ -- */
 .cal-wrap{position:relative;}
 .cal-input{width:100%;padding:8px 10px;border:1.5px solid var(--gc);border-radius:7px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--bx);background:#fff;outline:none;cursor:pointer;transition:border-color .18s;}
-.cal-input:focus{border-color:var(--rose);}
+.cal-input:focus{border-color:var(--rose);cursor:text;}
 .cal-input::placeholder{color:#ccc;}
 .cal-drop{display:none;position:absolute;top:100%;left:0;z-index:50;background:#fff;border:1.5px solid var(--gc);border-radius:10px;box-shadow:0 8px 24px rgba(78,24,45,.15);padding:10px;min-width:260px;margin-top:4px;animation:fi .15s;}
 .cal-drop.open{display:block;}
@@ -474,14 +474,14 @@ footer strong{color:#fff;}
       </div>
       <div class="drow">
         <div class="df">
-          <label>Date de début</label>
+          <label>Date de début de mon intervention</label>
           <div class="cal-wrap">
             <input type="text" class="cal-input" id="dDeb" placeholder="jj/mm/aaaa" onclick="openCal('dDeb')" onblur="parseCalInput('dDeb')" onkeydown="if(event.key==='Enter'){parseCalInput('dDeb');event.preventDefault();}">
             <div class="cal-drop" id="dDeb-cal"></div>
           </div>
         </div>
         <div class="df">
-          <label>Date de fin</label>
+          <label>Date de fin de mon intervention</label>
           <div class="cal-wrap">
             <input type="text" class="cal-input" id="dFin" placeholder="jj/mm/aaaa" onclick="openCal('dFin')" onblur="parseCalInput('dFin')" onkeydown="if(event.key==='Enter'){parseCalInput('dFin');event.preventDefault();}">
             <div class="cal-drop" id="dFin-cal"></div>
@@ -493,6 +493,7 @@ footer strong{color:#fff;}
       <!-- Agenda visuel dynamique -->
       <div class="dispo-agenda" id="dispoAgenda" style="display:none">
         <h4>📅 Agenda des réservations</h4>
+        <div id="dispoAgendaKitLabel" style="font-size:11px;color:var(--rv);font-weight:600;margin-bottom:6px;text-align:center"></div>
         <div class="agenda-nav">
           <button onclick="dispoAgendaNav(-1)">‹</button>
           <span id="dispoAgendaTitle"></span>
@@ -522,11 +523,11 @@ footer strong{color:#fff;}
       <div class="mtit" id="mTitle"></div>
       <div id="mStBan" class="stban"></div>
       <div class="ms"><h4>Description</h4><p id="mDesc"></p></div>
-      <div class="ms" id="mDetailImage" style="display:none"><img id="mDetailImg" class="detail-kit-image" alt="Catalogue formations"></div>
+      <div class="ms" id="mDetailImage" style="display:none"><img id="mDetailImg" class="detail-kit-image" alt="Catalogue formations" style="cursor:pointer" onclick="window.open(this.src,'_blank')"></div>
       <div class="ms"><h4>Contenu du kit</h4><ul class="cl" id="mContenu"></ul></div>
       <div class="ms"><h4>Caractéristiques</h4><div class="sps" id="mSpecs"></div></div>
       <div class="ms"><h4>Intervenants autorisés · réserver</h4><div class="ics" id="mInter"></div></div>
-      <div class="ms" id="mResaSec" style="display:none"><h4>Planning des réservations</h4><div class="rtl" id="mResaList"></div></div>
+      <!-- Planning retiré -->
     </div>
     <div class="mft">
       <button id="mResaBtn" class="brs" onclick="ouvrirDispoDepuisDetail()">📅 Vérifier la disponibilité</button>
@@ -714,9 +715,26 @@ footer strong{color:#fff;}
           </div>
         </div>
 
-        <!-- SECTION 3 : Dates réservation -->
+        <!-- SECTION 3 : Dates intervention -->
         <div class="form-section">
-          <div class="form-section-title">📅 Dates de réservation</div>
+          <div class="form-section-title">📅 Dates de l'intervention</div>
+          <div class="fr2f">
+            <div class="fg2"><label>Date de début d'intervention</label>
+              <input type="date" id="r-intdeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="autoCalcDatesResa()">
+            </div>
+            <div class="fg2"><label>Date de fin d'intervention</label>
+              <input type="date" id="r-intfin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="autoCalcDatesResa()">
+            </div>
+          </div>
+          <div class="fr2f" style="margin-top:8px">
+            <div class="fg2"><label>Horaire de début</label><input type="time" id="r-hdeb" placeholder="08:30"></div>
+            <div class="fg2"><label>Horaire de fin</label><input type="time" id="r-hfin" placeholder="17:00"></div>
+          </div>
+        </div>
+
+        <!-- SECTION 4 : Dates de réservation -->
+        <div class="form-section">
+          <div class="form-section-title">📅 Dates de réservation <em style="font-weight:400;font-size:11px;color:var(--gris)">(se calcule automatiquement mais champ modifiable au besoin)</em></div>
           <div class="fr2f">
             <div class="fg2"><label>Date de début <span class="req">*</span></label>
               <div class="cal-wrap">
@@ -734,23 +752,6 @@ footer strong{color:#fff;}
           <small style="color:var(--gris);font-size:10px">Week-ends et jours fériés non disponibles. Incluez J-1 avant et J+1 après votre intervention.</small>
         </div>
 
-        <!-- SECTION 4 : Dates intervention -->
-        <div class="form-section">
-          <div class="form-section-title">📅 Dates de l'intervention</div>
-          <div class="fr2f">
-            <div class="fg2"><label>Date de début d'intervention</label>
-              <input type="date" id="r-intdeb" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="autoCalcDatesResa()">
-            </div>
-            <div class="fg2"><label>Date de fin d'intervention</label>
-              <input type="date" id="r-intfin" readonly onclick="this.removeAttribute('readonly');this.showPicker&&this.showPicker();this.setAttribute('readonly','');" onchange="autoCalcDatesResa()">
-            </div>
-          </div>
-          <div class="fr2f" style="margin-top:8px">
-            <div class="fg2"><label>Horaire de début</label><input type="time" id="r-hdeb" placeholder="08:30"></div>
-            <div class="fg2"><label>Horaire de fin</label><input type="time" id="r-hfin" placeholder="17:00"></div>
-          </div>
-        </div>
-
         <!-- SECTION 5 : Client / Entreprise -->
         <div class="form-section">
           <div class="form-section-title">🏢 Client / Entreprise</div>
@@ -758,9 +759,9 @@ footer strong{color:#fff;}
           <!-- Réservation interne Efficience -->
           <div class="resa-interne-wrap" id="r-interne-wrap">
             <div class="fg2" style="margin-bottom:8px">
-              <label class="kit-check-item" style="border:1.5px solid #86efac;border-radius:7px;padding:8px 10px;">
+              <label class="kit-check-item" style="border:1.5px solid var(--gc);border-radius:7px;padding:8px 10px;">
                 <input type="checkbox" id="r-interne-check" onchange="toggleResaInterne()">
-                <span style="color:#166534;font-weight:600">Réservation interne Efficience (sans client externe)</span>
+                <span style="font-weight:600">Réservation pour un centre Efficience</span>
               </label>
             </div>
             <div id="r-interne-fields" style="display:none">
@@ -1377,12 +1378,7 @@ function openDetail(id){
   ban.className='stban'+(isMaint?' sm':isAv?' sav':'');
   ban.style.display=(isMaint||isAv)?'flex':'none';
   ban.textContent=isMaint?(k.maintenanceMsg||'Ce kit est temporairement en maintenance.'):isAv?(k.avenirMsg||'Ce kit est en cours de constitution.'):'';
-  const all=(dispo.all||[]).sort((a,b)=>a.date_debut-b.date_debut);
-  const today=new Date();today.setHours(0,0,0,0);
-  const rs=document.getElementById('mResaSec'),rl=document.getElementById('mResaList');
-  var futureAll=all.filter(r=>r.date_fin>=today);
-  if(futureAll.length){rs.style.display='';rl.innerHTML=futureAll.map(r=>{const cur=r.date_debut<=today&&r.date_fin>=today;return`<div class="ri${cur?' cur':''}"><span class="rdot"></span><div><div class="rdat">${fmt(r.date_debut)} ? ${fmt(r.date_fin)}</div>${r.who?`<div class="rwho">${r.who}${r.struct?' · '+r.struct:''}</div>`:''}</div>${cur?'<span class="rbadge">En cours</span>':''}</div>`;}).join('');}
-  else{rs.style.display=reservations.length?'':'none';rl.innerHTML='<div style="font-size:11px;color:#999">Aucune réservation pour ce kit.</div>';}
+  // Planning retiré du détail
   const btn=document.getElementById('mResaBtn');
   btn.className='brs'+(isMaint||isAv?' dis':'');
   btn.textContent=isMaint?'🔧 En maintenance':isAv?'🔮 À venir':'📅 Vérifier la disponibilité';
@@ -1578,6 +1574,9 @@ function fmtISO(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,
 function fmtDisplay(iso){if(!iso)return '';const p=iso.split('-');return p[2]+'/'+p[1]+'/'+p[0];}
 
 function openCal(inputId){
+  // Si déjà ouvert, ne rien faire (permet le clic dans l'input)
+  var thisDrop=document.getElementById(inputId+'-cal');
+  if(thisDrop&&thisDrop.classList.contains('open'))return;
   // Fermer les autres calendriers
   document.querySelectorAll('.cal-drop.open').forEach(d=>d.classList.remove('open'));
   const drop=document.getElementById(inputId+'-cal');
@@ -1603,7 +1602,7 @@ function openCal(inputId){
       }
     };
     document.addEventListener('mousedown',closer);
-  },50);
+  },200);
 }
 
 function renderCal(inputId){
@@ -1798,7 +1797,7 @@ function ouvrirFormulaireResa(kitNomPreselect, dateDebStr, dateFinStr){
 
   // Réservation interne : afficher si Efficience
   var intWrap=document.getElementById('r-interne-wrap');
-  if(intWrap){intWrap.classList.toggle('show',profilActif&&profilActif.id==='efficience');}
+  if(intWrap){intWrap.classList.toggle('show',profilActif&&(profilActif.id==='efficience'||profilActif.id==='formation'||profilActif.id==='infirmerie'));}
   var intCb=document.getElementById('r-interne-check');
   if(intCb){intCb.checked=false;toggleResaInterne();}
   // Charger les centres depuis PARAMETRES
@@ -1814,6 +1813,8 @@ function fermerFormulaireResa(){
 
 // -- OUVERTURE LISTE ANNULATION (listing des résas actives) ----------------
 function ouvrirListeAnnulation(){
+  try{
+  if(!reservations||!reservations.length){alert('Les réservations ne sont pas encore chargées. Veuillez patienter.');return;}
   document.getElementById('annulSucces').style.display='none';
   document.getElementById('annulFormContent').style.display='block';
   document.getElementById('annulFormError').style.display='none';
@@ -1864,6 +1865,7 @@ function ouvrirListeAnnulation(){
   }
 
   document.getElementById('formAnnulOv').classList.add('open');
+  }catch(e){console.error('Erreur ouverture annulation:',e);}
 }
 
 // Alias
@@ -2192,6 +2194,9 @@ function buildDispoAgenda(checkedKitIds){
 function renderDispoAgenda(checkedKitIds){
   var year=dispoAgendaState.year,month=dispoAgendaState.month;
   document.getElementById('dispoAgendaTitle').textContent=MOIS_FR[month]+' '+year;
+  // Afficher le nom des kits sélectionnés
+  var kitLabel=document.getElementById('dispoAgendaKitLabel');
+  if(kitLabel){var noms=checkedKitIds.map(function(id){var k=kits.find(function(x){return x.id===id;});return k?k.nom:id;});kitLabel.textContent=noms.join(' · ');}
   var grid=document.getElementById('dispoAgendaGrid');
   var today=new Date();today.setHours(0,0,0,0);
   // Collect all reservations for checked kits
